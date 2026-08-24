@@ -1,0 +1,34 @@
+# ── Rohdaten ────────────────────────────────────────────────────────────────
+# 2,2 GB. Jederzeit per ./download_data.sh wiederherstellbar (prüft MD5).
+data/
+
+# ── Große Erzeugnisse, die aus dem Repo heraus reproduzierbar sind ──────────
+# ZIPs sind nur Kopien von Ordnern, die ohnehin im Repo liegen
+build/*.zip
+# 74 MB Vollog-Profiling; die .gz-Variante daneben bleibt drin
+build/case_events.csv
+
+# ── Fremder Referenzcode ────────────────────────────────────────────────────
+# Beide Unterordner bringen ein eigenes .git mit. Klon-Befehle: tools/HERKUNFT.md
+# tools/* statt tools/ — sonst steigt Git nicht hinab und die Ausnahme greift nicht
+tools/*
+!tools/HERKUNFT.md
+
+# ── Umgebung ────────────────────────────────────────────────────────────────
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ruff_cache/
+vendor/
+
+# ── Geheimnisse ─────────────────────────────────────────────────────────────
+.env
+.env.local
+neo4j_key/
+*.key
+*credentials*
+
+# ── macOS / Editor ──────────────────────────────────────────────────────────
+.DS_Store
+.vscode/*.log

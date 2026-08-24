@@ -1,0 +1,14 @@
+=== Detektor gegen Ground Truth ===
+
+Typ   Detektor  Ground Truth  nur Detektor  nur GT  Ergebnis
+F1         319           319             0       0  identisch
+F2          49            49             0       0  identisch
+F3          78            78             0       0  identisch
+F6         211           211             0       0  identisch
+F8         475           475             0       0  identisch
+F9           3             3             0       0  identisch
+
+F1 ohne Rahmenvertrag: Detektor 162, Ground Truth 162 -> identisch
+F9-Gegenprobe (MRO-Vertrag darf nicht auftauchen): bestanden
+
+Alle Detektoren reproduzieren die Ground Truth.

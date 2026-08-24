@@ -1,0 +1,134 @@
+{
+ "contract": {
+  "Pure Acrylics": [
+   "vendorID_0159",
+   "vendorID_0183",
+   "vendorID_0262"
+  ],
+  "Styrene Acrylics": [
+   "vendorID_0184",
+   "vendorID_0166"
+  ],
+  "Chloride": [
+   "vendorID_0963",
+   "vendorID_0479",
+   "vendorID_0939"
+  ],
+  "Aliphatic Solvents": [
+   "vendorID_1100",
+   "vendorID_0818",
+   "vendorID_0390",
+   "vendorID_0558"
+  ],
+  "MRO (components)": [
+   "vendorID_0237"
+  ]
+ },
+ "assessment_wg": [
+  "Pure Acrylics",
+  "Styrene Acrylics",
+  "Chloride",
+  "Aliphatic Solvents"
+ ],
+ "exklusiv_wg": [
+  "Chloride",
+  "Aliphatic Solvents"
+ ],
+ "exklusiv_grenze_eur": 25000,
+ "ankuendigungsfrist_tage": 30,
+ "preistoleranz_prozent": 3.0,
+ "zahlungsziel": {
+  "chemie": 90,
+  "mro": 45
+ },
+ "skonto": {
+  "tage": 14,
+  "prozent": 2.0
+ },
+ "f9_luecke": {
+  "vendorID_0262": "verstoss",
+  "vendorID_0390": "verstoss",
+  "vendorID_1100": "dokumentiert"
+ },
+ "freigabematrix": [
+  [
+   "Anforderer / Werk",
+   5000,
+   0
+  ],
+  [
+   "Operativer Einkauf",
+   25000,
+   0
+  ],
+  [
+   "Category Management",
+   100000,
+   25000
+  ],
+  [
+   "Einkaufsleitung",
+   500000,
+   1000000000
+  ],
+  [
+   "Kreditorenbuchhaltung mit Freigaberecht",
+   0,
+   25000
+  ],
+  [
+   "Wareneingang / Werkslogistik",
+   0,
+   0
+  ],
+  [
+   "Kreditorenbuchhaltung",
+   0,
+   0
+  ],
+  [
+   "Zahlungsverkehr",
+   0,
+   0
+  ],
+  [
+   "Systemlauf",
+   0,
+   0
+  ]
+ ],
+ "wg_de": {
+  "Pure Acrylics": "Reinacrylat-Dispersionen",
+  "Styrene Acrylics": "Styrolacrylat-Dispersionen",
+  "Chloride": "Titandioxid (Chlorid-Verfahren)",
+  "Sulphate": "Titandioxid (Sulfat-Verfahren)",
+  "Aliphatic Solvents": "Aliphatische Lösemittel",
+  "MRO (components)": "Instandhaltungskomponenten"
+ },
+ "preisspanne": {
+  "Chloride": [
+   6.0,
+   18.0
+  ],
+  "Sulphate": [
+   6.0,
+   18.0
+  ],
+  "Pure Acrylics": [
+   4.0,
+   12.0
+  ],
+  "Styrene Acrylics": [
+   4.0,
+   12.0
+  ],
+  "Aliphatic Solvents": [
+   4.0,
+   14.0
+  ],
+  "MRO (components)": [
+   3.5,
+   8.0
+  ]
+ }
+}

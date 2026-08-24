@@ -1,0 +1,854 @@
+[
+ {
+  "vertrag_nr": "RV-2018-01",
+  "vendor_id": "vendorID_0159",
+  "firma": "Aurinbond GmbH",
+  "warengruppe": "Pure Acrylics",
+  "warengruppe_de": "Reinacrylat-Dispersionen",
+  "abschlussdatum": "2017-11-16",
+  "laufzeit_von": "2018-01-01",
+  "laufzeit_bis": "2020-12-31",
+  "jahresvolumen_eur": 9574683.0,
+  "positionen": 191,
+  "layout": 1,
+  "unterzeichner_kaeufer": "Sabine Sommerfeld",
+  "klauseln": [
+   {
+    "topic": "scope",
+    "nr": "§1",
+    "titel": "Gegenstand und Geltungsbereich",
+    "exklusiv": false,
+    "wertgrenze_eur": null,
+    "laufzeit_von": "2018-01-01",
+    "laufzeit_bis": "2020-12-31",
+    "warengruppe": "Pure Acrylics"
+   },
+   {
+    "topic": "preisgleitung",
+    "nr": "§4",
+    "titel": "Preise und Preisanpassung",
+    "ankuendigungsfrist_tage": 30,
+    "toleranz_prozent": 3.0
+   },
+   {
+    "topic": "zahlung",
+    "nr": "§6",
+    "titel": "Rechnungsstellung und Zahlung",
+    "zahlungsziel_tage": 90,
+    "skonto_tage": 14,
+    "skonto_prozent": 2.0
+   },
+   {
+    "topic": "mengen",
+    "nr": "§3",
+    "titel": "Mengen, Abrufe und Staffeln",
+    "jahresstaffel_eur": 5740000.0
+   },
+   {
+    "topic": "qualitaet",
+    "nr": "§7",
+    "titel": "Spezifikation, Prüfung und Mängelrüge",
+    "ruegefrist_tage": 10
+   },
+   {
+    "topic": "haftung",
+    "nr": "§9",
+    "titel": "Gewährleistung und Haftung"
+   },
+   {
+    "topic": "lieferantenqualifikation",
+    "nr": "§8",
+    "titel": "Lieferantenqualifikation und Nachhaltigkeitsbewertung",
+    "standard": "TfS",
+    "incorporates": "TfS",
+    "nachweis": "jährlich"
+   }
+  ],
+  "f9_luecke": null,
+  "unterzeichner_lieferant": "Elena Gerlach"
+ },
+ {
+  "vertrag_nr": "RV-2018-02",
+  "vendor_id": "vendorID_0183",
+  "firma": "Ardennsolvent SE",
+  "warengruppe": "Pure Acrylics",
+  "warengruppe_de": "Reinacrylat-Dispersionen",
+  "abschlussdatum": "2017-11-12",
+  "laufzeit_von": "2018-01-01",
+  "laufzeit_bis": "2020-12-31",
+  "jahresvolumen_eur": 8439836.0,
+  "positionen": 180,
+  "layout": 1,
+  "unterzeichner_kaeufer": "Gudrun Imhof",
+  "klauseln": [
+   {
+    "topic": "scope",
+    "nr": "§1",
+    "titel": "Gegenstand und Geltungsbereich",
+    "exklusiv": false,
+    "wertgrenze_eur": null,
+    "laufzeit_von": "2018-01-01",
+    "laufzeit_bis": "2020-12-31",
+    "warengruppe": "Pure Acrylics"
+   },
+   {
+    "topic": "preisgleitung",
+    "nr": "§4",
+    "titel": "Preise und Preisanpassung",
+    "ankuendigungsfrist_tage": 30,
+    "toleranz_prozent": 3.0
+   },
+   {
+    "topic": "zahlung",
+    "nr": "§6",
+    "titel": "Rechnungsstellung und Zahlung",
+    "zahlungsziel_tage": 90,
+    "skonto_tage": 14,
+    "skonto_prozent": 2.0
+   },
+   {
+    "topic": "mengen",
+    "nr": "§3",
+    "titel": "Mengen, Abrufe und Staffeln",
+    "jahresstaffel_eur": 5060000.0
+   },
+   {
+    "topic": "qualitaet",
+    "nr": "§7",
+    "titel": "Spezifikation, Prüfung und Mängelrüge",
+    "ruegefrist_tage": 10
+   },
+   {
+    "topic": "haftung",
+    "nr": "§9",
+    "titel": "Gewährleistung und Haftung"
+   },
+   {
+    "topic": "lieferantenqualifikation",
+    "nr": "§8",
+    "titel": "Lieferantenqualifikation und Nachhaltigkeitsbewertung",
+    "standard": "TfS",
+    "incorporates": "TfS",
+    "nachweis": "jährlich"
+   }
+  ],
+  "f9_luecke": null,
+  "unterzeichner_lieferant": "Jörg Vogt"
+ },
+ {
+  "vertrag_nr": "RV-2018-03",
+  "vendor_id": "vendorID_0262",
+  "firma": "Vitrumbond GmbH & Co. KG",
+  "warengruppe": "Pure Acrylics",
+  "warengruppe_de": "Reinacrylat-Dispersionen",
+  "abschlussdatum": "2017-11-27",
+  "laufzeit_von": "2018-01-01",
+  "laufzeit_bis": "2020-12-31",
+  "jahresvolumen_eur": 3900400.0,
+  "positionen": 77,
+  "layout": 2,
+  "unterzeichner_kaeufer": "Thomas Sauer",
+  "klauseln": [
+   {
+    "topic": "scope",
+    "nr": "§1",
+    "titel": "Gegenstand und Geltungsbereich",
+    "exklusiv": false,
+    "wertgrenze_eur": null,
+    "laufzeit_von": "2018-01-01",
+    "laufzeit_bis": "2020-12-31",
+    "warengruppe": "Pure Acrylics"
+   },
+   {
+    "topic": "preisgleitung",
+    "nr": "§4",
+    "titel": "Preise und Preisanpassung",
+    "ankuendigungsfrist_tage": 30,
+    "toleranz_prozent": 3.0
+   },
+   {
+    "topic": "zahlung",
+    "nr": "§6",
+    "titel": "Rechnungsstellung und Zahlung",
+    "zahlungsziel_tage": 90,
+    "skonto_tage": 14,
+    "skonto_prozent": 2.0
+   },
+   {
+    "topic": "mengen",
+    "nr": "§3",
+    "titel": "Mengen, Abrufe und Staffeln",
+    "jahresstaffel_eur": 2340000.0
+   },
+   {
+    "topic": "qualitaet",
+    "nr": "§7",
+    "titel": "Spezifikation, Prüfung und Mängelrüge",
+    "ruegefrist_tage": 10
+   },
+   {
+    "topic": "haftung",
+    "nr": "§9",
+    "titel": "Gewährleistung und Haftung"
+   }
+  ],
+  "f9_luecke": "verstoss",
+  "unterzeichner_lieferant": "Tobias Gerlach"
+ },
+ {
+  "vertrag_nr": "RV-2018-04",
+  "vendor_id": "vendorID_0184",
+  "firma": "Kepleracryl N.V.",
+  "warengruppe": "Styrene Acrylics",
+  "warengruppe_de": "Styrolacrylat-Dispersionen",
+  "abschlussdatum": "2017-11-21",
+  "laufzeit_von": "2018-01-01",
+  "laufzeit_bis": "2020-12-31",
+  "jahresvolumen_eur": 18436449.0,
+  "positionen": 434,
+  "layout": 2,
+  "unterzeichner_kaeufer": "Thomas Sauer",
+  "klauseln": [
+   {
+    "topic": "scope",
+    "nr": "§1",
+    "titel": "Gegenstand und Geltungsbereich",
+    "exklusiv": false,
+    "wertgrenze_eur": null,
+    "laufzeit_von": "2018-01-01",
+    "laufzeit_bis": "2020-12-31",
+    "warengruppe": "Styrene Acrylics"
+   },
+   {
+    "topic": "preisgleitung",
+    "nr": "§4",
+    "titel": "Preise und Preisanpassung",
+    "ankuendigungsfrist_tage": 30,
+    "toleranz_prozent": 3.0
+   },
+   {
+    "topic": "zahlung",
+    "nr": "§6",
+    "titel": "Rechnungsstellung und Zahlung",
+    "zahlungsziel_tage": 90,
+    "skonto_tage": 14,
+    "skonto_prozent": 2.0
+   },
+   {
+    "topic": "mengen",
+    "nr": "§3",
+    "titel": "Mengen, Abrufe und Staffeln",
+    "jahresstaffel_eur": 11060000.0
+   },
+   {
+    "topic": "qualitaet",
+    "nr": "§7",
+    "titel": "Spezifikation, Prüfung und Mängelrüge",
+    "ruegefrist_tage": 10
+   },
+   {
+    "topic": "haftung",
+    "nr": "§9",
+    "titel": "Gewährleistung und Haftung"
+   },
+   {
+    "topic": "lieferantenqualifikation",
+    "nr": "§8",
+    "titel": "Lieferantenqualifikation und Nachhaltigkeitsbewertung",
+    "standard": "TfS",
+    "incorporates": "TfS",
+    "nachweis": "jährlich"
+   }
+  ],
+  "f9_luecke": null,
+  "unterzeichner_lieferant": "Martina Wendland"
+ },
+ {
+  "vertrag_nr": "RV-2018-05",
+  "vendor_id": "vendorID_0166",
+  "firma": "Kepleracryl N.V.",
+  "warengruppe": "Styrene Acrylics",
+  "warengruppe_de": "Styrolacrylat-Dispersionen",
+  "abschlussdatum": "2017-11-22",
+  "laufzeit_von": "2018-01-01",
+  "laufzeit_bis": "2020-12-31",
+  "jahresvolumen_eur": 11207800.0,
+  "positionen": 330,
+  "layout": 0,
+  "unterzeichner_kaeufer": "Gudrun Imhof",
+  "klauseln": [
+   {
+    "topic": "scope",
+    "nr": "§1",
+    "titel": "Gegenstand und Geltungsbereich",
+    "exklusiv": false,
+    "wertgrenze_eur": null,
+    "laufzeit_von": "2018-01-01",
+    "laufzeit_bis": "2020-12-31",
+    "warengruppe": "Styrene Acrylics"
+   },
+   {
+    "topic": "preisgleitung",
+    "nr": "§4",
+    "titel": "Preise und Preisanpassung",
+    "ankuendigungsfrist_tage": 30,
+    "toleranz_prozent": 3.0
+   },
+   {
+    "topic": "zahlung",
+    "nr": "§6",
+    "titel": "Rechnungsstellung und Zahlung",
+    "zahlungsziel_tage": 90,
+    "skonto_tage": 14,
+    "skonto_prozent": 2.0
+   },
+   {
+    "topic": "mengen",
+    "nr": "§3",
+    "titel": "Mengen, Abrufe und Staffeln",
+    "jahresstaffel_eur": 6720000.0
+   },
+   {
+    "topic": "qualitaet",
+    "nr": "§7",
+    "titel": "Spezifikation, Prüfung und Mängelrüge",
+    "ruegefrist_tage": 10
+   },
+   {
+    "topic": "haftung",
+    "nr": "§9",
+    "titel": "Gewährleistung und Haftung"
+   },
+   {
+    "topic": "lieferantenqualifikation",
+    "nr": "§8",
+    "titel": "Lieferantenqualifikation und Nachhaltigkeitsbewertung",
+    "standard": "TfS",
+    "incorporates": "TfS",
+    "nachweis": "jährlich"
+   }
+  ],
+  "f9_luecke": null,
+  "unterzeichner_lieferant": "Wiebke Neuhaus"
+ },
+ {
+  "vertrag_nr": "RV-2018-06",
+  "vendor_id": "vendorID_0963",
+  "firma": "Vitrumchem Ltd.",
+  "warengruppe": "Chloride",
+  "warengruppe_de": "Titandioxid (Chlorid-Verfahren)",
+  "abschlussdatum": "2017-12-18",
+  "laufzeit_von": "2018-01-01",
+  "laufzeit_bis": "2020-12-31",
+  "jahresvolumen_eur": 18242759.0,
+  "positionen": 178,
+  "layout": 1,
+  "unterzeichner_kaeufer": "Gudrun Imhof",
+  "klauseln": [
+   {
+    "topic": "scope",
+    "nr": "§1",
+    "titel": "Gegenstand und Geltungsbereich",
+    "exklusiv": true,
+    "wertgrenze_eur": 25000,
+    "laufzeit_von": "2018-01-01",
+    "laufzeit_bis": "2020-12-31",
+    "warengruppe": "Chloride"
+   },
+   {
+    "topic": "preisgleitung",
+    "nr": "§4",
+    "titel": "Preise und Preisanpassung",
+    "ankuendigungsfrist_tage": 30,
+    "toleranz_prozent": 3.0
+   },
+   {
+    "topic": "zahlung",
+    "nr": "§6",
+    "titel": "Rechnungsstellung und Zahlung",
+    "zahlungsziel_tage": 90,
+    "skonto_tage": 14,
+    "skonto_prozent": 2.0
+   },
+   {
+    "topic": "mengen",
+    "nr": "§3",
+    "titel": "Mengen, Abrufe und Staffeln",
+    "jahresstaffel_eur": 10950000.0
+   },
+   {
+    "topic": "qualitaet",
+    "nr": "§7",
+    "titel": "Spezifikation, Prüfung und Mängelrüge",
+    "ruegefrist_tage": 10
+   },
+   {
+    "topic": "haftung",
+    "nr": "§9",
+    "titel": "Gewährleistung und Haftung"
+   },
+   {
+    "topic": "lieferantenqualifikation",
+    "nr": "§8",
+    "titel": "Lieferantenqualifikation und Nachhaltigkeitsbewertung",
+    "standard": "TfS",
+    "incorporates": "TfS",
+    "nachweis": "jährlich"
+   }
+  ],
+  "f9_luecke": null,
+  "unterzeichner_lieferant": "Thomas Bergmann"
+ },
+ {
+  "vertrag_nr": "RV-2018-07",
+  "vendor_id": "vendorID_0479",
+  "firma": "Keplervinyl Ltd.",
+  "warengruppe": "Chloride",
+  "warengruppe_de": "Titandioxid (Chlorid-Verfahren)",
+  "abschlussdatum": "2017-12-08",
+  "laufzeit_von": "2018-01-01",
+  "laufzeit_bis": "2020-12-31",
+  "jahresvolumen_eur": 15268172.0,
+  "positionen": 118,
+  "layout": 1,
+  "unterzeichner_kaeufer": "Gudrun Imhof",
+  "klauseln": [
+   {
+    "topic": "scope",
+    "nr": "§1",
+    "titel": "Gegenstand und Geltungsbereich",
+    "exklusiv": true,
+    "wertgrenze_eur": 25000,
+    "laufzeit_von": "2018-01-01",
+    "laufzeit_bis": "2020-12-31",
+    "warengruppe": "Chloride"
+   },
+   {
+    "topic": "preisgleitung",
+    "nr": "§4",
+    "titel": "Preise und Preisanpassung",
+    "ankuendigungsfrist_tage": 30,
+    "toleranz_prozent": 3.0
+   },
+   {
+    "topic": "zahlung",
+    "nr": "§6",
+    "titel": "Rechnungsstellung und Zahlung",
+    "zahlungsziel_tage": 90,
+    "skonto_tage": 14,
+    "skonto_prozent": 2.0
+   },
+   {
+    "topic": "mengen",
+    "nr": "§3",
+    "titel": "Mengen, Abrufe und Staffeln",
+    "jahresstaffel_eur": 9160000.0
+   },
+   {
+    "topic": "qualitaet",
+    "nr": "§7",
+    "titel": "Spezifikation, Prüfung und Mängelrüge",
+    "ruegefrist_tage": 10
+   },
+   {
+    "topic": "haftung",
+    "nr": "§9",
+    "titel": "Gewährleistung und Haftung"
+   },
+   {
+    "topic": "lieferantenqualifikation",
+    "nr": "§8",
+    "titel": "Lieferantenqualifikation und Nachhaltigkeitsbewertung",
+    "standard": "TfS",
+    "incorporates": "TfS",
+    "nachweis": "jährlich"
+   }
+  ],
+  "f9_luecke": null,
+  "unterzeichner_lieferant": "Nadine Dettmer"
+ },
+ {
+  "vertrag_nr": "RV-2018-08",
+  "vendor_id": "vendorID_0939",
+  "firma": "Ardennpigment S.A.S.",
+  "warengruppe": "Chloride",
+  "warengruppe_de": "Titandioxid (Chlorid-Verfahren)",
+  "abschlussdatum": "2017-12-31",
+  "laufzeit_von": "2018-01-01",
+  "laufzeit_bis": "2020-12-31",
+  "jahresvolumen_eur": 9906730.0,
+  "positionen": 103,
+  "layout": 0,
+  "unterzeichner_kaeufer": "Thomas Sauer",
+  "klauseln": [
+   {
+    "topic": "scope",
+    "nr": "§1",
+    "titel": "Gegenstand und Geltungsbereich",
+    "exklusiv": true,
+    "wertgrenze_eur": 25000,
+    "laufzeit_von": "2018-01-01",
+    "laufzeit_bis": "2020-12-31",
+    "warengruppe": "Chloride"
+   },
+   {
+    "topic": "preisgleitung",
+    "nr": "§4",
+    "titel": "Preise und Preisanpassung",
+    "ankuendigungsfrist_tage": 30,
+    "toleranz_prozent": 3.0
+   },
+   {
+    "topic": "zahlung",
+    "nr": "§6",
+    "titel": "Rechnungsstellung und Zahlung",
+    "zahlungsziel_tage": 90,
+    "skonto_tage": 14,
+    "skonto_prozent": 2.0
+   },
+   {
+    "topic": "mengen",
+    "nr": "§3",
+    "titel": "Mengen, Abrufe und Staffeln",
+    "jahresstaffel_eur": 5940000.0
+   },
+   {
+    "topic": "qualitaet",
+    "nr": "§7",
+    "titel": "Spezifikation, Prüfung und Mängelrüge",
+    "ruegefrist_tage": 10
+   },
+   {
+    "topic": "haftung",
+    "nr": "§9",
+    "titel": "Gewährleistung und Haftung"
+   },
+   {
+    "topic": "lieferantenqualifikation",
+    "nr": "§8",
+    "titel": "Lieferantenqualifikation und Nachhaltigkeitsbewertung",
+    "standard": "TfS",
+    "incorporates": "TfS",
+    "nachweis": "jährlich"
+   }
+  ],
+  "f9_luecke": null,
+  "unterzeichner_lieferant": "Nadine Jansen"
+ },
+ {
+  "vertrag_nr": "RV-2018-09",
+  "vendor_id": "vendorID_1100",
+  "firma": "Sellachem s.r.o.",
+  "warengruppe": "Aliphatic Solvents",
+  "warengruppe_de": "Aliphatische Lösemittel",
+  "abschlussdatum": "2017-12-24",
+  "laufzeit_von": "2018-01-01",
+  "laufzeit_bis": "2020-12-31",
+  "jahresvolumen_eur": 2699391.0,
+  "positionen": 80,
+  "layout": 0,
+  "unterzeichner_kaeufer": "Sabine Sommerfeld",
+  "klauseln": [
+   {
+    "topic": "scope",
+    "nr": "§1",
+    "titel": "Gegenstand und Geltungsbereich",
+    "exklusiv": true,
+    "wertgrenze_eur": 25000,
+    "laufzeit_von": "2018-01-01",
+    "laufzeit_bis": "2020-12-31",
+    "warengruppe": "Aliphatic Solvents"
+   },
+   {
+    "topic": "preisgleitung",
+    "nr": "§4",
+    "titel": "Preise und Preisanpassung",
+    "ankuendigungsfrist_tage": 30,
+    "toleranz_prozent": 3.0
+   },
+   {
+    "topic": "zahlung",
+    "nr": "§6",
+    "titel": "Rechnungsstellung und Zahlung",
+    "zahlungsziel_tage": 90,
+    "skonto_tage": 14,
+    "skonto_prozent": 2.0
+   },
+   {
+    "topic": "mengen",
+    "nr": "§3",
+    "titel": "Mengen, Abrufe und Staffeln",
+    "jahresstaffel_eur": 1620000.0
+   },
+   {
+    "topic": "qualitaet",
+    "nr": "§7",
+    "titel": "Spezifikation, Prüfung und Mängelrüge",
+    "ruegefrist_tage": 10
+   },
+   {
+    "topic": "haftung",
+    "nr": "§9",
+    "titel": "Gewährleistung und Haftung"
+   }
+  ],
+  "f9_luecke": "dokumentiert",
+  "unterzeichner_lieferant": "Judith Osterloh"
+ },
+ {
+  "vertrag_nr": "RV-2018-10",
+  "vendor_id": "vendorID_0818",
+  "firma": "Lyraplast GmbH",
+  "warengruppe": "Aliphatic Solvents",
+  "warengruppe_de": "Aliphatische Lösemittel",
+  "abschlussdatum": "2017-12-05",
+  "laufzeit_von": "2018-01-01",
+  "laufzeit_bis": "2020-12-31",
+  "jahresvolumen_eur": 2269495.0,
+  "positionen": 66,
+  "layout": 2,
+  "unterzeichner_kaeufer": "Gudrun Imhof",
+  "klauseln": [
+   {
+    "topic": "scope",
+    "nr": "§1",
+    "titel": "Gegenstand und Geltungsbereich",
+    "exklusiv": true,
+    "wertgrenze_eur": 25000,
+    "laufzeit_von": "2018-01-01",
+    "laufzeit_bis": "2020-12-31",
+    "warengruppe": "Aliphatic Solvents"
+   },
+   {
+    "topic": "preisgleitung",
+    "nr": "§4",
+    "titel": "Preise und Preisanpassung",
+    "ankuendigungsfrist_tage": 30,
+    "toleranz_prozent": 3.0
+   },
+   {
+    "topic": "zahlung",
+    "nr": "§6",
+    "titel": "Rechnungsstellung und Zahlung",
+    "zahlungsziel_tage": 90,
+    "skonto_tage": 14,
+    "skonto_prozent": 2.0
+   },
+   {
+    "topic": "mengen",
+    "nr": "§3",
+    "titel": "Mengen, Abrufe und Staffeln",
+    "jahresstaffel_eur": 1360000.0
+   },
+   {
+    "topic": "qualitaet",
+    "nr": "§7",
+    "titel": "Spezifikation, Prüfung und Mängelrüge",
+    "ruegefrist_tage": 10
+   },
+   {
+    "topic": "haftung",
+    "nr": "§9",
+    "titel": "Gewährleistung und Haftung"
+   },
+   {
+    "topic": "lieferantenqualifikation",
+    "nr": "§8",
+    "titel": "Lieferantenqualifikation und Nachhaltigkeitsbewertung",
+    "standard": "TfS",
+    "incorporates": "TfS",
+    "nachweis": "jährlich"
+   }
+  ],
+  "f9_luecke": null,
+  "unterzeichner_lieferant": "Katrin Ulrich"
+ },
+ {
+  "vertrag_nr": "RV-2018-11",
+  "vendor_id": "vendorID_0390",
+  "firma": "Kymenchem N.V.",
+  "warengruppe": "Aliphatic Solvents",
+  "warengruppe_de": "Aliphatische Lösemittel",
+  "abschlussdatum": "2017-12-13",
+  "laufzeit_von": "2018-01-01",
+  "laufzeit_bis": "2020-12-31",
+  "jahresvolumen_eur": 1894160.0,
+  "positionen": 68,
+  "layout": 1,
+  "unterzeichner_kaeufer": "Thomas Sauer",
+  "klauseln": [
+   {
+    "topic": "scope",
+    "nr": "§1",
+    "titel": "Gegenstand und Geltungsbereich",
+    "exklusiv": true,
+    "wertgrenze_eur": 25000,
+    "laufzeit_von": "2018-01-01",
+    "laufzeit_bis": "2020-12-31",
+    "warengruppe": "Aliphatic Solvents"
+   },
+   {
+    "topic": "preisgleitung",
+    "nr": "§4",
+    "titel": "Preise und Preisanpassung",
+    "ankuendigungsfrist_tage": 30,
+    "toleranz_prozent": 3.0
+   },
+   {
+    "topic": "zahlung",
+    "nr": "§6",
+    "titel": "Rechnungsstellung und Zahlung",
+    "zahlungsziel_tage": 90,
+    "skonto_tage": 14,
+    "skonto_prozent": 2.0
+   },
+   {
+    "topic": "mengen",
+    "nr": "§3",
+    "titel": "Mengen, Abrufe und Staffeln",
+    "jahresstaffel_eur": 1140000.0
+   },
+   {
+    "topic": "qualitaet",
+    "nr": "§7",
+    "titel": "Spezifikation, Prüfung und Mängelrüge",
+    "ruegefrist_tage": 10
+   },
+   {
+    "topic": "haftung",
+    "nr": "§9",
+    "titel": "Gewährleistung und Haftung"
+   }
+  ],
+  "f9_luecke": "verstoss",
+  "unterzeichner_lieferant": "Bernd Ulrich"
+ },
+ {
+  "vertrag_nr": "RV-2018-12",
+  "vendor_id": "vendorID_0558",
+  "firma": "Alpenmer S.A.S.",
+  "warengruppe": "Aliphatic Solvents",
+  "warengruppe_de": "Aliphatische Lösemittel",
+  "abschlussdatum": "2017-12-08",
+  "laufzeit_von": "2018-01-01",
+  "laufzeit_bis": "2020-12-31",
+  "jahresvolumen_eur": 1779215.0,
+  "positionen": 70,
+  "layout": 1,
+  "unterzeichner_kaeufer": "Thomas Sauer",
+  "klauseln": [
+   {
+    "topic": "scope",
+    "nr": "§1",
+    "titel": "Gegenstand und Geltungsbereich",
+    "exklusiv": true,
+    "wertgrenze_eur": 25000,
+    "laufzeit_von": "2018-01-01",
+    "laufzeit_bis": "2020-12-31",
+    "warengruppe": "Aliphatic Solvents"
+   },
+   {
+    "topic": "preisgleitung",
+    "nr": "§4",
+    "titel": "Preise und Preisanpassung",
+    "ankuendigungsfrist_tage": 30,
+    "toleranz_prozent": 3.0
+   },
+   {
+    "topic": "zahlung",
+    "nr": "§6",
+    "titel": "Rechnungsstellung und Zahlung",
+    "zahlungsziel_tage": 90,
+    "skonto_tage": 14,
+    "skonto_prozent": 2.0
+   },
+   {
+    "topic": "mengen",
+    "nr": "§3",
+    "titel": "Mengen, Abrufe und Staffeln",
+    "jahresstaffel_eur": 1070000.0
+   },
+   {
+    "topic": "qualitaet",
+    "nr": "§7",
+    "titel": "Spezifikation, Prüfung und Mängelrüge",
+    "ruegefrist_tage": 10
+   },
+   {
+    "topic": "haftung",
+    "nr": "§9",
+    "titel": "Gewährleistung und Haftung"
+   },
+   {
+    "topic": "lieferantenqualifikation",
+    "nr": "§8",
+    "titel": "Lieferantenqualifikation und Nachhaltigkeitsbewertung",
+    "standard": "TfS",
+    "incorporates": "TfS",
+    "nachweis": "jährlich"
+   }
+  ],
+  "f9_luecke": null,
+  "unterzeichner_lieferant": "Hendrik Ebeling"
+ },
+ {
+  "vertrag_nr": "RV-2018-13",
+  "vendor_id": "vendorID_0237",
+  "firma": "Alpenpolymer N.V.",
+  "warengruppe": "MRO (components)",
+  "warengruppe_de": "Instandhaltungskomponenten",
+  "abschlussdatum": "2017-11-08",
+  "laufzeit_von": "2018-01-01",
+  "laufzeit_bis": "2020-12-31",
+  "jahresvolumen_eur": 1034857.0,
+  "positionen": 1547,
+  "layout": 1,
+  "unterzeichner_kaeufer": "Thomas Sauer",
+  "klauseln": [
+   {
+    "topic": "scope",
+    "nr": "§1",
+    "titel": "Gegenstand und Geltungsbereich",
+    "exklusiv": false,
+    "wertgrenze_eur": null,
+    "laufzeit_von": "2018-01-01",
+    "laufzeit_bis": "2020-12-31",
+    "warengruppe": "MRO (components)"
+   },
+   {
+    "topic": "preisgleitung",
+    "nr": "§4",
+    "titel": "Preise und Preisanpassung",
+    "ankuendigungsfrist_tage": 30,
+    "toleranz_prozent": 3.0
+   },
+   {
+    "topic": "zahlung",
+    "nr": "§6",
+    "titel": "Rechnungsstellung und Zahlung",
+    "zahlungsziel_tage": 45,
+    "skonto_tage": 14,
+    "skonto_prozent": 2.0
+   },
+   {
+    "topic": "mengen",
+    "nr": "§3",
+    "titel": "Mengen, Abrufe und Staffeln",
+    "jahresstaffel_eur": 620000.0
+   },
+   {
+    "topic": "qualitaet",
+    "nr": "§7",
+    "titel": "Spezifikation, Prüfung und Mängelrüge",
+    "ruegefrist_tage": 10
+   },
+   {
+    "topic": "haftung",
+    "nr": "§9",
+    "titel": "Gewährleistung und Haftung"
+   }
+  ],
+  "f9_luecke": null,
+  "unterzeichner_lieferant": "Wiebke Vogt"
+ }
+]

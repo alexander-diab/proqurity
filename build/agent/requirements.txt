@@ -1,0 +1,8 @@
+# Werkzeugserver
+fastmcp>=2.0
+neo4j>=5.28
+pypdf>=5.0
+
+# Agent
+pydantic-ai-slim[openai,mcp]>=1.0
+logfire>=3.0

@@ -1,0 +1,943 @@
+datei,typ,vertrag,vendor,warengruppe,pflicht,id,finding,cID,PO
+vertraege/RV-2018-01_Aurinbond.pdf,rahmenvertrag,RV-2018-01,vendorID_0159,Pure Acrylics,"['30', '3,0', '90']",,,,
+vertraege/RV-2018-02_Ardennsolvent.pdf,rahmenvertrag,RV-2018-02,vendorID_0183,Pure Acrylics,"['30', '3,0', '90']",,,,
+vertraege/RV-2018-03_Vitrumbond.pdf,rahmenvertrag,RV-2018-03,vendorID_0262,Pure Acrylics,"['30', '3,0', '90']",,,,
+vertraege/RV-2018-04_Kepleracryl.pdf,rahmenvertrag,RV-2018-04,vendorID_0184,Styrene Acrylics,"['30', '3,0', '90']",,,,
+vertraege/RV-2018-05_Kepleracryl.pdf,rahmenvertrag,RV-2018-05,vendorID_0166,Styrene Acrylics,"['30', '3,0', '90']",,,,
+vertraege/RV-2018-06_Vitrumchem.pdf,rahmenvertrag,RV-2018-06,vendorID_0963,Chloride,"['30', '3,0', '90']",,,,
+vertraege/RV-2018-07_Keplervinyl.pdf,rahmenvertrag,RV-2018-07,vendorID_0479,Chloride,"['30', '3,0', '90']",,,,
+vertraege/RV-2018-08_Ardennpigment.pdf,rahmenvertrag,RV-2018-08,vendorID_0939,Chloride,"['30', '3,0', '90']",,,,
+vertraege/RV-2018-09_Sellachem.pdf,rahmenvertrag,RV-2018-09,vendorID_1100,Aliphatic Solvents,"['30', '3,0', '90']",,,,
+vertraege/RV-2018-10_Lyraplast.pdf,rahmenvertrag,RV-2018-10,vendorID_0818,Aliphatic Solvents,"['30', '3,0', '90']",,,,
+vertraege/RV-2018-11_Kymenchem.pdf,rahmenvertrag,RV-2018-11,vendorID_0390,Aliphatic Solvents,"['30', '3,0', '90']",,,,
+vertraege/RV-2018-12_Alpenmer.pdf,rahmenvertrag,RV-2018-12,vendorID_0558,Aliphatic Solvents,"['30', '3,0', '90']",,,,
+vertraege/RV-2018-13_Alpenpolymer.pdf,rahmenvertrag,RV-2018-13,vendorID_0237,MRO (components),"['30', '3,0', '45']",,,,
+richtlinien/EK-RL-2017-01.pdf,richtlinie,,,,[],EK-RL-2017-01,,,
+richtlinien/LQ-RL-2017-01.pdf,richtlinie,,,,[],LQ-RL-2017-01,,,
+richtlinien/RP-RL-2017-01.pdf,richtlinie,,,,[],RP-RL-2017-01,,,
+lieferantenprofile/LP_vendorID_0011.pdf,lieferantenprofil,,vendorID_0011,,['vendorID_0011'],,,,
+lieferantenprofile/LP_vendorID_0050.pdf,lieferantenprofil,,vendorID_0050,,['vendorID_0050'],,,,
+lieferantenprofile/LP_vendorID_0064.pdf,lieferantenprofil,,vendorID_0064,,['vendorID_0064'],,,,
+lieferantenprofile/LP_vendorID_0077.pdf,lieferantenprofil,,vendorID_0077,,['vendorID_0077'],,,,
+lieferantenprofile/LP_vendorID_0083.pdf,lieferantenprofil,,vendorID_0083,,['vendorID_0083'],,,,
+lieferantenprofile/LP_vendorID_0107.pdf,lieferantenprofil,,vendorID_0107,,"['vendorID_0107', '13.10.2019']",,,,
+lieferantenprofile/LP_vendorID_0109.pdf,lieferantenprofil,,vendorID_0109,,"['vendorID_0109', '21.08.2018']",,,,
+lieferantenprofile/LP_vendorID_0132.pdf,lieferantenprofil,,vendorID_0132,,['vendorID_0132'],,,,
+lieferantenprofile/LP_vendorID_0139.pdf,lieferantenprofil,,vendorID_0139,,"['vendorID_0139', '02.08.2020']",,,,
+lieferantenprofile/LP_vendorID_0146.pdf,lieferantenprofil,,vendorID_0146,,"['vendorID_0146', '11.07.2020']",,,,
+lieferantenprofile/LP_vendorID_0159.pdf,lieferantenprofil,,vendorID_0159,,"['vendorID_0159', '31.07.2020']",,,,
+lieferantenprofile/LP_vendorID_0166.pdf,lieferantenprofil,,vendorID_0166,,"['vendorID_0166', '21.03.2021']",,,,
+lieferantenprofile/LP_vendorID_0171.pdf,lieferantenprofil,,vendorID_0171,,"['vendorID_0171', '03.07.2019']",,,,
+lieferantenprofile/LP_vendorID_0173.pdf,lieferantenprofil,,vendorID_0173,,"['vendorID_0173', '06.02.2018']",,,,
+lieferantenprofile/LP_vendorID_0183.pdf,lieferantenprofil,,vendorID_0183,,"['vendorID_0183', '05.09.2019']",,,,
+lieferantenprofile/LP_vendorID_0184.pdf,lieferantenprofil,,vendorID_0184,,"['vendorID_0184', '28.04.2020']",,,,
+lieferantenprofile/LP_vendorID_0189.pdf,lieferantenprofil,,vendorID_0189,,"['vendorID_0189', '06.09.2018']",,,,
+lieferantenprofile/LP_vendorID_0191.pdf,lieferantenprofil,,vendorID_0191,,"['vendorID_0191', '16.04.2021']",,,,
+lieferantenprofile/LP_vendorID_0193.pdf,lieferantenprofil,,vendorID_0193,,"['vendorID_0193', '16.10.2020']",,,,
+lieferantenprofile/LP_vendorID_0198.pdf,lieferantenprofil,,vendorID_0198,,"['vendorID_0198', '15.05.2018']",,,,
+lieferantenprofile/LP_vendorID_0224.pdf,lieferantenprofil,,vendorID_0224,,['vendorID_0224'],,,,
+lieferantenprofile/LP_vendorID_0237.pdf,lieferantenprofil,,vendorID_0237,,['vendorID_0237'],,,,
+lieferantenprofile/LP_vendorID_0248.pdf,lieferantenprofil,,vendorID_0248,,"['vendorID_0248', '29.11.2019']",,,,
+lieferantenprofile/LP_vendorID_0251.pdf,lieferantenprofil,,vendorID_0251,,"['vendorID_0251', '03.07.2019']",,,,
+lieferantenprofile/LP_vendorID_0252.pdf,lieferantenprofil,,vendorID_0252,,"['vendorID_0252', '16.06.2018']",,,,
+lieferantenprofile/LP_vendorID_0256.pdf,lieferantenprofil,,vendorID_0256,,['vendorID_0256'],,,,
+lieferantenprofile/LP_vendorID_0262.pdf,lieferantenprofil,,vendorID_0262,,"['vendorID_0262', '13.07.2020']",,,,
+lieferantenprofile/LP_vendorID_0267.pdf,lieferantenprofil,,vendorID_0267,,"['vendorID_0267', '16.08.2019']",,,,
+lieferantenprofile/LP_vendorID_0271.pdf,lieferantenprofil,,vendorID_0271,,"['vendorID_0271', '03.03.2021']",,,,
+lieferantenprofile/LP_vendorID_0273.pdf,lieferantenprofil,,vendorID_0273,,['vendorID_0273'],,,,
+lieferantenprofile/LP_vendorID_0300.pdf,lieferantenprofil,,vendorID_0300,,"['vendorID_0300', '29.02.2020']",,,,
+lieferantenprofile/LP_vendorID_0318.pdf,lieferantenprofil,,vendorID_0318,,"['vendorID_0318', '22.05.2020']",,,,
+lieferantenprofile/LP_vendorID_0322.pdf,lieferantenprofil,,vendorID_0322,,['vendorID_0322'],,,,
+lieferantenprofile/LP_vendorID_0327.pdf,lieferantenprofil,,vendorID_0327,,"['vendorID_0327', '06.12.2020']",,,,
+lieferantenprofile/LP_vendorID_0332.pdf,lieferantenprofil,,vendorID_0332,,"['vendorID_0332', '19.07.2018']",,,,
+lieferantenprofile/LP_vendorID_0341.pdf,lieferantenprofil,,vendorID_0341,,"['vendorID_0341', '16.06.2018']",,,,
+lieferantenprofile/LP_vendorID_0357.pdf,lieferantenprofil,,vendorID_0357,,['vendorID_0357'],,,,
+lieferantenprofile/LP_vendorID_0390.pdf,lieferantenprofil,,vendorID_0390,,"['vendorID_0390', '10.11.2020']",,,,
+lieferantenprofile/LP_vendorID_0405.pdf,lieferantenprofil,,vendorID_0405,,"['vendorID_0405', '05.07.2018']",,,,
+lieferantenprofile/LP_vendorID_0433.pdf,lieferantenprofil,,vendorID_0433,,"['vendorID_0433', '24.02.2019']",,,,
+lieferantenprofile/LP_vendorID_0445.pdf,lieferantenprofil,,vendorID_0445,,"['vendorID_0445', '08.04.2020']",,,,
+lieferantenprofile/LP_vendorID_0448.pdf,lieferantenprofil,,vendorID_0448,,"['vendorID_0448', '28.08.2020']",,,,
+lieferantenprofile/LP_vendorID_0454.pdf,lieferantenprofil,,vendorID_0454,,"['vendorID_0454', '07.05.2020']",,,,
+lieferantenprofile/LP_vendorID_0455.pdf,lieferantenprofil,,vendorID_0455,,"['vendorID_0455', '28.02.2021']",,,,
+lieferantenprofile/LP_vendorID_0458.pdf,lieferantenprofil,,vendorID_0458,,['vendorID_0458'],,,,
+lieferantenprofile/LP_vendorID_0479.pdf,lieferantenprofil,,vendorID_0479,,"['vendorID_0479', '31.12.2020']",,,,
+lieferantenprofile/LP_vendorID_0480.pdf,lieferantenprofil,,vendorID_0480,,"['vendorID_0480', '08.09.2020']",,,,
+lieferantenprofile/LP_vendorID_0483.pdf,lieferantenprofil,,vendorID_0483,,"['vendorID_0483', '11.09.2019']",,,,
+lieferantenprofile/LP_vendorID_0484.pdf,lieferantenprofil,,vendorID_0484,,"['vendorID_0484', '25.06.2020']",,,,
+lieferantenprofile/LP_vendorID_0485.pdf,lieferantenprofil,,vendorID_0485,,['vendorID_0485'],,,,
+lieferantenprofile/LP_vendorID_0488.pdf,lieferantenprofil,,vendorID_0488,,"['vendorID_0488', '28.12.2020']",,,,
+lieferantenprofile/LP_vendorID_0512.pdf,lieferantenprofil,,vendorID_0512,,['vendorID_0512'],,,,
+lieferantenprofile/LP_vendorID_0513.pdf,lieferantenprofil,,vendorID_0513,,['vendorID_0513'],,,,
+lieferantenprofile/LP_vendorID_0519.pdf,lieferantenprofil,,vendorID_0519,,"['vendorID_0519', '22.05.2018']",,,,
+lieferantenprofile/LP_vendorID_0558.pdf,lieferantenprofil,,vendorID_0558,,"['vendorID_0558', '29.08.2020']",,,,
+lieferantenprofile/LP_vendorID_0570.pdf,lieferantenprofil,,vendorID_0570,,"['vendorID_0570', '06.08.2020']",,,,
+lieferantenprofile/LP_vendorID_0597.pdf,lieferantenprofil,,vendorID_0597,,"['vendorID_0597', '22.10.2020']",,,,
+lieferantenprofile/LP_vendorID_0604.pdf,lieferantenprofil,,vendorID_0604,,['vendorID_0604'],,,,
+lieferantenprofile/LP_vendorID_0615.pdf,lieferantenprofil,,vendorID_0615,,"['vendorID_0615', '19.06.2019']",,,,
+lieferantenprofile/LP_vendorID_0619.pdf,lieferantenprofil,,vendorID_0619,,['vendorID_0619'],,,,
+lieferantenprofile/LP_vendorID_0622.pdf,lieferantenprofil,,vendorID_0622,,"['vendorID_0622', '10.01.2019']",,,,
+lieferantenprofile/LP_vendorID_0625.pdf,lieferantenprofil,,vendorID_0625,,"['vendorID_0625', '17.08.2018']",,,,
+lieferantenprofile/LP_vendorID_0634.pdf,lieferantenprofil,,vendorID_0634,,"['vendorID_0634', '22.01.2019']",,,,
+lieferantenprofile/LP_vendorID_0648.pdf,lieferantenprofil,,vendorID_0648,,['vendorID_0648'],,,,
+lieferantenprofile/LP_vendorID_0660.pdf,lieferantenprofil,,vendorID_0660,,['vendorID_0660'],,,,
+lieferantenprofile/LP_vendorID_0666.pdf,lieferantenprofil,,vendorID_0666,,['vendorID_0666'],,,,
+lieferantenprofile/LP_vendorID_0695.pdf,lieferantenprofil,,vendorID_0695,,"['vendorID_0695', '12.08.2019']",,,,
+lieferantenprofile/LP_vendorID_0704.pdf,lieferantenprofil,,vendorID_0704,,"['vendorID_0704', '04.02.2018']",,,,
+lieferantenprofile/LP_vendorID_0756.pdf,lieferantenprofil,,vendorID_0756,,['vendorID_0756'],,,,
+lieferantenprofile/LP_vendorID_0768.pdf,lieferantenprofil,,vendorID_0768,,"['vendorID_0768', '04.03.2018']",,,,
+lieferantenprofile/LP_vendorID_0797.pdf,lieferantenprofil,,vendorID_0797,,"['vendorID_0797', '14.10.2020']",,,,
+lieferantenprofile/LP_vendorID_0818.pdf,lieferantenprofil,,vendorID_0818,,"['vendorID_0818', '08.10.2020']",,,,
+lieferantenprofile/LP_vendorID_0819.pdf,lieferantenprofil,,vendorID_0819,,"['vendorID_0819', '22.04.2020']",,,,
+lieferantenprofile/LP_vendorID_0821.pdf,lieferantenprofil,,vendorID_0821,,"['vendorID_0821', '06.04.2019']",,,,
+lieferantenprofile/LP_vendorID_0822.pdf,lieferantenprofil,,vendorID_0822,,"['vendorID_0822', '05.03.2018']",,,,
+lieferantenprofile/LP_vendorID_0878.pdf,lieferantenprofil,,vendorID_0878,,"['vendorID_0878', '21.12.2020']",,,,
+lieferantenprofile/LP_vendorID_0886.pdf,lieferantenprofil,,vendorID_0886,,['vendorID_0886'],,,,
+lieferantenprofile/LP_vendorID_0899.pdf,lieferantenprofil,,vendorID_0899,,"['vendorID_0899', '11.06.2019']",,,,
+lieferantenprofile/LP_vendorID_0939.pdf,lieferantenprofil,,vendorID_0939,,"['vendorID_0939', '21.02.2021']",,,,
+lieferantenprofile/LP_vendorID_0963.pdf,lieferantenprofil,,vendorID_0963,,"['vendorID_0963', '07.01.2019']",,,,
+lieferantenprofile/LP_vendorID_0967.pdf,lieferantenprofil,,vendorID_0967,,"['vendorID_0967', '08.10.2020']",,,,
+lieferantenprofile/LP_vendorID_0975.pdf,lieferantenprofil,,vendorID_0975,,"['vendorID_0975', '28.01.2019']",,,,
+lieferantenprofile/LP_vendorID_1002.pdf,lieferantenprofil,,vendorID_1002,,['vendorID_1002'],,,,
+lieferantenprofile/LP_vendorID_1008.pdf,lieferantenprofil,,vendorID_1008,,"['vendorID_1008', '04.09.2019']",,,,
+lieferantenprofile/LP_vendorID_1028.pdf,lieferantenprofil,,vendorID_1028,,['vendorID_1028'],,,,
+lieferantenprofile/LP_vendorID_1100.pdf,lieferantenprofil,,vendorID_1100,,"['vendorID_1100', '28.08.2020']",,,,
+lieferantenprofile/LP_vendorID_1235.pdf,lieferantenprofil,,vendorID_1235,,['vendorID_1235'],,,,
+lieferantenprofile/LP_vendorID_1237.pdf,lieferantenprofil,,vendorID_1237,,['vendorID_1237'],,,,
+lieferantenprofile/LP_vendorID_1240.pdf,lieferantenprofil,,vendorID_1240,,['vendorID_1240'],,,,
+lieferantenprofile/LP_vendorID_1244.pdf,lieferantenprofil,,vendorID_1244,,['vendorID_1244'],,,,
+lieferantenprofile/LP_vendorID_1259.pdf,lieferantenprofil,,vendorID_1259,,['vendorID_1259'],,,,
+lieferantenprofile/LP_vendorID_1352.pdf,lieferantenprofil,,vendorID_1352,,['vendorID_1352'],,,,
+lieferantenprofile/LP_vendorID_1455.pdf,lieferantenprofil,,vendorID_1455,,"['vendorID_1455', '11.04.2018']",,,,
+lieferantenprofile/LP_vendorID_1494.pdf,lieferantenprofil,,vendorID_1494,,['vendorID_1494'],,,,
+lieferantenprofile/LP_vendorID_1515.pdf,lieferantenprofil,,vendorID_1515,,['vendorID_1515'],,,,
+lieferantenprofile/LP_vendorID_1531.pdf,lieferantenprofil,,vendorID_1531,,"['vendorID_1531', '22.04.2018']",,,,
+lieferantenprofile/LP_vendorID_1574.pdf,lieferantenprofil,,vendorID_1574,,['vendorID_1574'],,,,
+lieferantenprofile/LP_vendorID_1687.pdf,lieferantenprofil,,vendorID_1687,,['vendorID_1687'],,,,
+lieferantenprofile/LP_vendorID_1688.pdf,lieferantenprofil,,vendorID_1688,,['vendorID_1688'],,,,
+lieferantenprofile/LP_vendorID_1689.pdf,lieferantenprofil,,vendorID_1689,,['vendorID_1689'],,,,
+lieferantenprofile/LP_vendorID_1690.pdf,lieferantenprofil,,vendorID_1690,,['vendorID_1690'],,,,
+lieferantenprofile/LP_vendorID_1691.pdf,lieferantenprofil,,vendorID_1691,,['vendorID_1691'],,,,
+lieferantenprofile/LP_vendorID_1692.pdf,lieferantenprofil,,vendorID_1692,,['vendorID_1692'],,,,
+lieferantenprofile/LP_vendorID_1693.pdf,lieferantenprofil,,vendorID_1693,,['vendorID_1693'],,,,
+lieferantenprofile/LP_vendorID_1695.pdf,lieferantenprofil,,vendorID_1695,,['vendorID_1695'],,,,
+lieferantenprofile/LP_vendorID_1697.pdf,lieferantenprofil,,vendorID_1697,,['vendorID_1697'],,,,
+lieferantenprofile/LP_vendorID_1709.pdf,lieferantenprofil,,vendorID_1709,,['vendorID_1709'],,,,
+lieferantenprofile/LP_vendorID_1739.pdf,lieferantenprofil,,vendorID_1739,,['vendorID_1739'],,,,
+lieferantenprofile/LP_vendorID_1744.pdf,lieferantenprofil,,vendorID_1744,,['vendorID_1744'],,,,
+lieferantenprofile/LP_vendorID_1745.pdf,lieferantenprofil,,vendorID_1745,,['vendorID_1745'],,,,
+lieferantenprofile/LP_vendorID_1746.pdf,lieferantenprofil,,vendorID_1746,,['vendorID_1746'],,,,
+lieferantenprofile/LP_vendorID_1844.pdf,lieferantenprofil,,vendorID_1844,,['vendorID_1844'],,,,
+lieferantenprofile/LP_vendorID_1851.pdf,lieferantenprofil,,vendorID_1851,,['vendorID_1851'],,,,
+lieferantenprofile/LP_vendorID_1852.pdf,lieferantenprofil,,vendorID_1852,,['vendorID_1852'],,,,
+lieferantenprofile/LP_vendorID_1853.pdf,lieferantenprofil,,vendorID_1853,,['vendorID_1853'],,,,
+lieferantenprofile/LP_vendorID_1854.pdf,lieferantenprofil,,vendorID_1854,,['vendorID_1854'],,,,
+lieferantenprofile/LP_vendorID_1855.pdf,lieferantenprofil,,vendorID_1855,,['vendorID_1855'],,,,
+lieferantenprofile/LP_vendorID_1856.pdf,lieferantenprofil,,vendorID_1856,,['vendorID_1856'],,,,
+lieferantenprofile/LP_vendorID_1857.pdf,lieferantenprofil,,vendorID_1857,,['vendorID_1857'],,,,
+lieferantenprofile/LP_vendorID_1858.pdf,lieferantenprofil,,vendorID_1858,,['vendorID_1858'],,,,
+lieferantenprofile/LP_vendorID_1860.pdf,lieferantenprofil,,vendorID_1860,,['vendorID_1860'],,,,
+lieferantenprofile/LP_vendorID_1861.pdf,lieferantenprofil,,vendorID_1861,,['vendorID_1861'],,,,
+lieferantenprofile/LP_vendorID_1862.pdf,lieferantenprofil,,vendorID_1862,,['vendorID_1862'],,,,
+lieferantenprofile/LP_vendorID_1863.pdf,lieferantenprofil,,vendorID_1863,,['vendorID_1863'],,,,
+lieferantenprofile/LP_vendorID_1864.pdf,lieferantenprofil,,vendorID_1864,,['vendorID_1864'],,,,
+lieferantenprofile/LP_vendorID_1866.pdf,lieferantenprofil,,vendorID_1866,,['vendorID_1866'],,,,
+lieferantenprofile/LP_vendorID_1867.pdf,lieferantenprofil,,vendorID_1867,,['vendorID_1867'],,,,
+lieferantenprofile/LP_vendorID_1868.pdf,lieferantenprofil,,vendorID_1868,,['vendorID_1868'],,,,
+lieferantenprofile/LP_vendorID_1870.pdf,lieferantenprofil,,vendorID_1870,,['vendorID_1870'],,,,
+lieferantenprofile/LP_vendorID_1871.pdf,lieferantenprofil,,vendorID_1871,,['vendorID_1871'],,,,
+lieferantenprofile/LP_vendorID_1872.pdf,lieferantenprofil,,vendorID_1872,,['vendorID_1872'],,,,
+lieferantenprofile/LP_vendorID_1873.pdf,lieferantenprofil,,vendorID_1873,,['vendorID_1873'],,,,
+mails/F1_F-00002_4507000683_00020.md,mail_f1,,,,"['16. Februar 2018', '13. Januar 2018', '4,4', '4507000683']",,F-00002,4507000683_00020,
+mails/F1_F-00003_4507000939_00010.md,mail_f1,,,,"['26. Februar 2018', '8. Januar 2018', '6,1', '4507000939']",,F-00003,4507000939_00010,
+mails/F1_F-00006_4507000683_00030.md,mail_f1,,,,"['26. Februar 2018', '7. Januar 2018', '5,7', '4507000683']",,F-00006,4507000683_00030,
+mails/F1_F-00025_4507004715_00010.md,mail_f1,,,,"['2. Februar 2018', '15. Dezember 2017', '11,0', '4507004715']",,F-00025,4507004715_00010,
+mails/F1_F-00026_4507004821_00020.md,mail_f1,,,,"['20. März 2018', '7. März 2018', '5,5', '4507004821']",,F-00026,4507004821_00020,
+mails/F1_F-00027_4507004821_00040.md,mail_f1,,,,"['20. März 2018', '15. Februar 2018', '5,2', '4507004821']",,F-00027,4507004821_00040,
+mails/F1_F-00028_4507004821_00030.md,mail_f1,,,,"['6. März 2018', '24. Januar 2018', '10,1', '4507004821']",,F-00028,4507004821_00030,
+mails/F1_F-00033_4507005262_00010.md,mail_f1,,,,"['27. Februar 2018', '24. Februar 2018', '5,3', '4507005262']",,F-00033,4507005262_00010,
+mails/F1_F-00044_4507007244_00010.md,mail_f1,,,,"['27. Februar 2018', '13. Januar 2018', '12,7', '4507007244']",,F-00044,4507007244_00010,
+mails/F1_F-00047_4507007790_00010.md,mail_f1,,,,"['27. Februar 2018', '17. Januar 2018', '7,1', '4507007790']",,F-00047,4507007790_00010,
+mails/F1_F-00049_4507000683_00070.md,mail_f1,,,,"['9. März 2018', '24. Januar 2018', '7,7', '4507000683']",,F-00049,4507000683_00070,
+mails/F1_F-00051_4507008341_00010.md,mail_f1,,,,"['26. Februar 2018', '9. Januar 2018', '9,2', '4507008341']",,F-00051,4507008341_00010,
+mails/F1_F-00059_4507009331_00010.md,mail_f1,,,,"['12. März 2018', '4. Februar 2018', '5,0', '4507009331']",,F-00059,4507009331_00010,
+mails/F1_F-00061_4507009919_00010.md,mail_f1,,,,"['6. März 2018', '29. Januar 2018', '10,2', '4507009919']",,F-00061,4507009919_00010,
+mails/F1_F-00066_4507010135_00010.md,mail_f1,,,,"['9. März 2018', '25. Februar 2018', '13,0', '4507010135']",,F-00066,4507010135_00010,
+mails/F1_F-00070_4507010965_00010.md,mail_f1,,,,"['7. September 2018', '21. Juli 2018', '8,4', '4507010965']",,F-00070,4507010965_00010,
+mails/F1_F-00073_4507012050_00010.md,mail_f1,,,,"['12. April 2018', '20. Februar 2018', '9,0', '4507012050']",,F-00073,4507012050_00010,
+mails/F1_F-00075_4507012376_00010.md,mail_f1,,,,"['9. März 2018', '3. Februar 2018', '9,6', '4507012376']",,F-00075,4507012376_00010,
+mails/F1_F-00078_4507013067_00010.md,mail_f1,,,,"['20. März 2018', '10. Februar 2018', '6,8', '4507013067']",,F-00078,4507013067_00010,
+mails/F1_F-00086_4507015661_00010.md,mail_f1,,,,"['30. März 2018', '7. Februar 2018', '11,9', '4507015661']",,F-00086,4507015661_00010,
+mails/F1_F-00091_4507016474_00010.md,mail_f1,,,,"['29. März 2018', '16. Februar 2018', '10,9', '4507016474']",,F-00091,4507016474_00010,
+mails/F1_F-00092_4507016476_00010.md,mail_f1,,,,"['29. März 2018', '15. März 2018', '8,0', '4507016476']",,F-00092,4507016476_00010,
+mails/F1_F-00099_4507017635_00010.md,mail_f1,,,,"['12. April 2018', '17. Februar 2018', '5,7', '4507017635']",,F-00099,4507017635_00010,
+mails/F1_F-00102_4507017991_00010.md,mail_f1,,,,"['30. März 2018', '20. Februar 2018', '7,9', '4507017991']",,F-00102,4507017991_00010,
+mails/F1_F-00103_4507017993_00010.md,mail_f1,,,,"['10. April 2018', '26. Februar 2018', '9,4', '4507017993']",,F-00103,4507017993_00010,
+mails/F1_F-00110_4507018333_00010.md,mail_f1,,,,"['10. April 2018', '21. Februar 2018', '4,9', '4507018333']",,F-00110,4507018333_00010,
+mails/F1_F-00112_4507018802_00010.md,mail_f1,,,,"['9. April 2018', '8. März 2018', '6,2', '4507018802']",,F-00112,4507018802_00010,
+mails/F1_F-00114_4507018907_00010.md,mail_f1,,,,"['7. Juni 2018', '6. Mai 2018', '7,2', '4507018907']",,F-00114,4507018907_00010,
+mails/F1_F-00118_4507019083_00010.md,mail_f1,,,,"['18. April 2018', '28. Februar 2018', '9,5', '4507019083']",,F-00118,4507019083_00010,
+mails/F1_F-00119_4507019081_00010.md,mail_f1,,,,"['18. April 2018', '13. April 2018', '9,8', '4507019081']",,F-00119,4507019081_00010,
+mails/F1_F-00120_4507019082_00010.md,mail_f1,,,,"['18. April 2018', '15. März 2018', '5,9', '4507019082']",,F-00120,4507019082_00010,
+mails/F1_F-00122_4507019370_00010.md,mail_f1,,,,"['8. Juni 2018', '4. Juni 2018', '7,0', '4507019370']",,F-00122,4507019370_00010,
+mails/F1_F-00123_4507019376_00010.md,mail_f1,,,,"['8. Mai 2018', '17. März 2018', '5,4', '4507019376']",,F-00123,4507019376_00010,
+mails/F1_F-00130_4507020568_00010.md,mail_f1,,,,"['17. April 2018', '18. März 2018', '13,1', '4507020568']",,F-00130,4507020568_00010,
+mails/F1_F-00139_4507021712_00010.md,mail_f1,,,,"['24. Mai 2018', '10. Mai 2018', '5,4', '4507021712']",,F-00139,4507021712_00010,
+mails/F1_F-00142_4507022108_00010.md,mail_f1,,,,"['23. April 2018', '20. März 2018', '7,0', '4507022108']",,F-00142,4507022108_00010,
+mails/F1_F-00144_4507022180_00050.md,mail_f1,,,,"['1. Mai 2018', '19. April 2018', '9,9', '4507022180']",,F-00144,4507022180_00050,
+mails/F1_F-00149_4507022650_00010.md,mail_f1,,,,"['24. Mai 2018', '7. April 2018', '10,8', '4507022650']",,F-00149,4507022650_00010,
+mails/F1_F-00162_4507023985_00010.md,mail_f1,,,,"['29. Mai 2018', '6. April 2018', '12,1', '4507023985']",,F-00162,4507023985_00010,
+mails/F1_F-00163_4507023986_00010.md,mail_f1,,,,"['29. Mai 2018', '8. April 2018', '5,2', '4507023986']",,F-00163,4507023986_00010,
+mails/F1_F-00164_4507024087_00010.md,mail_f1,,,,"['18. Mai 2018', '15. Mai 2018', '10,3', '4507024087']",,F-00164,4507024087_00010,
+mails/F1_F-00173_4507025000_00010.md,mail_f1,,,,"['17. Mai 2018', '11. Mai 2018', '12,9', '4507025000']",,F-00173,4507025000_00010,
+mails/F1_F-00181_4507026692_00010.md,mail_f1,,,,"['17. Mai 2018', '9. Mai 2018', '13,8', '4507026692']",,F-00181,4507026692_00010,
+mails/F1_F-00182_4507027003_00010.md,mail_f1,,,,"['29. Mai 2018', '21. April 2018', '9,8', '4507027003']",,F-00182,4507027003_00010,
+mails/F1_F-00183_4507027015_00010.md,mail_f1,,,,"['30. Mai 2018', '27. April 2018', '12,3', '4507027015']",,F-00183,4507027015_00010,
+mails/F1_F-00185_4507027758_00010.md,mail_f1,,,,"['4. Juni 2018', '28. Mai 2018', '8,6', '4507027758']",,F-00185,4507027758_00010,
+mails/F1_F-00187_4507028935_00010.md,mail_f1,,,,"['6. Juni 2018', '28. April 2018', '5,7', '4507028935']",,F-00187,4507028935_00010,
+mails/F1_F-00191_4507031559_00010.md,mail_f1,,,,"['7. September 2018', '17. Juli 2018', '8,2', '4507031559']",,F-00191,4507031559_00010,
+mails/F1_F-00195_4507032258_00010.md,mail_f1,,,,"['7. September 2018', '17. Juli 2018', '8,8', '4507032258']",,F-00195,4507032258_00010,
+mails/F1_F-00197_4507033254_00010.md,mail_f1,,,,"['14. Januar 2019', '6. Januar 2019', '16,9', '4507033254']",,F-00197,4507033254_00010,
+mails/F1_F-00200_4507033260_00010.md,mail_f1,,,,"['14. Januar 2019', '9. Januar 2019', '15,7', '4507033260']",,F-00200,4507033260_00010,
+mails/F1_F-00201_4507033258_00010.md,mail_f1,,,,"['14. Januar 2019', '4. Dezember 2018', '13,8', '4507033258']",,F-00201,4507033258_00010,
+mails/F1_F-00202_4507033256_00010.md,mail_f1,,,,"['14. Januar 2019', '11. Januar 2019', '18,0', '4507033256']",,F-00202,4507033256_00010,
+mails/F1_F-00205_4507033262_00010.md,mail_f1,,,,"['14. Januar 2019', '6. Januar 2019', '13,6', '4507033262']",,F-00205,4507033262_00010,
+mails/F1_F-00206_4507033267_00010.md,mail_f1,,,,"['14. Januar 2019', '24. November 2018', '13,6', '4507033267']",,F-00206,4507033267_00010,
+mails/F1_F-00207_4507033268_00010.md,mail_f1,,,,"['14. Januar 2019', '9. Januar 2019', '11,4', '4507033268']",,F-00207,4507033268_00010,
+mails/F1_F-00208_4507033269_00010.md,mail_f1,,,,"['14. Januar 2019', '12. Dezember 2018', '12,7', '4507033269']",,F-00208,4507033269_00010,
+mails/F1_F-00209_4507033377_00010.md,mail_f1,,,,"['15. Juni 2018', '12. Juni 2018', '4,9', '4507033377']",,F-00209,4507033377_00010,
+mails/F1_F-00210_4507033801_00010.md,mail_f1,,,,"['4. Juli 2018', '21. Juni 2018', '11,5', '4507033801']",,F-00210,4507033801_00010,
+mails/F1_F-00216_4507035307_00010.md,mail_f1,,,,"['4. Juli 2018', '1. Juli 2018', '13,1', '4507035307']",,F-00216,4507035307_00010,
+mails/F1_F-00217_4507035767_00030.md,mail_f1,,,,"['14. September 2018', '7. August 2018', '6,8', '4507035767']",,F-00217,4507035767_00030,
+mails/F1_F-00222_4507038554_00010.md,mail_f1,,,,"['9. Juli 2018', '6. Juni 2018', '7,5', '4507038554']",,F-00222,4507038554_00010,
+mails/F1_F-00223_4507038513_00010.md,mail_f1,,,,"['10. Juli 2018', '3. Juli 2018', '4,6', '4507038513']",,F-00223,4507038513_00010,
+mails/F1_F-00225_4507038769_00010.md,mail_f1,,,,"['14. September 2018', '23. Juli 2018', '15,0', '4507038769']",,F-00225,4507038769_00010,
+mails/F1_F-00227_4507039790_00010.md,mail_f1,,,,"['16. Juli 2018', '11. Juli 2018', '4,5', '4507039790']",,F-00227,4507039790_00010,
+mails/F1_F-00229_4507040472_00010.md,mail_f1,,,,"['7. September 2018', '4. August 2018', '4,0', '4507040472']",,F-00229,4507040472_00010,
+mails/F1_F-00230_4507040309_00010.md,mail_f1,,,,"['14. September 2018', '5. September 2018', '10,6', '4507040309']",,F-00230,4507040309_00010,
+mails/F1_F-00235_4507041417_00010.md,mail_f1,,,,"['5. September 2018', '30. Juli 2018', '10,4', '4507041417']",,F-00235,4507041417_00010,
+mails/F1_F-00236_4507041544_00120.md,mail_f1,,,,"['13. September 2018', '24. Juli 2018', '4,2', '4507041544']",,F-00236,4507041544_00120,
+mails/F1_F-00239_4507041836_00020.md,mail_f1,,,,"['14. September 2018', '11. September 2018', '13,8', '4507041836']",,F-00239,4507041836_00020,
+mails/F1_F-00241_4508042444_00010.md,mail_f1,,,,"['14. September 2018', '3. August 2018', '17,6', '4508042444']",,F-00241,4508042444_00010,
+mails/F1_F-00245_4508043613_00010.md,mail_f1,,,,"['14. September 2018', '28. Juli 2018', '14,4', '4508043613']",,F-00245,4508043613_00010,
+mails/F1_F-00247_4508044128_00010.md,mail_f1,,,,"['14. September 2018', '2. August 2018', '12,0', '4508044128']",,F-00247,4508044128_00010,
+mails/F1_F-00248_4508044796_00010.md,mail_f1,,,,"['4. Oktober 2018', '1. September 2018', '9,6', '4508044796']",,F-00248,4508044796_00010,
+mails/F1_F-00254_4508046047_00020.md,mail_f1,,,,"['14. September 2018', '7. August 2018', '8,7', '4508046047']",,F-00254,4508046047_00020,
+mails/F1_F-00255_4508046048_00030.md,mail_f1,,,,"['14. September 2018', '29. Juli 2018', '11,7', '4508046048']",,F-00255,4508046048_00030,
+mails/F1_F-00256_4508046051_00040.md,mail_f1,,,,"['14. September 2018', '3. September 2018', '12,2', '4508046051']",,F-00256,4508046051_00040,
+mails/F1_F-00257_4508046052_00050.md,mail_f1,,,,"['14. September 2018', '5. August 2018', '15,9', '4508046052']",,F-00257,4508046052_00050,
+mails/F1_F-00259_4508046626_00080.md,mail_f1,,,,"['25. September 2018', '12. September 2018', '5,8', '4508046626']",,F-00259,4508046626_00080,
+mails/F1_F-00260_4508046681_00010.md,mail_f1,,,,"['14. September 2018', '9. August 2018', '12,1', '4508046681']",,F-00260,4508046681_00010,
+mails/F1_F-00264_4508047294_00010.md,mail_f1,,,,"['14. September 2018', '7. September 2018', '15,6', '4508047294']",,F-00264,4508047294_00010,
+mails/F1_F-00266_4508048709_00010.md,mail_f1,,,,"['14. September 2018', '23. Juli 2018', '14,8', '4508048709']",,F-00266,4508048709_00010,
+mails/F1_F-00267_4508048711_00010.md,mail_f1,,,,"['14. September 2018', '11. September 2018', '14,6', '4508048711']",,F-00267,4508048711_00010,
+mails/F1_F-00268_4508048712_00010.md,mail_f1,,,,"['14. September 2018', '8. August 2018', '9,8', '4508048712']",,F-00268,4508048712_00010,
+mails/F1_F-00269_4508048747_00010.md,mail_f1,,,,"['4. Oktober 2018', '30. August 2018', '6,0', '4508048747']",,F-00269,4508048747_00010,
+mails/F1_F-00271_4508049212_00010.md,mail_f1,,,,"['14. September 2018', '14. August 2018', '7,7', '4508049212']",,F-00271,4508049212_00010,
+mails/F1_F-00275_4508049805_00010.md,mail_f1,,,,"['14. September 2018', '8. August 2018', '18,0', '4508049805']",,F-00275,4508049805_00010,
+mails/F1_F-00276_4508049806_00020.md,mail_f1,,,,"['14. September 2018', '5. August 2018', '9,2', '4508049806']",,F-00276,4508049806_00020,
+mails/F1_F-00278_4508050454_00010.md,mail_f1,,,,"['14. September 2018', '6. August 2018', '11,4', '4508050454']",,F-00278,4508050454_00010,
+mails/F1_F-00279_4508050458_00010.md,mail_f1,,,,"['14. September 2018', '25. Juli 2018', '10,0', '4508050458']",,F-00279,4508050458_00010,
+mails/F1_F-00280_4508050459_00010.md,mail_f1,,,,"['14. September 2018', '6. August 2018', '14,7', '4508050459']",,F-00280,4508050459_00010,
+mails/F1_F-00281_4508050731_00010.md,mail_f1,,,,"['14. September 2018', '5. August 2018', '6,8', '4508050731']",,F-00281,4508050731_00010,
+mails/F1_F-00287_4508051578_00010.md,mail_f1,,,,"['18. Oktober 2018', '29. August 2018', '10,3', '4508051578']",,F-00287,4508051578_00010,
+mails/F1_F-00288_4508051570_00010.md,mail_f1,,,,"['14. September 2018', '7. August 2018', '14,4', '4508051570']",,F-00288,4508051570_00010,
+mails/F1_F-00289_4508051572_00020.md,mail_f1,,,,"['14. September 2018', '4. September 2018', '16,7', '4508051572']",,F-00289,4508051572_00020,
+mails/F1_F-00290_4508051571_00010.md,mail_f1,,,,"['14. September 2018', '7. September 2018', '16,4', '4508051571']",,F-00290,4508051571_00010,
+mails/F1_F-00293_4508051849_00010.md,mail_f1,,,,"['14. September 2018', '7. August 2018', '11,9', '4508051849']",,F-00293,4508051849_00010,
+mails/F1_F-00294_4508051948_00010.md,mail_f1,,,,"['21. September 2018', '7. September 2018', '12,0', '4508051948']",,F-00294,4508051948_00010,
+mails/F1_F-00296_4508052137_00010.md,mail_f1,,,,"['14. September 2018', '12. August 2018', '16,0', '4508052137']",,F-00296,4508052137_00010,
+mails/F1_F-00297_4508052465_00010.md,mail_f1,,,,"['14. September 2018', '7. September 2018', '17,7', '4508052465']",,F-00297,4508052465_00010,
+mails/F1_F-00299_4508053162_00010.md,mail_f1,,,,"['14. September 2018', '12. August 2018', '11,3', '4508053162']",,F-00299,4508053162_00010,
+mails/F1_F-00300_4508053161_00010.md,mail_f1,,,,"['14. September 2018', '5. August 2018', '9,2', '4508053161']",,F-00300,4508053161_00010,
+mails/F1_F-00301_4508053160_00010.md,mail_f1,,,,"['14. September 2018', '11. August 2018', '15,8', '4508053160']",,F-00301,4508053160_00010,
+mails/F1_F-00303_4508053157_00010.md,mail_f1,,,,"['14. September 2018', '7. September 2018', '9,5', '4508053157']",,F-00303,4508053157_00010,
+mails/F1_F-00304_4508053156_00010.md,mail_f1,,,,"['14. September 2018', '14. August 2018', '11,9', '4508053156']",,F-00304,4508053156_00010,
+mails/F1_F-00305_4508053155_00010.md,mail_f1,,,,"['14. September 2018', '15. August 2018', '16,2', '4508053155']",,F-00305,4508053155_00010,
+mails/F1_F-00306_4508053154_00010.md,mail_f1,,,,"['14. September 2018', '11. August 2018', '10,8', '4508053154']",,F-00306,4508053154_00010,
+mails/F1_F-00307_4508054425_00010.md,mail_f1,,,,"['21. September 2018', '19. August 2018', '9,5', '4508054425']",,F-00307,4508054425_00010,
+mails/F1_F-00310_4508057119_00010.md,mail_f1,,,,"['8. Oktober 2018', '8. September 2018', '5,9', '4508057119']",,F-00310,4508057119_00010,
+mails/F1_F-00311_4508057120_00010.md,mail_f1,,,,"['8. Oktober 2018', '3. Oktober 2018', '8,3', '4508057120']",,F-00311,4508057120_00010,
+mails/F1_F-00312_4508057121_00010.md,mail_f1,,,,"['8. Oktober 2018', '19. August 2018', '5,4', '4508057121']",,F-00312,4508057121_00010,
+mails/F1_F-00315_4508057704_00010.md,mail_f1,,,,"['8. Oktober 2018', '31. August 2018', '11,9', '4508057704']",,F-00315,4508057704_00010,
+mails/F1_F-00319_4508057705_00010.md,mail_f1,,,,"['8. Oktober 2018', '1. September 2018', '8,2', '4508057705']",,F-00319,4508057705_00010,
+mails/F2_F-00320_4507004821_00030.md,mail_f2,,,,"['28. Mai 2018', '41.070,00 €', '4507004821']",,F-00320,4507004821_00030,
+mails/F2_F-00321_4507004821_00050.md,mail_f2,,,,"['20. Mai 2018', '6.890,00 €', '4507004821']",,F-00321,4507004821_00050,
+mails/F2_F-00322_4507004821_00060.md,mail_f2,,,,"['22. Mai 2018', '3.022,00 €', '4507004821']",,F-00322,4507004821_00060,
+mails/F2_F-00323_4507011221_00010.md,mail_f2,,,,"['23. Mai 2018', '40.817,00 €', '4507011221']",,F-00323,4507011221_00010,
+mails/KF_F-00324_4507014580_00030.md,klaerfall,,,,"['739,00 €', '4507014580']",,F-00324,4507014580_00030,
+mails/F2_F-00325_4507015397_00030.md,mail_f2,,,,"['27. Juni 2018', '2.840,00 €', '4507015397']",,F-00325,4507015397_00030,
+mails/F2_F-00326_4507016312_00010.md,mail_f2,,,,"['22. April 2018', '645,00 €', '4507016312']",,F-00326,4507016312_00010,
+mails/F2_F-00327_4507016828_00010.md,mail_f2,,,,"['31. Mai 2018', '24.214,00 €', '4507016828']",,F-00327,4507016828_00010,
+mails/F2_F-00329_4507018779_00010.md,mail_f2,,,,"['24. Juni 2018', '5.681,00 €', '4507018779']",,F-00329,4507018779_00010,
+mails/F2_F-00331_4507020939_00010.md,mail_f2,,,,"['28. Mai 2018', '2.727,00 €', '4507020939']",,F-00331,4507020939_00010,
+mails/F2_F-00332_4507020939_00020.md,mail_f2,,,,"['20. Mai 2018', '129,00 €', '4507020939']",,F-00332,4507020939_00020,
+mails/F2_F-00333_4507021226_00010.md,mail_f2,,,,"['24. Juni 2018', '43.318,00 €', '4507021226']",,F-00333,4507021226_00010,
+mails/F2_F-00334_4507028436_00020.md,mail_f2,,,,"['28. Mai 2018', '129,00 €', '4507028436']",,F-00334,4507028436_00020,
+mails/F2_F-00335_4507028436_00010.md,mail_f2,,,,"['3. Juni 2018', '1.385,00 €', '4507028436']",,F-00335,4507028436_00010,
+mails/F2_F-00336_4507028436_00030.md,mail_f2,,,,"['28. Mai 2018', '2.533,00 €', '4507028436']",,F-00336,4507028436_00030,
+mails/KF_F-00337_4507028436_00040.md,klaerfall,,,,"['129,00 €', '4507028436']",,F-00337,4507028436_00040,
+mails/F2_F-00338_4507028436_00050.md,mail_f2,,,,"['26. Juni 2018', '3.117,00 €', '4507028436']",,F-00338,4507028436_00050,
+mails/KF_F-00343_4507033044_00030.md,klaerfall,,,,"['731,00 €', '4507033044']",,F-00343,4507033044_00030,
+mails/KF_F-00347_4508042334_00020.md,klaerfall,,,,"['129,00 €', '4508042334']",,F-00347,4508042334_00020,
+mails/F2_F-00348_4508042334_00010.md,mail_f2,,,,"['31. Juli 2018', '1.385,00 €', '4508042334']",,F-00348,4508042334_00010,
+mails/F2_F-00349_4507041097_00010.md,mail_f2,,,,"['4. Oktober 2018', '4.433,00 €', '4507041097']",,F-00349,4507041097_00010,
+mails/F2_F-00350_4508042337_00020.md,mail_f2,,,,"['27. August 2018', '129,00 €', '4508042337']",,F-00350,4508042337_00020,
+mails/F2_F-00351_4508042339_00020.md,mail_f2,,,,"['5. September 2018', '129,00 €', '4508042339']",,F-00351,4508042339_00020,
+mails/F2_F-00352_4508044178_00020.md,mail_f2,,,,"['6. September 2018', '129,00 €', '4508044178']",,F-00352,4508044178_00020,
+mails/KF_F-00353_4508044178_00010.md,klaerfall,,,,"['3.091,00 €', '4508044178']",,F-00353,4508044178_00010,
+mails/F2_F-00354_4508044180_00010.md,mail_f2,,,,"['28. August 2018', '3.091,00 €', '4508044180']",,F-00354,4508044180_00010,
+mails/F2_F-00355_4508044180_00020.md,mail_f2,,,,"['2. September 2018', '129,00 €', '4508044180']",,F-00355,4508044180_00020,
+mails/F2_F-00356_4508044183_00010.md,mail_f2,,,,"['26. August 2018', '2.061,00 €', '4508044183']",,F-00356,4508044183_00010,
+mails/F2_F-00358_4508044845_00010.md,mail_f2,,,,"['5. Oktober 2018', '8.038,00 €', '4508044845']",,F-00358,4508044845_00010,
+mails/F2_F-00359_4508051508_00010.md,mail_f2,,,,"['25. September 2018', '2.208,00 €', '4508051508']",,F-00359,4508051508_00010,
+mails/F2_F-00360_4508051508_00020.md,mail_f2,,,,"['25. September 2018', '129,00 €', '4508051508']",,F-00360,4508051508_00020,
+mails/F2_F-00361_4508051516_00010.md,mail_f2,,,,"['25. September 2018', '1.948,00 €', '4508051516']",,F-00361,4508051516_00010,
+mails/F2_F-00362_4508051516_00020.md,mail_f2,,,,"['2. Oktober 2018', '129,00 €', '4508051516']",,F-00362,4508051516_00020,
+mails/F2_F-00363_4508051517_00020.md,mail_f2,,,,"['8. Oktober 2018', '129,00 €', '4508051517']",,F-00363,4508051517_00020,
+mails/KF_F-00364_4508051517_00010.md,klaerfall,,,,"['3.117,00 €', '4508051517']",,F-00364,4508051517_00010,
+mails/F2_F-00367_4508051518_00010.md,mail_f2,,,,"['3. Oktober 2018', '2.727,00 €', '4508051518']",,F-00367,4508051518_00010,
+mails/KF_F-00368_4508051518_00020.md,klaerfall,,,,"['129,00 €', '4508051518']",,F-00368,4508051518_00020,
+mails/F3_F-00369_4507000580.md,mail_f3,,,,"['2. Januar 2018', '31.509,00 €', '4507000580']",,F-00369,,4507000580
+mails/F3_F-00370_4507000678.md,mail_f3,,,,"['31. Dezember 2017', '109.493,00 €', '4507000678']",,F-00370,,4507000678
+mails/F3_F-00373_4507001693.md,mail_f3,,,,"['3. Januar 2018', '33.095,00 €', '4507001693']",,F-00373,,4507001693
+mails/F3_F-00375_4507002819.md,mail_f3,,,,"['26. Januar 2018', '66.354,00 €', '4507002819']",,F-00375,,4507002819
+mails/F3_F-00378_4507004093.md,mail_f3,,,,"['16. Januar 2018', '33.182,00 €', '4507004093']",,F-00378,,4507004093
+mails/F3_F-00379_4507004119.md,mail_f3,,,,"['18. Januar 2018', '91.243,00 €', '4507004119']",,F-00379,,4507004119
+mails/F3_F-00381_4507004669.md,mail_f3,,,,"['15. Januar 2018', '33.173,00 €', '4507004669']",,F-00381,,4507004669
+mails/F3_F-00382_4507005099.md,mail_f3,,,,"['27. Januar 2018', '33.346,00 €', '4507005099']",,F-00382,,4507005099
+mails/F3_F-00383_4507005149.md,mail_f3,,,,"['16. Januar 2018', '109.493,00 €', '4507005149']",,F-00383,,4507005149
+mails/F3_F-00384_4507005436.md,mail_f3,,,,"['17. Januar 2018', '107.955,00 €', '4507005436']",,F-00384,,4507005436
+mails/F3_F-00389_4507010683.md,mail_f3,,,,"['15. Februar 2018', '32.382,00 €', '4507010683']",,F-00389,,4507010683
+mails/F3_F-00391_4507011578.md,mail_f3,,,,"['20. Februar 2018', '191.612,00 €', '4507011578']",,F-00391,,4507011578
+mails/F3_F-00393_4507012606.md,mail_f3,,,,"['24. Februar 2018', '32.382,00 €', '4507012606']",,F-00393,,4507012606
+mails/F3_F-00394_4507012735.md,mail_f3,,,,"['19. Februar 2018', '79.625,00 €', '4507012735']",,F-00394,,4507012735
+mails/F3_F-00395_4507013849.md,mail_f3,,,,"['27. Februar 2018', '107.955,00 €', '4507013849']",,F-00395,,4507013849
+mails/F3_F-00396_4507014986.md,mail_f3,,,,"['1. März 2018', '91.244,00 €', '4507014986']",,F-00396,,4507014986
+mails/F3_F-00397_4507016091.md,mail_f3,,,,"['9. März 2018', '31.532,00 €', '4507016091']",,F-00397,,4507016091
+mails/F3_F-00398_4507016655.md,mail_f3,,,,"['14. März 2018', '31.592,00 €', '4507016655']",,F-00398,,4507016655
+mails/F3_F-00399_4507016709.md,mail_f3,,,,"['11. März 2018', '218.986,00 €', '4507016709']",,F-00399,,4507016709
+mails/F3_F-00400_4507017342.md,mail_f3,,,,"['18. März 2018', '107.955,00 €', '4507017342']",,F-00400,,4507017342
+mails/F3_F-00402_4507017940.md,mail_f3,,,,"['19. März 2018', '44.998,00 €', '4507017940']",,F-00402,,4507017940
+mails/F3_F-00403_4507021014.md,mail_f3,,,,"['31. März 2018', '109.493,00 €', '4507021014']",,F-00403,,4507021014
+mails/F3_F-00404_4507022062.md,mail_f3,,,,"['4. April 2018', '91.243,00 €', '4507022062']",,F-00404,,4507022062
+mails/F3_F-00405_4507023155.md,mail_f3,,,,"['11. April 2018', '33.904,00 €', '4507023155']",,F-00405,,4507023155
+mails/F3_F-00408_4507025722.md,mail_f3,,,,"['20. April 2018', '33.463,00 €', '4507025722']",,F-00408,,4507025722
+mails/F3_F-00409_4507026343.md,mail_f3,,,,"['27. April 2018', '44.998,00 €', '4507026343']",,F-00409,,4507026343
+mails/F3_F-00410_4507026570.md,mail_f3,,,,"['8. Mai 2018', '33.530,00 €', '4507026570']",,F-00410,,4507026570
+mails/F3_F-00411_4507027368.md,mail_f3,,,,"['26. April 2018', '107.955,00 €', '4507027368']",,F-00411,,4507027368
+mails/F3_F-00413_4507029517.md,mail_f3,,,,"['28. Mai 2018', '33.463,00 €', '4507029517']",,F-00413,,4507029517
+mails/F3_F-00414_4507029969.md,mail_f3,,,,"['14. Mai 2018', '91.244,00 €', '4507029969']",,F-00414,,4507029969
+mails/F3_F-00417_4507031061.md,mail_f3,,,,"['17. Mai 2018', '109.493,00 €', '4507031061']",,F-00417,,4507031061
+mails/F3_F-00418_4507032422.md,mail_f3,,,,"['10. Juni 2018', '25.547,00 €', '4507032422']",,F-00418,,4507032422
+mails/F3_F-00419_4507032776.md,mail_f3,,,,"['25. Mai 2018', '33.463,00 €', '4507032776']",,F-00419,,4507032776
+mails/F3_F-00421_4507033411.md,mail_f3,,,,"['30. Mai 2018', '91.244,00 €', '4507033411']",,F-00421,,4507033411
+mails/F3_F-00423_4507035268.md,mail_f3,,,,"['18. Juni 2018', '35.666,00 €', '4507035268']",,F-00423,,4507035268
+mails/F3_F-00426_4507038220.md,mail_f3,,,,"['13. Juni 2018', '35.666,00 €', '4507038220']",,F-00426,,4507038220
+mails/F3_F-00430_4507040672.md,mail_f3,,,,"['1. Juli 2018', '71.970,00 €', '4507040672']",,F-00430,,4507040672
+mails/F3_F-00431_4507041491.md,mail_f3,,,,"['15. Juli 2018', '44.998,00 €', '4507041491']",,F-00431,,4507041491
+mails/F3_F-00432_4507041892.md,mail_f3,,,,"['12. Juli 2018', '35.001,00 €', '4507041892']",,F-00432,,4507041892
+mails/F3_F-00434_4508044827.md,mail_f3,,,,"['22. Juli 2018', '35.001,00 €', '4508044827']",,F-00434,,4508044827
+mails/F3_F-00435_4508044964.md,mail_f3,,,,"['26. Juli 2018', '40.311,00 €', '4508044964']",,F-00435,,4508044964
+mails/F3_F-00436_4508045321.md,mail_f3,,,,"['21. Juli 2018', '92.283,00 €', '4508045321']",,F-00436,,4508045321
+mails/F3_F-00438_4508045656.md,mail_f3,,,,"['25. Juli 2018', '107.955,00 €', '4508045656']",,F-00438,,4508045656
+mails/F3_F-00439_4508046585.md,mail_f3,,,,"['30. Juli 2018', '107.955,00 €', '4508046585']",,F-00439,,4508046585
+mails/F3_F-00440_4508047191.md,mail_f3,,,,"['18. August 2018', '107.955,00 €', '4508047191']",,F-00440,,4508047191
+mails/F3_F-00441_4508047385.md,mail_f3,,,,"['18. August 2018', '35.001,00 €', '4508047385']",,F-00441,,4508047385
+mails/F3_F-00442_4508049018.md,mail_f3,,,,"['7. August 2018', '44.825,00 €', '4508049018']",,F-00442,,4508049018
+mails/F3_F-00444_4508053076.md,mail_f3,,,,"['1. September 2018', '25.547,00 €', '4508053076']",,F-00444,,4508053076
+mails/F3_F-00446_4508057859.md,mail_f3,,,,"['30. September 2018', '107.955,00 €', '4508057859']",,F-00446,,4508057859
+mails/F8_F-00658_vendorID_0256.md,mail_f8,,vendorID_0256,,"['29. Januar 2018', 'Lyracoat Ltd.']",,F-00658,,
+mails/F8_F-00681_vendorID_0357.md,mail_f8,,vendorID_0357,,"['1. Februar 2018', 'Keplervinyl Ltd.']",,F-00681,,
+mails/F8_F-00808_vendorID_0458.md,mail_f8,,vendorID_0458,,"['28. Dezember 2017', 'Keplervinyl Ltd.']",,F-00808,,
+mails/F8_F-00939_vendorID_0619.md,mail_f8,,vendorID_0619,,"['23. Dezember 2017', 'Kepleracryl N.V.']",,F-00939,,
+mails/F8_F-01002_vendorID_0513.md,mail_f8,,vendorID_0513,,"['7. Januar 2018', 'Sellakolloid GmbH & Co. KG']",,F-01002,,
+mails/F8_F-01104_vendorID_1455.md,mail_f8,,vendorID_1455,,"['6. Juni 2018', 'Lyrachem S.A.S.']",,F-01104,,
+mails/F8_F-01105_vendorID_0198.md,mail_f8,,vendorID_0198,,"['16. Juli 2018', 'Ostendvinyl S.p.A.']",,F-01105,,
+mails/F8_F-01110_vendorID_0252.md,mail_f8,,vendorID_0252,,"['14. Juni 2018', 'Westersyn S.A.S.']",,F-01110,,
+mails/F8_F-01122_vendorID_1531.md,mail_f8,,vendorID_1531,,"['11. Juni 2018', 'Orionflux GmbH']",,F-01122,,
+mails/F8_F-01128_vendorID_0519.md,mail_f8,,vendorID_0519,,"['10. September 2018', 'Keplercoat Ltd.']",,F-01128,,
+mails/F8_F-01131_vendorID_0173.md,mail_f8,,vendorID_0173,,"['27. September 2018', 'Elbeacryl Ltd.']",,F-01131,,
+mails/F9_F-01134_RV-2018-09.md,mail_f9,RV-2018-09,,,"['RV-2018-09', 'LQ-RL-2017-01']",,F-01134,,
+rechnungen/RE_4507000580_00010.pdf,rechnung,,,,"['31.508,99 €', '4507000580']",,,4507000580_00010,4507000580
+rechnungen/RE_4507000678_00010.pdf,rechnung,,,,"['109.492,95 €', '4507000678']",,,4507000678_00010,4507000678
+rechnungen/RE_4507000683_00020.pdf,rechnung,,,,"['7.700,00 €', '4507000683']",,,4507000683_00020,4507000683
+rechnungen/RE_4507000683_00030.pdf,rechnung,,,,"['28.234,96 €', '4507000683']",,,4507000683_00030,4507000683
+rechnungen/RE_4507000683_00040.pdf,rechnung,,,,"['48.771,00 €', '4507000683']",,,4507000683_00040,4507000683
+rechnungen/RE_4507000683_00070.pdf,rechnung,,,,"['20.535,00 €', '4507000683']",,,4507000683_00070,4507000683
+rechnungen/RE_4507000939_00010.pdf,rechnung,,,,"['42.120,00 €', '4507000939']",,,4507000939_00010,4507000939
+rechnungen/RE_4507000965_00010.pdf,rechnung,,,,"['30.678,12 €', '4507000965']",,,4507000965_00010,4507000965
+rechnungen/RE_4507001364_00010.pdf,rechnung,,,,"['30.054,08 €', '4507001364']",,,4507001364_00010,4507001364
+rechnungen/RE_4507001693_00010.pdf,rechnung,,,,"['33.094,98 €', '4507001693']",,,4507001693_00010,4507001693
+rechnungen/RE_4507002032_00010.pdf,rechnung,,,,"['33.063,84 €', '4507002032']",,,4507002032_00010,4507002032
+rechnungen/RE_4507002819_00010.pdf,rechnung,,,,"['66.354,00 €', '4507002819']",,,4507002819_00010,4507002819
+rechnungen/RE_4507003086_00010.pdf,rechnung,,,,"['44.997,98 €', '4507003086']",,,4507003086_00010,4507003086
+rechnungen/RE_4507003424_00010.pdf,rechnung,,,,"['31.509,03 €', '4507003424']",,,4507003424_00010,4507003424
+rechnungen/RE_4507004093_00010.pdf,rechnung,,,,"['33.181,94 €', '4507004093']",,,4507004093_00010,4507004093
+rechnungen/RE_4507004119_00010.pdf,rechnung,,,,"['54.745,95 €', '4507004119']",,,4507004119_00010,4507004119
+rechnungen/RE_4507004119_00020.pdf,rechnung,,,,"['36.497,04 €', '4507004119']",,,4507004119_00020,4507004119
+rechnungen/RE_4507004312_00010.pdf,rechnung,,,,"['33.173,01 €', '4507004312']",,,4507004312_00010,4507004312
+rechnungen/RE_4507004669_00010.pdf,rechnung,,,,"['33.173,00 €', '4507004669']",,,4507004669_00010,4507004669
+rechnungen/RE_4507004715_00010.pdf,rechnung,,,,"['18.732,01 €', '4507004715']",,,4507004715_00010,4507004715
+rechnungen/RE_4507004821_00020.pdf,rechnung,,,,"['25.668,00 €', '4507004821']",,,4507004821_00020,4507004821
+rechnungen/RE_4507004821_00030.pdf,rechnung,,,,"['41.070,02 €', '4507004821']",,,4507004821_00030,4507004821
+rechnungen/RE_4507004821_00040.pdf,rechnung,,,,"['51.336,92 €', '4507004821']",,,4507004821_00040,4507004821
+rechnungen/RE_4507004821_00050.pdf,rechnung,,,,"['6.890,04 €', '4507004821']",,,4507004821_00050,4507004821
+rechnungen/RE_4507004821_00060.pdf,rechnung,,,,"['3.022,02 €', '4507004821']",,,4507004821_00060,4507004821
+rechnungen/RE_4507005099_00010.pdf,rechnung,,,,"['33.346,06 €', '4507005099']",,,4507005099_00010,4507005099
+rechnungen/RE_4507005149_00010.pdf,rechnung,,,,"['109.493,16 €', '4507005149']",,,4507005149_00010,4507005149
+rechnungen/RE_4507005262_00010.pdf,rechnung,,,,"['34.269,16 €', '4507005262']",,,4507005262_00010,4507005262
+rechnungen/RE_4507005408_00010.pdf,rechnung,,,,"['103.548,02 €', '4507005408']",,,4507005408_00010,4507005408
+rechnungen/RE_4507005414_00010.pdf,rechnung,,,,"['52.812,97 €', '4507005414']",,,4507005414_00010,4507005414
+rechnungen/RE_4507005436_00010.pdf,rechnung,,,,"['107.954,88 €', '4507005436']",,,4507005436_00010,4507005436
+rechnungen/RE_4507005608_00010.pdf,rechnung,,,,"['35.897,12 €', '4507005608']",,,4507005608_00010,4507005608
+rechnungen/RE_4507006409_00010.pdf,rechnung,,,,"['32.688,06 €', '4507006409']",,,4507006409_00010,4507006409
+rechnungen/RE_4507007023_00010.pdf,rechnung,,,,"['85.464,08 €', '4507007023']",,,4507007023_00010,4507007023
+rechnungen/RE_4507007244_00010.pdf,rechnung,,,,"['36.027,85 €', '4507007244']",,,4507007244_00010,4507007244
+rechnungen/RE_4507007790_00010.pdf,rechnung,,,,"['36.072,96 €', '4507007790']",,,4507007790_00010,4507007790
+rechnungen/RE_4507008341_00010.pdf,rechnung,,,,"['35.473,92 €', '4507008341']",,,4507008341_00010,4507008341
+rechnungen/RE_4507008457_00020.pdf,rechnung,,,,"['38.788,90 €', '4507008457']",,,4507008457_00020,4507008457
+rechnungen/RE_4507008640_00010.pdf,rechnung,,,,"['36.164,94 €', '4507008640']",,,4507008640_00010,4507008640
+rechnungen/RE_4507008642_00010.pdf,rechnung,,,,"['32.381,98 €', '4507008642']",,,4507008642_00010,4507008642
+rechnungen/RE_4507008879_00010.pdf,rechnung,,,,"['44.997,96 €', '4507008879']",,,4507008879_00010,4507008879
+rechnungen/RE_4507009331_00010.pdf,rechnung,,,,"['21.060,00 €', '4507009331']",,,4507009331_00010,4507009331
+rechnungen/RE_4507009919_00010.pdf,rechnung,,,,"['42.217,91 €', '4507009919']",,,4507009919_00010,4507009919
+rechnungen/RE_4507010135_00010.pdf,rechnung,,,,"['36.039,98 €', '4507010135']",,,4507010135_00010,4507010135
+rechnungen/RE_4507010678_00010.pdf,rechnung,,,,"['36.005,12 €', '4507010678']",,,4507010678_00010,4507010678
+rechnungen/RE_4507010683_00010.pdf,rechnung,,,,"['32.381,93 €', '4507010683']",,,4507010683_00010,4507010683
+rechnungen/RE_4507010965_00010.pdf,rechnung,,,,"['43.961,00 €', '4507010965']",,,4507010965_00010,4507010965
+rechnungen/RE_4507011221_00010.pdf,rechnung,,,,"['40.817,07 €', '4507011221']",,,4507011221_00010,4507011221
+rechnungen/RE_4507011386_00010.pdf,rechnung,,,,"['25.547,04 €', '4507011386']",,,4507011386_00010,4507011386
+rechnungen/RE_4507011494_00010.pdf,rechnung,,,,"['34.764,16 €', '4507011494']",,,4507011494_00010,4507011494
+rechnungen/RE_4507011578_00010.pdf,rechnung,,,,"['109.493,01 €', '4507011578']",,,4507011578_00010,4507011578
+rechnungen/RE_4507011766_00010.pdf,rechnung,,,,"['109.492,95 €', '4507011766']",,,4507011766_00010,4507011766
+rechnungen/RE_4507012050_00010.pdf,rechnung,,,,"['18.887,94 €', '4507012050']",,,4507012050_00010,4507012050
+rechnungen/RE_4507012376_00010.pdf,rechnung,,,,"['36.099,79 €', '4507012376']",,,4507012376_00010,4507012376
+rechnungen/RE_4507012486_00010.pdf,rechnung,,,,"['42.217,83 €', '4507012486']",,,4507012486_00010,4507012486
+rechnungen/RE_4507012606_00010.pdf,rechnung,,,,"['32.382,02 €', '4507012606']",,,4507012606_00010,4507012606
+rechnungen/RE_4507012735_00010.pdf,rechnung,,,,"['79.625,00 €', '4507012735']",,,4507012735_00010,4507012735
+rechnungen/RE_4507013067_00010.pdf,rechnung,,,,"['35.185,05 €', '4507013067']",,,4507013067_00010,4507013067
+rechnungen/RE_4507013849_00010.pdf,rechnung,,,,"['107.954,94 €', '4507013849']",,,4507013849_00010,4507013849
+rechnungen/RE_4507014580_00030.pdf,rechnung,,,,"['739,00 €', '4507014580']",,,4507014580_00030,4507014580
+rechnungen/RE_4507014986_00010.pdf,rechnung,,,,"['68.432,98 €', '4507014986']",,,4507014986_00010,4507014986
+rechnungen/RE_4507014986_00020.pdf,rechnung,,,,"['22.811,04 €', '4507014986']",,,4507014986_00020,4507014986
+rechnungen/RE_4507015397_00030.pdf,rechnung,,,,"['2.840,00 €', '4507015397']",,,4507015397_00030,4507015397
+rechnungen/RE_4507015661_00010.pdf,rechnung,,,,"['35.226,00 €', '4507015661']",,,4507015661_00010,4507015661
+rechnungen/RE_4507016091_00010.pdf,rechnung,,,,"['9.557,06 €', '4507016091']",,,4507016091_00010,4507016091
+rechnungen/RE_4507016091_00020.pdf,rechnung,,,,"['7.159,02 €', '4507016091']",,,4507016091_00020,4507016091
+rechnungen/RE_4507016091_00030.pdf,rechnung,,,,"['3.978,00 €', '4507016091']",,,4507016091_00030,4507016091
+rechnungen/RE_4507016091_00040.pdf,rechnung,,,,"['1.308,00 €', '4507016091']",,,4507016091_00040,4507016091
+rechnungen/RE_4507016091_00050.pdf,rechnung,,,,"['9.048,93 €', '4507016091']",,,4507016091_00050,4507016091
+rechnungen/RE_4507016091_00060.pdf,rechnung,,,,"['480,96 €', '4507016091']",,,4507016091_00060,4507016091
+rechnungen/RE_4507016312_00010.pdf,rechnung,,,,"['645,00 €', '4507016312']",,,4507016312_00010,4507016312
+rechnungen/RE_4507016474_00010.pdf,rechnung,,,,"['35.333,04 €', '4507016474']",,,4507016474_00010,4507016474
+rechnungen/RE_4507016476_00010.pdf,rechnung,,,,"['34.488,00 €', '4507016476']",,,4507016476_00010,4507016476
+rechnungen/RE_4507016655_00010.pdf,rechnung,,,,"['31.591,92 €', '4507016655']",,,4507016655_00010,4507016655
+rechnungen/RE_4507016709_00010.pdf,rechnung,,,,"['218.985,78 €', '4507016709']",,,4507016709_00010,4507016709
+rechnungen/RE_4507016828_00010.pdf,rechnung,,,,"['24.213,98 €', '4507016828']",,,4507016828_00010,4507016828
+rechnungen/RE_4507017342_00010.pdf,rechnung,,,,"['107.955,12 €', '4507017342']",,,4507017342_00010,4507017342
+rechnungen/RE_4507017635_00010.pdf,rechnung,,,,"['18.888,00 €', '4507017635']",,,4507017635_00010,4507017635
+rechnungen/RE_4507017660_00010.pdf,rechnung,,,,"['107.954,94 €', '4507017660']",,,4507017660_00010,4507017660
+rechnungen/RE_4507017940_00010.pdf,rechnung,,,,"['44.998,05 €', '4507017940']",,,4507017940_00010,4507017940
+rechnungen/RE_4507017990_00010.pdf,rechnung,,,,"['42.025,94 €', '4507017990']",,,4507017990_00010,4507017990
+rechnungen/RE_4507017991_00010.pdf,rechnung,,,,"['42.025,93 €', '4507017991']",,,4507017991_00010,4507017991
+rechnungen/RE_4507017992_00010.pdf,rechnung,,,,"['42.026,04 €', '4507017992']",,,4507017992_00010,4507017992
+rechnungen/RE_4507017993_00010.pdf,rechnung,,,,"['42.026,00 €', '4507017993']",,,4507017993_00010,4507017993
+rechnungen/RE_4507018070_00010.pdf,rechnung,,,,"['55.557,12 €', '4507018070']",,,4507018070_00010,4507018070
+rechnungen/RE_4507018313_00010.pdf,rechnung,,,,"['47.203,08 €', '4507018313']",,,4507018313_00010,4507018313
+rechnungen/RE_4507018333_00010.pdf,rechnung,,,,"['41.526,96 €', '4507018333']",,,4507018333_00010,4507018333
+rechnungen/RE_4507018652_00010.pdf,rechnung,,,,"['43.096,02 €', '4507018652']",,,4507018652_00010,4507018652
+rechnungen/RE_4507018779_00010.pdf,rechnung,,,,"['5.681,01 €', '4507018779']",,,4507018779_00010,4507018779
+rechnungen/RE_4507018802_00010.pdf,rechnung,,,,"['35.170,96 €', '4507018802']",,,4507018802_00010,4507018802
+rechnungen/RE_4507018907_00010.pdf,rechnung,,,,"['38.174,01 €', '4507018907']",,,4507018907_00010,4507018907
+rechnungen/RE_4507019079_00010.pdf,rechnung,,,,"['42.026,04 €', '4507019079']",,,4507019079_00010,4507019079
+rechnungen/RE_4507019080_00010.pdf,rechnung,,,,"['42.025,94 €', '4507019080']",,,4507019080_00010,4507019080
+rechnungen/RE_4507019081_00010.pdf,rechnung,,,,"['42.026,04 €', '4507019081']",,,4507019081_00010,4507019081
+rechnungen/RE_4507019082_00010.pdf,rechnung,,,,"['42.026,08 €', '4507019082']",,,4507019082_00010,4507019082
+rechnungen/RE_4507019083_00010.pdf,rechnung,,,,"['42.026,10 €', '4507019083']",,,4507019083_00010,4507019083
+rechnungen/RE_4507019087_00010.pdf,rechnung,,,,"['42.026,06 €', '4507019087']",,,4507019087_00010,4507019087
+rechnungen/RE_4507019370_00010.pdf,rechnung,,,,"['49.384,08 €', '4507019370']",,,4507019370_00010,4507019370
+rechnungen/RE_4507019376_00010.pdf,rechnung,,,,"['38.174,08 €', '4507019376']",,,4507019376_00010,4507019376
+rechnungen/RE_4507019593_00010.pdf,rechnung,,,,"['42.025,94 €', '4507019593']",,,4507019593_00010,4507019593
+rechnungen/RE_4507019819_00010.pdf,rechnung,,,,"['37.095,00 €', '4507019819']",,,4507019819_00010,4507019819
+rechnungen/RE_4507019951_00010.pdf,rechnung,,,,"['34.501,94 €', '4507019951']",,,4507019951_00010,4507019951
+rechnungen/RE_4507020065_00010.pdf,rechnung,,,,"['35.270,04 €', '4507020065']",,,4507020065_00010,4507020065
+rechnungen/RE_4507020568_00010.pdf,rechnung,,,,"['18.888,06 €', '4507020568']",,,4507020568_00010,4507020568
+rechnungen/RE_4507020939_00010.pdf,rechnung,,,,"['2.727,00 €', '4507020939']",,,4507020939_00010,4507020939
+rechnungen/RE_4507020939_00020.pdf,rechnung,,,,"['129,00 €', '4507020939']",,,4507020939_00020,4507020939
+rechnungen/RE_4507021014_00010.pdf,rechnung,,,,"['109.493,01 €', '4507021014']",,,4507021014_00010,4507021014
+rechnungen/RE_4507021226_00010.pdf,rechnung,,,,"['43.317,96 €', '4507021226']",,,4507021226_00010,4507021226
+rechnungen/RE_4507021378_00050.pdf,rechnung,,,,"['27,00 €', '4507021378']",,,4507021378_00050,4507021378
+rechnungen/RE_4507021712_00010.pdf,rechnung,,,,"['21.387,00 €', '4507021712']",,,4507021712_00010,4507021712
+rechnungen/RE_4507022062_00010.pdf,rechnung,,,,"['54.746,00 €', '4507022062']",,,4507022062_00010,4507022062
+rechnungen/RE_4507022062_00020.pdf,rechnung,,,,"['36.497,01 €', '4507022062']",,,4507022062_00020,4507022062
+rechnungen/RE_4507022108_00010.pdf,rechnung,,,,"['129,00 €', '4507022108']",,,4507022108_00010,4507022108
+rechnungen/RE_4507022180_00050.pdf,rechnung,,,,"['12.410,01 €', '4507022180']",,,4507022180_00050,4507022180
+rechnungen/RE_4507022650_00010.pdf,rechnung,,,,"['21.387,00 €', '4507022650']",,,4507022650_00010,4507022650
+rechnungen/RE_4507023468_00010.pdf,rechnung,,,,"['18.887,96 €', '4507023468']",,,4507023468_00010,4507023468
+rechnungen/RE_4507023731_00010.pdf,rechnung,,,,"['21.387,04 €', '4507023731']",,,4507023731_00010,4507023731
+rechnungen/RE_4507023787_00010.pdf,rechnung,,,,"['25.546,95 €', '4507023787']",,,4507023787_00010,4507023787
+rechnungen/RE_4507023985_00010.pdf,rechnung,,,,"['34.174,00 €', '4507023985']",,,4507023985_00010,4507023985
+rechnungen/RE_4507023986_00010.pdf,rechnung,,,,"['16.453,97 €', '4507023986']",,,4507023986_00010,4507023986
+rechnungen/RE_4507024087_00010.pdf,rechnung,,,,"['33.647,88 €', '4507024087']",,,4507024087_00010,4507024087
+rechnungen/RE_4507024258_00010.pdf,rechnung,,,,"['55.826,94 €', '4507024258']",,,4507024258_00010,4507024258
+rechnungen/RE_4507024338_00010.pdf,rechnung,,,,"['86.682,12 €', '4507024338']",,,4507024338_00010,4507024338
+rechnungen/RE_4507025000_00010.pdf,rechnung,,,,"['30.829,97 €', '4507025000']",,,4507025000_00010,4507025000
+rechnungen/RE_4507025722_00010.pdf,rechnung,,,,"['33.462,95 €', '4507025722']",,,4507025722_00010,4507025722
+rechnungen/RE_4507026343_00010.pdf,rechnung,,,,"['44.997,96 €', '4507026343']",,,4507026343_00010,4507026343
+rechnungen/RE_4507026570_00010.pdf,rechnung,,,,"['33.530,06 €', '4507026570']",,,4507026570_00010,4507026570
+rechnungen/RE_4507026646_00010.pdf,rechnung,,,,"['33.543,00 €', '4507026646']",,,4507026646_00010,4507026646
+rechnungen/RE_4507026692_00010.pdf,rechnung,,,,"['30.830,01 €', '4507026692']",,,4507026692_00010,4507026692
+rechnungen/RE_4507027003_00010.pdf,rechnung,,,,"['33.549,13 €', '4507027003']",,,4507027003_00010,4507027003
+rechnungen/RE_4507027015_00010.pdf,rechnung,,,,"['33.549,12 €', '4507027015']",,,4507027015_00010,4507027015
+rechnungen/RE_4507027368_00010.pdf,rechnung,,,,"['107.955,05 €', '4507027368']",,,4507027368_00010,4507027368
+rechnungen/RE_4507027758_00010.pdf,rechnung,,,,"['30.830,00 €', '4507027758']",,,4507027758_00010,4507027758
+rechnungen/RE_4507028144_00010.pdf,rechnung,,,,"['33.463,10 €', '4507028144']",,,4507028144_00010,4507028144
+rechnungen/RE_4507028436_00010.pdf,rechnung,,,,"['1.385,02 €', '4507028436']",,,4507028436_00010,4507028436
+rechnungen/RE_4507028436_00020.pdf,rechnung,,,,"['129,00 €', '4507028436']",,,4507028436_00020,4507028436
+rechnungen/RE_4507028436_00030.pdf,rechnung,,,,"['2.532,99 €', '4507028436']",,,4507028436_00030,4507028436
+rechnungen/RE_4507028436_00040.pdf,rechnung,,,,"['129,00 €', '4507028436']",,,4507028436_00040,4507028436
+rechnungen/RE_4507028436_00050.pdf,rechnung,,,,"['3.117,00 €', '4507028436']",,,4507028436_00050,4507028436
+rechnungen/RE_4507028935_00010.pdf,rechnung,,,,"['21.387,04 €', '4507028935']",,,4507028935_00010,4507028935
+rechnungen/RE_4507029517_00010.pdf,rechnung,,,,"['33.463,00 €', '4507029517']",,,4507029517_00010,4507029517
+rechnungen/RE_4507029969_00010.pdf,rechnung,,,,"['86.682,12 €', '4507029969']",,,4507029969_00010,4507029969
+rechnungen/RE_4507029969_00020.pdf,rechnung,,,,"['4.562,00 €', '4507029969']",,,4507029969_00020,4507029969
+rechnungen/RE_4507030152_00010.pdf,rechnung,,,,"['107.955,05 €', '4507030152']",,,4507030152_00010,4507030152
+rechnungen/RE_4507030153_00010.pdf,rechnung,,,,"['107.955,00 €', '4507030153']",,,4507030153_00010,4507030153
+rechnungen/RE_4507030897_00010.pdf,rechnung,,,,"['45.663,02 €', '4507030897']",,,4507030897_00010,4507030897
+rechnungen/RE_4507031061_00010.pdf,rechnung,,,,"['22.811,04 €', '4507031061']",,,4507031061_00010,4507031061
+rechnungen/RE_4507031061_00020.pdf,rechnung,,,,"['86.681,92 €', '4507031061']",,,4507031061_00020,4507031061
+rechnungen/RE_4507031559_00010.pdf,rechnung,,,,"['46.348,80 €', '4507031559']",,,4507031559_00010,4507031559
+rechnungen/RE_4507031575_00010.pdf,rechnung,,,,"['33.124,98 €', '4507031575']",,,4507031575_00010,4507031575
+rechnungen/RE_4507032258_00010.pdf,rechnung,,,,"['55.618,86 €', '4507032258']",,,4507032258_00010,4507032258
+rechnungen/RE_4507032422_00010.pdf,rechnung,,,,"['25.547,04 €', '4507032422']",,,4507032422_00010,4507032422
+rechnungen/RE_4507032456_00010.pdf,rechnung,,,,"['45.662,94 €', '4507032456']",,,4507032456_00010,4507032456
+rechnungen/RE_4507032776_00010.pdf,rechnung,,,,"['33.462,99 €', '4507032776']",,,4507032776_00010,4507032776
+rechnungen/RE_4507033154_00010.pdf,rechnung,,,,"['43.144,95 €', '4507033154']",,,4507033154_00010,4507033154
+rechnungen/RE_4507033377_00010.pdf,rechnung,,,,"['22.196,02 €', '4507033377']",,,4507033377_00010,4507033377
+rechnungen/RE_4507033411_00010.pdf,rechnung,,,,"['63.870,96 €', '4507033411']",,,4507033411_00010,4507033411
+rechnungen/RE_4507033411_00020.pdf,rechnung,,,,"['27.372,96 €', '4507033411']",,,4507033411_00020,4507033411
+rechnungen/RE_4507033801_00010.pdf,rechnung,,,,"['33.125,12 €', '4507033801']",,,4507033801_00010,4507033801
+rechnungen/RE_4507034826_00010.pdf,rechnung,,,,"['45.123,12 €', '4507034826']",,,4507034826_00010,4507034826
+rechnungen/RE_4507034839_00010.pdf,rechnung,,,,"['45.122,94 €', '4507034839']",,,4507034839_00010,4507034839
+rechnungen/RE_4507035199_00010.pdf,rechnung,,,,"['44.998,08 €', '4507035199']",,,4507035199_00010,4507035199
+rechnungen/RE_4507035268_00010.pdf,rechnung,,,,"['35.666,00 €', '4507035268']",,,4507035268_00010,4507035268
+rechnungen/RE_4507035307_00010.pdf,rechnung,,,,"['33.125,04 €', '4507035307']",,,4507035307_00010,4507035307
+rechnungen/RE_4507035767_00030.pdf,rechnung,,,,"['133.811,04 €', '4507035767']",,,4507035767_00030,4507035767
+rechnungen/RE_4507036656_00010.pdf,rechnung,,,,"['109.492,80 €', '4507036656']",,,4507036656_00010,4507036656
+rechnungen/RE_4507037595_00010.pdf,rechnung,,,,"['41.059,04 €', '4507037595']",,,4507037595_00010,4507037595
+rechnungen/RE_4507037839_00010.pdf,rechnung,,,,"['43.665,00 €', '4507037839']",,,4507037839_00010,4507037839
+rechnungen/RE_4507038363_00010.pdf,rechnung,,,,"['46.158,98 €', '4507038363']",,,4507038363_00010,4507038363
+rechnungen/RE_4507038513_00010.pdf,rechnung,,,,"['49.584,80 €', '4507038513']",,,4507038513_00010,4507038513
+rechnungen/RE_4507038554_00010.pdf,rechnung,,,,"['10.096,03 €', '4507038554']",,,4507038554_00010,4507038554
+rechnungen/RE_4507038769_00010.pdf,rechnung,,,,"['133.811,20 €', '4507038769']",,,4507038769_00010,4507038769
+rechnungen/RE_4507038854_00010.pdf,rechnung,,,,"['22.811,00 €', '4507038854']",,,4507038854_00010,4507038854
+rechnungen/RE_4507038854_00020.pdf,rechnung,,,,"['63.871,06 €', '4507038854']",,,4507038854_00020,4507038854
+rechnungen/RE_4507039088_00010.pdf,rechnung,,,,"['35.666,15 €', '4507039088']",,,4507039088_00010,4507039088
+rechnungen/RE_4507039790_00010.pdf,rechnung,,,,"['32.389,06 €', '4507039790']",,,4507039790_00010,4507039790
+rechnungen/RE_4507040309_00010.pdf,rechnung,,,,"['129.197,04 €', '4507040309']",,,4507040309_00010,4507040309
+rechnungen/RE_4507040312_00020.pdf,rechnung,,,,"['129.196,78 €', '4507040312']",,,4507040312_00020,4507040312
+rechnungen/RE_4507040314_00030.pdf,rechnung,,,,"['129.196,89 €', '4507040314']",,,4507040314_00030,4507040314
+rechnungen/RE_4507040472_00010.pdf,rechnung,,,,"['55.619,07 €', '4507040472']",,,4507040472_00010,4507040472
+rechnungen/RE_4507040611_00010.pdf,rechnung,,,,"['6.754,00 €', '4507040611']",,,4507040611_00010,4507040611
+rechnungen/RE_4507040611_00020.pdf,rechnung,,,,"['26.188,11 €', '4507040611']",,,4507040611_00020,4507040611
+rechnungen/RE_4507040672_00010.pdf,rechnung,,,,"['71.970,00 €', '4507040672']",,,4507040672_00010,4507040672
+rechnungen/RE_4507041417_00010.pdf,rechnung,,,,"['21.495,98 €', '4507041417']",,,4507041417_00010,4507041417
+rechnungen/RE_4507041491_00010.pdf,rechnung,,,,"['44.997,98 €', '4507041491']",,,4507041491_00010,4507041491
+rechnungen/RE_4507041544_00120.pdf,rechnung,,,,"['126,00 €', '4507041544']",,,4507041544_00120,4507041544
+rechnungen/RE_4507041562_00010.pdf,rechnung,,,,"['129.197,12 €', '4507041562']",,,4507041562_00010,4507041562
+rechnungen/RE_4507041835_00010.pdf,rechnung,,,,"['129.196,86 €', '4507041835']",,,4507041835_00010,4507041835
+rechnungen/RE_4507041836_00020.pdf,rechnung,,,,"['129.197,20 €', '4507041836']",,,4507041836_00020,4507041836
+rechnungen/RE_4507041837_00030.pdf,rechnung,,,,"['129.196,80 €', '4507041837']",,,4507041837_00030,4507041837
+rechnungen/RE_4507041892_00010.pdf,rechnung,,,,"['35.000,94 €', '4507041892']",,,4507041892_00010,4507041892
+rechnungen/RE_4507041960_00010.pdf,rechnung,,,,"['36.496,96 €', '4507041960']",,,4507041960_00010,4507041960
+rechnungen/RE_4507041960_00020.pdf,rechnung,,,,"['50.184,00 €', '4507041960']",,,4507041960_00020,4507041960
+rechnungen/RE_4508042334_00010.pdf,rechnung,,,,"['1.385,00 €', '4508042334']",,,4508042334_00010,4508042334
+rechnungen/RE_4508042334_00020.pdf,rechnung,,,,"['129,00 €', '4508042334']",,,4508042334_00020,4508042334
+rechnungen/RE_4508042335_00020.pdf,rechnung,,,,"['129,00 €', '4508042335']",,,4508042335_00020,4508042335
+rechnungen/RE_4508042337_00020.pdf,rechnung,,,,"['129,00 €', '4508042337']",,,4508042337_00020,4508042337
+rechnungen/RE_4508042339_00020.pdf,rechnung,,,,"['129,00 €', '4508042339']",,,4508042339_00020,4508042339
+rechnungen/RE_4508042444_00010.pdf,rechnung,,,,"['133.811,25 €', '4508042444']",,,4508042444_00010,4508042444
+rechnungen/RE_4508042988_00010.pdf,rechnung,,,,"['133.810,84 €', '4508042988']",,,4508042988_00010,4508042988
+rechnungen/RE_4508043433_00020.pdf,rechnung,,,,"['21.496,02 €', '4508043433']",,,4508043433_00020,4508043433
+rechnungen/RE_4508043613_00010.pdf,rechnung,,,,"['133.810,80 €', '4508043613']",,,4508043613_00010,4508043613
+rechnungen/RE_4508044128_00010.pdf,rechnung,,,,"['129.197,04 €', '4508044128']",,,4508044128_00010,4508044128
+rechnungen/RE_4508044178_00010.pdf,rechnung,,,,"['3.090,99 €', '4508044178']",,,4508044178_00010,4508044178
+rechnungen/RE_4508044178_00020.pdf,rechnung,,,,"['129,00 €', '4508044178']",,,4508044178_00020,4508044178
+rechnungen/RE_4508044180_00010.pdf,rechnung,,,,"['3.091,00 €', '4508044180']",,,4508044180_00010,4508044180
+rechnungen/RE_4508044180_00020.pdf,rechnung,,,,"['129,00 €', '4508044180']",,,4508044180_00020,4508044180
+rechnungen/RE_4508044183_00010.pdf,rechnung,,,,"['2.061,15 €', '4508044183']",,,4508044183_00010,4508044183
+rechnungen/RE_4508044183_00020.pdf,rechnung,,,,"['129,00 €', '4508044183']",,,4508044183_00020,4508044183
+rechnungen/RE_4508044796_00010.pdf,rechnung,,,,"['56.201,04 €', '4508044796']",,,4508044796_00010,4508044796
+rechnungen/RE_4508044827_00010.pdf,rechnung,,,,"['35.000,97 €', '4508044827']",,,4508044827_00010,4508044827
+rechnungen/RE_4508044845_00010.pdf,rechnung,,,,"['8.038,05 €', '4508044845']",,,4508044845_00010,4508044845
+rechnungen/RE_4508044964_00010.pdf,rechnung,,,,"['40.310,97 €', '4508044964']",,,4508044964_00010,4508044964
+rechnungen/RE_4508045101_00010.pdf,rechnung,,,,"['129.197,20 €', '4508045101']",,,4508045101_00010,4508045101
+rechnungen/RE_4508045102_00020.pdf,rechnung,,,,"['129.196,96 €', '4508045102']",,,4508045102_00020,4508045102
+rechnungen/RE_4508045321_00010.pdf,rechnung,,,,"['55.370,00 €', '4508045321']",,,4508045321_00010,4508045321
+rechnungen/RE_4508045321_00020.pdf,rechnung,,,,"['36.912,95 €', '4508045321']",,,4508045321_00020,4508045321
+rechnungen/RE_4508045500_00010.pdf,rechnung,,,,"['35.001,00 €', '4508045500']",,,4508045500_00010,4508045500
+rechnungen/RE_4508045656_00010.pdf,rechnung,,,,"['107.955,20 €', '4508045656']",,,4508045656_00010,4508045656
+rechnungen/RE_4508046046_00010.pdf,rechnung,,,,"['129.196,98 €', '4508046046']",,,4508046046_00010,4508046046
+rechnungen/RE_4508046047_00020.pdf,rechnung,,,,"['129.196,98 €', '4508046047']",,,4508046047_00020,4508046047
+rechnungen/RE_4508046048_00030.pdf,rechnung,,,,"['133.810,80 €', '4508046048']",,,4508046048_00030,4508046048
+rechnungen/RE_4508046051_00040.pdf,rechnung,,,,"['129.196,77 €', '4508046051']",,,4508046051_00040,4508046051
+rechnungen/RE_4508046052_00050.pdf,rechnung,,,,"['129.197,00 €', '4508046052']",,,4508046052_00050,4508046052
+rechnungen/RE_4508046585_00010.pdf,rechnung,,,,"['107.955,10 €', '4508046585']",,,4508046585_00010,4508046585
+rechnungen/RE_4508046626_00080.pdf,rechnung,,,,"['126,00 €', '4508046626']",,,4508046626_00080,4508046626
+rechnungen/RE_4508046681_00010.pdf,rechnung,,,,"['133.810,92 €', '4508046681']",,,4508046681_00010,4508046681
+rechnungen/RE_4508046690_00010.pdf,rechnung,,,,"['129.196,80 €', '4508046690']",,,4508046690_00010,4508046690
+rechnungen/RE_4508047191_00010.pdf,rechnung,,,,"['107.955,05 €', '4508047191']",,,4508047191_00010,4508047191
+rechnungen/RE_4508047294_00010.pdf,rechnung,,,,"['129.197,00 €', '4508047294']",,,4508047294_00010,4508047294
+rechnungen/RE_4508047385_00010.pdf,rechnung,,,,"['35.001,14 €', '4508047385']",,,4508047385_00010,4508047385
+rechnungen/RE_4508048709_00010.pdf,rechnung,,,,"['133.811,25 €', '4508048709']",,,4508048709_00010,4508048709
+rechnungen/RE_4508048711_00010.pdf,rechnung,,,,"['133.810,84 €', '4508048711']",,,4508048711_00010,4508048711
+rechnungen/RE_4508048712_00010.pdf,rechnung,,,,"['133.811,10 €', '4508048712']",,,4508048712_00010,4508048712
+rechnungen/RE_4508048747_00010.pdf,rechnung,,,,"['56.200,95 €', '4508048747']",,,4508048747_00010,4508048747
+rechnungen/RE_4508049018_00010.pdf,rechnung,,,,"['44.824,92 €', '4508049018']",,,4508049018_00010,4508049018
+rechnungen/RE_4508049212_00010.pdf,rechnung,,,,"['133.811,25 €', '4508049212']",,,4508049212_00010,4508049212
+rechnungen/RE_4508049804_00010.pdf,rechnung,,,,"['133.810,82 €', '4508049804']",,,4508049804_00010,4508049804
+rechnungen/RE_4508049805_00010.pdf,rechnung,,,,"['133.811,16 €', '4508049805']",,,4508049805_00010,4508049805
+rechnungen/RE_4508049806_00020.pdf,rechnung,,,,"['133.811,15 €', '4508049806']",,,4508049806_00020,4508049806
+rechnungen/RE_4508050454_00010.pdf,rechnung,,,,"['133.810,92 €', '4508050454']",,,4508050454_00010,4508050454
+rechnungen/RE_4508050458_00010.pdf,rechnung,,,,"['133.811,16 €', '4508050458']",,,4508050458_00010,4508050458
+rechnungen/RE_4508050459_00010.pdf,rechnung,,,,"['133.811,16 €', '4508050459']",,,4508050459_00010,4508050459
+rechnungen/RE_4508050731_00010.pdf,rechnung,,,,"['133.810,82 €', '4508050731']",,,4508050731_00010,4508050731
+rechnungen/RE_4508050740_00040.pdf,rechnung,,,,"['12.488,00 €', '4508050740']",,,4508050740_00040,4508050740
+rechnungen/RE_4508051379_00010.pdf,rechnung,,,,"['86.682,12 €', '4508051379']",,,4508051379_00010,4508051379
+rechnungen/RE_4508051379_00020.pdf,rechnung,,,,"['22.811,04 €', '4508051379']",,,4508051379_00020,4508051379
+rechnungen/RE_4508051508_00010.pdf,rechnung,,,,"['2.208,00 €', '4508051508']",,,4508051508_00010,4508051508
+rechnungen/RE_4508051508_00020.pdf,rechnung,,,,"['129,00 €', '4508051508']",,,4508051508_00020,4508051508
+rechnungen/RE_4508051516_00010.pdf,rechnung,,,,"['1.948,00 €', '4508051516']",,,4508051516_00010,4508051516
+rechnungen/RE_4508051516_00020.pdf,rechnung,,,,"['129,00 €', '4508051516']",,,4508051516_00020,4508051516
+rechnungen/RE_4508051517_00010.pdf,rechnung,,,,"['3.117,00 €', '4508051517']",,,4508051517_00010,4508051517
+rechnungen/RE_4508051517_00020.pdf,rechnung,,,,"['129,00 €', '4508051517']",,,4508051517_00020,4508051517
+rechnungen/RE_4508051518_00010.pdf,rechnung,,,,"['2.727,00 €', '4508051518']",,,4508051518_00010,4508051518
+rechnungen/RE_4508051518_00020.pdf,rechnung,,,,"['129,00 €', '4508051518']",,,4508051518_00020,4508051518
+rechnungen/RE_4508051570_00010.pdf,rechnung,,,,"['133.810,84 €', '4508051570']",,,4508051570_00010,4508051570
+rechnungen/RE_4508051571_00010.pdf,rechnung,,,,"['133.810,88 €', '4508051571']",,,4508051571_00010,4508051571
+rechnungen/RE_4508051572_00020.pdf,rechnung,,,,"['133.810,88 €', '4508051572']",,,4508051572_00020,4508051572
+rechnungen/RE_4508051578_00010.pdf,rechnung,,,,"['56.200,80 €', '4508051578']",,,4508051578_00010,4508051578
+rechnungen/RE_4508051849_00010.pdf,rechnung,,,,"['133.811,16 €', '4508051849']",,,4508051849_00010,4508051849
+rechnungen/RE_4508051948_00010.pdf,rechnung,,,,"['36.718,88 €', '4508051948']",,,4508051948_00010,4508051948
+rechnungen/RE_4508051998_00010.pdf,rechnung,,,,"['2.061,00 €', '4508051998']",,,4508051998_00010,4508051998
+rechnungen/RE_4508051998_00020.pdf,rechnung,,,,"['129,00 €', '4508051998']",,,4508051998_00020,4508051998
+rechnungen/RE_4508052137_00010.pdf,rechnung,,,,"['133.811,16 €', '4508052137']",,,4508052137_00010,4508052137
+rechnungen/RE_4508052465_00010.pdf,rechnung,,,,"['133.810,88 €', '4508052465']",,,4508052465_00010,4508052465
+rechnungen/RE_4508053076_00010.pdf,rechnung,,,,"['25.547,00 €', '4508053076']",,,4508053076_00010,4508053076
+rechnungen/RE_4508053154_00010.pdf,rechnung,,,,"['133.810,92 €', '4508053154']",,,4508053154_00010,4508053154
+rechnungen/RE_4508053155_00010.pdf,rechnung,,,,"['133.810,80 €', '4508053155']",,,4508053155_00010,4508053155
+rechnungen/RE_4508053156_00010.pdf,rechnung,,,,"['133.810,82 €', '4508053156']",,,4508053156_00010,4508053156
+rechnungen/RE_4508053157_00010.pdf,rechnung,,,,"['133.810,92 €', '4508053157']",,,4508053157_00010,4508053157
+rechnungen/RE_4508053159_00020.pdf,rechnung,,,,"['133.811,22 €', '4508053159']",,,4508053159_00020,4508053159
+rechnungen/RE_4508053160_00010.pdf,rechnung,,,,"['132.241,98 €', '4508053160']",,,4508053160_00010,4508053160
+rechnungen/RE_4508053161_00010.pdf,rechnung,,,,"['133.810,92 €', '4508053161']",,,4508053161_00010,4508053161
+rechnungen/RE_4508054425_00010.pdf,rechnung,,,,"['36.719,04 €', '4508054425']",,,4508054425_00010,4508054425
+rechnungen/RE_4508057119_00010.pdf,rechnung,,,,"['50.321,16 €', '4508057119']",,,4508057119_00010,4508057119
+rechnungen/RE_4508057120_00010.pdf,rechnung,,,,"['50.320,92 €', '4508057120']",,,4508057120_00010,4508057120
+rechnungen/RE_4508057121_00010.pdf,rechnung,,,,"['50.321,04 €', '4508057121']",,,4508057121_00010,4508057121
+rechnungen/RE_4508057378_00010.pdf,rechnung,,,,"['110.739,89 €', '4508057378']",,,4508057378_00010,4508057378
+rechnungen/RE_4508057704_00010.pdf,rechnung,,,,"['49.858,09 €', '4508057704']",,,4508057704_00010,4508057704
+rechnungen/RE_4508057705_00010.pdf,rechnung,,,,"['49.858,08 €', '4508057705']",,,4508057705_00010,4508057705
+rechnungen/RE_4508057706_00010.pdf,rechnung,,,,"['49.857,99 €', '4508057706']",,,4508057706_00010,4508057706
+rechnungen/RE_4508057859_00010.pdf,rechnung,,,,"['107.954,88 €', '4508057859']",,,4508057859_00010,4508057859
+auftragsbestaetigungen/AB_4507000380_00010.pdf,auftragsbestaetigung,,,,"['2.147,37 €', '4507000380']",,,4507000380_00010,4507000380
+auftragsbestaetigungen/AB_4507000732_00010.pdf,auftragsbestaetigung,,,,"['3.258,30 €', '4507000732']",,,4507000732_00010,4507000732
+auftragsbestaetigungen/AB_4507000733_00010.pdf,auftragsbestaetigung,,,,"['3.072,40 €', '4507000733']",,,4507000733_00010,4507000733
+auftragsbestaetigungen/AB_4507000734_00010.pdf,auftragsbestaetigung,,,,"['2.206,60 €', '4507000734']",,,4507000734_00010,4507000734
+auftragsbestaetigungen/AB_4507000735_00010.pdf,auftragsbestaetigung,,,,"['3.215,40 €', '4507000735']",,,4507000735_00010,4507000735
+auftragsbestaetigungen/AB_4507000736_00010.pdf,auftragsbestaetigung,,,,"['2.418,50 €', '4507000736']",,,4507000736_00010,4507000736
+auftragsbestaetigungen/AB_4507000737_00010.pdf,auftragsbestaetigung,,,,"['2.583,60 €', '4507000737']",,,4507000737_00010,4507000737
+auftragsbestaetigungen/AB_4507000738_00010.pdf,auftragsbestaetigung,,,,"['2.545,90 €', '4507000738']",,,4507000738_00010,4507000738
+auftragsbestaetigungen/AB_4507000739_00010.pdf,auftragsbestaetigung,,,,"['3.116,60 €', '4507000739']",,,4507000739_00010,4507000739
+auftragsbestaetigungen/AB_4507000740_00010.pdf,auftragsbestaetigung,,,,"['3.108,80 €', '4507000740']",,,4507000740_00010,4507000740
+auftragsbestaetigungen/AB_4507000741_00010.pdf,auftragsbestaetigung,,,,"['2.670,70 €', '4507000741']",,,4507000741_00010,4507000741
+auftragsbestaetigungen/AB_4507000742_00010.pdf,auftragsbestaetigung,,,,"['2.454,90 €', '4507000742']",,,4507000742_00010,4507000742
+auftragsbestaetigungen/AB_4507000743_00010.pdf,auftragsbestaetigung,,,,"['3.221,90 €', '4507000743']",,,4507000743_00010,4507000743
+auftragsbestaetigungen/AB_4507000744_00010.pdf,auftragsbestaetigung,,,,"['2.932,00 €', '4507000744']",,,4507000744_00010,4507000744
+auftragsbestaetigungen/AB_4507000769_00010.pdf,auftragsbestaetigung,,,,"['3.234,90 €', '4507000769']",,,4507000769_00010,4507000769
+auftragsbestaetigungen/AB_4507000771_00010.pdf,auftragsbestaetigung,,,,"['2.614,80 €', '4507000771']",,,4507000771_00010,4507000771
+auftragsbestaetigungen/AB_4507000772_00010.pdf,auftragsbestaetigung,,,,"['2.612,20 €', '4507000772']",,,4507000772_00010,4507000772
+auftragsbestaetigungen/AB_4507000773_00010.pdf,auftragsbestaetigung,,,,"['2.739,60 €', '4507000773']",,,4507000773_00010,4507000773
+auftragsbestaetigungen/AB_4507000774_00010.pdf,auftragsbestaetigung,,,,"['2.231,30 €', '4507000774']",,,4507000774_00010,4507000774
+auftragsbestaetigungen/AB_4507000776_00010.pdf,auftragsbestaetigung,,,,"['2.769,50 €', '4507000776']",,,4507000776_00010,4507000776
+auftragsbestaetigungen/AB_4507000777_00010.pdf,auftragsbestaetigung,,,,"['3.093,20 €', '4507000777']",,,4507000777_00010,4507000777
+auftragsbestaetigungen/AB_4507000778_00010.pdf,auftragsbestaetigung,,,,"['3.147,80 €', '4507000778']",,,4507000778_00010,4507000778
+auftragsbestaetigungen/AB_4507000779_00010.pdf,auftragsbestaetigung,,,,"['3.080,20 €', '4507000779']",,,4507000779_00010,4507000779
+auftragsbestaetigungen/AB_4507000780_00010.pdf,auftragsbestaetigung,,,,"['2.755,20 €', '4507000780']",,,4507000780_00010,4507000780
+auftragsbestaetigungen/AB_4507000781_00010.pdf,auftragsbestaetigung,,,,"['2.898,20 €', '4507000781']",,,4507000781_00010,4507000781
+auftragsbestaetigungen/AB_4507000782_00010.pdf,auftragsbestaetigung,,,,"['2.414,60 €', '4507000782']",,,4507000782_00010,4507000782
+auftragsbestaetigungen/AB_4507000783_00010.pdf,auftragsbestaetigung,,,,"['2.779,90 €', '4507000783']",,,4507000783_00010,4507000783
+auftragsbestaetigungen/AB_4507000939_00010.pdf,auftragsbestaetigung,,,,"['1.654,10 €', '4507000939']",,,4507000939_00010,4507000939
+auftragsbestaetigungen/AB_4507004290_00010.pdf,auftragsbestaetigung,,,,"['2.168,17 €', '4507004290']",,,4507004290_00010,4507004290
+auftragsbestaetigungen/AB_4507004290_00020.pdf,auftragsbestaetigung,,,,"['976,72 €', '4507004290']",,,4507004290_00020,4507004290
+auftragsbestaetigungen/AB_4507004290_00030.pdf,auftragsbestaetigung,,,,"['278,54 €', '4507004290']",,,4507004290_00030,4507004290
+auftragsbestaetigungen/AB_4507008691_00020.pdf,auftragsbestaetigung,,,,"['2.029,42 €', '4507008691']",,,4507008691_00020,4507008691
+auftragsbestaetigungen/AB_4507009331_00010.pdf,auftragsbestaetigung,,,,"['2.005,71 €', '4507009331']",,,4507009331_00010,4507009331
+auftragsbestaetigungen/AB_4507009919_00010.pdf,auftragsbestaetigung,,,,"['1.321,04 €', '4507009919']",,,4507009919_00010,4507009919
+auftragsbestaetigungen/AB_4507010720_00010.pdf,auftragsbestaetigung,,,,"['3.368,80 €', '4507010720']",,,4507010720_00010,4507010720
+auftragsbestaetigungen/AB_4507010721_00010.pdf,auftragsbestaetigung,,,,"['2.601,80 €', '4507010721']",,,4507010721_00010,4507010721
+auftragsbestaetigungen/AB_4507010722_00010.pdf,auftragsbestaetigung,,,,"['2.649,90 €', '4507010722']",,,4507010722_00010,4507010722
+auftragsbestaetigungen/AB_4507010723_00010.pdf,auftragsbestaetigung,,,,"['2.591,40 €', '4507010723']",,,4507010723_00010,4507010723
+auftragsbestaetigungen/AB_4507010724_00010.pdf,auftragsbestaetigung,,,,"['2.161,10 €', '4507010724']",,,4507010724_00010,4507010724
+auftragsbestaetigungen/AB_4507010725_00010.pdf,auftragsbestaetigung,,,,"['3.114,00 €', '4507010725']",,,4507010725_00010,4507010725
+auftragsbestaetigungen/AB_4507010726_00010.pdf,auftragsbestaetigung,,,,"['2.714,90 €', '4507010726']",,,4507010726_00010,4507010726
+auftragsbestaetigungen/AB_4507010727_00010.pdf,auftragsbestaetigung,,,,"['2.496,50 €', '4507010727']",,,4507010727_00010,4507010727
+auftragsbestaetigungen/AB_4507010728_00010.pdf,auftragsbestaetigung,,,,"['2.482,20 €', '4507010728']",,,4507010728_00010,4507010728
+auftragsbestaetigungen/AB_4507010730_00010.pdf,auftragsbestaetigung,,,,"['2.231,30 €', '4507010730']",,,4507010730_00010,4507010730
+auftragsbestaetigungen/AB_4507010731_00010.pdf,auftragsbestaetigung,,,,"['2.664,20 €', '4507010731']",,,4507010731_00010,4507010731
+auftragsbestaetigungen/AB_4507010732_00010.pdf,auftragsbestaetigung,,,,"['2.610,90 €', '4507010732']",,,4507010732_00010,4507010732
+auftragsbestaetigungen/AB_4507010733_00010.pdf,auftragsbestaetigung,,,,"['2.981,40 €', '4507010733']",,,4507010733_00010,4507010733
+auftragsbestaetigungen/AB_4507012486_00010.pdf,auftragsbestaetigung,,,,"['917,58 €', '4507012486']",,,4507012486_00010,4507012486
+auftragsbestaetigungen/AB_4507013709_00010.pdf,auftragsbestaetigung,,,,"['1.975,44 €', '4507013709']",,,4507013709_00010,4507013709
+auftragsbestaetigungen/AB_4507014380_00010.pdf,auftragsbestaetigung,,,,"['1.406,88 €', '4507014380']",,,4507014380_00010,4507014380
+auftragsbestaetigungen/AB_4507014381_00010.pdf,auftragsbestaetigung,,,,"['1.576,43 €', '4507014381']",,,4507014381_00010,4507014381
+auftragsbestaetigungen/AB_4507014382_00010.pdf,auftragsbestaetigung,,,,"['1.962,42 €', '4507014382']",,,4507014382_00010,4507014382
+auftragsbestaetigungen/AB_4507014996_00020.pdf,auftragsbestaetigung,,,,"['145,08 €', '4507014996']",,,4507014996_00020,4507014996
+auftragsbestaetigungen/AB_4507015748_00010.pdf,auftragsbestaetigung,,,,"['2.126,00 €', '4507015748']",,,4507015748_00010,4507015748
+auftragsbestaetigungen/AB_4507017348_00010.pdf,auftragsbestaetigung,,,,"['2.215,70 €', '4507017348']",,,4507017348_00010,4507017348
+auftragsbestaetigungen/AB_4507017349_00010.pdf,auftragsbestaetigung,,,,"['2.339,20 €', '4507017349']",,,4507017349_00010,4507017349
+auftragsbestaetigungen/AB_4507017412_00010.pdf,auftragsbestaetigung,,,,"['2.386,00 €', '4507017412']",,,4507017412_00010,4507017412
+auftragsbestaetigungen/AB_4507017413_00010.pdf,auftragsbestaetigung,,,,"['2.608,30 €', '4507017413']",,,4507017413_00010,4507017413
+auftragsbestaetigungen/AB_4507017414_00010.pdf,auftragsbestaetigung,,,,"['2.486,10 €', '4507017414']",,,4507017414_00010,4507017414
+auftragsbestaetigungen/AB_4507017415_00010.pdf,auftragsbestaetigung,,,,"['2.248,20 €', '4507017415']",,,4507017415_00010,4507017415
+auftragsbestaetigungen/AB_4507017416_00010.pdf,auftragsbestaetigung,,,,"['2.720,10 €', '4507017416']",,,4507017416_00010,4507017416
+auftragsbestaetigungen/AB_4507017417_00010.pdf,auftragsbestaetigung,,,,"['2.837,10 €', '4507017417']",,,4507017417_00010,4507017417
+auftragsbestaetigungen/AB_4507017418_00010.pdf,auftragsbestaetigung,,,,"['3.180,30 €', '4507017418']",,,4507017418_00010,4507017418
+auftragsbestaetigungen/AB_4507017419_00010.pdf,auftragsbestaetigung,,,,"['2.807,20 €', '4507017419']",,,4507017419_00010,4507017419
+auftragsbestaetigungen/AB_4507017420_00010.pdf,auftragsbestaetigung,,,,"['2.925,50 €', '4507017420']",,,4507017420_00010,4507017420
+auftragsbestaetigungen/AB_4507017421_00010.pdf,auftragsbestaetigung,,,,"['2.682,40 €', '4507017421']",,,4507017421_00010,4507017421
+auftragsbestaetigungen/AB_4507017422_00010.pdf,auftragsbestaetigung,,,,"['2.746,10 €', '4507017422']",,,4507017422_00010,4507017422
+auftragsbestaetigungen/AB_4507018652_00010.pdf,auftragsbestaetigung,,,,"['1.305,94 €', '4507018652']",,,4507018652_00010,4507018652
+auftragsbestaetigungen/AB_4507018653_00010.pdf,auftragsbestaetigung,,,,"['1.958,91 €', '4507018653']",,,4507018653_00010,4507018653
+auftragsbestaetigungen/AB_4507018917_00050.pdf,auftragsbestaetigung,,,,"['1.422,47 €', '4507018917']",,,4507018917_00050,4507018917
+auftragsbestaetigungen/AB_4507021226_00010.pdf,auftragsbestaetigung,,,,"['1.031,38 €', '4507021226']",,,4507021226_00010,4507021226
+auftragsbestaetigungen/AB_4507021712_00010.pdf,auftragsbestaetigung,,,,"['1.352,75 €', '4507021712']",,,4507021712_00010,4507021712
+auftragsbestaetigungen/AB_4507022250_00010.pdf,auftragsbestaetigung,,,,"['3.325,90 €', '4507022250']",,,4507022250_00010,4507022250
+auftragsbestaetigungen/AB_4507022251_00010.pdf,auftragsbestaetigung,,,,"['2.647,30 €', '4507022251']",,,4507022251_00010,4507022251
+auftragsbestaetigungen/AB_4507022650_00010.pdf,auftragsbestaetigung,,,,"['965,12 €', '4507022650']",,,4507022650_00010,4507022650
+auftragsbestaetigungen/AB_4507022920_00010.pdf,auftragsbestaetigung,,,,"['1.342,08 €', '4507022920']",,,4507022920_00010,4507022920
+auftragsbestaetigungen/AB_4507023211_00010.pdf,auftragsbestaetigung,,,,"['3.275,44 €', '4507023211']",,,4507023211_00010,4507023211
+auftragsbestaetigungen/AB_4507023225_00010.pdf,auftragsbestaetigung,,,,"['2.456,58 €', '4507023225']",,,4507023225_00010,4507023225
+auftragsbestaetigungen/AB_4507023731_00010.pdf,auftragsbestaetigung,,,,"['1.198,83 €', '4507023731']",,,4507023731_00010,4507023731
+auftragsbestaetigungen/AB_4507023949_00010.pdf,auftragsbestaetigung,,,,"['2.740,90 €', '4507023949']",,,4507023949_00010,4507023949
+auftragsbestaetigungen/AB_4507023950_00010.pdf,auftragsbestaetigung,,,,"['3.055,50 €', '4507023950']",,,4507023950_00010,4507023950
+auftragsbestaetigungen/AB_4507023985_00010.pdf,auftragsbestaetigung,,,,"['1.524,26 €', '4507023985']",,,4507023985_00010,4507023985
+auftragsbestaetigungen/AB_4507023986_00010.pdf,auftragsbestaetigung,,,,"['1.203,13 €', '4507023986']",,,4507023986_00010,4507023986
+auftragsbestaetigungen/AB_4507024428_00010.pdf,auftragsbestaetigung,,,,"['2.195,08 €', '4507024428']",,,4507024428_00010,4507024428
+auftragsbestaetigungen/AB_4507026179_00010.pdf,auftragsbestaetigung,,,,"['1.425,66 €', '4507026179']",,,4507026179_00010,4507026179
+auftragsbestaetigungen/AB_4507026287_00010.pdf,auftragsbestaetigung,,,,"['3.107,50 €', '4507026287']",,,4507026287_00010,4507026287
+auftragsbestaetigungen/AB_4507026288_00010.pdf,auftragsbestaetigung,,,,"['2.319,70 €', '4507026288']",,,4507026288_00010,4507026288
+auftragsbestaetigungen/AB_4507026289_00010.pdf,auftragsbestaetigung,,,,"['3.160,80 €', '4507026289']",,,4507026289_00010,4507026289
+auftragsbestaetigungen/AB_4507026296_00010.pdf,auftragsbestaetigung,,,,"['2.311,90 €', '4507026296']",,,4507026296_00010,4507026296
+auftragsbestaetigungen/AB_4507026297_00010.pdf,auftragsbestaetigung,,,,"['2.386,00 €', '4507026297']",,,4507026297_00010,4507026297
+auftragsbestaetigungen/AB_4507026298_00010.pdf,auftragsbestaetigung,,,,"['2.315,80 €', '4507026298']",,,4507026298_00010,4507026298
+auftragsbestaetigungen/AB_4507026299_00010.pdf,auftragsbestaetigung,,,,"['2.935,90 €', '4507026299']",,,4507026299_00010,4507026299
+auftragsbestaetigungen/AB_4507026300_00010.pdf,auftragsbestaetigung,,,,"['3.229,70 €', '4507026300']",,,4507026300_00010,4507026300
+auftragsbestaetigungen/AB_4507026303_00010.pdf,auftragsbestaetigung,,,,"['2.963,20 €', '4507026303']",,,4507026303_00010,4507026303
+auftragsbestaetigungen/AB_4507026646_00010.pdf,auftragsbestaetigung,,,,"['868,36 €', '4507026646']",,,4507026646_00010,4507026646
+auftragsbestaetigungen/AB_4507027003_00010.pdf,auftragsbestaetigung,,,,"['985,64 €', '4507027003']",,,4507027003_00010,4507027003
+auftragsbestaetigungen/AB_4507027015_00010.pdf,auftragsbestaetigung,,,,"['1.106,46 €', '4507027015']",,,4507027015_00010,4507027015
+auftragsbestaetigungen/AB_4507027382_00010.pdf,auftragsbestaetigung,,,,"['1.793,19 €', '4507027382']",,,4507027382_00010,4507027382
+auftragsbestaetigungen/AB_4507028935_00010.pdf,auftragsbestaetigung,,,,"['1.264,61 €', '4507028935']",,,4507028935_00010,4507028935
+auftragsbestaetigungen/AB_4507029313_00010.pdf,auftragsbestaetigung,,,,"['3.150,10 €', '4507029313']",,,4507029313_00010,4507029313
+auftragsbestaetigungen/AB_4507029314_00010.pdf,auftragsbestaetigung,,,,"['3.150,10 €', '4507029314']",,,4507029314_00010,4507029314
+auftragsbestaetigungen/AB_4507030990_00010.pdf,auftragsbestaetigung,,,,"['2.399,00 €', '4507030990']",,,4507030990_00010,4507030990
+auftragsbestaetigungen/AB_4507030992_00010.pdf,auftragsbestaetigung,,,,"['3.227,10 €', '4507030992']",,,4507030992_00010,4507030992
+auftragsbestaetigungen/AB_4507030993_00010.pdf,auftragsbestaetigung,,,,"['3.037,30 €', '4507030993']",,,4507030993_00010,4507030993
+auftragsbestaetigungen/AB_4507030994_00010.pdf,auftragsbestaetigung,,,,"['2.369,10 €', '4507030994']",,,4507030994_00010,4507030994
+auftragsbestaetigungen/AB_4507030995_00010.pdf,auftragsbestaetigung,,,,"['2.569,30 €', '4507030995']",,,4507030995_00010,4507030995
+auftragsbestaetigungen/AB_4507030996_00010.pdf,auftragsbestaetigung,,,,"['3.341,50 €', '4507030996']",,,4507030996_00010,4507030996
+auftragsbestaetigungen/AB_4507030997_00010.pdf,auftragsbestaetigung,,,,"['2.314,50 €', '4507030997']",,,4507030997_00010,4507030997
+auftragsbestaetigungen/AB_4507030998_00010.pdf,auftragsbestaetigung,,,,"['2.139,00 €', '4507030998']",,,4507030998_00010,4507030998
+auftragsbestaetigungen/AB_4507031002_00010.pdf,auftragsbestaetigung,,,,"['2.132,50 €', '4507031002']",,,4507031002_00010,4507031002
+auftragsbestaetigungen/AB_4507031003_00010.pdf,auftragsbestaetigung,,,,"['2.938,50 €', '4507031003']",,,4507031003_00010,4507031003
+auftragsbestaetigungen/AB_4507031004_00010.pdf,auftragsbestaetigung,,,,"['3.169,90 €', '4507031004']",,,4507031004_00010,4507031004
+auftragsbestaetigungen/AB_4507031005_00010.pdf,auftragsbestaetigung,,,,"['2.480,90 €', '4507031005']",,,4507031005_00010,4507031005
+auftragsbestaetigungen/AB_4507031007_00010.pdf,auftragsbestaetigung,,,,"['2.653,80 €', '4507031007']",,,4507031007_00010,4507031007
+auftragsbestaetigungen/AB_4507031008_00010.pdf,auftragsbestaetigung,,,,"['3.149,10 €', '4507031008']",,,4507031008_00010,4507031008
+auftragsbestaetigungen/AB_4507031446_00010.pdf,auftragsbestaetigung,,,,"['1.157,00 €', '4507031446']",,,4507031446_00010,4507031446
+auftragsbestaetigungen/AB_4507032668_00010.pdf,auftragsbestaetigung,,,,"['3.361,63 €', '4507032668']",,,4507032668_00010,4507032668
+auftragsbestaetigungen/AB_4507033133_00010.pdf,auftragsbestaetigung,,,,"['1.092,80 €', '4507033133']",,,4507033133_00010,4507033133
+auftragsbestaetigungen/AB_4507034826_00010.pdf,auftragsbestaetigung,,,,"['1.074,36 €', '4507034826']",,,4507034826_00010,4507034826
+auftragsbestaetigungen/AB_4507034839_00010.pdf,auftragsbestaetigung,,,,"['835,61 €', '4507034839']",,,4507034839_00010,4507034839
+auftragsbestaetigungen/AB_4507035767_00030.pdf,auftragsbestaetigung,,,,"['2.610,23 €', '4507035767']",,,4507035767_00030,4507035767
+auftragsbestaetigungen/AB_4507037839_00010.pdf,auftragsbestaetigung,,,,"['1.455,50 €', '4507037839']",,,4507037839_00010,4507037839
+auftragsbestaetigungen/AB_4507038513_00010.pdf,auftragsbestaetigung,,,,"['1.185,11 €', '4507038513']",,,4507038513_00010,4507038513
+auftragsbestaetigungen/AB_4507038769_00010.pdf,auftragsbestaetigung,,,,"['2.908,94 €', '4507038769']",,,4507038769_00010,4507038769
+auftragsbestaetigungen/AB_4507039436_00010.pdf,auftragsbestaetigung,,,,"['1.404,49 €', '4507039436']",,,4507039436_00010,4507039436
+auftragsbestaetigungen/AB_4507040309_00010.pdf,auftragsbestaetigung,,,,"['2.781,30 €', '4507040309']",,,4507040309_00010,4507040309
+auftragsbestaetigungen/AB_4507040312_00020.pdf,auftragsbestaetigung,,,,"['1.936,00 €', '4507040312']",,,4507040312_00020,4507040312
+auftragsbestaetigungen/AB_4507040314_00030.pdf,auftragsbestaetigung,,,,"['2.547,61 €', '4507040314']",,,4507040314_00030,4507040314
+auftragsbestaetigungen/AB_4507040625_00010.pdf,auftragsbestaetigung,,,,"['2.821,50 €', '4507040625']",,,4507040625_00010,4507040625
+auftragsbestaetigungen/AB_4507040626_00010.pdf,auftragsbestaetigung,,,,"['3.345,40 €', '4507040626']",,,4507040626_00010,4507040626
+auftragsbestaetigungen/AB_4507040627_00010.pdf,auftragsbestaetigung,,,,"['2.571,90 €', '4507040627']",,,4507040627_00010,4507040627
+auftragsbestaetigungen/AB_4507040628_00010.pdf,auftragsbestaetigung,,,,"['3.045,10 €', '4507040628']",,,4507040628_00010,4507040628
+auftragsbestaetigungen/AB_4507040629_00010.pdf,auftragsbestaetigung,,,,"['2.991,80 €', '4507040629']",,,4507040629_00010,4507040629
+auftragsbestaetigungen/AB_4507040630_00010.pdf,auftragsbestaetigung,,,,"['2.636,90 €', '4507040630']",,,4507040630_00010,4507040630
+auftragsbestaetigungen/AB_4507040631_00010.pdf,auftragsbestaetigung,,,,"['2.829,30 €', '4507040631']",,,4507040631_00010,4507040631
+auftragsbestaetigungen/AB_4507040632_00010.pdf,auftragsbestaetigung,,,,"['3.088,00 €', '4507040632']",,,4507040632_00010,4507040632
+auftragsbestaetigungen/AB_4507040633_00010.pdf,auftragsbestaetigung,,,,"['2.938,50 €', '4507040633']",,,4507040633_00010,4507040633
+auftragsbestaetigungen/AB_4507040634_00010.pdf,auftragsbestaetigung,,,,"['2.176,70 €', '4507040634']",,,4507040634_00010,4507040634
+auftragsbestaetigungen/AB_4507041417_00010.pdf,auftragsbestaetigung,,,,"['1.770,09 €', '4507041417']",,,4507041417_00010,4507041417
+auftragsbestaetigungen/AB_4507041562_00010.pdf,auftragsbestaetigung,,,,"['2.141,86 €', '4507041562']",,,4507041562_00010,4507041562
+auftragsbestaetigungen/AB_4507041835_00010.pdf,auftragsbestaetigung,,,,"['2.957,80 €', '4507041835']",,,4507041835_00010,4507041835
+auftragsbestaetigungen/AB_4507041836_00020.pdf,auftragsbestaetigung,,,,"['2.838,25 €', '4507041836']",,,4507041836_00020,4507041836
+auftragsbestaetigungen/AB_4507041837_00030.pdf,auftragsbestaetigung,,,,"['2.361,05 €', '4507041837']",,,4507041837_00030,4507041837
+auftragsbestaetigungen/AB_4508042444_00010.pdf,auftragsbestaetigung,,,,"['2.231,08 €', '4508042444']",,,4508042444_00010,4508042444
+auftragsbestaetigungen/AB_4508042849_00010.pdf,auftragsbestaetigung,,,,"['2.964,50 €', '4508042849']",,,4508042849_00010,4508042849
+auftragsbestaetigungen/AB_4508042850_00010.pdf,auftragsbestaetigung,,,,"['2.171,50 €', '4508042850']",,,4508042850_00010,4508042850
+auftragsbestaetigungen/AB_4508042851_00010.pdf,auftragsbestaetigung,,,,"['2.939,80 €', '4508042851']",,,4508042851_00010,4508042851
+auftragsbestaetigungen/AB_4508042988_00010.pdf,auftragsbestaetigung,,,,"['2.839,31 €', '4508042988']",,,4508042988_00010,4508042988
+auftragsbestaetigungen/AB_4508043433_00010.pdf,auftragsbestaetigung,,,,"['123,40 €', '4508043433']",,,4508043433_00010,4508043433
+auftragsbestaetigungen/AB_4508043433_00020.pdf,auftragsbestaetigung,,,,"['1.385,77 €', '4508043433']",,,4508043433_00020,4508043433
+auftragsbestaetigungen/AB_4508043613_00010.pdf,auftragsbestaetigung,,,,"['1.949,46 €', '4508043613']",,,4508043613_00010,4508043613
+auftragsbestaetigungen/AB_4508044128_00010.pdf,auftragsbestaetigung,,,,"['2.746,54 €', '4508044128']",,,4508044128_00010,4508044128
+auftragsbestaetigungen/AB_4508045101_00010.pdf,auftragsbestaetigung,,,,"['2.806,19 €', '4508045101']",,,4508045101_00010,4508045101
+auftragsbestaetigungen/AB_4508045102_00020.pdf,auftragsbestaetigung,,,,"['3.145,16 €', '4508045102']",,,4508045102_00020,4508045102
+auftragsbestaetigungen/AB_4508046046_00010.pdf,auftragsbestaetigung,,,,"['2.564,96 €', '4508046046']",,,4508046046_00010,4508046046
+auftragsbestaetigungen/AB_4508046047_00020.pdf,auftragsbestaetigung,,,,"['2.583,84 €', '4508046047']",,,4508046047_00020,4508046047
+auftragsbestaetigungen/AB_4508046048_00030.pdf,auftragsbestaetigung,,,,"['1.996,58 €', '4508046048']",,,4508046048_00030,4508046048
+auftragsbestaetigungen/AB_4508046051_00040.pdf,auftragsbestaetigung,,,,"['2.257,82 €', '4508046051']",,,4508046051_00040,4508046051
+auftragsbestaetigungen/AB_4508046052_00050.pdf,auftragsbestaetigung,,,,"['2.229,46 €', '4508046052']",,,4508046052_00050,4508046052
+auftragsbestaetigungen/AB_4508046681_00010.pdf,auftragsbestaetigung,,,,"['2.094,17 €', '4508046681']",,,4508046681_00010,4508046681
+auftragsbestaetigungen/AB_4508046690_00010.pdf,auftragsbestaetigung,,,,"['2.462,30 €', '4508046690']",,,4508046690_00010,4508046690
+auftragsbestaetigungen/AB_4508047294_00010.pdf,auftragsbestaetigung,,,,"['2.235,24 €', '4508047294']",,,4508047294_00010,4508047294
+auftragsbestaetigungen/AB_4508047541_00010.pdf,auftragsbestaetigung,,,,"['2.218,30 €', '4508047541']",,,4508047541_00010,4508047541
+auftragsbestaetigungen/AB_4508047543_00010.pdf,auftragsbestaetigung,,,,"['2.738,30 €', '4508047543']",,,4508047543_00010,4508047543
+auftragsbestaetigungen/AB_4508047545_00010.pdf,auftragsbestaetigung,,,,"['2.600,50 €', '4508047545']",,,4508047545_00010,4508047545
+auftragsbestaetigungen/AB_4508047546_00010.pdf,auftragsbestaetigung,,,,"['3.173,80 €', '4508047546']",,,4508047546_00010,4508047546
+auftragsbestaetigungen/AB_4508047547_00010.pdf,auftragsbestaetigung,,,,"['2.816,30 €', '4508047547']",,,4508047547_00010,4508047547
+auftragsbestaetigungen/AB_4508047548_00010.pdf,auftragsbestaetigung,,,,"['2.774,70 €', '4508047548']",,,4508047548_00010,4508047548
+auftragsbestaetigungen/AB_4508047549_00010.pdf,auftragsbestaetigung,,,,"['2.583,60 €', '4508047549']",,,4508047549_00010,4508047549
+auftragsbestaetigungen/AB_4508047550_00010.pdf,auftragsbestaetigung,,,,"['2.409,40 €', '4508047550']",,,4508047550_00010,4508047550
+auftragsbestaetigungen/AB_4508047551_00010.pdf,auftragsbestaetigung,,,,"['2.317,10 €', '4508047551']",,,4508047551_00010,4508047551
+auftragsbestaetigungen/AB_4508047552_00010.pdf,auftragsbestaetigung,,,,"['2.373,00 €', '4508047552']",,,4508047552_00010,4508047552
+auftragsbestaetigungen/AB_4508047553_00010.pdf,auftragsbestaetigung,,,,"['2.366,50 €', '4508047553']",,,4508047553_00010,4508047553
+auftragsbestaetigungen/AB_4508048709_00010.pdf,auftragsbestaetigung,,,,"['2.285,50 €', '4508048709']",,,4508048709_00010,4508048709
+auftragsbestaetigungen/AB_4508048711_00010.pdf,auftragsbestaetigung,,,,"['2.715,43 €', '4508048711']",,,4508048711_00010,4508048711
+auftragsbestaetigungen/AB_4508048712_00010.pdf,auftragsbestaetigung,,,,"['2.708,18 €', '4508048712']",,,4508048712_00010,4508048712
+auftragsbestaetigungen/AB_4508049212_00010.pdf,auftragsbestaetigung,,,,"['2.436,17 €', '4508049212']",,,4508049212_00010,4508049212
+auftragsbestaetigungen/AB_4508049804_00010.pdf,auftragsbestaetigung,,,,"['1.992,39 €', '4508049804']",,,4508049804_00010,4508049804
+auftragsbestaetigungen/AB_4508049805_00010.pdf,auftragsbestaetigung,,,,"['2.314,27 €', '4508049805']",,,4508049805_00010,4508049805
+auftragsbestaetigungen/AB_4508049806_00020.pdf,auftragsbestaetigung,,,,"['2.227,96 €', '4508049806']",,,4508049806_00020,4508049806
+auftragsbestaetigungen/AB_4508050317_00010.pdf,auftragsbestaetigung,,,,"['1.480,91 €', '4508050317']",,,4508050317_00010,4508050317
+auftragsbestaetigungen/AB_4508050454_00010.pdf,auftragsbestaetigung,,,,"['2.224,40 €', '4508050454']",,,4508050454_00010,4508050454
+auftragsbestaetigungen/AB_4508050458_00010.pdf,auftragsbestaetigung,,,,"['2.482,58 €', '4508050458']",,,4508050458_00010,4508050458
+auftragsbestaetigungen/AB_4508050459_00010.pdf,auftragsbestaetigung,,,,"['2.380,85 €', '4508050459']",,,4508050459_00010,4508050459
+auftragsbestaetigungen/AB_4508050731_00010.pdf,auftragsbestaetigung,,,,"['2.123,58 €', '4508050731']",,,4508050731_00010,4508050731
+auftragsbestaetigungen/AB_4508051570_00010.pdf,auftragsbestaetigung,,,,"['2.720,17 €', '4508051570']",,,4508051570_00010,4508051570
+auftragsbestaetigungen/AB_4508051571_00010.pdf,auftragsbestaetigung,,,,"['2.052,82 €', '4508051571']",,,4508051571_00010,4508051571
+auftragsbestaetigungen/AB_4508051572_00020.pdf,auftragsbestaetigung,,,,"['1.849,39 €', '4508051572']",,,4508051572_00020,4508051572
+auftragsbestaetigungen/AB_4508051849_00010.pdf,auftragsbestaetigung,,,,"['2.440,43 €', '4508051849']",,,4508051849_00010,4508051849
+auftragsbestaetigungen/AB_4508052137_00010.pdf,auftragsbestaetigung,,,,"['2.746,53 €', '4508052137']",,,4508052137_00010,4508052137
+auftragsbestaetigungen/AB_4508052465_00010.pdf,auftragsbestaetigung,,,,"['2.418,90 €', '4508052465']",,,4508052465_00010,4508052465
+auftragsbestaetigungen/AB_4508053154_00010.pdf,auftragsbestaetigung,,,,"['2.236,44 €', '4508053154']",,,4508053154_00010,4508053154
+auftragsbestaetigungen/AB_4508053155_00010.pdf,auftragsbestaetigung,,,,"['1.919,26 €', '4508053155']",,,4508053155_00010,4508053155
+auftragsbestaetigungen/AB_4508053156_00010.pdf,auftragsbestaetigung,,,,"['2.026,79 €', '4508053156']",,,4508053156_00010,4508053156
+auftragsbestaetigungen/AB_4508053157_00010.pdf,auftragsbestaetigung,,,,"['2.143,89 €', '4508053157']",,,4508053157_00010,4508053157
+auftragsbestaetigungen/AB_4508053159_00020.pdf,auftragsbestaetigung,,,,"['2.238,24 €', '4508053159']",,,4508053159_00020,4508053159
+auftragsbestaetigungen/AB_4508053160_00010.pdf,auftragsbestaetigung,,,,"['2.239,19 €', '4508053160']",,,4508053160_00010,4508053160
+auftragsbestaetigungen/AB_4508053161_00010.pdf,auftragsbestaetigung,,,,"['2.149,78 €', '4508053161']",,,4508053161_00010,4508053161
+auftragsbestaetigungen/AB_4508053162_00010.pdf,auftragsbestaetigung,,,,"['2.185,92 €', '4508053162']",,,4508053162_00010,4508053162
+auftragsbestaetigungen/AB_4508053538_00010.pdf,auftragsbestaetigung,,,,"['2.998,30 €', '4508053538']",,,4508053538_00010,4508053538
+auftragsbestaetigungen/AB_4508053539_00010.pdf,auftragsbestaetigung,,,,"['2.376,90 €', '4508053539']",,,4508053539_00010,4508053539
+auftragsbestaetigungen/AB_4508053540_00010.pdf,auftragsbestaetigung,,,,"['2.191,00 €', '4508053540']",,,4508053540_00010,4508053540
+auftragsbestaetigungen/AB_4508053541_00010.pdf,auftragsbestaetigung,,,,"['2.847,50 €', '4508053541']",,,4508053541_00010,4508053541
+auftragsbestaetigungen/AB_4508053542_00010.pdf,auftragsbestaetigung,,,,"['3.090,60 €', '4508053542']",,,4508053542_00010,4508053542
+auftragsbestaetigungen/AB_4508053543_00010.pdf,auftragsbestaetigung,,,,"['3.319,40 €', '4508053543']",,,4508053543_00010,4508053543
+auftragsbestaetigungen/AB_4508053544_00010.pdf,auftragsbestaetigung,,,,"['2.194,90 €', '4508053544']",,,4508053544_00010,4508053544
+auftragsbestaetigungen/AB_4508053545_00010.pdf,auftragsbestaetigung,,,,"['2.158,50 €', '4508053545']",,,4508053545_00010,4508053545
+auftragsbestaetigungen/AB_4508053546_00010.pdf,auftragsbestaetigung,,,,"['2.601,80 €', '4508053546']",,,4508053546_00010,4508053546
+auftragsbestaetigungen/AB_4508053548_00010.pdf,auftragsbestaetigung,,,,"['2.998,30 €', '4508053548']",,,4508053548_00010,4508053548
+auftragsbestaetigungen/AB_4508053549_00010.pdf,auftragsbestaetigung,,,,"['2.454,90 €', '4508053549']",,,4508053549_00010,4508053549
+auftragsbestaetigungen/AB_4508053551_00010.pdf,auftragsbestaetigung,,,,"['2.347,00 €', '4508053551']",,,4508053551_00010,4508053551
+auftragsbestaetigungen/AB_4508057119_00010.pdf,auftragsbestaetigung,,,,"['1.319,93 €', '4508057119']",,,4508057119_00010,4508057119
+auftragsbestaetigungen/AB_4508057120_00010.pdf,auftragsbestaetigung,,,,"['1.191,39 €', '4508057120']",,,4508057120_00010,4508057120
+auftragsbestaetigungen/AB_4508057121_00010.pdf,auftragsbestaetigung,,,,"['2.170,13 €', '4508057121']",,,4508057121_00010,4508057121
+auftragsbestaetigungen/AB_4508057409_00010.pdf,auftragsbestaetigung,,,,"['3.086,70 €', '4508057409']",,,4508057409_00010,4508057409
+auftragsbestaetigungen/AB_4508057410_00010.pdf,auftragsbestaetigung,,,,"['3.359,70 €', '4508057410']",,,4508057410_00010,4508057410
+auftragsbestaetigungen/AB_4508057411_00010.pdf,auftragsbestaetigung,,,,"['3.116,60 €', '4508057411']",,,4508057411_00010,4508057411
+auftragsbestaetigungen/AB_4508057413_00010.pdf,auftragsbestaetigung,,,,"['2.283,30 €', '4508057413']",,,4508057413_00010,4508057413
+auftragsbestaetigungen/AB_4508057415_00010.pdf,auftragsbestaetigung,,,,"['2.123,40 €', '4508057415']",,,4508057415_00010,4508057415
+auftragsbestaetigungen/AB_4508057416_00010.pdf,auftragsbestaetigung,,,,"['3.052,90 €', '4508057416']",,,4508057416_00010,4508057416
+auftragsbestaetigungen/AB_4508057417_00010.pdf,auftragsbestaetigung,,,,"['2.971,00 €', '4508057417']",,,4508057417_00010,4508057417
+auftragsbestaetigungen/AB_4508057419_00010.pdf,auftragsbestaetigung,,,,"['2.101,30 €', '4508057419']",,,4508057419_00010,4508057419
+auftragsbestaetigungen/AB_4508057420_00010.pdf,auftragsbestaetigung,,,,"['2.300,20 €', '4508057420']",,,4508057420_00010,4508057420
+auftragsbestaetigungen/AB_4508057421_00010.pdf,auftragsbestaetigung,,,,"['2.877,40 €', '4508057421']",,,4508057421_00010,4508057421
+auftragsbestaetigungen/AB_4508057422_00010.pdf,auftragsbestaetigung,,,,"['2.976,20 €', '4508057422']",,,4508057422_00010,4508057422
+auftragsbestaetigungen/AB_4508057704_00010.pdf,auftragsbestaetigung,,,,"['2.345,05 €', '4508057704']",,,4508057704_00010,4508057704
+auftragsbestaetigungen/AB_4508057705_00010.pdf,auftragsbestaetigung,,,,"['1.919,98 €', '4508057705']",,,4508057705_00010,4508057705
+auftragsbestaetigungen/AB_4508057706_00010.pdf,auftragsbestaetigung,,,,"['2.119,81 €', '4508057706']",,,4508057706_00010,4508057706
+freigabeprotokolle/FP_4507011578.pdf,freigabeprotokoll,,,,"['4507011578', '191.612,00 €']",,,,4507011578
+freigabeprotokolle/FP_4507016709.pdf,freigabeprotokoll,,,,"['4507016709', '218.986,00 €']",,,,4507016709
+freigabeprotokolle/FP_4507031085.pdf,freigabeprotokoll,,,,"['4507031085', '206.875,00 €']",,,,4507031085
+freigabeprotokolle/FP_4507037679.pdf,freigabeprotokoll,,,,"['4507037679', '45.663,00 €']",,,,4507037679
+freigabeprotokolle/FP_4507040893.pdf,freigabeprotokoll,,,,"['4507040893', '43.310,00 €']",,,,4507040893
+freigabeprotokolle/FP_4507040894.pdf,freigabeprotokoll,,,,"['4507040894', '43.029,00 €']",,,,4507040894
+freigabeprotokolle/FP_4507075965.pdf,freigabeprotokoll,,,,"['4507075965', '189.273,00 €']",,,,4507075965
+freigabeprotokolle/FP_4507075966.pdf,freigabeprotokoll,,,,"['4507075966', '140.108,00 €']",,,,4507075966
+freigabeprotokolle/FP_4507075967.pdf,freigabeprotokoll,,,,"['4507075967', '457.693,00 €']",,,,4507075967
+freigabeprotokolle/FP_4507075968.pdf,freigabeprotokoll,,,,"['4507075968', '68.305,00 €']",,,,4507075968
+freigabeprotokolle/FP_4507075969.pdf,freigabeprotokoll,,,,"['4507075969', '3.002,00 €']",,,,4507075969
+freigabeprotokolle/FP_4507075970.pdf,freigabeprotokoll,,,,"['4507075970', '524.022,00 €']",,,,4507075970
+freigabeprotokolle/FP_4507075971.pdf,freigabeprotokoll,,,,"['4507075971', '44.850,00 €']",,,,4507075971
+freigabeprotokolle/FP_4507075973.pdf,freigabeprotokoll,,,,"['4507075973', '86.507,00 €']",,,,4507075973
+freigabeprotokolle/FP_4507075975.pdf,freigabeprotokoll,,,,"['4507075975', '2.628,00 €']",,,,4507075975
+freigabeprotokolle/FP_4507075989.pdf,freigabeprotokoll,,,,"['4507075989', '25.323,00 €']",,,,4507075989
+freigabeprotokolle/FP_4507076022.pdf,freigabeprotokoll,,,,"['4507076022', '127.309,00 €']",,,,4507076022
+freigabeprotokolle/FP_4507076026.pdf,freigabeprotokoll,,,,"['4507076026', '43.687,00 €']",,,,4507076026
+freigabeprotokolle/FP_4507076028.pdf,freigabeprotokoll,,,,"['4507076028', '8.973,00 €']",,,,4507076028
+freigabeprotokolle/FP_4507076029.pdf,freigabeprotokoll,,,,"['4507076029', '440.353,00 €']",,,,4507076029
+freigabeprotokolle/FP_4507076030.pdf,freigabeprotokoll,,,,"['4507076030', '609,00 €']",,,,4507076030
+freigabeprotokolle/FP_4507076129.pdf,freigabeprotokoll,,,,"['4507076129', '144.556,00 €']",,,,4507076129
+freigabeprotokolle/FP_4507076136.pdf,freigabeprotokoll,,,,"['4507076136', '5.704,00 €']",,,,4507076136
+freigabeprotokolle/FP_4507076137.pdf,freigabeprotokoll,,,,"['4507076137', '25.226,00 €']",,,,4507076137
+freigabeprotokolle/FP_4507076138.pdf,freigabeprotokoll,,,,"['4507076138', '15.962,00 €']",,,,4507076138
+freigabeprotokolle/FP_4507076139.pdf,freigabeprotokoll,,,,"['4507076139', '175.995,00 €']",,,,4507076139
+freigabeprotokolle/FP_4507076140.pdf,freigabeprotokoll,,,,"['4507076140', '1.773,00 €']",,,,4507076140
+freigabeprotokolle/FP_4507076141.pdf,freigabeprotokoll,,,,"['4507076141', '35.120,00 €']",,,,4507076141
+freigabeprotokolle/FP_4507076142.pdf,freigabeprotokoll,,,,"['4507076142', '30.667,00 €']",,,,4507076142
+freigabeprotokolle/FP_4507076143.pdf,freigabeprotokoll,,,,"['4507076143', '36.580,00 €']",,,,4507076143
+freigabeprotokolle/FP_4507076144.pdf,freigabeprotokoll,,,,"['4507076144', '2.392,00 €']",,,,4507076144
+freigabeprotokolle/FP_4507076145.pdf,freigabeprotokoll,,,,"['4507076145', '494.174,00 €']",,,,4507076145
+freigabeprotokolle/FP_4507076146.pdf,freigabeprotokoll,,,,"['4507076146', '989,00 €']",,,,4507076146
+freigabeprotokolle/FP_4507076147.pdf,freigabeprotokoll,,,,"['4507076147', '23.255,00 €']",,,,4507076147
+freigabeprotokolle/FP_4507076149.pdf,freigabeprotokoll,,,,"['4507076149', '31.135,00 €']",,,,4507076149
+freigabeprotokolle/FP_4507076150.pdf,freigabeprotokoll,,,,"['4507076150', '127.264,00 €']",,,,4507076150
+freigabeprotokolle/FP_4507076151.pdf,freigabeprotokoll,,,,"['4507076151', '20.656,00 €']",,,,4507076151
+freigabeprotokolle/FP_4507076152.pdf,freigabeprotokoll,,,,"['4507076152', '2.073,00 €']",,,,4507076152
+freigabeprotokolle/FP_4507076153.pdf,freigabeprotokoll,,,,"['4507076153', '23.574,00 €']",,,,4507076153
+freigabeprotokolle/FP_4507076154.pdf,freigabeprotokoll,,,,"['4507076154', '1.222,00 €']",,,,4507076154
+freigabeprotokolle/FP_4508042320.pdf,freigabeprotokoll,,,,"['4508042320', '43.134,00 €']",,,,4508042320
+freigabeprotokolle/FP_4508043969.pdf,freigabeprotokoll,,,,"['4508043969', '43.064,00 €']",,,,4508043969
+freigabeprotokolle/FP_4508043996.pdf,freigabeprotokoll,,,,"['4508043996', '288.625,00 €']",,,,4508043996
+freigabeprotokolle/FP_4508044991.pdf,freigabeprotokoll,,,,"['4508044991', '45.663,00 €']",,,,4508044991
+freigabeprotokolle/FP_4508050319.pdf,freigabeprotokoll,,,,"['4508050319', '40.500,00 €']",,,,4508050319
+freigabeprotokolle/FP_4508050327.pdf,freigabeprotokoll,,,,"['4508050327', '42.959,00 €']",,,,4508050327
+freigabeprotokolle/FP_4508053451.pdf,freigabeprotokoll,,,,"['4508053451', '45.663,00 €']",,,,4508053451
+freigabeprotokolle/FP_4508076155.pdf,freigabeprotokoll,,,,"['4508076155', '52.405,00 €']",,,,4508076155
+freigabeprotokolle/FP_4508076157.pdf,freigabeprotokoll,,,,"['4508076157', '264.212,00 €']",,,,4508076157
+freigabeprotokolle/FP_4508076158.pdf,freigabeprotokoll,,,,"['4508076158', '1.158,00 €']",,,,4508076158
+freigabeprotokolle/FP_4508076159.pdf,freigabeprotokoll,,,,"['4508076159', '51.515,00 €']",,,,4508076159
+freigabeprotokolle/FP_4508076160.pdf,freigabeprotokoll,,,,"['4508076160', '49.596,00 €']",,,,4508076160
+freigabeprotokolle/FP_4508076161.pdf,freigabeprotokoll,,,,"['4508076161', '13.710,00 €']",,,,4508076161
+freigabeprotokolle/FP_4508076163.pdf,freigabeprotokoll,,,,"['4508076163', '5.293,00 €']",,,,4508076163
+freigabeprotokolle/FP_4508076164.pdf,freigabeprotokoll,,,,"['4508076164', '11.169,00 €']",,,,4508076164
+freigabeprotokolle/FP_4508076165.pdf,freigabeprotokoll,,,,"['4508076165', '13.696,00 €']",,,,4508076165
+freigabeprotokolle/FP_4508076166.pdf,freigabeprotokoll,,,,"['4508076166', '10.535,00 €']",,,,4508076166
+freigabeprotokolle/FP_4508076167.pdf,freigabeprotokoll,,,,"['4508076167', '12.181,00 €']",,,,4508076167
+freigabeprotokolle/FP_4508076168.pdf,freigabeprotokoll,,,,"['4508076168', '43.142,00 €']",,,,4508076168
+freigabeprotokolle/FP_4508076169.pdf,freigabeprotokoll,,,,"['4508076169', '34.009,00 €']",,,,4508076169
+jahresgespraeche/JG_RV-2018-01_Aurinbond.md,jahresgespraech,RV-2018-01,vendorID_0159,,"['RV-2018-01', '90']",,,,
+jahresgespraeche/JG_RV-2018-02_Ardennsolvent.md,jahresgespraech,RV-2018-02,vendorID_0183,,"['RV-2018-02', '90']",,,,
+jahresgespraeche/JG_RV-2018-03_Vitrumbond.md,jahresgespraech,RV-2018-03,vendorID_0262,,"['RV-2018-03', '90']",,,,
+jahresgespraeche/JG_RV-2018-04_Kepleracryl.md,jahresgespraech,RV-2018-04,vendorID_0184,,"['RV-2018-04', '90']",,,,
+jahresgespraeche/JG_RV-2018-05_Kepleracryl.md,jahresgespraech,RV-2018-05,vendorID_0166,,"['RV-2018-05', '90']",,,,
+jahresgespraeche/JG_RV-2018-06_Vitrumchem.md,jahresgespraech,RV-2018-06,vendorID_0963,,"['RV-2018-06', '90']",,,,
+jahresgespraeche/JG_RV-2018-07_Keplervinyl.md,jahresgespraech,RV-2018-07,vendorID_0479,,"['RV-2018-07', '90']",,,,
+jahresgespraeche/JG_RV-2018-08_Ardennpigment.md,jahresgespraech,RV-2018-08,vendorID_0939,,"['RV-2018-08', '90']",,,,
+jahresgespraeche/JG_RV-2018-09_Sellachem.md,jahresgespraech,RV-2018-09,vendorID_1100,,"['RV-2018-09', '90']",,,,
+jahresgespraeche/JG_RV-2018-10_Lyraplast.md,jahresgespraech,RV-2018-10,vendorID_0818,,"['RV-2018-10', '90']",,,,
+jahresgespraeche/JG_RV-2018-11_Kymenchem.md,jahresgespraech,RV-2018-11,vendorID_0390,,"['RV-2018-11', '90']",,,,
+jahresgespraeche/JG_RV-2018-12_Alpenmer.md,jahresgespraech,RV-2018-12,vendorID_0558,,"['RV-2018-12', '90']",,,,
+jahresgespraeche/JG_RV-2018-13_Alpenpolymer.md,jahresgespraech,RV-2018-13,vendorID_0237,,"['RV-2018-13', '45']",,,,

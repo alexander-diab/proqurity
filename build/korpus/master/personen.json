@@ -1,0 +1,2018 @@
+{
+ "batch_00": {
+  "kennung": "batch_00",
+  "name": "Systemlauf 00",
+  "rolle": "Systemlauf",
+  "email": null,
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1062
+ },
+ "batch_01": {
+  "kennung": "batch_01",
+  "name": "Systemlauf 01",
+  "rolle": "Systemlauf",
+  "email": null,
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 141
+ },
+ "batch_02": {
+  "kennung": "batch_02",
+  "name": "Systemlauf 02",
+  "rolle": "Systemlauf",
+  "email": null,
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 782
+ },
+ "batch_03": {
+  "kennung": "batch_03",
+  "name": "Systemlauf 03",
+  "rolle": "Systemlauf",
+  "email": null,
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 376
+ },
+ "batch_07": {
+  "kennung": "batch_07",
+  "name": "Systemlauf 07",
+  "rolle": "Systemlauf",
+  "email": null,
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 4
+ },
+ "batch_08": {
+  "kennung": "batch_08",
+  "name": "Systemlauf 08",
+  "rolle": "Systemlauf",
+  "email": null,
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 37
+ },
+ "batch_11": {
+  "kennung": "batch_11",
+  "name": "Systemlauf 11",
+  "rolle": "Systemlauf",
+  "email": null,
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 5
+ },
+ "batch_16": {
+  "kennung": "batch_16",
+  "name": "Systemlauf 16",
+  "rolle": "Systemlauf",
+  "email": null,
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 12
+ },
+ "batch_17": {
+  "kennung": "batch_17",
+  "name": "Systemlauf 17",
+  "rolle": "Systemlauf",
+  "email": null,
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 61
+ },
+ "user_000": {
+  "kennung": "user_000",
+  "name": "Jörg Bergmann",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "joerg.bergmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 195
+ },
+ "user_001": {
+  "kennung": "user_001",
+  "name": "Olaf Kaiser",
+  "rolle": "Kreditorenbuchhaltung",
+  "email": "olaf.kaiser@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 859
+ },
+ "user_002": {
+  "kennung": "user_002",
+  "name": "Stefan Sauer",
+  "rolle": "Zahlungsverkehr",
+  "email": "stefan.sauer@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 4654
+ },
+ "user_004": {
+  "kennung": "user_004",
+  "name": "Stefan Backhaus",
+  "rolle": "Kreditorenbuchhaltung",
+  "email": "stefan.backhaus@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 134
+ },
+ "user_005": {
+  "kennung": "user_005",
+  "name": "Volker Zeller",
+  "rolle": "Zahlungsverkehr",
+  "email": "volker.zeller@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 603
+ },
+ "user_006": {
+  "kennung": "user_006",
+  "name": "Stefan Ahrens",
+  "rolle": "Kreditorenbuchhaltung mit Freigaberecht",
+  "email": "stefan.ahrens@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 25000,
+  "ereignisse": 877
+ },
+ "user_007": {
+  "kennung": "user_007",
+  "name": "Judith Kuhlmann",
+  "rolle": "Kreditorenbuchhaltung",
+  "email": "judith.kuhlmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 346
+ },
+ "user_008": {
+  "kennung": "user_008",
+  "name": "Nils Ulrich",
+  "rolle": "Kreditorenbuchhaltung",
+  "email": "nils.ulrich@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 35
+ },
+ "user_009": {
+  "kennung": "user_009",
+  "name": "Nadine Dietrich",
+  "rolle": "Operativer Einkauf",
+  "email": "nadine.dietrich@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 4
+ },
+ "user_010": {
+  "kennung": "user_010",
+  "name": "Volker Ebeling",
+  "rolle": "Operativer Einkauf",
+  "email": "volker.ebeling@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 24
+ },
+ "user_011": {
+  "kennung": "user_011",
+  "name": "Claudia Lemke",
+  "rolle": "Kreditorenbuchhaltung",
+  "email": "claudia.lemke@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 21
+ },
+ "user_012": {
+  "kennung": "user_012",
+  "name": "Zoe Neuhaus",
+  "rolle": "Kreditorenbuchhaltung",
+  "email": "zoe.neuhaus@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1222
+ },
+ "user_013": {
+  "kennung": "user_013",
+  "name": "Petra Sauer",
+  "rolle": "Kreditorenbuchhaltung",
+  "email": "petra.sauer@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1050
+ },
+ "user_014": {
+  "kennung": "user_014",
+  "name": "Martina Ebeling",
+  "rolle": "Operativer Einkauf",
+  "email": "martina.ebeling@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 4
+ },
+ "user_015": {
+  "kennung": "user_015",
+  "name": "Bernd Ahrens",
+  "rolle": "Kreditorenbuchhaltung mit Freigaberecht",
+  "email": "bernd.ahrens@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 25000,
+  "ereignisse": 777
+ },
+ "user_016": {
+  "kennung": "user_016",
+  "name": "Stefan Reinhardt",
+  "rolle": "Operativer Einkauf",
+  "email": "stefan.reinhardt@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 10
+ },
+ "user_018": {
+  "kennung": "user_018",
+  "name": "Jörg Sommerfeld",
+  "rolle": "Kreditorenbuchhaltung",
+  "email": "joerg.sommerfeld@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 50
+ },
+ "user_019": {
+  "kennung": "user_019",
+  "name": "Marek Radtke",
+  "rolle": "Kreditorenbuchhaltung",
+  "email": "marek.radtke@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 970
+ },
+ "user_020": {
+  "kennung": "user_020",
+  "name": "Thomas Quandt",
+  "rolle": "Kreditorenbuchhaltung",
+  "email": "thomas.quandt@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 827
+ },
+ "user_023": {
+  "kennung": "user_023",
+  "name": "Claudia Wittkopp",
+  "rolle": "Kreditorenbuchhaltung mit Freigaberecht",
+  "email": "claudia.wittkopp@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 25000,
+  "ereignisse": 194
+ },
+ "user_024": {
+  "kennung": "user_024",
+  "name": "Xenia Thiele",
+  "rolle": "Kreditorenbuchhaltung",
+  "email": "xenia.thiele@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 10
+ },
+ "user_027": {
+  "kennung": "user_027",
+  "name": "Wiebke Backhaus",
+  "rolle": "Zahlungsverkehr",
+  "email": "wiebke.backhaus@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 5
+ },
+ "user_029": {
+  "kennung": "user_029",
+  "name": "Olaf Radtke",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "olaf.radtke@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 2853
+ },
+ "user_030": {
+  "kennung": "user_030",
+  "name": "Ralf Faber",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "ralf.faber@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 485
+ },
+ "user_031": {
+  "kennung": "user_031",
+  "name": "Hendrik Wendland",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "hendrik.wendland@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 469
+ },
+ "user_032": {
+  "kennung": "user_032",
+  "name": "Holger Bergmann",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "holger.bergmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 20
+ },
+ "user_033": {
+  "kennung": "user_033",
+  "name": "Dirk Cordes",
+  "rolle": "Operativer Einkauf",
+  "email": "dirk.cordes@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 190
+ },
+ "user_034": {
+  "kennung": "user_034",
+  "name": "Holger Faber",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "holger.faber@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 274
+ },
+ "user_035": {
+  "kennung": "user_035",
+  "name": "Silke Quandt",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "silke.quandt@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 41
+ },
+ "user_036": {
+  "kennung": "user_036",
+  "name": "Ines Grünewald",
+  "rolle": "Operativer Einkauf",
+  "email": "ines.gruenewald@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 54
+ },
+ "user_037": {
+  "kennung": "user_037",
+  "name": "Andrea Zeller",
+  "rolle": "Category Management",
+  "email": "andrea.zeller@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 100000,
+  "zahlfreigabe_grenze_eur": 25000,
+  "ereignisse": 119
+ },
+ "user_038": {
+  "kennung": "user_038",
+  "name": "Xenia Kuhlmann",
+  "rolle": "Operativer Einkauf",
+  "email": "xenia.kuhlmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1422
+ },
+ "user_039": {
+  "kennung": "user_039",
+  "name": "Stefan Zeller",
+  "rolle": "Category Management",
+  "email": "stefan.zeller@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 100000,
+  "zahlfreigabe_grenze_eur": 25000,
+  "ereignisse": 5
+ },
+ "user_040": {
+  "kennung": "user_040",
+  "name": "Zoe Lemke",
+  "rolle": "Operativer Einkauf",
+  "email": "zoe.lemke@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 75
+ },
+ "user_042": {
+  "kennung": "user_042",
+  "name": "Tobias Zeller",
+  "rolle": "Operativer Einkauf",
+  "email": "tobias.zeller@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 291
+ },
+ "user_043": {
+  "kennung": "user_043",
+  "name": "Elena Kuhlmann",
+  "rolle": "Operativer Einkauf",
+  "email": "elena.kuhlmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 202
+ },
+ "user_044": {
+  "kennung": "user_044",
+  "name": "Ulrike Jansen",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "ulrike.jansen@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 241
+ },
+ "user_045": {
+  "kennung": "user_045",
+  "name": "Hendrik Kaiser",
+  "rolle": "Operativer Einkauf",
+  "email": "hendrik.kaiser@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 14
+ },
+ "user_046": {
+  "kennung": "user_046",
+  "name": "Christoph Gerlach",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "christoph.gerlach@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 2
+ },
+ "user_047": {
+  "kennung": "user_047",
+  "name": "Ralf Osterloh",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "ralf.osterloh@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1
+ },
+ "user_049": {
+  "kennung": "user_049",
+  "name": "Frank Steinbach",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "frank.steinbach@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 8
+ },
+ "user_052": {
+  "kennung": "user_052",
+  "name": "Marek Jansen",
+  "rolle": "Operativer Einkauf",
+  "email": "marek.jansen@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 37
+ },
+ "user_054": {
+  "kennung": "user_054",
+  "name": "Petra Thiele",
+  "rolle": "Operativer Einkauf",
+  "email": "petra.thiele@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1
+ },
+ "user_056": {
+  "kennung": "user_056",
+  "name": "Martina Hoffmann",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "martina.hoffmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 28
+ },
+ "user_057": {
+  "kennung": "user_057",
+  "name": "Bernd Sauer",
+  "rolle": "Operativer Einkauf",
+  "email": "bernd.sauer@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 12
+ },
+ "user_059": {
+  "kennung": "user_059",
+  "name": "Ines Hoffmann",
+  "rolle": "Operativer Einkauf",
+  "email": "ines.hoffmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 154
+ },
+ "user_060": {
+  "kennung": "user_060",
+  "name": "Xenia Imhof",
+  "rolle": "Operativer Einkauf",
+  "email": "xenia.imhof@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 10
+ },
+ "user_061": {
+  "kennung": "user_061",
+  "name": "Anke Ahrens",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "anke.ahrens@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 3
+ },
+ "user_062": {
+  "kennung": "user_062",
+  "name": "Martina Brinkmann",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "martina.brinkmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 61
+ },
+ "user_063": {
+  "kennung": "user_063",
+  "name": "Ines Thiele",
+  "rolle": "Operativer Einkauf",
+  "email": "ines.thiele@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 222
+ },
+ "user_064": {
+  "kennung": "user_064",
+  "name": "Katrin Wendland",
+  "rolle": "Operativer Einkauf",
+  "email": "katrin.wendland@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 890
+ },
+ "user_065": {
+  "kennung": "user_065",
+  "name": "Frank Wendland",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "frank.wendland@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 203
+ },
+ "user_066": {
+  "kennung": "user_066",
+  "name": "Claudia Osterloh",
+  "rolle": "Operativer Einkauf",
+  "email": "claudia.osterloh@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 54
+ },
+ "user_068": {
+  "kennung": "user_068",
+  "name": "Dirk Osterloh",
+  "rolle": "Operativer Einkauf",
+  "email": "dirk.osterloh@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 72
+ },
+ "user_069": {
+  "kennung": "user_069",
+  "name": "Holger Thiele",
+  "rolle": "Category Management",
+  "email": "holger.thiele@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 100000,
+  "zahlfreigabe_grenze_eur": 25000,
+  "ereignisse": 57
+ },
+ "user_070": {
+  "kennung": "user_070",
+  "name": "Gudrun Sommerfeld",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "gudrun.sommerfeld@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 45
+ },
+ "user_071": {
+  "kennung": "user_071",
+  "name": "Katrin Ahrens",
+  "rolle": "Category Management",
+  "email": "katrin.ahrens@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 100000,
+  "zahlfreigabe_grenze_eur": 25000,
+  "ereignisse": 72
+ },
+ "user_073": {
+  "kennung": "user_073",
+  "name": "Anke Grünewald",
+  "rolle": "Kreditorenbuchhaltung",
+  "email": "anke.gruenewald@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 55
+ },
+ "user_075": {
+  "kennung": "user_075",
+  "name": "Tobias Ulrich",
+  "rolle": "Operativer Einkauf",
+  "email": "tobias.ulrich@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 72
+ },
+ "user_076": {
+  "kennung": "user_076",
+  "name": "Christoph Ulrich",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "christoph.ulrich@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 45
+ },
+ "user_077": {
+  "kennung": "user_077",
+  "name": "Hendrik Radtke",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "hendrik.radtke@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 370
+ },
+ "user_078": {
+  "kennung": "user_078",
+  "name": "Ines Sommerfeld",
+  "rolle": "Operativer Einkauf",
+  "email": "ines.sommerfeld@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 110
+ },
+ "user_079": {
+  "kennung": "user_079",
+  "name": "Beate Neuhaus",
+  "rolle": "Operativer Einkauf",
+  "email": "beate.neuhaus@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 119
+ },
+ "user_080": {
+  "kennung": "user_080",
+  "name": "Elena Zeller",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "elena.zeller@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 141
+ },
+ "user_081": {
+  "kennung": "user_081",
+  "name": "Silke Osterloh",
+  "rolle": "Category Management",
+  "email": "silke.osterloh@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 100000,
+  "zahlfreigabe_grenze_eur": 25000,
+  "ereignisse": 44
+ },
+ "user_082": {
+  "kennung": "user_082",
+  "name": "Ulrike Ulrich",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "ulrike.ulrich@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 89
+ },
+ "user_086": {
+  "kennung": "user_086",
+  "name": "Nadine Backhaus",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "nadine.backhaus@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 29
+ },
+ "user_087": {
+  "kennung": "user_087",
+  "name": "Jörg Imhof",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "joerg.imhof@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 69
+ },
+ "user_088": {
+  "kennung": "user_088",
+  "name": "Judith Neuhaus",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "judith.neuhaus@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 42
+ },
+ "user_091": {
+  "kennung": "user_091",
+  "name": "Thomas Dietrich",
+  "rolle": "Operativer Einkauf",
+  "email": "thomas.dietrich@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 453
+ },
+ "user_092": {
+  "kennung": "user_092",
+  "name": "Claudia Sommerfeld",
+  "rolle": "Operativer Einkauf",
+  "email": "claudia.sommerfeld@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 6
+ },
+ "user_093": {
+  "kennung": "user_093",
+  "name": "Zoe Pfeiffer",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "zoe.pfeiffer@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 3
+ },
+ "user_094": {
+  "kennung": "user_094",
+  "name": "Elena Reinhardt",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "elena.reinhardt@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 18
+ },
+ "user_095": {
+  "kennung": "user_095",
+  "name": "Tobias Radtke",
+  "rolle": "Operativer Einkauf",
+  "email": "tobias.radtke@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 497
+ },
+ "user_096": {
+  "kennung": "user_096",
+  "name": "Nadine Ebeling",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "nadine.ebeling@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 367
+ },
+ "user_097": {
+  "kennung": "user_097",
+  "name": "Marek Brinkmann",
+  "rolle": "Operativer Einkauf",
+  "email": "marek.brinkmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1
+ },
+ "user_099": {
+  "kennung": "user_099",
+  "name": "Sabine Hoffmann",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "sabine.hoffmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 28
+ },
+ "user_100": {
+  "kennung": "user_100",
+  "name": "Lars Vogt",
+  "rolle": "Operativer Einkauf",
+  "email": "lars.vogt@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 4
+ },
+ "user_101": {
+  "kennung": "user_101",
+  "name": "Petra Imhof",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "petra.imhof@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 15
+ },
+ "user_102": {
+  "kennung": "user_102",
+  "name": "Andrea Lindner",
+  "rolle": "Operativer Einkauf",
+  "email": "andrea.lindner@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 63
+ },
+ "user_103": {
+  "kennung": "user_103",
+  "name": "Christoph Osterloh",
+  "rolle": "Operativer Einkauf",
+  "email": "christoph.osterloh@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 9
+ },
+ "user_104": {
+  "kennung": "user_104",
+  "name": "Wiebke Pfeiffer",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "wiebke.pfeiffer@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 245
+ },
+ "user_105": {
+  "kennung": "user_105",
+  "name": "Bernd Neuhaus",
+  "rolle": "Operativer Einkauf",
+  "email": "bernd.neuhaus@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 26
+ },
+ "user_106": {
+  "kennung": "user_106",
+  "name": "Holger Dettmer",
+  "rolle": "Operativer Einkauf",
+  "email": "holger.dettmer@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 15
+ },
+ "user_109": {
+  "kennung": "user_109",
+  "name": "Ulrike Radtke",
+  "rolle": "Operativer Einkauf",
+  "email": "ulrike.radtke@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 8
+ },
+ "user_112": {
+  "kennung": "user_112",
+  "name": "Jörg Ulrich",
+  "rolle": "Kreditorenbuchhaltung mit Freigaberecht",
+  "email": "joerg.ulrich@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 25000,
+  "ereignisse": 22
+ },
+ "user_113": {
+  "kennung": "user_113",
+  "name": "Ines Steinbach",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "ines.steinbach@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 23
+ },
+ "user_114": {
+  "kennung": "user_114",
+  "name": "Gudrun Reinhardt",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "gudrun.reinhardt@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 12
+ },
+ "user_115": {
+  "kennung": "user_115",
+  "name": "Nadine Radtke",
+  "rolle": "Category Management",
+  "email": "nadine.radtke@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 100000,
+  "zahlfreigabe_grenze_eur": 25000,
+  "ereignisse": 17
+ },
+ "user_117": {
+  "kennung": "user_117",
+  "name": "Elena Dietrich",
+  "rolle": "Operativer Einkauf",
+  "email": "elena.dietrich@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 11
+ },
+ "user_118": {
+  "kennung": "user_118",
+  "name": "Thomas Kroll",
+  "rolle": "Zahlungsverkehr",
+  "email": "thomas.kroll@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 2
+ },
+ "user_119": {
+  "kennung": "user_119",
+  "name": "Christoph Wendland",
+  "rolle": "Operativer Einkauf",
+  "email": "christoph.wendland@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 128
+ },
+ "user_121": {
+  "kennung": "user_121",
+  "name": "Yannick Ahrens",
+  "rolle": "Operativer Einkauf",
+  "email": "yannick.ahrens@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 98
+ },
+ "user_124": {
+  "kennung": "user_124",
+  "name": "Tobias Hoffmann",
+  "rolle": "Anforderer / Werk",
+  "email": "tobias.hoffmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 117
+ },
+ "user_125": {
+  "kennung": "user_125",
+  "name": "Lars Steinbach",
+  "rolle": "Operativer Einkauf",
+  "email": "lars.steinbach@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 3
+ },
+ "user_126": {
+  "kennung": "user_126",
+  "name": "Andrea Vogt",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "andrea.vogt@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 55
+ },
+ "user_127": {
+  "kennung": "user_127",
+  "name": "Lars Brinkmann",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "lars.brinkmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 40
+ },
+ "user_133": {
+  "kennung": "user_133",
+  "name": "Sabine Ebeling",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "sabine.ebeling@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 136
+ },
+ "user_136": {
+  "kennung": "user_136",
+  "name": "Jörg Kaiser",
+  "rolle": "Operativer Einkauf",
+  "email": "joerg.kaiser@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 7
+ },
+ "user_139": {
+  "kennung": "user_139",
+  "name": "Volker Grünewald",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "volker.gruenewald@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 3
+ },
+ "user_141": {
+  "kennung": "user_141",
+  "name": "Frank Vogt",
+  "rolle": "Operativer Einkauf",
+  "email": "frank.vogt@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 34
+ },
+ "user_142": {
+  "kennung": "user_142",
+  "name": "Gudrun Faber",
+  "rolle": "Operativer Einkauf",
+  "email": "gudrun.faber@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 131
+ },
+ "user_146": {
+  "kennung": "user_146",
+  "name": "Petra Quandt",
+  "rolle": "Category Management",
+  "email": "petra.quandt@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 100000,
+  "zahlfreigabe_grenze_eur": 25000,
+  "ereignisse": 9
+ },
+ "user_147": {
+  "kennung": "user_147",
+  "name": "Claudia Wendland",
+  "rolle": "Operativer Einkauf",
+  "email": "claudia.wendland@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 88
+ },
+ "user_148": {
+  "kennung": "user_148",
+  "name": "Jörg Neuhaus",
+  "rolle": "Operativer Einkauf",
+  "email": "joerg.neuhaus@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 65
+ },
+ "user_149": {
+  "kennung": "user_149",
+  "name": "Sabine Bergmann",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "sabine.bergmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 8
+ },
+ "user_152": {
+  "kennung": "user_152",
+  "name": "Nadine Bergmann",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "nadine.bergmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 29
+ },
+ "user_155": {
+  "kennung": "user_155",
+  "name": "Beate Brinkmann",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "beate.brinkmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 14
+ },
+ "user_156": {
+  "kennung": "user_156",
+  "name": "Frank Brinkmann",
+  "rolle": "Operativer Einkauf",
+  "email": "frank.brinkmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 9
+ },
+ "user_157": {
+  "kennung": "user_157",
+  "name": "Sabine Quandt",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "sabine.quandt@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 5
+ },
+ "user_162": {
+  "kennung": "user_162",
+  "name": "Zoe Grünewald",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "zoe.gruenewald@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 115
+ },
+ "user_163": {
+  "kennung": "user_163",
+  "name": "Zoe Bergmann",
+  "rolle": "Operativer Einkauf",
+  "email": "zoe.bergmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 75
+ },
+ "user_167": {
+  "kennung": "user_167",
+  "name": "Dirk Bergmann",
+  "rolle": "Operativer Einkauf",
+  "email": "dirk.bergmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1
+ },
+ "user_168": {
+  "kennung": "user_168",
+  "name": "Claudia Möller",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "claudia.moeller@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 26
+ },
+ "user_169": {
+  "kennung": "user_169",
+  "name": "Thomas Imhof",
+  "rolle": "Operativer Einkauf",
+  "email": "thomas.imhof@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 6
+ },
+ "user_171": {
+  "kennung": "user_171",
+  "name": "Stefan Faber",
+  "rolle": "Operativer Einkauf",
+  "email": "stefan.faber@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 199
+ },
+ "user_174": {
+  "kennung": "user_174",
+  "name": "Tobias Osterloh",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "tobias.osterloh@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1
+ },
+ "user_175": {
+  "kennung": "user_175",
+  "name": "Nadine Pfeiffer",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "nadine.pfeiffer@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1
+ },
+ "user_176": {
+  "kennung": "user_176",
+  "name": "Andrea Jansen",
+  "rolle": "Operativer Einkauf",
+  "email": "andrea.jansen@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 153
+ },
+ "user_177": {
+  "kennung": "user_177",
+  "name": "Hendrik Kuhlmann",
+  "rolle": "Operativer Einkauf",
+  "email": "hendrik.kuhlmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 415
+ },
+ "user_178": {
+  "kennung": "user_178",
+  "name": "Xenia Dettmer",
+  "rolle": "Operativer Einkauf",
+  "email": "xenia.dettmer@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 37
+ },
+ "user_184": {
+  "kennung": "user_184",
+  "name": "Claudia Grünewald",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "claudia.gruenewald@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 4
+ },
+ "user_185": {
+  "kennung": "user_185",
+  "name": "Marek Gerlach",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "marek.gerlach@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 29
+ },
+ "user_186": {
+  "kennung": "user_186",
+  "name": "Holger Ahrens",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "holger.ahrens@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 69
+ },
+ "user_187": {
+  "kennung": "user_187",
+  "name": "Wiebke Lemke",
+  "rolle": "Operativer Einkauf",
+  "email": "wiebke.lemke@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 97
+ },
+ "user_188": {
+  "kennung": "user_188",
+  "name": "Marek Pfeiffer",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "marek.pfeiffer@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 230
+ },
+ "user_189": {
+  "kennung": "user_189",
+  "name": "Gudrun Osterloh",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "gudrun.osterloh@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 10
+ },
+ "user_190": {
+  "kennung": "user_190",
+  "name": "Katrin Quandt",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "katrin.quandt@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 46
+ },
+ "user_191": {
+  "kennung": "user_191",
+  "name": "Elena Osterloh",
+  "rolle": "Operativer Einkauf",
+  "email": "elena.osterloh@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 10
+ },
+ "user_192": {
+  "kennung": "user_192",
+  "name": "Silke Brinkmann",
+  "rolle": "Operativer Einkauf",
+  "email": "silke.brinkmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 51
+ },
+ "user_193": {
+  "kennung": "user_193",
+  "name": "Silke Kuhlmann",
+  "rolle": "Operativer Einkauf",
+  "email": "silke.kuhlmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 15
+ },
+ "user_194": {
+  "kennung": "user_194",
+  "name": "Yannick Pfeiffer",
+  "rolle": "Operativer Einkauf",
+  "email": "yannick.pfeiffer@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 19
+ },
+ "user_196": {
+  "kennung": "user_196",
+  "name": "Wiebke Ahrens",
+  "rolle": "Kreditorenbuchhaltung mit Freigaberecht",
+  "email": "wiebke.ahrens@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 25000,
+  "ereignisse": 13
+ },
+ "user_197": {
+  "kennung": "user_197",
+  "name": "Beate Imhof",
+  "rolle": "Zahlungsverkehr",
+  "email": "beate.imhof@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 15
+ },
+ "user_200": {
+  "kennung": "user_200",
+  "name": "Olaf Möller",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "olaf.moeller@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 44
+ },
+ "user_204": {
+  "kennung": "user_204",
+  "name": "Petra Kroll",
+  "rolle": "Operativer Einkauf",
+  "email": "petra.kroll@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 26
+ },
+ "user_205": {
+  "kennung": "user_205",
+  "name": "Nadine Hoffmann",
+  "rolle": "Zahlungsverkehr",
+  "email": "nadine.hoffmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 6
+ },
+ "user_207": {
+  "kennung": "user_207",
+  "name": "Volker Brinkmann",
+  "rolle": "Operativer Einkauf",
+  "email": "volker.brinkmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 54
+ },
+ "user_213": {
+  "kennung": "user_213",
+  "name": "Christoph Lemke",
+  "rolle": "Operativer Einkauf",
+  "email": "christoph.lemke@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 33
+ },
+ "user_217": {
+  "kennung": "user_217",
+  "name": "Beate Ulrich",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "beate.ulrich@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 13
+ },
+ "user_224": {
+  "kennung": "user_224",
+  "name": "Thomas Gerlach",
+  "rolle": "Operativer Einkauf",
+  "email": "thomas.gerlach@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 3
+ },
+ "user_228": {
+  "kennung": "user_228",
+  "name": "Silke Imhof",
+  "rolle": "Operativer Einkauf",
+  "email": "silke.imhof@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 2
+ },
+ "user_231": {
+  "kennung": "user_231",
+  "name": "Sabine Dietrich",
+  "rolle": "Operativer Einkauf",
+  "email": "sabine.dietrich@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 55
+ },
+ "user_232": {
+  "kennung": "user_232",
+  "name": "Christoph Wittkopp",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "christoph.wittkopp@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 53
+ },
+ "user_233": {
+  "kennung": "user_233",
+  "name": "Ralf Ebeling",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "ralf.ebeling@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 58
+ },
+ "user_234": {
+  "kennung": "user_234",
+  "name": "Nils Grünewald",
+  "rolle": "Operativer Einkauf",
+  "email": "nils.gruenewald@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 86
+ },
+ "user_235": {
+  "kennung": "user_235",
+  "name": "Bernd Zeller",
+  "rolle": "Kreditorenbuchhaltung",
+  "email": "bernd.zeller@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 86
+ },
+ "user_240": {
+  "kennung": "user_240",
+  "name": "Sabine Sommerfeld",
+  "rolle": "Einkaufsleitung",
+  "email": "sabine.sommerfeld@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 500000,
+  "zahlfreigabe_grenze_eur": 1000000000,
+  "ereignisse": 1
+ },
+ "user_247": {
+  "kennung": "user_247",
+  "name": "Elena Bergmann",
+  "rolle": "Category Management",
+  "email": "elena.bergmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 100000,
+  "zahlfreigabe_grenze_eur": 25000,
+  "ereignisse": 2
+ },
+ "user_248": {
+  "kennung": "user_248",
+  "name": "Silke Pfeiffer",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "silke.pfeiffer@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 26
+ },
+ "user_251": {
+  "kennung": "user_251",
+  "name": "Jörg Thiele",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "joerg.thiele@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 6
+ },
+ "user_257": {
+  "kennung": "user_257",
+  "name": "Jörg Gerlach",
+  "rolle": "Operativer Einkauf",
+  "email": "joerg.gerlach@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 121
+ },
+ "user_258": {
+  "kennung": "user_258",
+  "name": "Gudrun Wendland",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "gudrun.wendland@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 24
+ },
+ "user_263": {
+  "kennung": "user_263",
+  "name": "Lars Radtke",
+  "rolle": "Operativer Einkauf",
+  "email": "lars.radtke@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 154
+ },
+ "user_264": {
+  "kennung": "user_264",
+  "name": "Martina Pfeiffer",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "martina.pfeiffer@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 9
+ },
+ "user_266": {
+  "kennung": "user_266",
+  "name": "Judith Möller",
+  "rolle": "Operativer Einkauf",
+  "email": "judith.moeller@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1
+ },
+ "user_267": {
+  "kennung": "user_267",
+  "name": "Elena Radtke",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "elena.radtke@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 20
+ },
+ "user_280": {
+  "kennung": "user_280",
+  "name": "Thomas Reinhardt",
+  "rolle": "Operativer Einkauf",
+  "email": "thomas.reinhardt@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1
+ },
+ "user_283": {
+  "kennung": "user_283",
+  "name": "Martina Grünewald",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "martina.gruenewald@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 45
+ },
+ "user_284": {
+  "kennung": "user_284",
+  "name": "Beate Gerlach",
+  "rolle": "Operativer Einkauf",
+  "email": "beate.gerlach@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1
+ },
+ "user_286": {
+  "kennung": "user_286",
+  "name": "Beate Faber",
+  "rolle": "Operativer Einkauf",
+  "email": "beate.faber@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 32
+ },
+ "user_294": {
+  "kennung": "user_294",
+  "name": "Gudrun Sauer",
+  "rolle": "Operativer Einkauf",
+  "email": "gudrun.sauer@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 20
+ },
+ "user_308": {
+  "kennung": "user_308",
+  "name": "Katrin Ulrich",
+  "rolle": "Operativer Einkauf",
+  "email": "katrin.ulrich@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 14
+ },
+ "user_310": {
+  "kennung": "user_310",
+  "name": "Ulrike Lemke",
+  "rolle": "Anforderer / Werk",
+  "email": "ulrike.lemke@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 2
+ },
+ "user_323": {
+  "kennung": "user_323",
+  "name": "Ulrike Kroll",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "ulrike.kroll@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 11
+ },
+ "user_325": {
+  "kennung": "user_325",
+  "name": "Ines Vogt",
+  "rolle": "Operativer Einkauf",
+  "email": "ines.vogt@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 15
+ },
+ "user_326": {
+  "kennung": "user_326",
+  "name": "Yannick Wittkopp",
+  "rolle": "Operativer Einkauf",
+  "email": "yannick.wittkopp@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 27
+ },
+ "user_335": {
+  "kennung": "user_335",
+  "name": "Yannick Ebeling",
+  "rolle": "Operativer Einkauf",
+  "email": "yannick.ebeling@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 2
+ },
+ "user_343": {
+  "kennung": "user_343",
+  "name": "Silke Kaiser",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "silke.kaiser@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1
+ },
+ "user_351": {
+  "kennung": "user_351",
+  "name": "Wiebke Dettmer",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "wiebke.dettmer@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 7
+ },
+ "user_352": {
+  "kennung": "user_352",
+  "name": "Stefan Sommerfeld",
+  "rolle": "Kreditorenbuchhaltung",
+  "email": "stefan.sommerfeld@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 3
+ },
+ "user_359": {
+  "kennung": "user_359",
+  "name": "Bernd Reinhardt",
+  "rolle": "Kreditorenbuchhaltung",
+  "email": "bernd.reinhardt@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 200
+ },
+ "user_363": {
+  "kennung": "user_363",
+  "name": "Volker Bergmann",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "volker.bergmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1
+ },
+ "user_368": {
+  "kennung": "user_368",
+  "name": "Zoe Lindner",
+  "rolle": "Kreditorenbuchhaltung",
+  "email": "zoe.lindner@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1
+ },
+ "user_370": {
+  "kennung": "user_370",
+  "name": "Sabine Lindner",
+  "rolle": "Operativer Einkauf",
+  "email": "sabine.lindner@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 14
+ },
+ "user_377": {
+  "kennung": "user_377",
+  "name": "Christoph Quandt",
+  "rolle": "Operativer Einkauf",
+  "email": "christoph.quandt@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 140
+ },
+ "user_381": {
+  "kennung": "user_381",
+  "name": "Anke Osterloh",
+  "rolle": "Category Management",
+  "email": "anke.osterloh@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 100000,
+  "zahlfreigabe_grenze_eur": 25000,
+  "ereignisse": 4
+ },
+ "user_384": {
+  "kennung": "user_384",
+  "name": "Stefan Wittkopp",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "stefan.wittkopp@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 76
+ },
+ "user_388": {
+  "kennung": "user_388",
+  "name": "Xenia Jansen",
+  "rolle": "Operativer Einkauf",
+  "email": "xenia.jansen@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 185
+ },
+ "user_390": {
+  "kennung": "user_390",
+  "name": "Anke Kuhlmann",
+  "rolle": "Zahlungsverkehr",
+  "email": "anke.kuhlmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 4
+ },
+ "user_394": {
+  "kennung": "user_394",
+  "name": "Olaf Gerlach",
+  "rolle": "Operativer Einkauf",
+  "email": "olaf.gerlach@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 10
+ },
+ "user_396": {
+  "kennung": "user_396",
+  "name": "Martina Ulrich",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "martina.ulrich@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1
+ },
+ "user_401": {
+  "kennung": "user_401",
+  "name": "Volker Sommerfeld",
+  "rolle": "Operativer Einkauf",
+  "email": "volker.sommerfeld@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1
+ },
+ "user_411": {
+  "kennung": "user_411",
+  "name": "Andrea Lemke",
+  "rolle": "Wareneingang / Werkslogistik",
+  "email": "andrea.lemke@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1
+ },
+ "user_416": {
+  "kennung": "user_416",
+  "name": "Nadine Reinhardt",
+  "rolle": "Anforderer / Werk",
+  "email": "nadine.reinhardt@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 4
+ },
+ "user_421": {
+  "kennung": "user_421",
+  "name": "Claudia Steinbach",
+  "rolle": "Anforderer / Werk",
+  "email": "claudia.steinbach@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 23
+ },
+ "user_424": {
+  "kennung": "user_424",
+  "name": "Nils Vogt",
+  "rolle": "Operativer Einkauf",
+  "email": "nils.vogt@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1
+ },
+ "user_428": {
+  "kennung": "user_428",
+  "name": "Martina Kroll",
+  "rolle": "Operativer Einkauf",
+  "email": "martina.kroll@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 6
+ },
+ "user_436": {
+  "kennung": "user_436",
+  "name": "Nadine Kroll",
+  "rolle": "Operativer Einkauf",
+  "email": "nadine.kroll@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1
+ },
+ "user_437": {
+  "kennung": "user_437",
+  "name": "Andrea Kroll",
+  "rolle": "Operativer Einkauf",
+  "email": "andrea.kroll@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 25000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 3
+ },
+ "user_451": {
+  "kennung": "user_451",
+  "name": "Lars Wendland",
+  "rolle": "Anforderer / Werk",
+  "email": "lars.wendland@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 132
+ },
+ "user_452": {
+  "kennung": "user_452",
+  "name": "Dirk Imhof",
+  "rolle": "Anforderer / Werk",
+  "email": "dirk.imhof@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 3
+ },
+ "user_453": {
+  "kennung": "user_453",
+  "name": "Sabine Pfeiffer",
+  "rolle": "Anforderer / Werk",
+  "email": "sabine.pfeiffer@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 40
+ },
+ "user_454": {
+  "kennung": "user_454",
+  "name": "Holger Brinkmann",
+  "rolle": "Anforderer / Werk",
+  "email": "holger.brinkmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1
+ },
+ "user_455": {
+  "kennung": "user_455",
+  "name": "Wiebke Jansen",
+  "rolle": "Anforderer / Werk",
+  "email": "wiebke.jansen@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 2
+ },
+ "user_457": {
+  "kennung": "user_457",
+  "name": "Elena Cordes",
+  "rolle": "Anforderer / Werk",
+  "email": "elena.cordes@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 13
+ },
+ "user_461": {
+  "kennung": "user_461",
+  "name": "Gudrun Neuhaus",
+  "rolle": "Anforderer / Werk",
+  "email": "gudrun.neuhaus@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 14
+ },
+ "user_462": {
+  "kennung": "user_462",
+  "name": "Jörg Cordes",
+  "rolle": "Anforderer / Werk",
+  "email": "joerg.cordes@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 10
+ },
+ "user_464": {
+  "kennung": "user_464",
+  "name": "Olaf Cordes",
+  "rolle": "Anforderer / Werk",
+  "email": "olaf.cordes@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 2
+ },
+ "user_466": {
+  "kennung": "user_466",
+  "name": "Nils Osterloh",
+  "rolle": "Anforderer / Werk",
+  "email": "nils.osterloh@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 4
+ },
+ "user_484": {
+  "kennung": "user_484",
+  "name": "Judith Grünewald",
+  "rolle": "Anforderer / Werk",
+  "email": "judith.gruenewald@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 55
+ },
+ "user_486": {
+  "kennung": "user_486",
+  "name": "Xenia Sauer",
+  "rolle": "Anforderer / Werk",
+  "email": "xenia.sauer@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 4
+ },
+ "user_496": {
+  "kennung": "user_496",
+  "name": "Katrin Backhaus",
+  "rolle": "Anforderer / Werk",
+  "email": "katrin.backhaus@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 4
+ },
+ "user_497": {
+  "kennung": "user_497",
+  "name": "Xenia Neuhaus",
+  "rolle": "Anforderer / Werk",
+  "email": "xenia.neuhaus@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 5
+ },
+ "user_499": {
+  "kennung": "user_499",
+  "name": "Frank Osterloh",
+  "rolle": "Anforderer / Werk",
+  "email": "frank.osterloh@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 4
+ },
+ "user_504": {
+  "kennung": "user_504",
+  "name": "Beate Jansen",
+  "rolle": "Anforderer / Werk",
+  "email": "beate.jansen@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1
+ },
+ "user_506": {
+  "kennung": "user_506",
+  "name": "Tobias Steinbach",
+  "rolle": "Anforderer / Werk",
+  "email": "tobias.steinbach@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 7
+ },
+ "user_525": {
+  "kennung": "user_525",
+  "name": "Tobias Pfeiffer",
+  "rolle": "Anforderer / Werk",
+  "email": "tobias.pfeiffer@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1
+ },
+ "user_531": {
+  "kennung": "user_531",
+  "name": "Gudrun Zeller",
+  "rolle": "Anforderer / Werk",
+  "email": "gudrun.zeller@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1
+ },
+ "user_533": {
+  "kennung": "user_533",
+  "name": "Claudia Kuhlmann",
+  "rolle": "Anforderer / Werk",
+  "email": "claudia.kuhlmann@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 5000,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 4
+ },
+ "user_602": {
+  "kennung": "user_602",
+  "name": "Thomas Sauer",
+  "rolle": "Einkaufsleitung",
+  "email": "thomas.sauer@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 500000,
+  "zahlfreigabe_grenze_eur": 1000000000,
+  "ereignisse": 987
+ },
+ "user_603": {
+  "kennung": "user_603",
+  "name": "Gudrun Imhof",
+  "rolle": "Einkaufsleitung",
+  "email": "gudrun.imhof@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 500000,
+  "zahlfreigabe_grenze_eur": 1000000000,
+  "ereignisse": 978
+ },
+ "user_604": {
+  "kennung": "user_604",
+  "name": "Yannick Dettmer",
+  "rolle": "Zahlungsverkehr",
+  "email": "yannick.dettmer@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 122
+ },
+ "user_605": {
+  "kennung": "user_605",
+  "name": "Ines Kroll",
+  "rolle": "Kreditorenbuchhaltung",
+  "email": "ines.kroll@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 13
+ },
+ "user_606": {
+  "kennung": "user_606",
+  "name": "Elena Neuhaus",
+  "rolle": "Kreditorenbuchhaltung",
+  "email": "elena.neuhaus@vandenberg-coatings.example",
+  "genehmigungsgrenze_eur": 0,
+  "zahlfreigabe_grenze_eur": 0,
+  "ereignisse": 1
+ }
+}

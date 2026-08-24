@@ -1,0 +1,38 @@
+[   0.0s] Pass 1: Rohdaten profilieren
+[   3.8s]   251734 Positionen, 1088991 relevante Ereignisse
+[   8.1s] Flags ableiten
+[   8.1s] Scope und Auswahl bestimmen
+[   8.2s]   Kern-Cluster 6154 + Dienstleistungsblock 204 Positionen
+[   8.2s]   nach Bestellungs-Abschluss: 6871 Positionen in 4271 Bestellungen
+[   8.2s]   Gesellschaft umgehaengt: 240 Positionen
+[   8.2s] Pass 2: Teilmengen-CSV schreiben
+[  10.9s]   39966 Ereigniszeilen geschrieben
+[  10.9s] Artefakte schreiben
+[  11.0s] fertig
+{
+ "positionen": 6871,
+ "bestellungen": 4271,
+ "ereigniszeilen": 39966,
+ "lieferanten": 132,
+ "warengruppen": 46,
+ "volumen_eur": 140998981.0,
+ "positionen_aus_po_abschluss": 513,
+ "positionen_gesellschaft_umgehaengt": 240,
+ "prozessvarianten": {
+  "3-way match, invoice before GR": 5249,
+  "Consignment": 1126,
+  "3-way match, invoice after GR": 256,
+  "2-way match": 240
+ },
+ "feststellungstraeger": {
+  "F1_weit": 448,
+  "F1_strikt": 319,
+  "F1_eng": 236,
+  "F1_rausch_unter_24h": 97,
+  "F2": 49,
+  "F2_zahlung_vor_gr": 38,
+  "F2_manuelle_entsperrung": 41,
+  "F6_basis_messbare_zahlungsdauer": 5397
+ },
+ "unauffaellige_positionen": 6504
+}

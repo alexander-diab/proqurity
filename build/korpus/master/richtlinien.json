@@ -1,0 +1,96 @@
+[
+ {
+  "id": "EK-RL-2017-01",
+  "titel": "Einkaufsrichtlinie",
+  "gueltig_ab": "2017-07-01",
+  "verweise": [
+   "ISO20400",
+   "COSO"
+  ],
+  "freigabematrix": [
+   [
+    "Anforderer / Werk",
+    5000,
+    0
+   ],
+   [
+    "Operativer Einkauf",
+    25000,
+    0
+   ],
+   [
+    "Category Management",
+    100000,
+    25000
+   ],
+   [
+    "Einkaufsleitung",
+    500000,
+    1000000000
+   ],
+   [
+    "Kreditorenbuchhaltung mit Freigaberecht",
+    0,
+    25000
+   ],
+   [
+    "Wareneingang / Werkslogistik",
+    0,
+    0
+   ],
+   [
+    "Kreditorenbuchhaltung",
+    0,
+    0
+   ],
+   [
+    "Zahlungsverkehr",
+    0,
+    0
+   ],
+   [
+    "Systemlauf",
+    0,
+    0
+   ]
+  ],
+  "rahmenvertragspflicht_ab_eur": 25000
+ },
+ {
+  "id": "LQ-RL-2017-01",
+  "titel": "Richtlinie Lieferantenqualifikation und Nachhaltigkeit",
+  "gueltig_ab": "2017-10-01",
+  "standard": "TfS",
+  "pflichtige_warengruppen": [
+   "Reinacrylat-Dispersionen",
+   "Styrolacrylat-Dispersionen",
+   "Titandioxid (Chlorid-Verfahren)",
+   "Aliphatische Lösemittel"
+  ],
+  "nicht_pflichtig": [
+   "Instandhaltungskomponenten",
+   "Dienstleistungen"
+  ],
+  "gueltigkeitsdauer_jahre": 3,
+  "verweise": [
+   "TfS",
+   "ResponsibleCare",
+   "UNGC",
+   "BME_CoC"
+  ]
+ },
+ {
+  "id": "RP-RL-2017-01",
+  "titel": "Richtlinie Rechnungsprüfung und Zahlungsfreigabe",
+  "gueltig_ab": "2017-07-01",
+  "verfahren": [
+   "3-way match",
+   "2-way match",
+   "Konsignation"
+  ],
+  "ausnahme_genehmigung_ab_eur": 25000,
+  "verweise": [
+   "COSO"
+  ]
+ }
+]

@@ -1,0 +1,18 @@
+# Nur für Neuerzeugung der Artefakte — am Hackathontag nicht nötig.
+#
+#   build/select_subset.py, build/profile_bpic19.py          → pandas, numpy
+#   build/graph_*/generator/gen_graph.py, gen_queries.py     → pandas
+#   build/korpus/generator/gen_norm.py, gen_master.py        → jinja2
+#
+# NICHT enthalten: weasyprint (build/korpus/generator/gen_docs.py).
+# Es braucht native Libs (Pango, Cairo, gdk-pixbuf) und läuft deshalb in Docker:
+#   docker/weasyprint.Dockerfile
+
+-r requirements.txt
+
+pandas>=2.2
+numpy>=1.26
+jinja2>=3.1
+
+# Linting/Formatierung
+ruff>=0.6

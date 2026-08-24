@@ -1,0 +1,59 @@
+{
+ "modell": "schlank",
+ "knoten": {
+  "Event": 39966,
+  "POItem": 6871,
+  "PO": 4271,
+  "Vendor": 132,
+  "Person": 224,
+  "Warengruppe": 47,
+  "Contract": 13,
+  "Clause": 87,
+  "NormSource": 9,
+  "Richtlinie": 3,
+  "Assessment": 63,
+  "Document": 942,
+  "Chunk": 623,
+  "Company": 1,
+  "Class": 0,
+  "Log": 0
+ },
+ "knoten_gesamt": 53252,
+ "kanten": {
+  "CORR": 39966,
+  "DF": 33095,
+  "PERFORMED_BY": 33832,
+  "PART_OF": 6871,
+  "IN_CATEGORY": 6871,
+  "SUPPLIED_BY": 4271,
+  "HAS_CONTRACT": 13,
+  "COVERS": 13,
+  "HAS_CLAUSE": 87,
+  "INCORPORATES": 10,
+  "IMPLEMENTS": 26,
+  "BUILDS_ON": 4,
+  "ASSESSED_BY": 63,
+  "REQUIRES_STANDARD": 4,
+  "GILT_FUER": 4,
+  "REFERENZIERT": 7,
+  "EVIDENCE_FOR": 968,
+  "HAS_CHUNK": 623,
+  "OBSERVES": 0,
+  "HAS": 0,
+  "REL": 0
+ },
+ "kanten_gesamt": 126728,
+ "zzgl_findings": {
+  "Finding": 1135,
+  "CONCERNS": 1135,
+  "EVIDENCED_BY": 942
+ },
+ "gesamt_mit_findings": {
+  "knoten": 54387,
+  "kanten": 128805
+ },
+ "aura_free_limit": {
+  "knoten": 200000,
+  "kanten": 400000
+ }
+}

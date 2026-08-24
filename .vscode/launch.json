@@ -1,0 +1,53 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Werkzeugserver (befund_mcp)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/agent/befund_mcp.py",
+      "cwd": "${workspaceFolder}/build/agent",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "Prüfagent F1 (20 Fälle)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/agent/pruefagent.py",
+      "args": ["--typ", "F1", "--anzahl", "20", "--nach-wareneingang"],
+      "cwd": "${workspaceFolder}/build/agent",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "Graph laden (schlank)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/graph_schlank/load.py",
+      "cwd": "${workspaceFolder}/build/graph_schlank",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Selbsttest (nichts laden)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/graph_schlank/load.py",
+      "args": ["--nur-selbsttest"],
+      "cwd": "${workspaceFolder}/build/graph_schlank",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Smoke-Test",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/smoke_test.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    }
+  ]
+}

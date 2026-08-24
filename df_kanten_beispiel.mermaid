@@ -1,0 +1,39 @@
+---
+title: "Bestellung 4507004841 — dieselben 12 Ereignisse, zwei verschiedene Prozessketten"
+---
+flowchart LR
+    classDef pos10 fill:#e8f1fb,stroke:#4a7fb5,stroke-width:1px,color:#12314d
+    classDef pos20 fill:#fdf0e4,stroke:#c98436,stroke-width:1px,color:#4d3312
+
+    subgraph P10["Position 00010"]
+        direction LR
+        e1["1 · Create PO Item<br/>23.01. 15:23 · user_038"]
+        e7["7 · Record Goods Receipt<br/>30.01. 09:34 · user_070"]
+        e9["9 · Vendor creates invoice<br/>06.02. 23:59"]
+        e10["10 · Record Invoice Receipt<br/>07.02. 15:09 · user_001"]
+        e12["12 · Clear Invoice<br/>01.03. 14:06 · user_005"]
+    end
+
+    subgraph P20["Position 00020"]
+        direction LR
+        e2["2 · Create PO Item<br/>23.01. 15:23 · user_038"]
+        e3["3 · Vendor creates invoice<br/>26.01. 23:59"]
+        e4["4 · Record Invoice Receipt<br/>29.01. 17:24 · batch_00"]
+        e5["5 · Change Price<br/>30.01. 07:54 · user_071"]
+        e6["6 · Record Goods Receipt<br/>30.01. 09:34 · user_070"]
+        e8["8 · Remove Payment Block<br/>30.01. 16:34 · user_006"]
+        e11["11 · Clear Invoice<br/>15.02. 14:51 · user_002"]
+    end
+
+    e1 ==> e7 ==> e9 ==> e10 ==> e12
+    e2 ==> e3 ==> e4 ==> e5 ==> e6 ==> e8 ==> e11
+
+    e1 -.-> e2 -.-> e3 -.-> e4 -.-> e5 -.-> e6 -.-> e7
+    e7 -.-> e8 -.-> e9 -.-> e10 -.-> e11 -.-> e12
+
+    class e1,e7,e9,e10,e12 pos10
+    class e2,e3,e4,e5,e6,e8,e11 pos20
+
+    L1["━━━  :DF EntityType 'POItem'  —  zwei getrennte Ketten"]
+    L2["┈┈┈  :DF EntityType 'PO'  —  eine Kette über alle zwölf Ereignisse"]
+    L1 ~~~ L2

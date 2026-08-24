@@ -1,0 +1,31 @@
+# Ruff soll echte Fehler finden, nicht den Stil umschreiben.
+#
+# Der Bestandscode hat eine bewusst kompakte Handschrift -- Sammelimporte,
+# Semikolons, kurze Namen. Die Standardregeln von Ruff wuerden 239 Meldungen
+# dagegen erzeugen; keine davon ist ein Fehler. Deshalb nur:
+#
+#   F     pyflakes         unbenutzte Importe, undefinierte Namen, tote Variablen
+#   E4/E7/E9              Syntax- und echte Strukturfehler
+#   B     bugbear          Fallstricke, die tatsaechlich beissen
+#   UP    pyupgrade        veraltete Konstrukte
+
+line-length = 100
+target-version = "py312"
+extend-exclude = ["data", ".venv", "vendor", "tools"]
+
+[lint]
+select = ["F", "E9", "B"]
+ignore = [
+  "E401",    # Sammelimporte -- durchgaengige Handschrift im Bestand
+  "E701",    # mehrere Anweisungen pro Zeile -- ebenso
+  "E702",
+  "E731",    # lambda statt def -- in den Textvorlagen bewusst
+  "E741",    # Variablenname l/I/O
+  "B008",    # Funktionsaufruf im Default -- bei FastMCP-Werkzeugen ueblich
+  "B905",    # zip(..., strict=) -- Laengen sind hier konstruktiv gleich
+]
+
+[lint.per-file-ignores]
+# Der Smoke-Test faengt absichtlich breit: er soll ALLE Befunde melden,
+# nicht beim ersten unerwarteten Fehler abbrechen.
+"smoke_test.py" = ["BLE001"]

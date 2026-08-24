@@ -1,0 +1,22 @@
+# Kritischer Pfad am Hackathontag.
+# Alles reine Python-Wheels — kein Compiler, keine Homebrew-Libs, Installation in Sekunden.
+#
+#   load.py · embed_chunks.py · befund_mcp.py · pruefagent.py
+#
+# Untergrenzen sind hier Absicht (erste Installation). Der Stand, der nachweislich
+# läuft, steht danach in requirements.lock — am Tag daraus installieren, nicht hieraus.
+
+# Graph
+neo4j>=5.28
+
+# Werkzeugserver
+fastmcp>=2.0
+pypdf>=5.0
+
+# Agent
+pydantic-ai-slim[openai,mcp]>=1.0
+openai>=1.60
+logfire>=3.0
+
+# Konfiguration
+python-dotenv>=1.0

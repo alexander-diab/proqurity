@@ -1,0 +1,36 @@
+=== Prüfung des Korpus ===
+Feststellungen: 1134 | Dokumente: 935
+Einzelprüfungen: 3435 | Beanstandungen: 0
+
+  F1_beleg_datum             226 geprüft,   0 beanstandet
+  F1_nicht_bewertbar         324 geprüft,   0 beanstandet
+  F1_status                  113 geprüft,   0 beanstandet
+  F1_toleranz                113 geprüft,   0 beanstandet
+  F1_ungeklaert               88 geprüft,   0 beanstandet
+  F1_vertragsbezug           113 geprüft,   0 beanstandet
+  F1_vorlauf                 113 geprüft,   0 beanstandet
+  F2_beleg                    30 geprüft,   0 beanstandet
+  F2_berechtigung             16 geprüft,   0 beanstandet
+  F2_ungeklaert               19 geprüft,   0 beanstandet
+  F2_verstoss                 14 geprüft,   0 beanstandet
+  F2_zeitpunkt                16 geprüft,   0 beanstandet
+  F3_beleg                    48 geprüft,   0 beanstandet
+  F3_berechtigung             36 geprüft,   0 beanstandet
+  F3_exklusiv                 77 geprüft,   0 beanstandet
+  F3_ungeklaert               29 geprüft,   0 beanstandet
+  F3_verstoss                 12 geprüft,   0 beanstandet
+  F3_vertragskreis            77 geprüft,   0 beanstandet
+  F3_wertgrenze               77 geprüft,   0 beanstandet
+  F3_zeitpunkt                36 geprüft,   0 beanstandet
+  F8_ablauf                  475 geprüft,   0 beanstandet
+  F8_pflicht                 475 geprüft,   0 beanstandet
+  F8_zeitpunkt               475 geprüft,   0 beanstandet
+  F9_gegenprobe                2 geprüft,   0 beanstandet
+  F9_menge                     1 geprüft,   0 beanstandet
+  beleg_vorhanden            210 geprüft,   0 beanstandet
+  beleg_zuordenbar           210 geprüft,   0 beanstandet
+  cypher_incorporates          1 geprüft,   0 beanstandet
+  cypher_klauseln              1 geprüft,   0 beanstandet
+  cypher_quellen               5 geprüft,   0 beanstandet
+  cypher_vertraege             1 geprüft,   0 beanstandet
+  ground_truth                 2 geprüft,   0 beanstandet

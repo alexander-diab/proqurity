@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "charliermarsh.ruff",
+    "neo4j-extensions.neo4j-for-vscode",
+    "bierner.markdown-mermaid",
+    "mikestead.dotenv"
+  ]
+}

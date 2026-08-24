@@ -1,0 +1,454 @@
+// Schritt 3 -- Normebene aus Schritt 2, ergaenzt um die Verknuepfung
+// zu Lieferant und Warengruppe.
+
+// Normebene für den Prüfagenten 'Befund'
+// Alle Organisationen und Standards sind real; synthetisch sind ausschließlich die
+// firmeninternen Umsetzungen und die Zuordnung zu den fiktiven Lieferanten.
+
+CREATE CONSTRAINT normsource_key IF NOT EXISTS FOR (n:NormSource) REQUIRE n.key IS UNIQUE;
+CREATE CONSTRAINT richtlinie_id IF NOT EXISTS FOR (r:Richtlinie) REQUIRE r.id IS UNIQUE;
+CREATE CONSTRAINT vertrag_nr IF NOT EXISTS FOR (v:Contract) REQUIRE v.vertrag_nr IS UNIQUE;
+CREATE CONSTRAINT clause_id IF NOT EXISTS FOR (c:Clause) REQUIRE c.id IS UNIQUE;
+
+MERGE (:NormSource {key: 'TfS', name: 'Together for Sustainability', herausgeber: 'TfS AISBL, Brüssel', url: 'https://www.tfs-initiative.com', typ: 'branchenstandard', verbindlichkeit: 'vertraglich_bindend', stand: '2024-01-01', beschreibung: 'Einkaufsgetriebene Nachhaltigkeitsinitiative der Chemieindustrie, gegründet 2011. Instrumente sind TfS Assessments und TfS Audits mit Corrective Action Plans.'});
+MERGE (:NormSource {key: 'SQAS', name: 'Safety & Quality Assessment for Sustainability', herausgeber: 'Cefic', url: 'https://sqas.org', typ: 'branchenstandard', verbindlichkeit: 'vertraglich_bindend', stand: '2023-01-01', beschreibung: 'Bewertungssystem für Logistikdienstleister und Chemiedistributoren, modular aufgebaut. Keine Zertifizierung, sondern ein Auditverfahren.'});
+MERGE (:NormSource {key: 'BME_CoC', name: 'BME-Verhaltensrichtlinie (Code of Conduct)', herausgeber: 'Bundesverband Materialwirtschaft, Einkauf und Logistik e. V.', url: 'https://www.bme.de', typ: 'verbandskodex', verbindlichkeit: 'vertraglich_bindend', stand: '2007-01-01', beschreibung: 'Branchenübergreifender Mindeststandard mit Kaskadenpflicht an unmittelbare Lieferanten.'});
+MERGE (:NormSource {key: 'ResponsibleCare', name: 'Responsible Care', herausgeber: 'Cefic / ICCA', url: 'https://cefic.org/guidance-and-management-frameworks/responsible-care/', typ: 'branchenstandard', verbindlichkeit: 'empfehlung', stand: '2021-01-01', beschreibung: 'Dachrahmen der Chemieindustrie, koordiniert über 29 nationale Verbände.'});
+MERGE (:NormSource {key: 'UNGC', name: 'UN Global Compact', herausgeber: 'Vereinte Nationen', url: 'https://unglobalcompact.org', typ: 'selbstverpflichtung', verbindlichkeit: 'empfehlung', stand: '2000-07-26', beschreibung: 'Zehn Prinzipien zu Menschenrechten, Arbeit, Umwelt und Korruptionsbekämpfung.'});
+MERGE (:NormSource {key: 'REACH', name: 'Verordnung (EG) Nr. 1907/2006 (REACH)', herausgeber: 'Europäische Union', url: 'https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A02006R1907-20240401', typ: 'gesetz', verbindlichkeit: 'bindend', stand: '2024-04-01', beschreibung: 'Registrierung, Bewertung, Zulassung und Beschränkung chemischer Stoffe.'});
+MERGE (:NormSource {key: 'CLP', name: 'Verordnung (EG) Nr. 1272/2008 (CLP)', herausgeber: 'Europäische Union', url: 'https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A02008R1272-20240101', typ: 'gesetz', verbindlichkeit: 'bindend', stand: '2024-01-01', beschreibung: 'Einstufung, Kennzeichnung und Verpackung von Stoffen und Gemischen.'});
+MERGE (:NormSource {key: 'ISO20400', name: 'ISO 20400:2017 Sustainable Procurement', herausgeber: 'ISO', url: 'https://www.iso.org/standard/63026.html', typ: 'norm', verbindlichkeit: 'empfehlung', stand: '2017-04-01', beschreibung: 'Guidance-Standard ohne Zertifizierungsmöglichkeit.'});
+MERGE (:NormSource {key: 'COSO', name: 'COSO Internal Control – Integrated Framework', herausgeber: 'COSO', url: 'https://www.coso.org', typ: 'rahmenwerk', verbindlichkeit: 'empfehlung', stand: '2013-05-01', beschreibung: 'Herkunft von Vier-Augen-Prinzip, Schwellenwerten und Freigabematrix.'});
+
+MATCH (a:NormSource {key:'TfS'}), (b:NormSource {key:'ResponsibleCare'}) MERGE (a)-[:BUILDS_ON]->(b);
+MATCH (a:NormSource {key:'TfS'}), (b:NormSource {key:'UNGC'}) MERGE (a)-[:BUILDS_ON]->(b);
+MATCH (a:NormSource {key:'SQAS'}), (b:NormSource {key:'ResponsibleCare'}) MERGE (a)-[:BUILDS_ON]->(b);
+MATCH (a:NormSource {key:'BME_CoC'}), (b:NormSource {key:'UNGC'}) MERGE (a)-[:BUILDS_ON]->(b);
+
+MERGE (r:Richtlinie {id:'EK-RL-2017-01'}) SET r.titel='Einkaufsrichtlinie', r.gueltig_ab=date('2017-07-01');
+MATCH (r:Richtlinie {id:'EK-RL-2017-01'}), (n:NormSource {key:'ISO20400'}) MERGE (r)-[:REFERENZIERT]->(n);
+MATCH (r:Richtlinie {id:'EK-RL-2017-01'}), (n:NormSource {key:'COSO'}) MERGE (r)-[:REFERENZIERT]->(n);
+MERGE (r:Richtlinie {id:'LQ-RL-2017-01'}) SET r.titel='Richtlinie Lieferantenqualifikation und Nachhaltigkeit', r.gueltig_ab=date('2017-10-01');
+MATCH (r:Richtlinie {id:'LQ-RL-2017-01'}), (n:NormSource {key:'TfS'}) MERGE (r)-[:REFERENZIERT]->(n);
+MATCH (r:Richtlinie {id:'LQ-RL-2017-01'}), (n:NormSource {key:'ResponsibleCare'}) MERGE (r)-[:REFERENZIERT]->(n);
+MATCH (r:Richtlinie {id:'LQ-RL-2017-01'}), (n:NormSource {key:'UNGC'}) MERGE (r)-[:REFERENZIERT]->(n);
+MATCH (r:Richtlinie {id:'LQ-RL-2017-01'}), (n:NormSource {key:'BME_CoC'}) MERGE (r)-[:REFERENZIERT]->(n);
+MERGE (r:Richtlinie {id:'RP-RL-2017-01'}) SET r.titel='Richtlinie Rechnungsprüfung und Zahlungsfreigabe', r.gueltig_ab=date('2017-07-01');
+MATCH (r:Richtlinie {id:'RP-RL-2017-01'}), (n:NormSource {key:'COSO'}) MERGE (r)-[:REFERENZIERT]->(n);
+
+// Richtlinie schreibt den Standard für bestimmte Warengruppen zwingend vor (F9)
+MATCH (r:Richtlinie {id:'LQ-RL-2017-01'}), (n:NormSource {key:'TfS'}) MERGE (r)-[:REQUIRES_STANDARD {warengruppe:'Pure Acrylics'}]->(n);
+MATCH (r:Richtlinie {id:'LQ-RL-2017-01'}), (n:NormSource {key:'TfS'}) MERGE (r)-[:REQUIRES_STANDARD {warengruppe:'Styrene Acrylics'}]->(n);
+MATCH (r:Richtlinie {id:'LQ-RL-2017-01'}), (n:NormSource {key:'TfS'}) MERGE (r)-[:REQUIRES_STANDARD {warengruppe:'Chloride'}]->(n);
+MATCH (r:Richtlinie {id:'LQ-RL-2017-01'}), (n:NormSource {key:'TfS'}) MERGE (r)-[:REQUIRES_STANDARD {warengruppe:'Aliphatic Solvents'}]->(n);
+
+// Rahmenverträge und Klauseln
+MERGE (c:Contract {vertrag_nr:'RV-2018-01'}) SET c.vendor_id='vendorID_0159', c.firma='Aurinbond GmbH', c.warengruppe='Pure Acrylics', c.warengruppe_de='Reinacrylat-Dispersionen', c.abschlussdatum=date('2017-11-16'), c.laufzeit_von=date('2018-01-01'), c.laufzeit_bis=date('2020-12-31'), c.jahresvolumen_eur=9574683.0;
+MERGE (cl:Clause {id:'RV-2018-01-scope'}) SET cl += {titel:'Gegenstand und Geltungsbereich', vertrag_nr:'RV-2018-01', topic: 'scope', nr: '§1', exklusiv: false, laufzeit_von: '2018-01-01', laufzeit_bis: '2020-12-31', warengruppe: 'Pure Acrylics'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-01'}), (cl:Clause {id:'RV-2018-01-scope'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-01-preisgleitung'}) SET cl += {titel:'Preise und Preisanpassung', vertrag_nr:'RV-2018-01', topic: 'preisgleitung', nr: '§4', ankuendigungsfrist_tage: 30, toleranz_prozent: 3.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-01'}), (cl:Clause {id:'RV-2018-01-preisgleitung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-01-zahlung'}) SET cl += {titel:'Rechnungsstellung und Zahlung', vertrag_nr:'RV-2018-01', topic: 'zahlung', nr: '§6', zahlungsziel_tage: 90, skonto_tage: 14, skonto_prozent: 2.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-01'}), (cl:Clause {id:'RV-2018-01-zahlung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-01-mengen'}) SET cl += {titel:'Mengen, Abrufe und Staffeln', vertrag_nr:'RV-2018-01', topic: 'mengen', nr: '§3', jahresstaffel_eur: 5740000.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-01'}), (cl:Clause {id:'RV-2018-01-mengen'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-01-qualitaet'}) SET cl += {titel:'Spezifikation, Prüfung und Mängelrüge', vertrag_nr:'RV-2018-01', topic: 'qualitaet', nr: '§7', ruegefrist_tage: 10};
+MATCH (c:Contract {vertrag_nr:'RV-2018-01'}), (cl:Clause {id:'RV-2018-01-qualitaet'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MATCH (cl:Clause {id:'RV-2018-01-qualitaet'}), (n:NormSource {key:'REACH'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MATCH (cl:Clause {id:'RV-2018-01-qualitaet'}), (n:NormSource {key:'CLP'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MERGE (cl:Clause {id:'RV-2018-01-haftung'}) SET cl += {titel:'Gewährleistung und Haftung', vertrag_nr:'RV-2018-01', topic: 'haftung', nr: '§9'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-01'}), (cl:Clause {id:'RV-2018-01-haftung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-01-lieferantenqualifikation'}) SET cl += {titel:'Lieferantenqualifikation und Nachhaltigkeitsbewertung', vertrag_nr:'RV-2018-01', topic: 'lieferantenqualifikation', nr: '§8', standard: 'TfS', incorporates: 'TfS', nachweis: 'jährlich'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-01'}), (cl:Clause {id:'RV-2018-01-lieferantenqualifikation'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MATCH (cl:Clause {id:'RV-2018-01-lieferantenqualifikation'}), (n:NormSource {key:'TfS'}) MERGE (cl)-[:INCORPORATES]->(n);
+MERGE (c:Contract {vertrag_nr:'RV-2018-02'}) SET c.vendor_id='vendorID_0183', c.firma='Ardennsolvent SE', c.warengruppe='Pure Acrylics', c.warengruppe_de='Reinacrylat-Dispersionen', c.abschlussdatum=date('2017-11-12'), c.laufzeit_von=date('2018-01-01'), c.laufzeit_bis=date('2020-12-31'), c.jahresvolumen_eur=8439836.0;
+MERGE (cl:Clause {id:'RV-2018-02-scope'}) SET cl += {titel:'Gegenstand und Geltungsbereich', vertrag_nr:'RV-2018-02', topic: 'scope', nr: '§1', exklusiv: false, laufzeit_von: '2018-01-01', laufzeit_bis: '2020-12-31', warengruppe: 'Pure Acrylics'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-02'}), (cl:Clause {id:'RV-2018-02-scope'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-02-preisgleitung'}) SET cl += {titel:'Preise und Preisanpassung', vertrag_nr:'RV-2018-02', topic: 'preisgleitung', nr: '§4', ankuendigungsfrist_tage: 30, toleranz_prozent: 3.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-02'}), (cl:Clause {id:'RV-2018-02-preisgleitung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-02-zahlung'}) SET cl += {titel:'Rechnungsstellung und Zahlung', vertrag_nr:'RV-2018-02', topic: 'zahlung', nr: '§6', zahlungsziel_tage: 90, skonto_tage: 14, skonto_prozent: 2.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-02'}), (cl:Clause {id:'RV-2018-02-zahlung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-02-mengen'}) SET cl += {titel:'Mengen, Abrufe und Staffeln', vertrag_nr:'RV-2018-02', topic: 'mengen', nr: '§3', jahresstaffel_eur: 5060000.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-02'}), (cl:Clause {id:'RV-2018-02-mengen'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-02-qualitaet'}) SET cl += {titel:'Spezifikation, Prüfung und Mängelrüge', vertrag_nr:'RV-2018-02', topic: 'qualitaet', nr: '§7', ruegefrist_tage: 10};
+MATCH (c:Contract {vertrag_nr:'RV-2018-02'}), (cl:Clause {id:'RV-2018-02-qualitaet'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MATCH (cl:Clause {id:'RV-2018-02-qualitaet'}), (n:NormSource {key:'REACH'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MATCH (cl:Clause {id:'RV-2018-02-qualitaet'}), (n:NormSource {key:'CLP'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MERGE (cl:Clause {id:'RV-2018-02-haftung'}) SET cl += {titel:'Gewährleistung und Haftung', vertrag_nr:'RV-2018-02', topic: 'haftung', nr: '§9'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-02'}), (cl:Clause {id:'RV-2018-02-haftung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-02-lieferantenqualifikation'}) SET cl += {titel:'Lieferantenqualifikation und Nachhaltigkeitsbewertung', vertrag_nr:'RV-2018-02', topic: 'lieferantenqualifikation', nr: '§8', standard: 'TfS', incorporates: 'TfS', nachweis: 'jährlich'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-02'}), (cl:Clause {id:'RV-2018-02-lieferantenqualifikation'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MATCH (cl:Clause {id:'RV-2018-02-lieferantenqualifikation'}), (n:NormSource {key:'TfS'}) MERGE (cl)-[:INCORPORATES]->(n);
+MERGE (c:Contract {vertrag_nr:'RV-2018-03'}) SET c.vendor_id='vendorID_0262', c.firma='Vitrumbond GmbH & Co. KG', c.warengruppe='Pure Acrylics', c.warengruppe_de='Reinacrylat-Dispersionen', c.abschlussdatum=date('2017-11-27'), c.laufzeit_von=date('2018-01-01'), c.laufzeit_bis=date('2020-12-31'), c.jahresvolumen_eur=3900400.0;
+MERGE (cl:Clause {id:'RV-2018-03-scope'}) SET cl += {titel:'Gegenstand und Geltungsbereich', vertrag_nr:'RV-2018-03', topic: 'scope', nr: '§1', exklusiv: false, laufzeit_von: '2018-01-01', laufzeit_bis: '2020-12-31', warengruppe: 'Pure Acrylics'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-03'}), (cl:Clause {id:'RV-2018-03-scope'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-03-preisgleitung'}) SET cl += {titel:'Preise und Preisanpassung', vertrag_nr:'RV-2018-03', topic: 'preisgleitung', nr: '§4', ankuendigungsfrist_tage: 30, toleranz_prozent: 3.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-03'}), (cl:Clause {id:'RV-2018-03-preisgleitung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-03-zahlung'}) SET cl += {titel:'Rechnungsstellung und Zahlung', vertrag_nr:'RV-2018-03', topic: 'zahlung', nr: '§6', zahlungsziel_tage: 90, skonto_tage: 14, skonto_prozent: 2.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-03'}), (cl:Clause {id:'RV-2018-03-zahlung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-03-mengen'}) SET cl += {titel:'Mengen, Abrufe und Staffeln', vertrag_nr:'RV-2018-03', topic: 'mengen', nr: '§3', jahresstaffel_eur: 2340000.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-03'}), (cl:Clause {id:'RV-2018-03-mengen'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-03-qualitaet'}) SET cl += {titel:'Spezifikation, Prüfung und Mängelrüge', vertrag_nr:'RV-2018-03', topic: 'qualitaet', nr: '§7', ruegefrist_tage: 10};
+MATCH (c:Contract {vertrag_nr:'RV-2018-03'}), (cl:Clause {id:'RV-2018-03-qualitaet'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MATCH (cl:Clause {id:'RV-2018-03-qualitaet'}), (n:NormSource {key:'REACH'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MATCH (cl:Clause {id:'RV-2018-03-qualitaet'}), (n:NormSource {key:'CLP'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MERGE (cl:Clause {id:'RV-2018-03-haftung'}) SET cl += {titel:'Gewährleistung und Haftung', vertrag_nr:'RV-2018-03', topic: 'haftung', nr: '§9'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-03'}), (cl:Clause {id:'RV-2018-03-haftung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (c:Contract {vertrag_nr:'RV-2018-04'}) SET c.vendor_id='vendorID_0184', c.firma='Kepleracryl N.V.', c.warengruppe='Styrene Acrylics', c.warengruppe_de='Styrolacrylat-Dispersionen', c.abschlussdatum=date('2017-11-21'), c.laufzeit_von=date('2018-01-01'), c.laufzeit_bis=date('2020-12-31'), c.jahresvolumen_eur=18436449.0;
+MERGE (cl:Clause {id:'RV-2018-04-scope'}) SET cl += {titel:'Gegenstand und Geltungsbereich', vertrag_nr:'RV-2018-04', topic: 'scope', nr: '§1', exklusiv: false, laufzeit_von: '2018-01-01', laufzeit_bis: '2020-12-31', warengruppe: 'Styrene Acrylics'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-04'}), (cl:Clause {id:'RV-2018-04-scope'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-04-preisgleitung'}) SET cl += {titel:'Preise und Preisanpassung', vertrag_nr:'RV-2018-04', topic: 'preisgleitung', nr: '§4', ankuendigungsfrist_tage: 30, toleranz_prozent: 3.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-04'}), (cl:Clause {id:'RV-2018-04-preisgleitung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-04-zahlung'}) SET cl += {titel:'Rechnungsstellung und Zahlung', vertrag_nr:'RV-2018-04', topic: 'zahlung', nr: '§6', zahlungsziel_tage: 90, skonto_tage: 14, skonto_prozent: 2.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-04'}), (cl:Clause {id:'RV-2018-04-zahlung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-04-mengen'}) SET cl += {titel:'Mengen, Abrufe und Staffeln', vertrag_nr:'RV-2018-04', topic: 'mengen', nr: '§3', jahresstaffel_eur: 11060000.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-04'}), (cl:Clause {id:'RV-2018-04-mengen'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-04-qualitaet'}) SET cl += {titel:'Spezifikation, Prüfung und Mängelrüge', vertrag_nr:'RV-2018-04', topic: 'qualitaet', nr: '§7', ruegefrist_tage: 10};
+MATCH (c:Contract {vertrag_nr:'RV-2018-04'}), (cl:Clause {id:'RV-2018-04-qualitaet'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MATCH (cl:Clause {id:'RV-2018-04-qualitaet'}), (n:NormSource {key:'REACH'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MATCH (cl:Clause {id:'RV-2018-04-qualitaet'}), (n:NormSource {key:'CLP'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MERGE (cl:Clause {id:'RV-2018-04-haftung'}) SET cl += {titel:'Gewährleistung und Haftung', vertrag_nr:'RV-2018-04', topic: 'haftung', nr: '§9'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-04'}), (cl:Clause {id:'RV-2018-04-haftung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-04-lieferantenqualifikation'}) SET cl += {titel:'Lieferantenqualifikation und Nachhaltigkeitsbewertung', vertrag_nr:'RV-2018-04', topic: 'lieferantenqualifikation', nr: '§8', standard: 'TfS', incorporates: 'TfS', nachweis: 'jährlich'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-04'}), (cl:Clause {id:'RV-2018-04-lieferantenqualifikation'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MATCH (cl:Clause {id:'RV-2018-04-lieferantenqualifikation'}), (n:NormSource {key:'TfS'}) MERGE (cl)-[:INCORPORATES]->(n);
+MERGE (c:Contract {vertrag_nr:'RV-2018-05'}) SET c.vendor_id='vendorID_0166', c.firma='Kepleracryl N.V.', c.warengruppe='Styrene Acrylics', c.warengruppe_de='Styrolacrylat-Dispersionen', c.abschlussdatum=date('2017-11-22'), c.laufzeit_von=date('2018-01-01'), c.laufzeit_bis=date('2020-12-31'), c.jahresvolumen_eur=11207800.0;
+MERGE (cl:Clause {id:'RV-2018-05-scope'}) SET cl += {titel:'Gegenstand und Geltungsbereich', vertrag_nr:'RV-2018-05', topic: 'scope', nr: '§1', exklusiv: false, laufzeit_von: '2018-01-01', laufzeit_bis: '2020-12-31', warengruppe: 'Styrene Acrylics'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-05'}), (cl:Clause {id:'RV-2018-05-scope'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-05-preisgleitung'}) SET cl += {titel:'Preise und Preisanpassung', vertrag_nr:'RV-2018-05', topic: 'preisgleitung', nr: '§4', ankuendigungsfrist_tage: 30, toleranz_prozent: 3.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-05'}), (cl:Clause {id:'RV-2018-05-preisgleitung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-05-zahlung'}) SET cl += {titel:'Rechnungsstellung und Zahlung', vertrag_nr:'RV-2018-05', topic: 'zahlung', nr: '§6', zahlungsziel_tage: 90, skonto_tage: 14, skonto_prozent: 2.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-05'}), (cl:Clause {id:'RV-2018-05-zahlung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-05-mengen'}) SET cl += {titel:'Mengen, Abrufe und Staffeln', vertrag_nr:'RV-2018-05', topic: 'mengen', nr: '§3', jahresstaffel_eur: 6720000.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-05'}), (cl:Clause {id:'RV-2018-05-mengen'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-05-qualitaet'}) SET cl += {titel:'Spezifikation, Prüfung und Mängelrüge', vertrag_nr:'RV-2018-05', topic: 'qualitaet', nr: '§7', ruegefrist_tage: 10};
+MATCH (c:Contract {vertrag_nr:'RV-2018-05'}), (cl:Clause {id:'RV-2018-05-qualitaet'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MATCH (cl:Clause {id:'RV-2018-05-qualitaet'}), (n:NormSource {key:'REACH'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MATCH (cl:Clause {id:'RV-2018-05-qualitaet'}), (n:NormSource {key:'CLP'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MERGE (cl:Clause {id:'RV-2018-05-haftung'}) SET cl += {titel:'Gewährleistung und Haftung', vertrag_nr:'RV-2018-05', topic: 'haftung', nr: '§9'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-05'}), (cl:Clause {id:'RV-2018-05-haftung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-05-lieferantenqualifikation'}) SET cl += {titel:'Lieferantenqualifikation und Nachhaltigkeitsbewertung', vertrag_nr:'RV-2018-05', topic: 'lieferantenqualifikation', nr: '§8', standard: 'TfS', incorporates: 'TfS', nachweis: 'jährlich'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-05'}), (cl:Clause {id:'RV-2018-05-lieferantenqualifikation'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MATCH (cl:Clause {id:'RV-2018-05-lieferantenqualifikation'}), (n:NormSource {key:'TfS'}) MERGE (cl)-[:INCORPORATES]->(n);
+MERGE (c:Contract {vertrag_nr:'RV-2018-06'}) SET c.vendor_id='vendorID_0963', c.firma='Vitrumchem Ltd.', c.warengruppe='Chloride', c.warengruppe_de='Titandioxid (Chlorid-Verfahren)', c.abschlussdatum=date('2017-12-18'), c.laufzeit_von=date('2018-01-01'), c.laufzeit_bis=date('2020-12-31'), c.jahresvolumen_eur=18242759.0;
+MERGE (cl:Clause {id:'RV-2018-06-scope'}) SET cl += {titel:'Gegenstand und Geltungsbereich', vertrag_nr:'RV-2018-06', topic: 'scope', nr: '§1', exklusiv: true, wertgrenze_eur: 25000, laufzeit_von: '2018-01-01', laufzeit_bis: '2020-12-31', warengruppe: 'Chloride'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-06'}), (cl:Clause {id:'RV-2018-06-scope'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-06-preisgleitung'}) SET cl += {titel:'Preise und Preisanpassung', vertrag_nr:'RV-2018-06', topic: 'preisgleitung', nr: '§4', ankuendigungsfrist_tage: 30, toleranz_prozent: 3.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-06'}), (cl:Clause {id:'RV-2018-06-preisgleitung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-06-zahlung'}) SET cl += {titel:'Rechnungsstellung und Zahlung', vertrag_nr:'RV-2018-06', topic: 'zahlung', nr: '§6', zahlungsziel_tage: 90, skonto_tage: 14, skonto_prozent: 2.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-06'}), (cl:Clause {id:'RV-2018-06-zahlung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-06-mengen'}) SET cl += {titel:'Mengen, Abrufe und Staffeln', vertrag_nr:'RV-2018-06', topic: 'mengen', nr: '§3', jahresstaffel_eur: 10950000.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-06'}), (cl:Clause {id:'RV-2018-06-mengen'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-06-qualitaet'}) SET cl += {titel:'Spezifikation, Prüfung und Mängelrüge', vertrag_nr:'RV-2018-06', topic: 'qualitaet', nr: '§7', ruegefrist_tage: 10};
+MATCH (c:Contract {vertrag_nr:'RV-2018-06'}), (cl:Clause {id:'RV-2018-06-qualitaet'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MATCH (cl:Clause {id:'RV-2018-06-qualitaet'}), (n:NormSource {key:'REACH'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MATCH (cl:Clause {id:'RV-2018-06-qualitaet'}), (n:NormSource {key:'CLP'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MERGE (cl:Clause {id:'RV-2018-06-haftung'}) SET cl += {titel:'Gewährleistung und Haftung', vertrag_nr:'RV-2018-06', topic: 'haftung', nr: '§9'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-06'}), (cl:Clause {id:'RV-2018-06-haftung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-06-lieferantenqualifikation'}) SET cl += {titel:'Lieferantenqualifikation und Nachhaltigkeitsbewertung', vertrag_nr:'RV-2018-06', topic: 'lieferantenqualifikation', nr: '§8', standard: 'TfS', incorporates: 'TfS', nachweis: 'jährlich'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-06'}), (cl:Clause {id:'RV-2018-06-lieferantenqualifikation'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MATCH (cl:Clause {id:'RV-2018-06-lieferantenqualifikation'}), (n:NormSource {key:'TfS'}) MERGE (cl)-[:INCORPORATES]->(n);
+MERGE (c:Contract {vertrag_nr:'RV-2018-07'}) SET c.vendor_id='vendorID_0479', c.firma='Keplervinyl Ltd.', c.warengruppe='Chloride', c.warengruppe_de='Titandioxid (Chlorid-Verfahren)', c.abschlussdatum=date('2017-12-08'), c.laufzeit_von=date('2018-01-01'), c.laufzeit_bis=date('2020-12-31'), c.jahresvolumen_eur=15268172.0;
+MERGE (cl:Clause {id:'RV-2018-07-scope'}) SET cl += {titel:'Gegenstand und Geltungsbereich', vertrag_nr:'RV-2018-07', topic: 'scope', nr: '§1', exklusiv: true, wertgrenze_eur: 25000, laufzeit_von: '2018-01-01', laufzeit_bis: '2020-12-31', warengruppe: 'Chloride'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-07'}), (cl:Clause {id:'RV-2018-07-scope'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-07-preisgleitung'}) SET cl += {titel:'Preise und Preisanpassung', vertrag_nr:'RV-2018-07', topic: 'preisgleitung', nr: '§4', ankuendigungsfrist_tage: 30, toleranz_prozent: 3.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-07'}), (cl:Clause {id:'RV-2018-07-preisgleitung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-07-zahlung'}) SET cl += {titel:'Rechnungsstellung und Zahlung', vertrag_nr:'RV-2018-07', topic: 'zahlung', nr: '§6', zahlungsziel_tage: 90, skonto_tage: 14, skonto_prozent: 2.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-07'}), (cl:Clause {id:'RV-2018-07-zahlung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-07-mengen'}) SET cl += {titel:'Mengen, Abrufe und Staffeln', vertrag_nr:'RV-2018-07', topic: 'mengen', nr: '§3', jahresstaffel_eur: 9160000.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-07'}), (cl:Clause {id:'RV-2018-07-mengen'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-07-qualitaet'}) SET cl += {titel:'Spezifikation, Prüfung und Mängelrüge', vertrag_nr:'RV-2018-07', topic: 'qualitaet', nr: '§7', ruegefrist_tage: 10};
+MATCH (c:Contract {vertrag_nr:'RV-2018-07'}), (cl:Clause {id:'RV-2018-07-qualitaet'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MATCH (cl:Clause {id:'RV-2018-07-qualitaet'}), (n:NormSource {key:'REACH'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MATCH (cl:Clause {id:'RV-2018-07-qualitaet'}), (n:NormSource {key:'CLP'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MERGE (cl:Clause {id:'RV-2018-07-haftung'}) SET cl += {titel:'Gewährleistung und Haftung', vertrag_nr:'RV-2018-07', topic: 'haftung', nr: '§9'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-07'}), (cl:Clause {id:'RV-2018-07-haftung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-07-lieferantenqualifikation'}) SET cl += {titel:'Lieferantenqualifikation und Nachhaltigkeitsbewertung', vertrag_nr:'RV-2018-07', topic: 'lieferantenqualifikation', nr: '§8', standard: 'TfS', incorporates: 'TfS', nachweis: 'jährlich'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-07'}), (cl:Clause {id:'RV-2018-07-lieferantenqualifikation'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MATCH (cl:Clause {id:'RV-2018-07-lieferantenqualifikation'}), (n:NormSource {key:'TfS'}) MERGE (cl)-[:INCORPORATES]->(n);
+MERGE (c:Contract {vertrag_nr:'RV-2018-08'}) SET c.vendor_id='vendorID_0939', c.firma='Ardennpigment S.A.S.', c.warengruppe='Chloride', c.warengruppe_de='Titandioxid (Chlorid-Verfahren)', c.abschlussdatum=date('2017-12-31'), c.laufzeit_von=date('2018-01-01'), c.laufzeit_bis=date('2020-12-31'), c.jahresvolumen_eur=9906730.0;
+MERGE (cl:Clause {id:'RV-2018-08-scope'}) SET cl += {titel:'Gegenstand und Geltungsbereich', vertrag_nr:'RV-2018-08', topic: 'scope', nr: '§1', exklusiv: true, wertgrenze_eur: 25000, laufzeit_von: '2018-01-01', laufzeit_bis: '2020-12-31', warengruppe: 'Chloride'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-08'}), (cl:Clause {id:'RV-2018-08-scope'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-08-preisgleitung'}) SET cl += {titel:'Preise und Preisanpassung', vertrag_nr:'RV-2018-08', topic: 'preisgleitung', nr: '§4', ankuendigungsfrist_tage: 30, toleranz_prozent: 3.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-08'}), (cl:Clause {id:'RV-2018-08-preisgleitung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-08-zahlung'}) SET cl += {titel:'Rechnungsstellung und Zahlung', vertrag_nr:'RV-2018-08', topic: 'zahlung', nr: '§6', zahlungsziel_tage: 90, skonto_tage: 14, skonto_prozent: 2.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-08'}), (cl:Clause {id:'RV-2018-08-zahlung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-08-mengen'}) SET cl += {titel:'Mengen, Abrufe und Staffeln', vertrag_nr:'RV-2018-08', topic: 'mengen', nr: '§3', jahresstaffel_eur: 5940000.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-08'}), (cl:Clause {id:'RV-2018-08-mengen'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-08-qualitaet'}) SET cl += {titel:'Spezifikation, Prüfung und Mängelrüge', vertrag_nr:'RV-2018-08', topic: 'qualitaet', nr: '§7', ruegefrist_tage: 10};
+MATCH (c:Contract {vertrag_nr:'RV-2018-08'}), (cl:Clause {id:'RV-2018-08-qualitaet'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MATCH (cl:Clause {id:'RV-2018-08-qualitaet'}), (n:NormSource {key:'REACH'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MATCH (cl:Clause {id:'RV-2018-08-qualitaet'}), (n:NormSource {key:'CLP'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MERGE (cl:Clause {id:'RV-2018-08-haftung'}) SET cl += {titel:'Gewährleistung und Haftung', vertrag_nr:'RV-2018-08', topic: 'haftung', nr: '§9'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-08'}), (cl:Clause {id:'RV-2018-08-haftung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-08-lieferantenqualifikation'}) SET cl += {titel:'Lieferantenqualifikation und Nachhaltigkeitsbewertung', vertrag_nr:'RV-2018-08', topic: 'lieferantenqualifikation', nr: '§8', standard: 'TfS', incorporates: 'TfS', nachweis: 'jährlich'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-08'}), (cl:Clause {id:'RV-2018-08-lieferantenqualifikation'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MATCH (cl:Clause {id:'RV-2018-08-lieferantenqualifikation'}), (n:NormSource {key:'TfS'}) MERGE (cl)-[:INCORPORATES]->(n);
+MERGE (c:Contract {vertrag_nr:'RV-2018-09'}) SET c.vendor_id='vendorID_1100', c.firma='Sellachem s.r.o.', c.warengruppe='Aliphatic Solvents', c.warengruppe_de='Aliphatische Lösemittel', c.abschlussdatum=date('2017-12-24'), c.laufzeit_von=date('2018-01-01'), c.laufzeit_bis=date('2020-12-31'), c.jahresvolumen_eur=2699391.0;
+MERGE (cl:Clause {id:'RV-2018-09-scope'}) SET cl += {titel:'Gegenstand und Geltungsbereich', vertrag_nr:'RV-2018-09', topic: 'scope', nr: '§1', exklusiv: true, wertgrenze_eur: 25000, laufzeit_von: '2018-01-01', laufzeit_bis: '2020-12-31', warengruppe: 'Aliphatic Solvents'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-09'}), (cl:Clause {id:'RV-2018-09-scope'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-09-preisgleitung'}) SET cl += {titel:'Preise und Preisanpassung', vertrag_nr:'RV-2018-09', topic: 'preisgleitung', nr: '§4', ankuendigungsfrist_tage: 30, toleranz_prozent: 3.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-09'}), (cl:Clause {id:'RV-2018-09-preisgleitung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-09-zahlung'}) SET cl += {titel:'Rechnungsstellung und Zahlung', vertrag_nr:'RV-2018-09', topic: 'zahlung', nr: '§6', zahlungsziel_tage: 90, skonto_tage: 14, skonto_prozent: 2.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-09'}), (cl:Clause {id:'RV-2018-09-zahlung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-09-mengen'}) SET cl += {titel:'Mengen, Abrufe und Staffeln', vertrag_nr:'RV-2018-09', topic: 'mengen', nr: '§3', jahresstaffel_eur: 1620000.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-09'}), (cl:Clause {id:'RV-2018-09-mengen'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-09-qualitaet'}) SET cl += {titel:'Spezifikation, Prüfung und Mängelrüge', vertrag_nr:'RV-2018-09', topic: 'qualitaet', nr: '§7', ruegefrist_tage: 10};
+MATCH (c:Contract {vertrag_nr:'RV-2018-09'}), (cl:Clause {id:'RV-2018-09-qualitaet'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MATCH (cl:Clause {id:'RV-2018-09-qualitaet'}), (n:NormSource {key:'REACH'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MATCH (cl:Clause {id:'RV-2018-09-qualitaet'}), (n:NormSource {key:'CLP'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MERGE (cl:Clause {id:'RV-2018-09-haftung'}) SET cl += {titel:'Gewährleistung und Haftung', vertrag_nr:'RV-2018-09', topic: 'haftung', nr: '§9'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-09'}), (cl:Clause {id:'RV-2018-09-haftung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (c:Contract {vertrag_nr:'RV-2018-10'}) SET c.vendor_id='vendorID_0818', c.firma='Lyraplast GmbH', c.warengruppe='Aliphatic Solvents', c.warengruppe_de='Aliphatische Lösemittel', c.abschlussdatum=date('2017-12-05'), c.laufzeit_von=date('2018-01-01'), c.laufzeit_bis=date('2020-12-31'), c.jahresvolumen_eur=2269495.0;
+MERGE (cl:Clause {id:'RV-2018-10-scope'}) SET cl += {titel:'Gegenstand und Geltungsbereich', vertrag_nr:'RV-2018-10', topic: 'scope', nr: '§1', exklusiv: true, wertgrenze_eur: 25000, laufzeit_von: '2018-01-01', laufzeit_bis: '2020-12-31', warengruppe: 'Aliphatic Solvents'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-10'}), (cl:Clause {id:'RV-2018-10-scope'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-10-preisgleitung'}) SET cl += {titel:'Preise und Preisanpassung', vertrag_nr:'RV-2018-10', topic: 'preisgleitung', nr: '§4', ankuendigungsfrist_tage: 30, toleranz_prozent: 3.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-10'}), (cl:Clause {id:'RV-2018-10-preisgleitung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-10-zahlung'}) SET cl += {titel:'Rechnungsstellung und Zahlung', vertrag_nr:'RV-2018-10', topic: 'zahlung', nr: '§6', zahlungsziel_tage: 90, skonto_tage: 14, skonto_prozent: 2.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-10'}), (cl:Clause {id:'RV-2018-10-zahlung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-10-mengen'}) SET cl += {titel:'Mengen, Abrufe und Staffeln', vertrag_nr:'RV-2018-10', topic: 'mengen', nr: '§3', jahresstaffel_eur: 1360000.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-10'}), (cl:Clause {id:'RV-2018-10-mengen'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-10-qualitaet'}) SET cl += {titel:'Spezifikation, Prüfung und Mängelrüge', vertrag_nr:'RV-2018-10', topic: 'qualitaet', nr: '§7', ruegefrist_tage: 10};
+MATCH (c:Contract {vertrag_nr:'RV-2018-10'}), (cl:Clause {id:'RV-2018-10-qualitaet'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MATCH (cl:Clause {id:'RV-2018-10-qualitaet'}), (n:NormSource {key:'REACH'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MATCH (cl:Clause {id:'RV-2018-10-qualitaet'}), (n:NormSource {key:'CLP'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MERGE (cl:Clause {id:'RV-2018-10-haftung'}) SET cl += {titel:'Gewährleistung und Haftung', vertrag_nr:'RV-2018-10', topic: 'haftung', nr: '§9'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-10'}), (cl:Clause {id:'RV-2018-10-haftung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-10-lieferantenqualifikation'}) SET cl += {titel:'Lieferantenqualifikation und Nachhaltigkeitsbewertung', vertrag_nr:'RV-2018-10', topic: 'lieferantenqualifikation', nr: '§8', standard: 'TfS', incorporates: 'TfS', nachweis: 'jährlich'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-10'}), (cl:Clause {id:'RV-2018-10-lieferantenqualifikation'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MATCH (cl:Clause {id:'RV-2018-10-lieferantenqualifikation'}), (n:NormSource {key:'TfS'}) MERGE (cl)-[:INCORPORATES]->(n);
+MERGE (c:Contract {vertrag_nr:'RV-2018-11'}) SET c.vendor_id='vendorID_0390', c.firma='Kymenchem N.V.', c.warengruppe='Aliphatic Solvents', c.warengruppe_de='Aliphatische Lösemittel', c.abschlussdatum=date('2017-12-13'), c.laufzeit_von=date('2018-01-01'), c.laufzeit_bis=date('2020-12-31'), c.jahresvolumen_eur=1894160.0;
+MERGE (cl:Clause {id:'RV-2018-11-scope'}) SET cl += {titel:'Gegenstand und Geltungsbereich', vertrag_nr:'RV-2018-11', topic: 'scope', nr: '§1', exklusiv: true, wertgrenze_eur: 25000, laufzeit_von: '2018-01-01', laufzeit_bis: '2020-12-31', warengruppe: 'Aliphatic Solvents'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-11'}), (cl:Clause {id:'RV-2018-11-scope'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-11-preisgleitung'}) SET cl += {titel:'Preise und Preisanpassung', vertrag_nr:'RV-2018-11', topic: 'preisgleitung', nr: '§4', ankuendigungsfrist_tage: 30, toleranz_prozent: 3.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-11'}), (cl:Clause {id:'RV-2018-11-preisgleitung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-11-zahlung'}) SET cl += {titel:'Rechnungsstellung und Zahlung', vertrag_nr:'RV-2018-11', topic: 'zahlung', nr: '§6', zahlungsziel_tage: 90, skonto_tage: 14, skonto_prozent: 2.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-11'}), (cl:Clause {id:'RV-2018-11-zahlung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-11-mengen'}) SET cl += {titel:'Mengen, Abrufe und Staffeln', vertrag_nr:'RV-2018-11', topic: 'mengen', nr: '§3', jahresstaffel_eur: 1140000.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-11'}), (cl:Clause {id:'RV-2018-11-mengen'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-11-qualitaet'}) SET cl += {titel:'Spezifikation, Prüfung und Mängelrüge', vertrag_nr:'RV-2018-11', topic: 'qualitaet', nr: '§7', ruegefrist_tage: 10};
+MATCH (c:Contract {vertrag_nr:'RV-2018-11'}), (cl:Clause {id:'RV-2018-11-qualitaet'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MATCH (cl:Clause {id:'RV-2018-11-qualitaet'}), (n:NormSource {key:'REACH'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MATCH (cl:Clause {id:'RV-2018-11-qualitaet'}), (n:NormSource {key:'CLP'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MERGE (cl:Clause {id:'RV-2018-11-haftung'}) SET cl += {titel:'Gewährleistung und Haftung', vertrag_nr:'RV-2018-11', topic: 'haftung', nr: '§9'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-11'}), (cl:Clause {id:'RV-2018-11-haftung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (c:Contract {vertrag_nr:'RV-2018-12'}) SET c.vendor_id='vendorID_0558', c.firma='Alpenmer S.A.S.', c.warengruppe='Aliphatic Solvents', c.warengruppe_de='Aliphatische Lösemittel', c.abschlussdatum=date('2017-12-08'), c.laufzeit_von=date('2018-01-01'), c.laufzeit_bis=date('2020-12-31'), c.jahresvolumen_eur=1779215.0;
+MERGE (cl:Clause {id:'RV-2018-12-scope'}) SET cl += {titel:'Gegenstand und Geltungsbereich', vertrag_nr:'RV-2018-12', topic: 'scope', nr: '§1', exklusiv: true, wertgrenze_eur: 25000, laufzeit_von: '2018-01-01', laufzeit_bis: '2020-12-31', warengruppe: 'Aliphatic Solvents'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-12'}), (cl:Clause {id:'RV-2018-12-scope'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-12-preisgleitung'}) SET cl += {titel:'Preise und Preisanpassung', vertrag_nr:'RV-2018-12', topic: 'preisgleitung', nr: '§4', ankuendigungsfrist_tage: 30, toleranz_prozent: 3.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-12'}), (cl:Clause {id:'RV-2018-12-preisgleitung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-12-zahlung'}) SET cl += {titel:'Rechnungsstellung und Zahlung', vertrag_nr:'RV-2018-12', topic: 'zahlung', nr: '§6', zahlungsziel_tage: 90, skonto_tage: 14, skonto_prozent: 2.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-12'}), (cl:Clause {id:'RV-2018-12-zahlung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-12-mengen'}) SET cl += {titel:'Mengen, Abrufe und Staffeln', vertrag_nr:'RV-2018-12', topic: 'mengen', nr: '§3', jahresstaffel_eur: 1070000.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-12'}), (cl:Clause {id:'RV-2018-12-mengen'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-12-qualitaet'}) SET cl += {titel:'Spezifikation, Prüfung und Mängelrüge', vertrag_nr:'RV-2018-12', topic: 'qualitaet', nr: '§7', ruegefrist_tage: 10};
+MATCH (c:Contract {vertrag_nr:'RV-2018-12'}), (cl:Clause {id:'RV-2018-12-qualitaet'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MATCH (cl:Clause {id:'RV-2018-12-qualitaet'}), (n:NormSource {key:'REACH'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MATCH (cl:Clause {id:'RV-2018-12-qualitaet'}), (n:NormSource {key:'CLP'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MERGE (cl:Clause {id:'RV-2018-12-haftung'}) SET cl += {titel:'Gewährleistung und Haftung', vertrag_nr:'RV-2018-12', topic: 'haftung', nr: '§9'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-12'}), (cl:Clause {id:'RV-2018-12-haftung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-12-lieferantenqualifikation'}) SET cl += {titel:'Lieferantenqualifikation und Nachhaltigkeitsbewertung', vertrag_nr:'RV-2018-12', topic: 'lieferantenqualifikation', nr: '§8', standard: 'TfS', incorporates: 'TfS', nachweis: 'jährlich'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-12'}), (cl:Clause {id:'RV-2018-12-lieferantenqualifikation'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MATCH (cl:Clause {id:'RV-2018-12-lieferantenqualifikation'}), (n:NormSource {key:'TfS'}) MERGE (cl)-[:INCORPORATES]->(n);
+MERGE (c:Contract {vertrag_nr:'RV-2018-13'}) SET c.vendor_id='vendorID_0237', c.firma='Alpenpolymer N.V.', c.warengruppe='MRO (components)', c.warengruppe_de='Instandhaltungskomponenten', c.abschlussdatum=date('2017-11-08'), c.laufzeit_von=date('2018-01-01'), c.laufzeit_bis=date('2020-12-31'), c.jahresvolumen_eur=1034857.0;
+MERGE (cl:Clause {id:'RV-2018-13-scope'}) SET cl += {titel:'Gegenstand und Geltungsbereich', vertrag_nr:'RV-2018-13', topic: 'scope', nr: '§1', exklusiv: false, laufzeit_von: '2018-01-01', laufzeit_bis: '2020-12-31', warengruppe: 'MRO (components)'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-13'}), (cl:Clause {id:'RV-2018-13-scope'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-13-preisgleitung'}) SET cl += {titel:'Preise und Preisanpassung', vertrag_nr:'RV-2018-13', topic: 'preisgleitung', nr: '§4', ankuendigungsfrist_tage: 30, toleranz_prozent: 3.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-13'}), (cl:Clause {id:'RV-2018-13-preisgleitung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-13-zahlung'}) SET cl += {titel:'Rechnungsstellung und Zahlung', vertrag_nr:'RV-2018-13', topic: 'zahlung', nr: '§6', zahlungsziel_tage: 45, skonto_tage: 14, skonto_prozent: 2.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-13'}), (cl:Clause {id:'RV-2018-13-zahlung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-13-mengen'}) SET cl += {titel:'Mengen, Abrufe und Staffeln', vertrag_nr:'RV-2018-13', topic: 'mengen', nr: '§3', jahresstaffel_eur: 620000.0};
+MATCH (c:Contract {vertrag_nr:'RV-2018-13'}), (cl:Clause {id:'RV-2018-13-mengen'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MERGE (cl:Clause {id:'RV-2018-13-qualitaet'}) SET cl += {titel:'Spezifikation, Prüfung und Mängelrüge', vertrag_nr:'RV-2018-13', topic: 'qualitaet', nr: '§7', ruegefrist_tage: 10};
+MATCH (c:Contract {vertrag_nr:'RV-2018-13'}), (cl:Clause {id:'RV-2018-13-qualitaet'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+MATCH (cl:Clause {id:'RV-2018-13-qualitaet'}), (n:NormSource {key:'REACH'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MATCH (cl:Clause {id:'RV-2018-13-qualitaet'}), (n:NormSource {key:'CLP'}) MERGE (cl)-[:IMPLEMENTS]->(n);
+MERGE (cl:Clause {id:'RV-2018-13-haftung'}) SET cl += {titel:'Gewährleistung und Haftung', vertrag_nr:'RV-2018-13', topic: 'haftung', nr: '§9'};
+MATCH (c:Contract {vertrag_nr:'RV-2018-13'}), (cl:Clause {id:'RV-2018-13-haftung'}) MERGE (c)-[:HAS_CLAUSE]->(cl);
+
+// TfS-Assessments je assessmentpflichtigem Lieferanten
+MERGE (s:Supplier {vendor_id:'vendorID_0224'}) SET s.assessment_status='kein_assessment';
+MERGE (s:Supplier {vendor_id:'vendorID_0256'}) SET s.assessment_status='kein_assessment';
+MERGE (s:Supplier {vendor_id:'vendorID_0322'}) SET s.assessment_status='kein_assessment';
+MERGE (s:Supplier {vendor_id:'vendorID_0357'}) SET s.assessment_status='kein_assessment';
+MERGE (s:Supplier {vendor_id:'vendorID_0458'}) SET s.assessment_status='kein_assessment';
+MERGE (s:Supplier {vendor_id:'vendorID_0512'}) SET s.assessment_status='kein_assessment';
+MERGE (s:Supplier {vendor_id:'vendorID_0513'}) SET s.assessment_status='kein_assessment';
+MERGE (s:Supplier {vendor_id:'vendorID_0619'}) SET s.assessment_status='kein_assessment';
+MERGE (s:Supplier {vendor_id:'vendorID_0704'}) SET s.assessment_status='abgelaufen';
+MATCH (s:Supplier {vendor_id:'vendorID_0704'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0704', ausstellung:date('2015-02-04'), gueltig_bis:date('2018-02-04'), score:67});
+MERGE (s:Supplier {vendor_id:'vendorID_0173'}) SET s.assessment_status='abgelaufen';
+MATCH (s:Supplier {vendor_id:'vendorID_0173'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0173', ausstellung:date('2015-02-06'), gueltig_bis:date('2018-02-06'), score:43});
+MERGE (s:Supplier {vendor_id:'vendorID_0822'}) SET s.assessment_status='abgelaufen';
+MATCH (s:Supplier {vendor_id:'vendorID_0822'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0822', ausstellung:date('2015-03-05'), gueltig_bis:date('2018-03-05'), score:48});
+MERGE (s:Supplier {vendor_id:'vendorID_0768'}) SET s.assessment_status='abgelaufen';
+MATCH (s:Supplier {vendor_id:'vendorID_0768'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0768', ausstellung:date('2015-03-04'), gueltig_bis:date('2018-03-04'), score:61});
+MERGE (s:Supplier {vendor_id:'vendorID_1455'}) SET s.assessment_status='abgelaufen';
+MATCH (s:Supplier {vendor_id:'vendorID_1455'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_1455', ausstellung:date('2015-04-11'), gueltig_bis:date('2018-04-11'), score:54});
+MERGE (s:Supplier {vendor_id:'vendorID_1531'}) SET s.assessment_status='abgelaufen';
+MATCH (s:Supplier {vendor_id:'vendorID_1531'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_1531', ausstellung:date('2015-04-22'), gueltig_bis:date('2018-04-22'), score:53});
+MERGE (s:Supplier {vendor_id:'vendorID_0519'}) SET s.assessment_status='abgelaufen';
+MATCH (s:Supplier {vendor_id:'vendorID_0519'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0519', ausstellung:date('2015-05-22'), gueltig_bis:date('2018-05-22'), score:67});
+MERGE (s:Supplier {vendor_id:'vendorID_0198'}) SET s.assessment_status='abgelaufen';
+MATCH (s:Supplier {vendor_id:'vendorID_0198'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0198', ausstellung:date('2015-05-15'), gueltig_bis:date('2018-05-15'), score:56});
+MERGE (s:Supplier {vendor_id:'vendorID_0341'}) SET s.assessment_status='abgelaufen';
+MATCH (s:Supplier {vendor_id:'vendorID_0341'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0341', ausstellung:date('2015-06-16'), gueltig_bis:date('2018-06-16'), score:45});
+MERGE (s:Supplier {vendor_id:'vendorID_0252'}) SET s.assessment_status='abgelaufen';
+MATCH (s:Supplier {vendor_id:'vendorID_0252'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0252', ausstellung:date('2015-06-16'), gueltig_bis:date('2018-06-16'), score:43});
+MERGE (s:Supplier {vendor_id:'vendorID_0405'}) SET s.assessment_status='abgelaufen';
+MATCH (s:Supplier {vendor_id:'vendorID_0405'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0405', ausstellung:date('2015-07-05'), gueltig_bis:date('2018-07-05'), score:46});
+MERGE (s:Supplier {vendor_id:'vendorID_0332'}) SET s.assessment_status='abgelaufen';
+MATCH (s:Supplier {vendor_id:'vendorID_0332'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0332', ausstellung:date('2015-07-19'), gueltig_bis:date('2018-07-19'), score:61});
+MERGE (s:Supplier {vendor_id:'vendorID_0109'}) SET s.assessment_status='abgelaufen';
+MATCH (s:Supplier {vendor_id:'vendorID_0109'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0109', ausstellung:date('2015-08-21'), gueltig_bis:date('2018-08-21'), score:66});
+MERGE (s:Supplier {vendor_id:'vendorID_0625'}) SET s.assessment_status='abgelaufen';
+MATCH (s:Supplier {vendor_id:'vendorID_0625'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0625', ausstellung:date('2015-08-17'), gueltig_bis:date('2018-08-17'), score:66});
+MERGE (s:Supplier {vendor_id:'vendorID_0189'}) SET s.assessment_status='abgelaufen';
+MATCH (s:Supplier {vendor_id:'vendorID_0189'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0189', ausstellung:date('2015-09-06'), gueltig_bis:date('2018-09-06'), score:49});
+MERGE (s:Supplier {vendor_id:'vendorID_0193'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0193'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0193', ausstellung:date('2017-10-16'), gueltig_bis:date('2020-10-16'), score:61});
+MERGE (s:Supplier {vendor_id:'vendorID_0248'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0248'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0248', ausstellung:date('2016-11-29'), gueltig_bis:date('2019-11-29'), score:80});
+MERGE (s:Supplier {vendor_id:'vendorID_0171'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0171'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0171', ausstellung:date('2016-07-03'), gueltig_bis:date('2019-07-03'), score:59});
+MERGE (s:Supplier {vendor_id:'vendorID_0271'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0271'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0271', ausstellung:date('2018-03-03'), gueltig_bis:date('2021-03-03'), score:76});
+MERGE (s:Supplier {vendor_id:'vendorID_0967'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0967'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0967', ausstellung:date('2017-10-08'), gueltig_bis:date('2020-10-08'), score:78});
+MERGE (s:Supplier {vendor_id:'vendorID_0975'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0975'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0975', ausstellung:date('2016-01-28'), gueltig_bis:date('2019-01-28'), score:73});
+MERGE (s:Supplier {vendor_id:'vendorID_0267'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0267'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0267', ausstellung:date('2016-08-16'), gueltig_bis:date('2019-08-16'), score:72});
+MERGE (s:Supplier {vendor_id:'vendorID_0479'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0479'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0479', ausstellung:date('2017-12-31'), gueltig_bis:date('2020-12-31'), score:68});
+MERGE (s:Supplier {vendor_id:'vendorID_0821'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0821'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0821', ausstellung:date('2016-04-06'), gueltig_bis:date('2019-04-06'), score:63});
+MERGE (s:Supplier {vendor_id:'vendorID_0818'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0818'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0818', ausstellung:date('2017-10-08'), gueltig_bis:date('2020-10-08'), score:73});
+MERGE (s:Supplier {vendor_id:'vendorID_0963'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0963'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0963', ausstellung:date('2016-01-07'), gueltig_bis:date('2019-01-07'), score:65});
+MERGE (s:Supplier {vendor_id:'vendorID_0454'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0454'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0454', ausstellung:date('2017-05-07'), gueltig_bis:date('2020-05-07'), score:62});
+MERGE (s:Supplier {vendor_id:'vendorID_0390'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0390'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0390', ausstellung:date('2017-11-10'), gueltig_bis:date('2020-11-10'), score:59});
+MERGE (s:Supplier {vendor_id:'vendorID_0433'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0433'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0433', ausstellung:date('2016-02-24'), gueltig_bis:date('2019-02-24'), score:71});
+MERGE (s:Supplier {vendor_id:'vendorID_0139'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0139'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0139', ausstellung:date('2017-08-02'), gueltig_bis:date('2020-08-02'), score:86});
+MERGE (s:Supplier {vendor_id:'vendorID_0445'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0445'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0445', ausstellung:date('2017-04-08'), gueltig_bis:date('2020-04-08'), score:89});
+MERGE (s:Supplier {vendor_id:'vendorID_0558'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0558'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0558', ausstellung:date('2017-08-29'), gueltig_bis:date('2020-08-29'), score:67});
+MERGE (s:Supplier {vendor_id:'vendorID_0634'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0634'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0634', ausstellung:date('2016-01-22'), gueltig_bis:date('2019-01-22'), score:60});
+MERGE (s:Supplier {vendor_id:'vendorID_0483'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0483'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0483', ausstellung:date('2016-09-11'), gueltig_bis:date('2019-09-11'), score:63});
+MERGE (s:Supplier {vendor_id:'vendorID_0191'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0191'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0191', ausstellung:date('2018-04-16'), gueltig_bis:date('2021-04-16'), score:64});
+MERGE (s:Supplier {vendor_id:'vendorID_0597'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0597'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0597', ausstellung:date('2017-10-22'), gueltig_bis:date('2020-10-22'), score:59});
+MERGE (s:Supplier {vendor_id:'vendorID_0300'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0300'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0300', ausstellung:date('2017-02-28'), gueltig_bis:date('2020-02-29'), score:68});
+MERGE (s:Supplier {vendor_id:'vendorID_0797'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0797'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0797', ausstellung:date('2017-10-14'), gueltig_bis:date('2020-10-14'), score:58});
+MERGE (s:Supplier {vendor_id:'vendorID_0183'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0183'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0183', ausstellung:date('2016-09-05'), gueltig_bis:date('2019-09-05'), score:84});
+MERGE (s:Supplier {vendor_id:'vendorID_0622'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0622'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0622', ausstellung:date('2016-01-10'), gueltig_bis:date('2019-01-10'), score:65});
+MERGE (s:Supplier {vendor_id:'vendorID_0262'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0262'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0262', ausstellung:date('2017-07-13'), gueltig_bis:date('2020-07-13'), score:63});
+MERGE (s:Supplier {vendor_id:'vendorID_0318'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0318'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0318', ausstellung:date('2017-05-22'), gueltig_bis:date('2020-05-22'), score:89});
+MERGE (s:Supplier {vendor_id:'vendorID_0695'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0695'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0695', ausstellung:date('2016-08-12'), gueltig_bis:date('2019-08-12'), score:68});
+MERGE (s:Supplier {vendor_id:'vendorID_1008'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_1008'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_1008', ausstellung:date('2016-09-04'), gueltig_bis:date('2019-09-04'), score:63});
+MERGE (s:Supplier {vendor_id:'vendorID_0939'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0939'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0939', ausstellung:date('2018-02-21'), gueltig_bis:date('2021-02-21'), score:64});
+MERGE (s:Supplier {vendor_id:'vendorID_0570'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0570'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0570', ausstellung:date('2017-08-06'), gueltig_bis:date('2020-08-06'), score:81});
+MERGE (s:Supplier {vendor_id:'vendorID_0166'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0166'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0166', ausstellung:date('2018-03-21'), gueltig_bis:date('2021-03-21'), score:62});
+MERGE (s:Supplier {vendor_id:'vendorID_0107'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0107'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0107', ausstellung:date('2016-10-13'), gueltig_bis:date('2019-10-13'), score:63});
+MERGE (s:Supplier {vendor_id:'vendorID_0819'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0819'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0819', ausstellung:date('2017-04-22'), gueltig_bis:date('2020-04-22'), score:86});
+MERGE (s:Supplier {vendor_id:'vendorID_0878'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0878'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0878', ausstellung:date('2017-12-21'), gueltig_bis:date('2020-12-21'), score:69});
+MERGE (s:Supplier {vendor_id:'vendorID_0455'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0455'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0455', ausstellung:date('2018-02-28'), gueltig_bis:date('2021-02-28'), score:62});
+MERGE (s:Supplier {vendor_id:'vendorID_0448'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0448'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0448', ausstellung:date('2017-08-28'), gueltig_bis:date('2020-08-28'), score:83});
+MERGE (s:Supplier {vendor_id:'vendorID_0327'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0327'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0327', ausstellung:date('2017-12-06'), gueltig_bis:date('2020-12-06'), score:69});
+MERGE (s:Supplier {vendor_id:'vendorID_0484'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0484'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0484', ausstellung:date('2017-06-25'), gueltig_bis:date('2020-06-25'), score:62});
+MERGE (s:Supplier {vendor_id:'vendorID_1100'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_1100'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_1100', ausstellung:date('2017-08-28'), gueltig_bis:date('2020-08-28'), score:58});
+MERGE (s:Supplier {vendor_id:'vendorID_0480'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0480'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0480', ausstellung:date('2017-09-08'), gueltig_bis:date('2020-09-08'), score:90});
+MERGE (s:Supplier {vendor_id:'vendorID_0159'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0159'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0159', ausstellung:date('2017-07-31'), gueltig_bis:date('2020-07-31'), score:90});
+MERGE (s:Supplier {vendor_id:'vendorID_0899'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0899'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0899', ausstellung:date('2016-06-11'), gueltig_bis:date('2019-06-11'), score:88});
+MERGE (s:Supplier {vendor_id:'vendorID_0488'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0488'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0488', ausstellung:date('2017-12-28'), gueltig_bis:date('2020-12-28'), score:86});
+MERGE (s:Supplier {vendor_id:'vendorID_0184'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0184'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0184', ausstellung:date('2017-04-28'), gueltig_bis:date('2020-04-28'), score:71});
+MERGE (s:Supplier {vendor_id:'vendorID_0251'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0251'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0251', ausstellung:date('2016-07-03'), gueltig_bis:date('2019-07-03'), score:75});
+MERGE (s:Supplier {vendor_id:'vendorID_0146'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0146'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0146', ausstellung:date('2017-07-11'), gueltig_bis:date('2020-07-11'), score:78});
+MERGE (s:Supplier {vendor_id:'vendorID_0615'}) SET s.assessment_status='gueltig';
+MATCH (s:Supplier {vendor_id:'vendorID_0615'}) MERGE (s)-[:ASSESSED_BY]->(:Assessment {schema:'TfS', vendor_id:'vendorID_0615', ausstellung:date('2016-06-19'), gueltig_bis:date('2019-06-19'), score:82});
+
+// Die drei Demo-Abfragen der Normebene
+
+// 1 -- F8: Bestellungen bei Lieferanten ohne gueltiges Assessment
+// MATCH (s:Supplier)-[:ASSESSED_BY]->(a:Assessment {schema:'TfS'})
+// WHERE a.gueltig_bis < date('2018-06-30') RETURN s.vendor_id, a.gueltig_bis;
+
+// 2 -- F9: Vertraege, denen die Normkette fehlt
+// MATCH (r:Richtlinie {id:'LQ-RL-2017-01'})-[req:REQUIRES_STANDARD]->(n:NormSource)
+// MATCH (c:Contract) WHERE c.warengruppe = req.warengruppe
+//   AND NOT EXISTS { (c)-[:HAS_CLAUSE]->()-[:INCORPORATES]->(n) }
+// RETURN c.vertrag_nr, c.firma, c.warengruppe, n.key;
+
+// 3 -- Herkunft einer Pflicht bis zur echten Quelle
+// MATCH p = (c:Contract)-[:HAS_CLAUSE]->(:Clause)-[:INCORPORATES|IMPLEMENTS]->()-[:BUILDS_ON*0..2]->(n:NormSource)
+// RETURN c.vertrag_nr, n.name, n.herausgeber, n.verbindlichkeit, n.url;
+
+
+// Vertrag -> Lieferant und Vertrag -> Warengruppe
+UNWIND [
+ {c: 'RV-2018-01', v: 'vendorID_0159', w: 'Pure Acrylics'},
+ {c: 'RV-2018-02', v: 'vendorID_0183', w: 'Pure Acrylics'},
+ {c: 'RV-2018-03', v: 'vendorID_0262', w: 'Pure Acrylics'},
+ {c: 'RV-2018-04', v: 'vendorID_0184', w: 'Styrene Acrylics'},
+ {c: 'RV-2018-05', v: 'vendorID_0166', w: 'Styrene Acrylics'},
+ {c: 'RV-2018-06', v: 'vendorID_0963', w: 'Chloride'},
+ {c: 'RV-2018-07', v: 'vendorID_0479', w: 'Chloride'},
+ {c: 'RV-2018-08', v: 'vendorID_0939', w: 'Chloride'},
+ {c: 'RV-2018-09', v: 'vendorID_1100', w: 'Aliphatic Solvents'},
+ {c: 'RV-2018-10', v: 'vendorID_0818', w: 'Aliphatic Solvents'},
+ {c: 'RV-2018-11', v: 'vendorID_0390', w: 'Aliphatic Solvents'},
+ {c: 'RV-2018-12', v: 'vendorID_0558', w: 'Aliphatic Solvents'},
+ {c: 'RV-2018-13', v: 'vendorID_0237', w: 'MRO (components)'}
+] AS row
+MATCH (c:Contract {vertrag_nr: row.c}), (v:Vendor {vendor_id: row.v}), (w:Warengruppe {key: row.w}) MERGE (v)-[:HAS_CONTRACT]->(c) MERGE (c)-[:COVERS]->(w);
+
+// Die Supplier-Platzhalter aus Schritt 2 in die Lieferantenknoten ueberfuehren
+MATCH (s:Supplier) MATCH (v:Vendor {vendor_id: s.vendor_id})
+SET v.assessment_status = s.assessment_status
+WITH s, v OPTIONAL MATCH (s)-[:ASSESSED_BY]->(a:Assessment)
+FOREACH (x IN CASE WHEN a IS NULL THEN [] ELSE [1] END | MERGE (v)-[:ASSESSED_BY]->(a))
+DETACH DELETE s;
+
+// Richtlinie -> Warengruppe
+UNWIND [
+ {w: 'Pure Acrylics'},
+ {w: 'Styrene Acrylics'},
+ {w: 'Chloride'},
+ {w: 'Aliphatic Solvents'}
+] AS row
+MATCH (r:Richtlinie {id: 'LQ-RL-2017-01'}), (w:Warengruppe {key: row.w}) MERGE (r)-[:GILT_FUER]->(w);
