@@ -29,7 +29,7 @@
   "HAS_CONTRACT": 13,
   "COVERS": 13,
   "HAS_CLAUSE": 87,
-  "INCORPORATES": 10,
+  "INCORPORATES": 9,
   "IMPLEMENTS": 26,
   "BUILDS_ON": 4,
   "ASSESSED_BY": 63,
@@ -42,7 +42,7 @@
   "HAS": 0,
   "REL": 0
  },
- "kanten_gesamt": 126728,
+ "kanten_gesamt": 126727,
  "zzgl_findings": {
   "Finding": 1135,
   "CONCERNS": 1135,

@@ -365,6 +365,18 @@ def schreibe(modell: str):
                       "MERGE (f)-[:EVIDENCED_BY]->(d)")
 
     # ------------------------------------------------------ Groessenbilanz
+    def norm_kanten(typ):
+        """Nur ausfuehrbare Anweisungen zaehlen, keine Kommentarzeilen.
+
+        norm_src endet mit auskommentierten Beispielabfragen, und eine davon
+        enthaelt das Literal "[:INCORPORATES]". Ein blosses count() ueber den
+        Text zaehlt sie mit -- der Sollwert war dadurch 10 statt 9, und der
+        Selbsttest schlug bei einem korrekt geladenen Graphen fehl.
+        """
+        muster = f"[:{typ}]"
+        return sum(1 for z in norm_src.splitlines()
+                   if muster in z and not z.lstrip().startswith("//"))
+
     n_nodes = dict(Event=stats["Event"], POItem=len(flags), PO=len(po_agg), Vendor=len(firmen),
                    Person=len(personen), Warengruppe=len(wgs), Contract=len(vertraege),
                    Clause=sum(len(v["klauseln"]) for v in vertraege), NormSource=9, Richtlinie=3,
@@ -375,8 +387,8 @@ def schreibe(modell: str):
                   PART_OF=len(flags), IN_CATEGORY=len(flags), SUPPLIED_BY=len(po_agg),
                   HAS_CONTRACT=len(vertraege), COVERS=len(vertraege),
                   HAS_CLAUSE=sum(len(v["klauseln"]) for v in vertraege),
-                  INCORPORATES=norm_src.count("[:INCORPORATES]"),
-                  IMPLEMENTS=norm_src.count("[:IMPLEMENTS]"), BUILDS_ON=4,
+                  INCORPORATES=norm_kanten("INCORPORATES"),
+                  IMPLEMENTS=norm_kanten("IMPLEMENTS"), BUILDS_ON=4,
                   ASSESSED_BY=n_nodes["Assessment"], REQUIRES_STANDARD=4, GILT_FUER=4,
                   REFERENZIERT=sum(len(r.get("verweise", [])) for r in richtlinien),
                   EVIDENCE_FOR=len(edges), HAS_CHUNK=len(chunks),

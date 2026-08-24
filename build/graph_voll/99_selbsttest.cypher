@@ -30,7 +30,7 @@ MATCH ()-[x:SUPPLIED_BY]->() RETURN 'SUPPLIED_BY' AS Kante, count(x) AS Ist, 427
 MATCH ()-[x:HAS_CONTRACT]->() RETURN 'HAS_CONTRACT' AS Kante, count(x) AS Ist, 13 AS Soll, count(x) = 13 AS OK;
 MATCH ()-[x:COVERS]->() RETURN 'COVERS' AS Kante, count(x) AS Ist, 13 AS Soll, count(x) = 13 AS OK;
 MATCH ()-[x:HAS_CLAUSE]->() RETURN 'HAS_CLAUSE' AS Kante, count(x) AS Ist, 87 AS Soll, count(x) = 87 AS OK;
-MATCH ()-[x:INCORPORATES]->() RETURN 'INCORPORATES' AS Kante, count(x) AS Ist, 10 AS Soll, count(x) = 10 AS OK;
+MATCH ()-[x:INCORPORATES]->() RETURN 'INCORPORATES' AS Kante, count(x) AS Ist,  9 AS Soll, count(x) =  9 AS OK;
 MATCH ()-[x:IMPLEMENTS]->() RETURN 'IMPLEMENTS' AS Kante, count(x) AS Ist, 26 AS Soll, count(x) = 26 AS OK;
 MATCH ()-[x:BUILDS_ON]->() RETURN 'BUILDS_ON' AS Kante, count(x) AS Ist, 4 AS Soll, count(x) = 4 AS OK;
 MATCH ()-[x:ASSESSED_BY]->() RETURN 'ASSESSED_BY' AS Kante, count(x) AS Ist, 63 AS Soll, count(x) = 63 AS OK;
