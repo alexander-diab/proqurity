@@ -18,5 +18,11 @@ pydantic-ai-slim[openai,mcp]>=1.0
 openai>=1.60
 logfire>=3.0
 
+# Bericht (einseitige PDF)
+fpdf2>=2.8
+
+# Weboberflaeche (localhost) -- uvicorn kommt mit fastmcp
+fastapi>=0.115
+
 # Konfiguration
 python-dotenv>=1.0

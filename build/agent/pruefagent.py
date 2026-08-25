@@ -29,7 +29,12 @@ from pydantic_ai.mcp import MCPToolset
 
 # .env aus dem Projektstamm nachladen; echte Umgebungsvariablen behalten Vorrang.
 from dotenv import load_dotenv, find_dotenv
-load_dotenv(find_dotenv(usecwd=False), override=False)
+# .env.local zuerst, dann .env -- beide sind gitignored, welche eine Maschine
+# hat, ist eine lokale Entscheidung. Echte Umgebungsvariablen gewinnen.
+for _n in (".env.local", ".env"):
+    _p = find_dotenv(_n, usecwd=False)
+    if _p:
+        load_dotenv(_p, override=False)
 
 MCP_URL = os.environ.get("BEFUND_MCP", "http://127.0.0.1:8000/mcp")
 MODELL = os.environ.get("BEFUND_MODELL", "openai:gpt-4o")

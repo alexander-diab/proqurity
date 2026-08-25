@@ -25,7 +25,12 @@ from neo4j import GraphDatabase
 
 # .env aus dem Projektstamm nachladen; echte Umgebungsvariablen behalten Vorrang.
 from dotenv import load_dotenv, find_dotenv
-load_dotenv(find_dotenv(usecwd=False), override=False)
+# .env.local zuerst, dann .env -- beide sind gitignored, welche eine Maschine
+# hat, ist eine lokale Entscheidung. Echte Umgebungsvariablen gewinnen.
+for _n in (".env.local", ".env"):
+    _p = find_dotenv(_n, usecwd=False)
+    if _p:
+        load_dotenv(_p, override=False)
 
 mcp = FastMCP(name="Befund")
 

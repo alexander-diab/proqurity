@@ -1,0 +1,14 @@
+graph LR
+  E["Event<br/>Change Price<br/>2018-09-14"] -->|CORR| I
+  E -->|PERFORMED_BY| P["Person<br/>Katrin Ahrens<br/>limit 100.000 EUR"]
+  I["POItem<br/>4508048711_00010<br/>133.811 EUR"] -->|PART_OF| PO["PO"]
+  PO -->|SUPPLIED_BY| V["Vendor<br/>Keplervinyl Ltd."]
+  V -->|HAS_CONTRACT| C["Contract<br/>RV-2018-07"]
+  C -->|HAS_CLAUSE| CL["Clause 4<br/>30 days notice<br/>3% tolerance"]
+  D["Document<br/>mail thread"] -->|EVIDENCE_FOR| I
+  D -->|HAS_CHUNK| CH["Chunk<br/>+ embedding"]
+  F["Finding<br/>suspected violation"] -->|CONCERNS| I
+  F -->|VIOLATES| CL
+  style I fill:#1f6feb,stroke:#4c8dff,color:#fff
+  style CL fill:#8b2020,stroke:#f85149,color:#fff
+  style P fill:#7a5a12,stroke:#d29922,color:#fff

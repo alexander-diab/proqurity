@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Befund — Purchase-to-Pay Audit</title>
+<style>
+  :root{
+    --bg:#0e1116; --panel:#161b22; --panel2:#1c2230; --line:#2a3140;
+    --fg:#e6edf3; --muted:#8b949e; --accent:#4c8dff;
+    --red:#f85149; --amber:#d29922; --green:#3fb950; --grey:#6e7681;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);
+    font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+  header{border-bottom:1px solid var(--line);padding:18px 28px;display:flex;
+    align-items:baseline;gap:14px;flex-wrap:wrap}
+  header h1{margin:0;font-size:18px;letter-spacing:.3px}
+  header .sub{color:var(--muted);font-size:13px}
+  #health{margin-left:auto;font-size:12px;color:var(--muted);font-family:var(--mono)}
+  main{max-width:1080px;margin:0 auto;padding:26px 28px 80px}
+  .searchbar{display:flex;gap:10px;margin-bottom:8px}
+  input[type=text]{flex:1;background:var(--panel);border:1px solid var(--line);
+    color:var(--fg);border-radius:8px;padding:13px 15px;font-size:15px;outline:none}
+  input[type=text]:focus{border-color:var(--accent)}
+  button{background:var(--accent);color:#fff;border:0;border-radius:8px;
+    padding:13px 20px;font-size:14px;font-weight:600;cursor:pointer}
+  button:disabled{opacity:.5;cursor:default}
+  button.ghost{background:transparent;border:1px solid var(--line);color:var(--fg)}
+  .hint{color:var(--muted);font-size:12.5px;margin-bottom:22px}
+  .hint code{font-family:var(--mono);background:var(--panel2);padding:1px 6px;
+    border-radius:4px;cursor:pointer;color:var(--fg)}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    padding:0;margin-bottom:18px;overflow:hidden}
+  .verdict{padding:12px 18px;font-weight:700;letter-spacing:.6px;font-size:13px;color:#fff}
+  .v-suspected_violation{background:#8b2020}.v-unexplained{background:#7a5a12}
+  .v-documented{background:#1a6b40}.v-not_assessable{background:#3a4150}
+  .body{padding:18px}
+  .grid{display:grid;grid-template-columns:150px 1fr;gap:7px 16px;font-size:14px}
+  .grid dt{color:var(--muted)}
+  .grid dd{margin:0}
+  .sect{font-size:11px;letter-spacing:1.1px;color:var(--muted);font-weight:700;
+    margin:20px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+  .sect:first-child{margin-top:0}
+  ul.reasons{margin:0;padding-left:18px}
+  ul.reasons li{margin-bottom:5px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;color:var(--muted);font-weight:600;padding:7px 8px;
+    border-bottom:1px solid var(--line);font-size:11.5px;letter-spacing:.5px}
+  td{padding:7px 8px;border-bottom:1px solid #21262d}
+  tr.click{cursor:pointer}
+  tr.click:hover td{background:var(--panel2)}
+  .mono{font-family:var(--mono);font-size:12.5px}
+  .num{text-align:right;font-family:var(--mono)}
+  .pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;
+    font-weight:700;letter-spacing:.4px}
+  .p-suspected_violation{background:#3d1414;color:#ff8a80}
+  .p-unexplained{background:#3a2c0a;color:#f0c040}
+  .p-documented{background:#0f3323;color:#68d391}
+  .p-not_assessable{background:#252b36;color:#9aa4b2}
+  .warn{color:var(--red);font-weight:600}
+  .ok{color:var(--grey)}
+  .answer{background:var(--panel2);border-left:3px solid var(--accent);
+    padding:14px 16px;border-radius:0 8px 8px 0;margin-bottom:12px}
+  .docs a{color:var(--accent);text-decoration:none;font-family:var(--mono);
+    font-size:12.5px;margin-right:14px;cursor:pointer}
+  .docs a:hover{text-decoration:underline}
+  pre.doc{background:#0b0f14;border:1px solid var(--line);border-radius:8px;
+    padding:14px;overflow-x:auto;white-space:pre-wrap;font-size:12.5px;
+    max-height:340px;overflow-y:auto;color:#c9d1d9}
+  .foot{color:var(--muted);font-size:11.5px;margin-top:14px;line-height:1.5}
+  .spinner{display:inline-block;width:13px;height:13px;border:2px solid var(--line);
+    border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;
+    vertical-align:-2px;margin-right:7px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .err{background:#3d1414;border:1px solid #8b2020;color:#ff8a80;
+    padding:12px 15px;border-radius:8px;margin-bottom:16px;font-size:14px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Befund</h1>
+  <span class="sub">Purchase-to-Pay audit · Vandenberg Coatings SE</span>
+  <span id="health">checking…</span>
+</header>
+
+<main>
+  <div class="searchbar">
+    <input type="text" id="q" autofocus
+           placeholder="Purchase order number, or a question in plain English…">
+    <button id="go">Search</button>
+  </div>
+  <div class="hint">
+    Try
+    <code data-q="4508048711">4508048711</code>
+    <code data-q="4507004821_00020">4507004821_00020</code>
+    <code data-q="4507003040">4507003040</code>
+    <code data-q="Who changed the price on 4508048711 and were they within their approval limit?">a question</code>
+    · or <code data-q="__list">list all candidates</code>
+  </div>
+
+  <div id="out"></div>
+</main>
+
+<script>
+const $ = s => document.querySelector(s);
+const out = $("#out");
+const eur = n => n == null ? "—" : "EUR " + n.toLocaleString("en-US",{maximumFractionDigits:0});
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c =>
+  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+async function api(path, opts) {
+  const r = await fetch(path, opts);
+  if (!r.ok) throw new Error((await r.json().catch(()=>({detail:r.statusText}))).detail || r.statusText);
+  return r.json();
+}
+
+(async () => {
+  try {
+    const h = await api("/api/health");
+    $("#health").textContent = h.ok
+      ? `graph ok · ${h.knoten.toLocaleString()} nodes · ${h.chunks_mit_embedding} embedded`
+      : "graph unreachable";
+  } catch { $("#health").textContent = "graph unreachable"; }
+})();
+
+function busy(msg){ out.innerHTML = `<div class="card"><div class="body">
+  <span class="spinner"></span>${esc(msg)}</div></div>`; }
+function fail(msg){ out.innerHTML = `<div class="err">${esc(msg)}</div>`; }
+
+function itemCard(d) {
+  const rule = d.contract
+    ? `${esc(d.contract)} ${esc(d.clause||"")} · ${d.notice_required_days} days' notice · tolerance ${d.tolerance_percent}%`
+    : "no framework contract covers this supplier for this material group";
+  const notice = d.notice_given_days == null ? "—"
+    : `${d.notice_given_days} days given, ${d.notice_required_days} required`;
+  const auth = d.actor
+    ? `${esc(d.actor)}, ${esc(d.actor_role)} · limit ${eur(d.actor_limit_eur)}` +
+      (d.beyond_authority ? ` <span class="warn">— exceeded by ${eur(d.value_eur - d.actor_limit_eur)}</span>`
+                          : ` <span class="ok">— within limit</span>`)
+    : "—";
+
+  return `<div class="card">
+    <div class="verdict v-${d.status}">${esc(d.label.toUpperCase())} · ${esc(d.po_item)}</div>
+    <div class="body">
+      <div class="sect">THE ITEM</div>
+      <dl class="grid">
+        <dt>Supplier</dt><dd>${esc(d.vendor||"—")} <span class="mono">(${esc(d.vendor_id||"")})</span>, ${esc(d.vendor_ort||"")}</dd>
+        <dt>Material group</dt><dd>${esc(d.category||"—")}${d.spend_area?" · "+esc(d.spend_area):""}</dd>
+        <dt>Value</dt><dd><b>${eur(d.value_eur)}</b></dd>
+        <dt>Ordered</dt><dd>${esc(d.ordered_at||"—")} · ${esc(d.process_variant||"—")}</dd>
+      </dl>
+
+      <div class="sect">THE RULE</div>
+      <dl class="grid"><dt>Contract</dt><dd>${rule}</dd></dl>
+
+      <div class="sect">THE FINDING</div>
+      <dl class="grid">
+        <dt>Announced</dt><dd>${esc(d.announced_on||"—")}${d.effective_from?" · effective "+esc(d.effective_from):""}</dd>
+        <dt>Notice</dt><dd><b>${notice}</b></dd>
+        <dt>Increase</dt><dd>${d.increase_percent!=null?"<b>"+d.increase_percent.toFixed(1)+" %</b>":"—"}</dd>
+        <dt>Executed by</dt><dd>${auth}</dd>
+      </dl>
+      ${d.reasons?.length?`<ul class="reasons" style="margin-top:12px">${
+        d.reasons.map(r=>`<li>${esc(r)}</li>`).join("")}</ul>`:""}
+
+      <div class="sect">TIMELINE</div>
+      <table><thead><tr><th>When</th><th>Activity</th><th>Who</th><th>Role</th><th class="num">Limit</th></tr></thead>
+      <tbody>${d.events.map(e=>`<tr${e.activity==="Change Price"?' style="background:#241a1a"':""}>
+        <td class="mono">${esc(e.at.slice(0,10))}</td><td>${esc(e.activity)}</td>
+        <td>${esc(e.who||"—")}</td><td>${esc(e.role||"—")}</td>
+        <td class="num">${e.limit_eur!=null?e.limit_eur.toLocaleString("en-US"):"—"}</td></tr>`).join("")}</tbody></table>
+
+      <div class="sect">EVIDENCE</div>
+      <div class="docs">${d.documents.length
+        ? d.documents.map(x=>`<a onclick="showDoc('${esc(x.id)}')">${esc(x.id)}</a>`).join("")
+        : '<span style="color:var(--muted)">No supporting documents on file.</span>'}</div>
+      <div id="doc-${esc(d.po_item)}"></div>
+
+      <div style="margin-top:18px">
+        <button class="ghost" onclick="window.open('/api/item/${esc(d.po_item)}/pdf','_blank')">
+          Download one-page PDF</button>
+      </div>
+      <div class="foot">Generated from a synthetic document corpus. Price-tolerance and
+        approval-authority tests are not validated against ground truth in this dataset.
+        Every figure above is computed from the graph and the cited documents.</div>
+    </div></div>`;
+}
+
+async function showDoc(id) {
+  const box = document.querySelector('[id^="doc-"]');
+  box.innerHTML = `<div style="margin-top:12px"><span class="spinner"></span>loading ${esc(id)}…</div>`;
+  try {
+    const d = await api("/api/document/" + encodeURIComponent(id));
+    box.innerHTML = `<pre class="doc">${esc(d.text)}</pre>`;
+  } catch (e) { box.innerHTML = `<div class="err">${esc(e.message)}</div>`; }
+}
+
+async function showList() {
+  busy("running step 1 — candidate selection…");
+  try {
+    const d = await api("/api/candidates?limit=60");
+    out.innerHTML = `<div class="card"><div class="body">
+      <div class="sect">STEP 1 · PRICE CHANGE MORE THAN ${d.threshold} DAYS AFTER ORDER</div>
+      <p style="margin:0 0 14px;color:var(--muted);font-size:13.5px">
+        ${d.gesamt} purchase order items · ${eur(d.summe_eur)} affected
+        · showing the ${d.items.length} highest by value</p>
+      <table><thead><tr><th>PO item</th><th>Supplier</th><th class="num">Value</th>
+        <th>Ordered</th><th>Changed</th><th class="num">Gap</th></tr></thead><tbody>
+      ${d.items.map(c=>`<tr class="click" onclick="go('${c.po_item}')">
+        <td class="mono">${esc(c.po_item)}</td><td class="mono">${esc(c.vendor||"—")}</td>
+        <td class="num">${c.value_eur!=null?c.value_eur.toLocaleString("en-US",{maximumFractionDigits:0}):"—"}</td>
+        <td class="mono">${esc(c.ordered_at||"—")}</td><td class="mono">${esc(c.first_change||"—")}</td>
+        <td class="num">${c.gap_days}d</td></tr>`).join("")}
+      </tbody></table></div></div>`;
+  } catch (e) { fail(e.message); }
+}
+
+async function go(text) {
+  const q = (text ?? $("#q").value).trim();
+  if (!q) return;
+  if (q === "__list") return showList();
+  $("#q").value = q;
+
+  // A bare number (with optional _position) is an item or order lookup.
+  if (/^\d{6,}(_\d+)?$/.test(q)) {
+    busy(`assessing ${q} — contract, clause, evidence, authority…`);
+    try {
+      const d = q.includes("_") ? {items:[await api("/api/item/"+q)]}
+                                : await api("/api/po/"+q);
+      out.innerHTML = d.items.map(itemCard).join("");
+    } catch (e) { fail(e.message); }
+    return;
+  }
+
+  busy("the agent is querying the graph…");
+  try {
+    const a = await api("/api/ask", {method:"POST",
+      headers:{"Content-Type":"application/json"}, body: JSON.stringify({text:q})});
+    let html = `<div class="card"><div class="body">
+      <div class="sect">ANSWER</div>
+      <div class="answer">${esc(a.antwort)}</div>
+      ${a.belege?.length?`<div class="docs">${a.belege.map(x=>
+        `<a onclick="showDoc('${esc(x)}')">${esc(x)}</a>`).join("")}</div>`:""}
+      <div id="doc-agent"></div>
+      ${a.unsicher?'<div class="foot warn">The graph did not contain everything needed.</div>':""}
+      </div></div>`;
+    out.innerHTML = html;
+    if (a.poitem) {
+      const d = await api("/api/item/" + a.poitem);
+      out.innerHTML += itemCard(d);
+    }
+  } catch (e) { fail(e.message); }
+}
+
+$("#go").onclick = () => go();
+$("#q").addEventListener("keydown", e => { if (e.key === "Enter") go(); });
+document.querySelectorAll(".hint code").forEach(c =>
+  c.onclick = () => go(c.dataset.q));
+</script>
+</body>
+</html>

@@ -32,3 +32,6 @@ neo4j_key/
 # ── macOS / Editor ──────────────────────────────────────────────────────────
 .DS_Store
 .vscode/*.log
+
+# Generierte Pruefberichte (reproduzierbar aus dem Graphen)
+berichte/
