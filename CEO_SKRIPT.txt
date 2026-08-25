@@ -1,0 +1,178 @@
+================================================================================
+BEFUND - WHAT TO SAY TO A CEO
+Spoken script, about three minutes. Plain language, no jargon.
+Read the notes in [square brackets] - do not say them out loud.
+================================================================================
+
+
+--------------------------------------------------------------------------------
+0:00  THE PROBLEM, IN ONE BREATH
+--------------------------------------------------------------------------------
+
+"Every large company already knows WHAT happened in its purchasing.
+ The systems record all of it.
+
+ What no system can tell you is whether it was ALLOWED.
+
+ Because the reason is never in the system. It is in the contract,
+ and it is in somebody's email."
+
+
+--------------------------------------------------------------------------------
+0:30  MAKE IT CONCRETE - ONE REAL CASE
+--------------------------------------------------------------------------------
+
+[This is a real case from our data. Every number below is checkable.]
+
+"Let me show you one order.
+
+ We buy a chemical - titanium dioxide - for one hundred and thirty-four
+ thousand euros. Standard purchase. Nothing unusual.
+
+ A month after we place the order, the supplier raises the price.
+ Our system records that. It does not record why, and it does not
+ record whether they were allowed to.
+
+ So we went and looked. Three things came back.
+
+ First: our contract with that supplier says a price rise must be
+ announced thirty days in advance. They gave us three.
+
+ Second: the contract allows small adjustments without notice -
+ up to three percent. This one was fourteen point six percent.
+
+ Third - and this is the one that surprised us - the person inside
+ OUR company who entered that price change is authorised to approve
+ up to one hundred thousand euros. The order was worth a hundred
+ and thirty-four thousand.
+
+ Three separate control failures. On one order. And every one of them
+ was invisible to every system we already had."
+
+
+--------------------------------------------------------------------------------
+1:30  WHAT IT DOES AT SCALE
+--------------------------------------------------------------------------------
+
+"That was one order. We ran it across the whole set.
+
+ Three hundred and nineteen orders had a price change worth looking at.
+
+ Of those - seventy-nine were fine. Properly announced, notice given,
+ rule followed. We can prove it and move on.
+
+ Forty-four we simply cannot explain. There is no email, no document,
+ no trace of anyone agreeing to it. That is not an accusation. It is
+ a list of things somebody should ask about.
+
+ Thirty-four are suspected breaches of contract. The document exists,
+ we read it, and it contradicts what the contract requires.
+
+ And the rest - a hundred and sixty-two - we deliberately refuse to
+ judge, because there is no framework contract with that supplier at
+ all. There is no rule to measure them against."
+
+[Pause here. The refusal to judge is the credibility moment.
+ Anyone who has been sold an AI tool expects it to answer everything.]
+
+
+--------------------------------------------------------------------------------
+2:15  WHY YOU CAN TRUST THE NUMBER
+--------------------------------------------------------------------------------
+
+"Now, the obvious question. Why would you believe any of this?
+
+ So we checked it. Every one of the three hundred and nineteen cases
+ had a known correct answer, written down before the system existed.
+
+ The system got three hundred and nineteen out of three hundred and
+ nineteen right.
+
+ And here is the important part about HOW.
+
+ The system does not guess numbers. It does not let the AI decide
+ whether a rule was broken. Every date, every euro, every percentage
+ is read straight out of the contract and the email and the record.
+ The arithmetic is arithmetic.
+
+ The AI does exactly one job: it writes the paragraph at the bottom
+ that explains the finding to a human being. It is forbidden from
+ introducing a single number of its own.
+
+ That is deliberate. In an audit, a number nobody can trace back to
+ a document is worse than no number at all."
+
+
+--------------------------------------------------------------------------------
+2:45  WHAT I HAVE TO BE HONEST ABOUT
+--------------------------------------------------------------------------------
+
+[Say this. Do not let someone else find it.]
+
+"One thing I have to put on the table.
+
+ The purchase records are real - a published data set from a real
+ chemical company. The contracts and emails are not. We generated
+ them, because no company publishes its contracts.
+
+ So the perfect score proves the machinery works end to end.
+ It does not yet prove it works on your messy real documents.
+ That is the next test, and it needs your data.
+
+ There are also two checks we report but cannot yet prove - the
+ percentage tolerance and the approval limits. They are on the
+ report, clearly marked as unproven."
+
+
+--------------------------------------------------------------------------------
+3:00  THE CLOSE
+--------------------------------------------------------------------------------
+
+"Here is the shape of it.
+
+ Today, checking one of these takes a person about twenty minutes.
+ Find the order, find the contract, search the mailbox, decide.
+
+ This does it in under a second, and it hands you a one-page report
+ with every claim linked back to the document it came from.
+
+ Purchasing is just where we started. The pattern is everywhere:
+ any process that leaves its record in one system and its reasons
+ in documents has the same blind spot between the two.
+
+ We are not building a report. We are building the join."
+
+
+================================================================================
+IF THEY ASK
+================================================================================
+
+"How is this different from what we already have?"
+   Your current tools find the unusual thing. They cannot open the
+   contract and tell you whether the unusual thing was permitted.
+   That judgement is the whole product.
+
+"Why not just use ChatGPT on our documents?"
+   Because searching by similarity finds the wrong document.
+   We measured it: asked how much notice was given on one order,
+   a plain document search confidently returned a DIFFERENT
+   supplier's price letter - and rated it a better match than the
+   correct one. All price letters look alike. They differ only in
+   the order number and the date, which is exactly what that kind
+   of search is worst at. Our system follows the actual link from
+   the order to its own documents, so it cannot pick up the wrong one.
+
+"What would it cost to run?"
+   The expensive step runs once per finding, not once per order.
+   A quarter of a million order lines becomes a few hundred cases
+   worth a second look.
+
+"How long to try it on our data?"
+   The purchasing records load in an afternoon. The real work is
+   your contracts, and that is a conversation about which twenty
+   contracts cover eighty percent of spend.
+
+"What happens when it is wrong?"
+   Every finding is a claim with the document attached. A person
+   opens the email and disagrees in ten seconds. It is built to be
+   checked, not believed.

@@ -1,0 +1,253 @@
+================================================================================
+WHAT WE BUILT, AND WHAT ACTUALLY SOLVED IT
+Written for people who do not work with software.
+No jargon. Where a technical word is unavoidable, it is explained once.
+================================================================================
+
+
+--------------------------------------------------------------------------------
+1. THE SITUATION
+--------------------------------------------------------------------------------
+
+A large company buys things. Chemicals, packaging, spare parts.
+
+Every step leaves a record: the order was created, the supplier confirmed,
+the goods arrived, the invoice was paid. Hundreds of thousands of these.
+
+Sometimes, after the order has been placed, the price changes.
+
+That may be completely fine. Suppliers are allowed to raise prices, under
+conditions written into the contract - usually something like "you must
+tell us thirty days in advance."
+
+Or it may not be fine at all.
+
+The company's own systems cannot tell the difference. They record that the
+price changed. They do not know what the contract says, and they have never
+seen the email where the supplier announced it.
+
+So today a person does it by hand. Open the order. Find the contract in a
+folder. Search the mailbox. Compare the dates. Decide. About twenty minutes,
+per case, and there are hundreds of cases.
+
+
+--------------------------------------------------------------------------------
+2. WHY THIS IS GENUINELY HARD
+--------------------------------------------------------------------------------
+
+Three kinds of question, and only one of them was ever difficult.
+
+  "How much did we spend with this supplier?"
+      Easy. Any reporting tool answers this.
+
+  "What does the price clause in this contract say?"
+      Easy. Any document search answers this.
+
+  "On which orders was the price raised without the required notice?"
+      Nothing answers this.
+
+The third question is not harder in the way a maths problem is harder.
+It is harder because the answer does not live in one place.
+
+It needs a date from the purchasing system, a deadline from a PDF contract,
+and an announcement date from an email - all for the SAME order, connected.
+
+None of those three systems knows the other two exist.
+
+That gap is the whole problem. Everything we built is a way to close it.
+
+
+--------------------------------------------------------------------------------
+3. THE IDEA THAT SOLVED IT
+--------------------------------------------------------------------------------
+
+We stopped treating the records, the contracts and the emails as three
+separate piles, and connected them into one map.
+
+Think of a map of a city rather than three separate address books.
+
+On this map, every order line is a place. Roads lead out from it:
+
+    - one road to the supplier
+    - from the supplier, a road to the contract we signed with them
+    - from the contract, a road to the specific clause about prices
+    - roads to every email and document about that order
+    - roads to every event: created, confirmed, delivered, paid
+    - and from each event, a road to the person who did it
+
+Now the impossible question becomes a walk.
+
+Start at the order. Walk to the contract, read "thirty days." Walk to the
+email, read "announced on the eleventh, effective on the fourteenth."
+Subtract. Three days. Three is less than thirty.
+
+That is the finding. And critically, the route is exact. You either can walk
+from this order to its contract, or that road does not exist - in which case
+the honest answer is "there is no rule here to check against," which is
+itself worth knowing.
+
+The technical name for this kind of map is a "graph database." That is the
+only piece of jargon that matters, and that is all it means: things, and the
+connections between them, stored so the connections can be followed.
+
+
+--------------------------------------------------------------------------------
+4. THE PART MOST PEOPLE GET WRONG
+--------------------------------------------------------------------------------
+
+The obvious modern approach is: throw all the documents at an AI and ask it.
+
+That approach searches by resemblance. It finds the documents that LOOK most
+like your question.
+
+We measured what happens when you do that here, and it is worth understanding,
+because it is the reason the map exists.
+
+We asked: "how many days' notice was given on order 4508048711?"
+
+Searching all the documents by resemblance returned a price announcement
+letter from a COMPLETELY DIFFERENT SUPPLIER - and rated it a BETTER match
+than the correct letter.
+
+Why? Because all price announcement letters look alike. Same layout, same
+polite phrases, same structure. They differ only in the order number and the
+dates - which is precisely the detail that resemblance-based search handles
+worst.
+
+So the machine would have been confidently, fluently wrong. It would have
+quoted a real document, from a real supplier, about a different order.
+
+In an audit, that is not a small error. That is an accusation against the
+wrong company.
+
+Following the map instead of guessing by resemblance is what makes it correct.
+
+  Resemblance search is good at finding SIMILAR things.
+  It is bad at finding RELATED things.
+  An audit needs related.
+
+
+--------------------------------------------------------------------------------
+5. WHERE THE AI IS ALLOWED TO WORK - AND WHERE IT IS NOT
+--------------------------------------------------------------------------------
+
+This is the design decision that makes the result trustworthy, so it is worth
+being precise.
+
+  THE COMPUTER DOES THE FACTS
+
+    Which documents belong to this order      - by following the map
+    The announcement date, the effective date - read from the email
+    How many days between them                - subtraction
+    What the contract requires                - stored as a number
+    Whether the person was within their limit - comparison
+    The verdict itself                        - a rule, written down
+
+  THE AI DOES ONE THING
+
+    It writes the short paragraph at the bottom of the report that explains
+    the finding to a human being in ordinary language.
+
+    It is explicitly forbidden from introducing any number, date, name or
+    amount that was not already computed above it.
+
+Why draw the line there?
+
+Because a report that looks official and contains a number nobody can trace
+back to a source document is worse than useless. It is dangerous. Someone
+will act on it.
+
+Every figure on our report can be clicked back to the email or contract it
+came from. The one paragraph that is written rather than calculated is
+labelled as such, at the bottom of the page, where a reader has already seen
+the evidence.
+
+
+--------------------------------------------------------------------------------
+6. WHAT COMES OUT
+--------------------------------------------------------------------------------
+
+Someone types an order number - or asks a question in plain English - and
+gets a one-page report.
+
+Every case lands in one of four boxes:
+
+  DOCUMENTED           The price rise happened, and it followed the rules.
+                       Notice was given in time. Nothing to do.
+                       79 cases.
+
+  SUSPECTED VIOLATION  The document exists, we read it, and it contradicts
+                       the contract. Notice was three days where thirty
+                       were required.
+                       34 cases.
+
+  UNEXPLAINED          The price rise happened and there is no document
+                       at all. Not an accusation - a question that needs
+                       asking.
+                       44 cases.
+
+  NOT ASSESSABLE       There is no framework contract with this supplier,
+                       so there is no rule to measure against. We refuse
+                       to judge it.
+                       162 cases.
+
+That last box matters more than it looks. A tool that always produces an
+answer cannot be trusted, because it has no way of telling you when it does
+not know. Roughly nine out of ten purchase orders have nothing interesting on
+them at all, and the system says so and stops.
+
+
+--------------------------------------------------------------------------------
+7. HOW WE KNOW IT IS RIGHT
+--------------------------------------------------------------------------------
+
+Before building any of it, the correct answer for all 319 cases was written
+down separately.
+
+The system was then run and compared against that list.
+
+  319 out of 319 correct. No case put in the wrong box.
+
+Read that result carefully, because it is easy to oversell.
+
+It proves the machinery works from end to end - the map is connected properly,
+the dates are read correctly, the arithmetic is right, the rule is applied
+consistently.
+
+It does NOT prove this would work on a real company's messy documents. Our
+contracts and emails were generated for the test, because no company publishes
+its real ones. Real documents are inconsistent, badly scanned and full of
+exceptions.
+
+That is the honest state of it: the method is proven, the data is not yet real.
+
+
+--------------------------------------------------------------------------------
+8. WHAT WE ARE STILL NOT SURE ABOUT
+--------------------------------------------------------------------------------
+
+Three things we report but cannot prove:
+
+  - The percentage tolerance check. In our data every price rise was above
+    the allowed tolerance, so that test never actually decided anything.
+
+  - The approval-limit check. We found 59 price changes entered by someone
+    whose authority was below the order value - including three entered by
+    warehouse staff with no approval authority whatsoever. It is a striking
+    finding. It also has no verified correct answer, so we report it as an
+    observation, never as a proven breach.
+
+  - Real documents. See section 7.
+
+All three are marked as unproven on the report itself, in the footer, on
+every single page.
+
+
+--------------------------------------------------------------------------------
+9. THE ONE-SENTENCE VERSION
+--------------------------------------------------------------------------------
+
+We connected the purchasing records, the contracts and the emails into a
+single map, so that a question no single system could answer - "was this
+price rise allowed?" - becomes a route that can be walked, checked, and
+shown to a human being on one page.

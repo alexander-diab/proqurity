@@ -13,14 +13,19 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def _load_env() -> None:
-    path = os.path.join(ROOT, ".env")
-    if not os.path.isfile(path):
-        return
+    """Loads .env.local first, then .env.
+
+    Both are gitignored; which one a machine has is a local choice. Real
+    environment variables keep precedence over both.
+    """
     try:
         from dotenv import load_dotenv
     except ImportError:  # without python-dotenv only the real environment counts
         return
-    load_dotenv(path, override=False)
+    for name in (".env.local", ".env"):
+        path = os.path.join(ROOT, name)
+        if os.path.isfile(path):
+            load_dotenv(path, override=False)
 
 
 def credentials() -> tuple[str, str, str, str]:
