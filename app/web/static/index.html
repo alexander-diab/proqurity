@@ -3,261 +3,1820 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Befund — Purchase-to-Pay Audit</title>
+<title>Befund - Purchase-to-Pay Audit</title>
 <style>
-  :root{
-    --bg:#0e1116; --panel:#161b22; --panel2:#1c2230; --line:#2a3140;
-    --fg:#e6edf3; --muted:#8b949e; --accent:#4c8dff;
-    --red:#f85149; --amber:#d29922; --green:#3fb950; --grey:#6e7681;
-    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  :root {
+    color-scheme: light;
+    --bg: #f4efe7;
+    --surface: rgba(255, 255, 255, 0.84);
+    --surface-strong: #ffffff;
+    --ink: #172334;
+    --muted: #617186;
+    --line: rgba(23, 35, 52, 0.12);
+    --accent: #0f766e;
+    --accent-strong: #0a5b56;
+    --accent-soft: #dcefeb;
+    --danger: #a44131;
+    --danger-soft: #fde8e2;
+    --warning: #94611c;
+    --warning-soft: #faefda;
+    --success: #176246;
+    --success-soft: #deefe5;
+    --neutral: #475467;
+    --neutral-soft: #e9edf3;
+    --shadow: 0 24px 70px rgba(33, 47, 74, 0.12);
+    --shadow-soft: 0 14px 34px rgba(33, 47, 74, 0.08);
+    --radius-lg: 28px;
+    --radius-md: 20px;
+    --sans: "Avenir Next", "Segoe UI", "Trebuchet MS", sans-serif;
+    --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    --mono: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
   }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--fg);
-    font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-  header{border-bottom:1px solid var(--line);padding:18px 28px;display:flex;
-    align-items:baseline;gap:14px;flex-wrap:wrap}
-  header h1{margin:0;font-size:18px;letter-spacing:.3px}
-  header .sub{color:var(--muted);font-size:13px}
-  #health{margin-left:auto;font-size:12px;color:var(--muted);font-family:var(--mono)}
-  main{max-width:1080px;margin:0 auto;padding:26px 28px 80px}
-  .searchbar{display:flex;gap:10px;margin-bottom:8px}
-  input[type=text]{flex:1;background:var(--panel);border:1px solid var(--line);
-    color:var(--fg);border-radius:8px;padding:13px 15px;font-size:15px;outline:none}
-  input[type=text]:focus{border-color:var(--accent)}
-  button{background:var(--accent);color:#fff;border:0;border-radius:8px;
-    padding:13px 20px;font-size:14px;font-weight:600;cursor:pointer}
-  button:disabled{opacity:.5;cursor:default}
-  button.ghost{background:transparent;border:1px solid var(--line);color:var(--fg)}
-  .hint{color:var(--muted);font-size:12.5px;margin-bottom:22px}
-  .hint code{font-family:var(--mono);background:var(--panel2);padding:1px 6px;
-    border-radius:4px;cursor:pointer;color:var(--fg)}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;
-    padding:0;margin-bottom:18px;overflow:hidden}
-  .verdict{padding:12px 18px;font-weight:700;letter-spacing:.6px;font-size:13px;color:#fff}
-  .v-suspected_violation{background:#8b2020}.v-unexplained{background:#7a5a12}
-  .v-documented{background:#1a6b40}.v-not_assessable{background:#3a4150}
-  .body{padding:18px}
-  .grid{display:grid;grid-template-columns:150px 1fr;gap:7px 16px;font-size:14px}
-  .grid dt{color:var(--muted)}
-  .grid dd{margin:0}
-  .sect{font-size:11px;letter-spacing:1.1px;color:var(--muted);font-weight:700;
-    margin:20px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
-  .sect:first-child{margin-top:0}
-  ul.reasons{margin:0;padding-left:18px}
-  ul.reasons li{margin-bottom:5px}
-  table{width:100%;border-collapse:collapse;font-size:13px}
-  th{text-align:left;color:var(--muted);font-weight:600;padding:7px 8px;
-    border-bottom:1px solid var(--line);font-size:11.5px;letter-spacing:.5px}
-  td{padding:7px 8px;border-bottom:1px solid #21262d}
-  tr.click{cursor:pointer}
-  tr.click:hover td{background:var(--panel2)}
-  .mono{font-family:var(--mono);font-size:12.5px}
-  .num{text-align:right;font-family:var(--mono)}
-  .pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;
-    font-weight:700;letter-spacing:.4px}
-  .p-suspected_violation{background:#3d1414;color:#ff8a80}
-  .p-unexplained{background:#3a2c0a;color:#f0c040}
-  .p-documented{background:#0f3323;color:#68d391}
-  .p-not_assessable{background:#252b36;color:#9aa4b2}
-  .warn{color:var(--red);font-weight:600}
-  .ok{color:var(--grey)}
-  .answer{background:var(--panel2);border-left:3px solid var(--accent);
-    padding:14px 16px;border-radius:0 8px 8px 0;margin-bottom:12px}
-  .docs a{color:var(--accent);text-decoration:none;font-family:var(--mono);
-    font-size:12.5px;margin-right:14px;cursor:pointer}
-  .docs a:hover{text-decoration:underline}
-  pre.doc{background:#0b0f14;border:1px solid var(--line);border-radius:8px;
-    padding:14px;overflow-x:auto;white-space:pre-wrap;font-size:12.5px;
-    max-height:340px;overflow-y:auto;color:#c9d1d9}
-  .foot{color:var(--muted);font-size:11.5px;margin-top:14px;line-height:1.5}
-  .spinner{display:inline-block;width:13px;height:13px;border:2px solid var(--line);
-    border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;
-    vertical-align:-2px;margin-right:7px}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  .err{background:#3d1414;border:1px solid #8b2020;color:#ff8a80;
-    padding:12px 15px;border-radius:8px;margin-bottom:16px;font-size:14px}
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at top left, rgba(15, 118, 110, 0.16), transparent 32%),
+      radial-gradient(circle at top right, rgba(166, 65, 49, 0.12), transparent 28%),
+      linear-gradient(180deg, #f7f3eb 0%, #f4efe7 45%, #efe7dc 100%);
+    color: var(--ink);
+    font: 16px/1.6 var(--sans);
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.35) 1px, transparent 1px);
+    background-size: 30px 30px;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.26), transparent 85%);
+    opacity: 0.36;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  button,
+  input {
+    font: inherit;
+  }
+
+  button {
+    border: 0;
+    cursor: pointer;
+  }
+
+  .page-shell {
+    position: relative;
+    z-index: 1;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 28px 24px 80px;
+  }
+
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 28px;
+  }
+
+  .brand {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .eyebrow {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent-strong);
+    font-weight: 800;
+  }
+
+  .brand h1 {
+    margin: 0;
+    font: 700 clamp(1.4rem, 2vw, 1.8rem)/1 var(--serif);
+  }
+
+  .brand p {
+    margin: 0;
+    max-width: 46ch;
+    color: var(--muted);
+  }
+
+  .status-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .health-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-soft);
+    color: var(--muted);
+    font-size: 0.93rem;
+  }
+
+  .health-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--warning);
+  }
+
+  .health-pill.is-ok .health-dot {
+    background: var(--success);
+  }
+
+  .health-pill.is-bad .health-dot {
+    background: var(--danger);
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 18px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 12px 26px rgba(15, 118, 110, 0.18);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+
+  .button:hover {
+    transform: translateY(-1px);
+    background: var(--accent-strong);
+    box-shadow: 0 16px 32px rgba(15, 118, 110, 0.22);
+  }
+
+  .button:disabled {
+    opacity: 0.55;
+    cursor: default;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .button.ghost {
+    background: rgba(255, 255, 255, 0.68);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    box-shadow: none;
+  }
+
+  .button.ghost:hover {
+    background: #fff;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .button.small {
+    padding: 10px 14px;
+    font-size: 0.92rem;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.95fr);
+    gap: 24px;
+    align-items: stretch;
+    margin-bottom: 24px;
+  }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(18px);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+  }
+
+  .hero-copy.panel {
+    padding: 28px;
+  }
+
+  .hero-copy h2 {
+    margin: 10px 0 14px;
+    font: 700 clamp(2.3rem, 5vw, 4.1rem)/0.96 var(--serif);
+    letter-spacing: -0.04em;
+    max-width: 13ch;
+  }
+
+  .lede {
+    margin: 0 0 24px;
+    max-width: 56ch;
+    color: var(--muted);
+    font-size: 1.05rem;
+  }
+
+  .search-card {
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 18px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .search-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 10px;
+  }
+
+  .search-row {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .search-row input {
+    flex: 1;
+    min-width: 0;
+    border-radius: 18px;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--ink);
+    padding: 16px 18px;
+    font-size: 1rem;
+    box-shadow: inset 0 1px 1px rgba(23, 35, 52, 0.03);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .search-row input:focus {
+    outline: none;
+    border-color: rgba(15, 118, 110, 0.55);
+    box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.12);
+  }
+
+  .search-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+
+  .search-hint {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+  }
+
+  .example-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+  }
+
+  .example-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.72);
+    color: var(--ink);
+    font-weight: 600;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+  }
+
+  .example-chip:hover {
+    transform: translateY(-1px);
+    background: #fff;
+    border-color: rgba(15, 118, 110, 0.35);
+  }
+
+  .example-chip span {
+    color: var(--muted);
+    font-weight: 500;
+    font-size: 0.92rem;
+  }
+
+  .overview-card h3,
+  .guide-panel h3,
+  .panel-head h3 {
+    margin: 6px 0 0;
+    font: 700 1.55rem/1.1 var(--serif);
+  }
+
+  .panel-kicker {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent-strong);
+    font-weight: 800;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .stat-card {
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 16px;
+    min-height: 116px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .stat-card strong {
+    font-size: 2rem;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  .stat-card span {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .stat-card em {
+    font-style: normal;
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
+  .distribution {
+    display: grid;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .distribution-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--line);
+  }
+
+  .distribution-row span {
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  .distribution-row strong {
+    font-size: 1rem;
+  }
+
+  .note {
+    margin-top: 16px;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  .dashboard {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .panel-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 18px;
+  }
+
+  .panel-head p {
+    margin: 6px 0 0;
+    color: var(--muted);
+  }
+
+  .table-wrap {
+    overflow: auto;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px;
+    background: rgba(255, 255, 255, 0.66);
+  }
+
+  th,
+  td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+  }
+
+  th {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    font-weight: 800;
+    background: rgba(244, 239, 231, 0.82);
+  }
+
+  tbody tr {
+    transition: background 0.18s ease;
+  }
+
+  tbody tr[data-lookup] {
+    cursor: pointer;
+  }
+
+  tbody tr:hover {
+    background: rgba(15, 118, 110, 0.05);
+  }
+
+  tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .mono {
+    font-family: var(--mono);
+    font-size: 0.93rem;
+  }
+
+  .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 0.84rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  .badge::before {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.8;
+  }
+
+  .badge-success {
+    background: var(--success-soft);
+    color: var(--success);
+  }
+
+  .badge-warning {
+    background: var(--warning-soft);
+    color: var(--warning);
+  }
+
+  .badge-danger {
+    background: var(--danger-soft);
+    color: var(--danger);
+  }
+
+  .badge-neutral {
+    background: var(--neutral-soft);
+    color: var(--neutral);
+  }
+
+  .subtle {
+    color: var(--muted);
+  }
+
+  .guide-list {
+    display: grid;
+    gap: 14px;
+    margin-top: 18px;
+  }
+
+  .guide-step {
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 16px;
+  }
+
+  .guide-step strong {
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .guide-step p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .results-shell {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .results-body {
+    display: grid;
+    gap: 18px;
+  }
+
+  .idle-card,
+  .loading-card,
+  .error-card,
+  .audit-card,
+  .answer-card,
+  .backlog-card {
+    background: var(--surface);
+    border: 1px solid rgba(255, 255, 255, 0.86);
+    backdrop-filter: blur(18px);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius-lg);
+  }
+
+  .idle-card,
+  .loading-card,
+  .error-card {
+    padding: 24px;
+  }
+
+  .idle-card h3,
+  .error-card h3,
+  .loading-card h3 {
+    margin: 0 0 8px;
+    font: 700 1.4rem/1.1 var(--serif);
+  }
+
+  .idle-card p,
+  .error-card p,
+  .loading-card p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .loading-card {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .spinner {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid rgba(15, 118, 110, 0.2);
+    border-top-color: var(--accent);
+    animation: spin 0.7s linear infinite;
+    margin-top: 4px;
+    flex: 0 0 auto;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .error-card {
+    border-color: rgba(166, 65, 49, 0.18);
+    background: rgba(253, 232, 226, 0.72);
+  }
+
+  .answer-card {
+    padding: 24px;
+  }
+
+  .answer-box {
+    margin-top: 14px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--accent);
+    border-radius: 18px;
+    padding: 18px;
+    white-space: pre-wrap;
+  }
+
+  .warning-note {
+    margin-top: 14px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    background: var(--warning-soft);
+    color: var(--warning);
+    font-weight: 700;
+  }
+
+  .audit-card {
+    overflow: hidden;
+  }
+
+  .audit-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.75), rgba(220, 239, 235, 0.72));
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .audit-header h3 {
+    margin: 8px 0 6px;
+    font: 700 clamp(1.4rem, 3vw, 2rem)/1 var(--serif);
+  }
+
+  .audit-header p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .audit-body {
+    padding: 24px;
+    display: grid;
+    gap: 20px;
+  }
+
+  .callout {
+    padding: 18px 20px;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.78);
+  }
+
+  .callout strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1rem;
+  }
+
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .metric-card {
+    padding: 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid var(--line);
+  }
+
+  .metric-card span {
+    display: block;
+    color: var(--muted);
+    font-size: 0.84rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+
+  .metric-card strong {
+    display: block;
+    font-size: 1.3rem;
+    line-height: 1.2;
+  }
+
+  .metric-card em {
+    display: block;
+    margin-top: 8px;
+    font-style: normal;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .detail-card {
+    padding: 18px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid var(--line);
+  }
+
+  .detail-card h4 {
+    margin: 0 0 14px;
+    font-size: 1rem;
+  }
+
+  .definition-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 18px;
+  }
+
+  .definition-list div {
+    min-width: 0;
+  }
+
+  .definition-list dt {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 800;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .definition-list dd {
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .reason-list {
+    margin: 0;
+    padding-left: 18px;
+  }
+
+  .reason-list li {
+    margin-bottom: 8px;
+  }
+
+  .reason-list li:last-child {
+    margin-bottom: 0;
+  }
+
+  .doc-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .doc-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--ink);
+    font-weight: 700;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  }
+
+  .doc-chip:hover {
+    transform: translateY(-1px);
+    border-color: rgba(15, 118, 110, 0.38);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .doc-chip small {
+    font-weight: 600;
+    color: var(--muted);
+  }
+
+  .doc-slot {
+    display: grid;
+    gap: 12px;
+  }
+
+  .doc-viewer {
+    padding: 18px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid var(--line);
+  }
+
+  .doc-viewer header {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  .doc-viewer h5 {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .doc-viewer p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  pre.doc {
+    margin: 0;
+    padding: 18px;
+    border-radius: 18px;
+    background: #172334;
+    color: #f8fafc;
+    overflow: auto;
+    max-height: 360px;
+    white-space: pre-wrap;
+    font: 0.9rem/1.6 var(--mono);
+  }
+
+  .timeline-table tbody tr.is-highlight {
+    background: rgba(166, 65, 49, 0.08);
+  }
+
+  .timeline-table td:first-child,
+  .timeline-table th:first-child {
+    white-space: nowrap;
+  }
+
+  .footer-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .footnote {
+    color: var(--muted);
+    font-size: 0.92rem;
+    max-width: 64ch;
+  }
+
+  .backlog-card {
+    padding: 24px;
+  }
+
+  .backlog-summary {
+    margin-bottom: 16px;
+    color: var(--muted);
+  }
+
+  .backlog-summary strong {
+    color: var(--ink);
+  }
+
+  .skeleton {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skeleton::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    animation: shine 1.6s infinite;
+  }
+
+  @keyframes shine {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .fade-rise {
+    animation: fadeRise 0.45s ease both;
+  }
+
+  @keyframes fadeRise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+  @media (max-width: 1060px) {
+    .hero,
+    .dashboard,
+    .detail-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .metric-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 760px) {
+    .page-shell {
+      padding: 20px 14px 56px;
+    }
+
+    .topbar,
+    .panel-head,
+    .search-row,
+    .footer-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .status-row {
+      justify-content: flex-start;
+    }
+
+    .search-row {
+      gap: 10px;
+    }
+
+    .stat-grid,
+    .definition-list,
+    .metric-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .audit-header,
+    .audit-body,
+    .panel,
+    .backlog-card,
+    .answer-card,
+    .idle-card,
+    .loading-card,
+    .error-card {
+      padding: 18px;
+    }
+
+    .hero-copy h2 {
+      font-size: 2.4rem;
+    }
+
+    .table-wrap {
+      margin: 0 -2px;
+    }
+  }
 </style>
 </head>
 <body>
-<header>
-  <h1>Befund</h1>
-  <span class="sub">Purchase-to-Pay audit · Vandenberg Coatings SE</span>
-  <span id="health">checking…</span>
-</header>
+<div class="page-shell">
+  <header class="topbar">
+    <div class="brand">
+      <span class="eyebrow">P2P compliance cockpit</span>
+      <h1>Befund for Vandenberg Coatings SE</h1>
+      <p>Audit late price changes without digging through raw process data, evidence threads, and approval tables one by one.</p>
+    </div>
+    <div class="status-row">
+      <div id="health" class="health-pill">
+        <span class="health-dot"></span>
+        <span>Checking graph health...</span>
+      </div>
+      <button id="resetTop" class="button ghost small" type="button">Reset view</button>
+    </div>
+  </header>
 
-<main>
-  <div class="searchbar">
-    <input type="text" id="q" autofocus
-           placeholder="Purchase order number, or a question in plain English…">
-    <button id="go">Search</button>
-  </div>
-  <div class="hint">
-    Try
-    <code data-q="4508048711">4508048711</code>
-    <code data-q="4507004821_00020">4507004821_00020</code>
-    <code data-q="4507003040">4507003040</code>
-    <code data-q="Who changed the price on 4508048711 and were they within their approval limit?">a question</code>
-    · or <code data-q="__list">list all candidates</code>
-  </div>
+  <main>
+    <section class="hero">
+      <div class="hero-copy panel fade-rise">
+        <span class="eyebrow">Search, inspect, explain</span>
+        <h2>See the contract, timeline, and approval risk in one pass.</h2>
+        <p class="lede">Search a purchase order, inspect a single item, or ask a plain-English question. The page pulls contract rules, evidence, timeline, and authority into one readable workspace.</p>
 
-  <div id="out"></div>
-</main>
+        <div class="search-card">
+          <label class="search-label" for="q">Search an order, item, or question</label>
+          <div class="search-row">
+            <input type="text" id="q" autofocus placeholder="Example: 4507035767, 4507018333_00010, or a free-form question">
+            <button id="go" class="button" type="button">Run analysis</button>
+          </div>
+          <div class="search-actions">
+            <button id="showList" class="button ghost small" type="button">Open candidate backlog</button>
+          </div>
+          <div class="search-hint">
+            <span>Use "/" to focus the search box quickly.</span>
+            <span>PO number = full order, PO item = direct item assessment.</span>
+          </div>
+        </div>
+
+        <div class="example-row" aria-label="Sample searches">
+          <button class="example-chip" type="button" data-query="4507035767">
+            4507035767 <span>Sample purchase order</span>
+          </button>
+          <button class="example-chip" type="button" data-query="4507018333_00010">
+            4507018333_00010 <span>Sample documented item</span>
+          </button>
+          <button class="example-chip" type="button" data-query="Who changed the price on 4507035767_00030 and were they within their approval limit?">
+            Authority question <span>Ask in plain English</span>
+          </button>
+          <button class="example-chip" type="button" data-query="__list">
+            Full backlog <span>List top candidate items</span>
+          </button>
+        </div>
+      </div>
+
+      <aside class="overview-card panel fade-rise">
+        <span class="panel-kicker">Live overview</span>
+        <h3>Where the biggest review effort sits right now</h3>
+        <div id="summaryCards" class="stat-grid">
+          <div class="stat-card skeleton"><span>Review set</span><strong>--</strong><em>Loading summary</em></div>
+          <div class="stat-card skeleton"><span>Documented</span><strong>--</strong><em>Loading summary</em></div>
+          <div class="stat-card skeleton"><span>Needs follow-up</span><strong>--</strong><em>Loading summary</em></div>
+          <div class="stat-card skeleton"><span>Over authority</span><strong>--</strong><em>Loading summary</em></div>
+        </div>
+        <div id="distribution" class="distribution"></div>
+        <p class="note">Summary uses the highest-value candidate items first so the dashboard starts with the biggest exposures.</p>
+      </aside>
+    </section>
+
+    <section class="dashboard">
+      <div class="panel fade-rise">
+        <div class="panel-head">
+          <div>
+            <span class="panel-kicker">Start here</span>
+            <h3>Highest-value late price changes</h3>
+            <p>These are candidate items from step 1. Click any row to run the full assessment.</p>
+          </div>
+          <button class="button ghost small" type="button" data-query="__list">See all</button>
+        </div>
+        <div id="candidatePreview">
+          <div class="loading-card">
+            <span class="spinner"></span>
+            <div>
+              <h3>Loading candidates</h3>
+              <p>Pulling the most valuable late price changes from the graph.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="guide-panel panel fade-rise">
+        <span class="panel-kicker">Workflow</span>
+        <h3>Fastest ways to use this screen</h3>
+        <div class="guide-list">
+          <div class="guide-step">
+            <strong>Paste a PO or PO item</strong>
+            <p>Use a purchase order to inspect every line, or a PO item to jump straight to one verdict card.</p>
+          </div>
+          <div class="guide-step">
+            <strong>Ask a direct question</strong>
+            <p>Good prompts name the order or item and ask about notice, evidence, actor, or approval authority.</p>
+          </div>
+          <div class="guide-step">
+            <strong>Open the backlog when triaging</strong>
+            <p>The candidate list is sorted by value, which is useful when you need to review the biggest possible impact first.</p>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="results-shell">
+      <div class="panel-head">
+        <div>
+          <span class="panel-kicker">Analysis</span>
+          <h3 id="resultsTitle">Results appear here</h3>
+          <p>Search above or click a sample to render the audit narrative below.</p>
+        </div>
+        <button id="clearResults" class="button ghost small" type="button" hidden>Clear results</button>
+      </div>
+      <div id="out" class="results-body">
+        <div class="idle-card fade-rise">
+          <h3>Start with an order, item, or question</h3>
+          <p>Use one of the sample searches above, open the backlog, or paste a PO number to load a clean audit view with evidence and timeline details.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
 
 <script>
-const $ = s => document.querySelector(s);
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+const $ = (selector) => document.querySelector(selector);
 const out = $("#out");
-const eur = n => n == null ? "—" : "EUR " + n.toLocaleString("en-US",{maximumFractionDigits:0});
-const esc = s => String(s ?? "").replace(/[&<>"]/g, c =>
-  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const queryInput = $("#q");
+const resultsTitle = $("#resultsTitle");
+const clearResultsButton = $("#clearResults");
+const healthPill = $("#health");
+const summaryCards = $("#summaryCards");
+const distribution = $("#distribution");
+const candidatePreview = $("#candidatePreview");
 
-async function api(path, opts) {
-  const r = await fetch(path, opts);
-  if (!r.ok) throw new Error((await r.json().catch(()=>({detail:r.statusText}))).detail || r.statusText);
-  return r.json();
+const statusMeta = {
+  suspected_violation: {
+    label: "Suspected violation",
+    badgeClass: "badge-danger",
+    title: "The record does not yet support the price change."
+  },
+  unexplained: {
+    label: "Needs review",
+    badgeClass: "badge-warning",
+    title: "The item still needs human review."
+  },
+  documented: {
+    label: "Documented",
+    badgeClass: "badge-success",
+    title: "The price change is backed by recorded evidence."
+  },
+  not_assessable: {
+    label: "Not assessable",
+    badgeClass: "badge-neutral",
+    title: "The rule set cannot be tested for this item."
+  }
+};
+
+function repairText(value) {
+  if (typeof value !== "string" || !/[ÃÂâ]/.test(value)) {
+    return value;
+  }
+  try {
+    const bytes = Uint8Array.from(value, (char) => char.charCodeAt(0) & 0xff);
+    const repaired = new TextDecoder("utf-8").decode(bytes);
+    const before = (value.match(/[ÃÂâ]/g) || []).length;
+    const after = (repaired.match(/[ÃÂâ]/g) || []).length;
+    return after < before ? repaired : value;
+  } catch {
+    return value;
+  }
 }
 
-(async () => {
-  try {
-    const h = await api("/api/health");
-    $("#health").textContent = h.ok
-      ? `graph ok · ${h.knoten.toLocaleString()} nodes · ${h.chunks_mit_embedding} embedded`
-      : "graph unreachable";
-  } catch { $("#health").textContent = "graph unreachable"; }
-})();
+function text(value) {
+  return repairText(String(value ?? ""));
+}
 
-function busy(msg){ out.innerHTML = `<div class="card"><div class="body">
-  <span class="spinner"></span>${esc(msg)}</div></div>`; }
-function fail(msg){ out.innerHTML = `<div class="err">${esc(msg)}</div>`; }
+function escapeHtml(value) {
+  return text(value).replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "\"": "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
 
-function itemCard(d) {
-  const rule = d.contract
-    ? `${esc(d.contract)} ${esc(d.clause||"")} · ${d.notice_required_days} days' notice · tolerance ${d.tolerance_percent}%`
-    : "no framework contract covers this supplier for this material group";
-  const notice = d.notice_given_days == null ? "—"
-    : `${d.notice_given_days} days given, ${d.notice_required_days} required`;
-  const auth = d.actor
-    ? `${esc(d.actor)}, ${esc(d.actor_role)} · limit ${eur(d.actor_limit_eur)}` +
-      (d.beyond_authority ? ` <span class="warn">— exceeded by ${eur(d.value_eur - d.actor_limit_eur)}</span>`
-                          : ` <span class="ok">— within limit</span>`)
-    : "—";
+function formatNumber(value) {
+  if (value == null) {
+    return "--";
+  }
+  return new Intl.NumberFormat("en-US").format(value);
+}
 
-  return `<div class="card">
-    <div class="verdict v-${d.status}">${esc(d.label.toUpperCase())} · ${esc(d.po_item)}</div>
-    <div class="body">
-      <div class="sect">THE ITEM</div>
-      <dl class="grid">
-        <dt>Supplier</dt><dd>${esc(d.vendor||"—")} <span class="mono">(${esc(d.vendor_id||"")})</span>, ${esc(d.vendor_ort||"")}</dd>
-        <dt>Material group</dt><dd>${esc(d.category||"—")}${d.spend_area?" · "+esc(d.spend_area):""}</dd>
-        <dt>Value</dt><dd><b>${eur(d.value_eur)}</b></dd>
-        <dt>Ordered</dt><dd>${esc(d.ordered_at||"—")} · ${esc(d.process_variant||"—")}</dd>
-      </dl>
+function formatCurrency(value) {
+  if (value == null) {
+    return "--";
+  }
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "EUR",
+    maximumFractionDigits: 0
+  }).format(value);
+}
 
-      <div class="sect">THE RULE</div>
-      <dl class="grid"><dt>Contract</dt><dd>${rule}</dd></dl>
+function formatPercent(value) {
+  if (value == null) {
+    return "--";
+  }
+  return `${Number(value).toFixed(1)}%`;
+}
 
-      <div class="sect">THE FINDING</div>
-      <dl class="grid">
-        <dt>Announced</dt><dd>${esc(d.announced_on||"—")}${d.effective_from?" · effective "+esc(d.effective_from):""}</dd>
-        <dt>Notice</dt><dd><b>${notice}</b></dd>
-        <dt>Increase</dt><dd>${d.increase_percent!=null?"<b>"+d.increase_percent.toFixed(1)+" %</b>":"—"}</dd>
-        <dt>Executed by</dt><dd>${auth}</dd>
-      </dl>
-      ${d.reasons?.length?`<ul class="reasons" style="margin-top:12px">${
-        d.reasons.map(r=>`<li>${esc(r)}</li>`).join("")}</ul>`:""}
+function formatDate(value) {
+  const match = text(value).match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (!match) {
+    return text(value) || "--";
+  }
+  const [, year, month, day] = match;
+  return `${day} ${MONTHS[Number(month) - 1]} ${year}`;
+}
 
-      <div class="sect">TIMELINE</div>
-      <table><thead><tr><th>When</th><th>Activity</th><th>Who</th><th>Role</th><th class="num">Limit</th></tr></thead>
-      <tbody>${d.events.map(e=>`<tr${e.activity==="Change Price"?' style="background:#241a1a"':""}>
-        <td class="mono">${esc(e.at.slice(0,10))}</td><td>${esc(e.activity)}</td>
-        <td>${esc(e.who||"—")}</td><td>${esc(e.role||"—")}</td>
-        <td class="num">${e.limit_eur!=null?e.limit_eur.toLocaleString("en-US"):"—"}</td></tr>`).join("")}</tbody></table>
+function formatDateTime(value) {
+  const match = text(value).match(/^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2}))?/);
+  if (!match) {
+    return text(value) || "--";
+  }
+  const [, year, month, day, hour, minute] = match;
+  const datePart = `${day} ${MONTHS[Number(month) - 1]} ${year}`;
+  return hour ? `${datePart}, ${hour}:${minute}` : datePart;
+}
 
-      <div class="sect">EVIDENCE</div>
-      <div class="docs">${d.documents.length
-        ? d.documents.map(x=>`<a onclick="showDoc('${esc(x.id)}')">${esc(x.id)}</a>`).join("")
-        : '<span style="color:var(--muted)">No supporting documents on file.</span>'}</div>
-      <div id="doc-${esc(d.po_item)}"></div>
+function formatDocType(value) {
+  return text(value || "document").replace(/_/g, " ");
+}
 
-      <div style="margin-top:18px">
-        <button class="ghost" onclick="window.open('/api/item/${esc(d.po_item)}/pdf','_blank')">
-          Download one-page PDF</button>
+function maybeText(value) {
+  return value ? escapeHtml(value) : '<span class="subtle">--</span>';
+}
+
+function safeId(value) {
+  return String(value).replace(/[^A-Za-z0-9_-]+/g, "-");
+}
+
+function badgeHtml(status) {
+  const meta = statusMeta[status] || statusMeta.not_assessable;
+  return `<span class="badge ${meta.badgeClass}">${escapeHtml(meta.label)}</span>`;
+}
+
+function authoritySummary(item) {
+  if (!item.actor) {
+    return "No accountable actor is attached to the change event.";
+  }
+  if (item.actor_limit_eur == null) {
+    return `${text(item.actor)} has no recorded approval limit.`;
+  }
+  if (item.beyond_authority) {
+    const excess = item.value_eur != null
+      ? ` by ${formatCurrency(Math.max((item.value_eur || 0) - (item.actor_limit_eur || 0), 0))}`
+      : "";
+    return `${text(item.actor)} exceeded the approval limit${excess}.`;
+  }
+  return `${text(item.actor)} stayed within the approval limit.`;
+}
+
+function verdictNarrative(item) {
+  const meta = statusMeta[item.status] || statusMeta.not_assessable;
+  const noticeSentence = item.notice_given_days != null && item.notice_required_days != null
+    ? `${item.notice_given_days} days of notice were recorded against ${item.notice_required_days} required.`
+    : item.contract
+      ? "A contract is linked, but the notice trail is incomplete."
+      : "No matching framework contract was found, so the notice rule cannot be tested.";
+  const increaseSentence = item.increase_percent != null
+    ? `The recorded increase is ${formatPercent(item.increase_percent)}.`
+    : "No increase percentage is available.";
+  return `${meta.title} ${noticeSentence} ${increaseSentence} ${authoritySummary(item)}`;
+}
+
+function idleMarkup() {
+  return `
+    <div class="idle-card fade-rise">
+      <h3>Start with an order, item, or question</h3>
+      <p>Use one of the sample searches above, open the backlog, or paste a PO number to load a clean audit view with evidence and timeline details.</p>
+    </div>`;
+}
+
+function loadingMarkup(title, message) {
+  return `
+    <div class="loading-card fade-rise">
+      <span class="spinner"></span>
+      <div>
+        <h3>${escapeHtml(title)}</h3>
+        <p>${escapeHtml(message)}</p>
       </div>
-      <div class="foot">Generated from a synthetic document corpus. Price-tolerance and
-        approval-authority tests are not validated against ground truth in this dataset.
-        Every figure above is computed from the graph and the cited documents.</div>
-    </div></div>`;
+    </div>`;
 }
 
-async function showDoc(id) {
-  const box = document.querySelector('[id^="doc-"]');
-  box.innerHTML = `<div style="margin-top:12px"><span class="spinner"></span>loading ${esc(id)}…</div>`;
-  try {
-    const d = await api("/api/document/" + encodeURIComponent(id));
-    box.innerHTML = `<pre class="doc">${esc(d.text)}</pre>`;
-  } catch (e) { box.innerHTML = `<div class="err">${esc(e.message)}</div>`; }
+function errorMarkup(message) {
+  return `
+    <div class="error-card fade-rise">
+      <h3>Something went wrong</h3>
+      <p>${escapeHtml(message)}</p>
+    </div>`;
 }
 
-async function showList() {
-  busy("running step 1 — candidate selection…");
-  try {
-    const d = await api("/api/candidates?limit=60");
-    out.innerHTML = `<div class="card"><div class="body">
-      <div class="sect">STEP 1 · PRICE CHANGE MORE THAN ${d.threshold} DAYS AFTER ORDER</div>
-      <p style="margin:0 0 14px;color:var(--muted);font-size:13.5px">
-        ${d.gesamt} purchase order items · ${eur(d.summe_eur)} affected
-        · showing the ${d.items.length} highest by value</p>
-      <table><thead><tr><th>PO item</th><th>Supplier</th><th class="num">Value</th>
-        <th>Ordered</th><th>Changed</th><th class="num">Gap</th></tr></thead><tbody>
-      ${d.items.map(c=>`<tr class="click" onclick="go('${c.po_item}')">
-        <td class="mono">${esc(c.po_item)}</td><td class="mono">${esc(c.vendor||"—")}</td>
-        <td class="num">${c.value_eur!=null?c.value_eur.toLocaleString("en-US",{maximumFractionDigits:0}):"—"}</td>
-        <td class="mono">${esc(c.ordered_at||"—")}</td><td class="mono">${esc(c.first_change||"—")}</td>
-        <td class="num">${c.gap_days}d</td></tr>`).join("")}
-      </tbody></table></div></div>`;
-  } catch (e) { fail(e.message); }
+function setResults(title, html, options = {}) {
+  const { showClear = true, scroll = true } = options;
+  resultsTitle.textContent = title;
+  out.innerHTML = html;
+  clearResultsButton.hidden = !showClear;
+  if (scroll) {
+    out.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 }
 
-async function go(text) {
-  const q = (text ?? $("#q").value).trim();
-  if (!q) return;
-  if (q === "__list") return showList();
-  $("#q").value = q;
+function resetResults() {
+  queryInput.value = "";
+  resultsTitle.textContent = "Results appear here";
+  out.innerHTML = idleMarkup();
+  clearResultsButton.hidden = true;
+}
 
-  // A bare number (with optional _position) is an item or order lookup.
-  if (/^\d{6,}(_\d+)?$/.test(q)) {
-    busy(`assessing ${q} — contract, clause, evidence, authority…`);
-    try {
-      const d = q.includes("_") ? {items:[await api("/api/item/"+q)]}
-                                : await api("/api/po/"+q);
-      out.innerHTML = d.items.map(itemCard).join("");
-    } catch (e) { fail(e.message); }
+async function api(path, options) {
+  const response = await fetch(path, options);
+  if (!response.ok) {
+    const error = await response.json().catch(() => ({ detail: response.statusText }));
+    throw new Error(error.detail || response.statusText);
+  }
+  return response.json();
+}
+
+function renderSummary(summary) {
+  const verdicts = summary.verteilung || {};
+  const followUp = (verdicts.suspected_violation || 0) + (verdicts.unexplained || 0);
+
+  summaryCards.innerHTML = `
+    <div class="stat-card fade-rise">
+      <span>Review set</span>
+      <strong>${escapeHtml(formatNumber(summary.geprueft))}</strong>
+      <em>Highest-value candidate items sampled</em>
+    </div>
+    <div class="stat-card fade-rise">
+      <span>Documented</span>
+      <strong>${escapeHtml(formatNumber(verdicts.documented || 0))}</strong>
+      <em>Items with evidence-backed notice trail</em>
+    </div>
+    <div class="stat-card fade-rise">
+      <span>Needs follow-up</span>
+      <strong>${escapeHtml(formatNumber(followUp))}</strong>
+      <em>Suspected violations plus unresolved cases</em>
+    </div>
+    <div class="stat-card fade-rise">
+      <span>Over authority</span>
+      <strong>${escapeHtml(formatNumber(summary.beyond_authority || 0))}</strong>
+      <em>Items executed above recorded limit</em>
+    </div>`;
+
+  distribution.innerHTML = [
+    ["Suspected violation", verdicts.suspected_violation || 0],
+    ["Needs review", verdicts.unexplained || 0],
+    ["Documented", verdicts.documented || 0],
+    ["Not assessable", verdicts.not_assessable || 0]
+  ].map(([label, value]) => `
+    <div class="distribution-row fade-rise">
+      <span>${escapeHtml(label)}</span>
+      <strong>${escapeHtml(formatNumber(value))}</strong>
+    </div>`).join("");
+}
+
+function renderCandidatePreview(data) {
+  candidatePreview.innerHTML = `
+    <div class="table-wrap fade-rise">
+      <table>
+        <thead>
+          <tr>
+            <th>PO item</th>
+            <th>Supplier</th>
+            <th class="num">Value</th>
+            <th>First change</th>
+            <th class="num">Gap</th>
+            <th>Actors</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${data.items.map((item) => `
+            <tr data-lookup="${escapeHtml(item.po_item)}">
+              <td class="mono">${escapeHtml(item.po_item)}</td>
+              <td>${escapeHtml(item.vendor || "--")}</td>
+              <td class="num">${escapeHtml(formatCurrency(item.value_eur))}</td>
+              <td class="mono">${escapeHtml(formatDate(item.first_change || item.ordered_at))}</td>
+              <td class="num">${escapeHtml(formatNumber(item.gap_days))}d</td>
+              <td>${escapeHtml((item.actors || []).map((actor) => text(actor)).join(", ") || "--")}</td>
+            </tr>`).join("")}
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Threshold: more than ${escapeHtml(formatNumber(data.threshold))} days after order creation. Total candidates: ${escapeHtml(formatNumber(data.gesamt))}. Combined value: ${escapeHtml(formatCurrency(data.summe_eur))}.</p>`;
+}
+
+function backlogMarkup(data) {
+  return `
+    <div class="backlog-card fade-rise">
+      <div class="backlog-summary">
+        <strong>${escapeHtml(formatNumber(data.gesamt))}</strong> candidate items were flagged because the first price change happened more than
+        <strong>${escapeHtml(formatNumber(data.threshold))}</strong> days after order creation. Showing the highest-value
+        <strong>${escapeHtml(formatNumber(data.items.length))}</strong> items, totaling
+        <strong>${escapeHtml(formatCurrency(data.summe_eur))}</strong>.
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>PO item</th>
+              <th>Supplier</th>
+              <th class="num">Value</th>
+              <th>Ordered</th>
+              <th>Changed</th>
+              <th class="num">Gap</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${data.items.map((item) => `
+              <tr data-lookup="${escapeHtml(item.po_item)}">
+                <td class="mono">${escapeHtml(item.po_item)}</td>
+                <td>${escapeHtml(item.vendor || "--")}</td>
+                <td class="num">${escapeHtml(formatCurrency(item.value_eur))}</td>
+                <td class="mono">${escapeHtml(formatDate(item.ordered_at))}</td>
+                <td class="mono">${escapeHtml(formatDate(item.first_change))}</td>
+                <td class="num">${escapeHtml(formatNumber(item.gap_days))}d</td>
+              </tr>`).join("")}
+          </tbody>
+        </table>
+      </div>
+    </div>`;
+}
+
+function itemCard(item) {
+  const meta = statusMeta[item.status] || statusMeta.not_assessable;
+  const docTarget = `doc-${safeId(item.po_item)}`;
+  const contractLine = item.contract
+    ? `${text(item.contract)} ${text(item.clause || "")}`.trim()
+    : "No framework contract linked";
+  const authorityState = item.actor
+    ? item.beyond_authority ? "Exceeded limit" : "Within limit"
+    : "No actor linked";
+  const authorityNote = item.actor
+    ? `${text(item.actor)} - ${text(item.actor_role || "--")}`
+    : "No accountable actor recorded";
+  const noticeMetric = item.notice_given_days != null && item.notice_required_days != null
+    ? `${item.notice_given_days} / ${item.notice_required_days} days`
+    : "Rule not testable";
+  const priceWindow = item.announced_on || item.effective_from
+    ? `${formatDate(item.announced_on)} -> ${formatDate(item.effective_from)}`
+    : "No notice dates recorded";
+  const valueDelta = item.beyond_authority && item.value_eur != null && item.actor_limit_eur != null
+    ? `Exceeded by ${formatCurrency(Math.max(item.value_eur - item.actor_limit_eur, 0))}`
+    : authorityNote;
+
+  return `
+    <article class="audit-card fade-rise">
+      <div class="audit-header">
+        <div>
+          <div class="panel-kicker">Item assessment</div>
+          <h3>${escapeHtml(item.po_item)}</h3>
+          <p>${escapeHtml(item.vendor || "Unknown supplier")} - ${escapeHtml(item.category || "Unknown category")} - ${escapeHtml(item.spend_area || "No spend area")}</p>
+        </div>
+        ${badgeHtml(item.status)}
+      </div>
+
+      <div class="audit-body">
+        <div class="callout">
+          <strong>${escapeHtml(meta.title)}</strong>
+          <div>${escapeHtml(verdictNarrative(item))}</div>
+        </div>
+
+        <div class="metric-grid">
+          <div class="metric-card">
+            <span>Item value</span>
+            <strong>${escapeHtml(formatCurrency(item.value_eur))}</strong>
+            <em>Ordered ${escapeHtml(formatDate(item.ordered_at))}</em>
+          </div>
+          <div class="metric-card">
+            <span>Notice window</span>
+            <strong>${escapeHtml(noticeMetric)}</strong>
+            <em>${escapeHtml(contractLine)}</em>
+          </div>
+          <div class="metric-card">
+            <span>Price increase</span>
+            <strong>${escapeHtml(formatPercent(item.increase_percent))}</strong>
+            <em>${escapeHtml(priceWindow)}</em>
+          </div>
+          <div class="metric-card">
+            <span>Authority</span>
+            <strong>${escapeHtml(authorityState)}</strong>
+            <em>${escapeHtml(valueDelta)}</em>
+          </div>
+        </div>
+
+        <div class="detail-grid">
+          <section class="detail-card">
+            <h4>Commercial context</h4>
+            <dl class="definition-list">
+              <div>
+                <dt>Supplier</dt>
+                <dd>${escapeHtml(item.vendor || "--")} (${escapeHtml(item.vendor_id || "--")})</dd>
+              </div>
+              <div>
+                <dt>Location</dt>
+                <dd>${maybeText(item.vendor_ort)}</dd>
+              </div>
+              <div>
+                <dt>Material group</dt>
+                <dd>${maybeText(item.category)}</dd>
+              </div>
+              <div>
+                <dt>Process variant</dt>
+                <dd>${maybeText(item.process_variant)}</dd>
+              </div>
+              <div>
+                <dt>Contract</dt>
+                <dd>${escapeHtml(contractLine)}</dd>
+              </div>
+              <div>
+                <dt>Tolerance</dt>
+                <dd>${escapeHtml(formatPercent(item.tolerance_percent))}</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section class="detail-card">
+            <h4>Why this verdict</h4>
+            <dl class="definition-list" style="margin-bottom: 16px;">
+              <div>
+                <dt>Executed by</dt>
+                <dd>${maybeText(item.actor)}${item.actor_role ? ` - ${escapeHtml(item.actor_role)}` : ""}</dd>
+              </div>
+              <div>
+                <dt>Recorded limit</dt>
+                <dd>${escapeHtml(formatCurrency(item.actor_limit_eur))}</dd>
+              </div>
+              <div>
+                <dt>Announced</dt>
+                <dd>${escapeHtml(formatDate(item.announced_on))}</dd>
+              </div>
+              <div>
+                <dt>Effective from</dt>
+                <dd>${escapeHtml(formatDate(item.effective_from))}</dd>
+              </div>
+            </dl>
+            ${item.reasons && item.reasons.length
+              ? `<ul class="reason-list">${item.reasons.map((reason) => `<li>${escapeHtml(reason)}</li>`).join("")}</ul>`
+              : '<p class="subtle">No explanatory reasons were returned for this item.</p>'}
+          </section>
+        </div>
+
+        <section class="detail-card">
+          <h4>Evidence and source documents</h4>
+          ${item.documents && item.documents.length
+            ? `<div class="doc-grid">
+                ${item.documents.map((doc) => `
+                  <button class="doc-chip" type="button" data-doc-id="${escapeHtml(doc.id)}" data-doc-target="${escapeHtml(docTarget)}">
+                    <span>${escapeHtml(doc.id)}</span>
+                    <small>${escapeHtml(formatDocType(doc.typ))}</small>
+                  </button>`).join("")}
+              </div>`
+            : '<p class="subtle">No supporting documents are linked to this item.</p>'}
+          <div id="${escapeHtml(docTarget)}" class="doc-slot"></div>
+        </section>
+
+        <section class="detail-card">
+          <h4>Timeline</h4>
+          <div class="table-wrap">
+            <table class="timeline-table">
+              <thead>
+                <tr>
+                  <th>When</th>
+                  <th>Activity</th>
+                  <th>Who</th>
+                  <th>Role</th>
+                  <th class="num">Limit</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${(item.events || []).map((event) => `
+                  <tr class="${event.activity === "Change Price" ? "is-highlight" : ""}">
+                    <td class="mono">${escapeHtml(formatDateTime(event.at))}</td>
+                    <td>${escapeHtml(event.activity || "--")}</td>
+                    <td>${maybeText(event.who)}</td>
+                    <td>${maybeText(event.role)}</td>
+                    <td class="num">${escapeHtml(formatCurrency(event.limit_eur))}</td>
+                  </tr>`).join("")}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <div class="footer-actions">
+          <button class="button ghost small pdf-button" type="button" data-pdf-url="/api/item/${encodeURIComponent(item.po_item)}/pdf">Download one-page PDF</button>
+          <div class="footnote">Generated from the synthetic corpus and graph evidence. Price tolerance and approval authority signals should still be reviewed by a human before any external reporting.</div>
+        </div>
+      </div>
+    </article>`;
+}
+
+function answerCard(answer) {
+  return `
+    <div class="answer-card fade-rise">
+      <span class="panel-kicker">Agent answer</span>
+      <h3>Plain-English response</h3>
+      <div class="answer-box">${escapeHtml(answer.antwort)}</div>
+      ${answer.belege && answer.belege.length
+        ? `<div class="doc-grid" style="margin-top: 16px;">
+            ${answer.belege.map((docId) => `
+              <button class="doc-chip" type="button" data-doc-id="${escapeHtml(docId)}" data-doc-target="doc-agent">
+                <span>${escapeHtml(docId)}</span>
+                <small>Evidence</small>
+              </button>`).join("")}
+           </div>`
+        : ""}
+      <div id="doc-agent" class="doc-slot"></div>
+      ${answer.unsicher ? '<div class="warning-note">The graph did not contain everything needed for a confident answer.</div>' : ""}
+    </div>`;
+}
+
+async function showDoc(targetId, documentId) {
+  const slot = document.getElementById(targetId);
+  if (!slot) {
     return;
   }
 
-  busy("the agent is querying the graph…");
+  slot.innerHTML = `
+    <div class="doc-viewer fade-rise">
+      <header>
+        <h5>${escapeHtml(documentId)}</h5>
+        <p>Loading document text...</p>
+      </header>
+      <div class="loading-card">
+        <span class="spinner"></span>
+        <div>
+          <h3>Fetching evidence</h3>
+          <p>Pulling the linked document from the graph.</p>
+        </div>
+      </div>
+    </div>`;
+
   try {
-    const a = await api("/api/ask", {method:"POST",
-      headers:{"Content-Type":"application/json"}, body: JSON.stringify({text:q})});
-    let html = `<div class="card"><div class="body">
-      <div class="sect">ANSWER</div>
-      <div class="answer">${esc(a.antwort)}</div>
-      ${a.belege?.length?`<div class="docs">${a.belege.map(x=>
-        `<a onclick="showDoc('${esc(x)}')">${esc(x)}</a>`).join("")}</div>`:""}
-      <div id="doc-agent"></div>
-      ${a.unsicher?'<div class="foot warn">The graph did not contain everything needed.</div>':""}
-      </div></div>`;
-    out.innerHTML = html;
-    if (a.poitem) {
-      const d = await api("/api/item/" + a.poitem);
-      out.innerHTML += itemCard(d);
-    }
-  } catch (e) { fail(e.message); }
+    const documentData = await api(`/api/document/${encodeURIComponent(documentId)}`);
+    slot.innerHTML = `
+      <div class="doc-viewer fade-rise">
+        <header>
+          <h5>${escapeHtml(documentData.id)}</h5>
+          <p>${escapeHtml(formatDocType(documentData.typ))}</p>
+        </header>
+        <pre class="doc">${escapeHtml(documentData.text)}</pre>
+      </div>`;
+  } catch (error) {
+    slot.innerHTML = errorMarkup(error.message);
+  }
 }
 
-$("#go").onclick = () => go();
-$("#q").addEventListener("keydown", e => { if (e.key === "Enter") go(); });
-document.querySelectorAll(".hint code").forEach(c =>
-  c.onclick = () => go(c.dataset.q));
+async function showList() {
+  setResults("Candidate backlog", loadingMarkup("Loading candidate backlog", "Collecting the highest-value late price changes."), { showClear: true, scroll: true });
+  try {
+    const data = await api("/api/candidates?limit=60");
+    setResults("Candidate backlog", backlogMarkup(data), { showClear: true, scroll: false });
+  } catch (error) {
+    setResults("Candidate backlog", errorMarkup(error.message), { showClear: true, scroll: false });
+  }
+}
+
+async function go(overrideText) {
+  const query = (overrideText ?? queryInput.value).trim();
+  if (!query) {
+    queryInput.focus();
+    return;
+  }
+
+  queryInput.value = query;
+
+  if (query === "__list") {
+    await showList();
+    return;
+  }
+
+  if (/^\d{6,}(?:_\d+)?$/.test(query)) {
+    const title = query.includes("_") ? `Item assessment: ${query}` : `Purchase order: ${query}`;
+    setResults(title, loadingMarkup(title, "Checking contract, evidence, timeline, and approval authority."), { showClear: true, scroll: true });
+    try {
+      const data = query.includes("_")
+        ? { items: [await api(`/api/item/${encodeURIComponent(query)}`)] }
+        : await api(`/api/po/${encodeURIComponent(query)}`);
+      setResults(title, data.items.map(itemCard).join(""), { showClear: true, scroll: false });
+    } catch (error) {
+      setResults(title, errorMarkup(error.message), { showClear: true, scroll: false });
+    }
+    return;
+  }
+
+  setResults("Agent answer", loadingMarkup("Answering your question", "The agent is querying the graph and linking evidence."), { showClear: true, scroll: true });
+  try {
+    const answer = await api("/api/ask", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: query })
+    });
+    let html = answerCard(answer);
+    if (answer.poitem) {
+      const item = await api(`/api/item/${encodeURIComponent(answer.poitem)}`);
+      html += itemCard(item);
+    }
+    setResults("Agent answer", html, { showClear: true, scroll: false });
+  } catch (error) {
+    setResults("Agent answer", errorMarkup(error.message), { showClear: true, scroll: false });
+  }
+}
+
+async function loadHealth() {
+  try {
+    const health = await api("/api/health");
+    if (!health.ok) {
+      throw new Error("Graph unreachable");
+    }
+    healthPill.classList.add("is-ok");
+    healthPill.classList.remove("is-bad");
+    healthPill.lastElementChild.textContent =
+      `Graph ready - ${formatNumber(health.knoten)} nodes - ${formatNumber(health.chunks_mit_embedding)} embedded chunks`;
+  } catch {
+    healthPill.classList.remove("is-ok");
+    healthPill.classList.add("is-bad");
+    healthPill.lastElementChild.textContent = "Graph unreachable";
+  }
+}
+
+async function loadSummary() {
+  try {
+    const summary = await api("/api/summary");
+    renderSummary(summary);
+  } catch (error) {
+    summaryCards.innerHTML = `
+      <div class="error-card fade-rise">
+        <h3>Could not load summary</h3>
+        <p>${escapeHtml(error.message)}</p>
+      </div>`;
+    distribution.innerHTML = "";
+  }
+}
+
+async function loadCandidatePreview() {
+  try {
+    const data = await api("/api/candidates?limit=8");
+    renderCandidatePreview(data);
+  } catch (error) {
+    candidatePreview.innerHTML = errorMarkup(error.message);
+  }
+}
+
+$("#go").addEventListener("click", () => go());
+$("#showList").addEventListener("click", () => showList());
+$("#clearResults").addEventListener("click", resetResults);
+$("#resetTop").addEventListener("click", resetResults);
+queryInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    go();
+  }
+});
+
+document.addEventListener("click", (event) => {
+  const queryTrigger = event.target.closest("[data-query]");
+  if (queryTrigger) {
+    go(queryTrigger.dataset.query);
+    return;
+  }
+
+  const lookupRow = event.target.closest("[data-lookup]");
+  if (lookupRow) {
+    go(lookupRow.dataset.lookup);
+    return;
+  }
+
+  const docButton = event.target.closest(".doc-chip");
+  if (docButton) {
+    showDoc(docButton.dataset.docTarget, docButton.dataset.docId);
+    return;
+  }
+
+  const pdfButton = event.target.closest(".pdf-button");
+  if (pdfButton) {
+    window.open(pdfButton.dataset.pdfUrl, "_blank", "noopener");
+  }
+});
+
+window.addEventListener("keydown", (event) => {
+  const activeTag = document.activeElement && document.activeElement.tagName;
+  if (
+    event.key === "/" &&
+    !event.metaKey &&
+    !event.ctrlKey &&
+    !event.altKey &&
+    activeTag !== "INPUT" &&
+    activeTag !== "TEXTAREA"
+  ) {
+    event.preventDefault();
+    queryInput.focus();
+    queryInput.select();
+  }
+});
+
+Promise.allSettled([loadHealth(), loadSummary(), loadCandidatePreview()]);
 </script>
 </body>
 </html>
