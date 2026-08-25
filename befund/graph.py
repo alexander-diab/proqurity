@@ -7,15 +7,14 @@ zuverlaessig Syntaxfehler, die es nicht erklaeren kann.
 from __future__ import annotations
 
 import functools
-import os
 from typing import Optional
 
-from dotenv import dotenv_values
 from neo4j import GraphDatabase
 
+from . import konfig
 from .modelle import Befugnis, Beleg, Ereignis, Klausel, POItemKontext, Treffer
 
-_cfg = {**dotenv_values(".env.local"), **os.environ}
+_cfg = konfig.cfg()
 _DB = (_cfg.get("NEO4J_DATABASE") or "neo4j").strip()
 
 

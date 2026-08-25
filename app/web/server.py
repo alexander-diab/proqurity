@@ -14,7 +14,6 @@ from __future__ import annotations
 import functools
 import os
 import tempfile
-from typing import Any, Optional
 
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
@@ -44,7 +43,10 @@ def health() -> dict:
         r = graph._frage("MATCH (n) RETURN count(n) AS n")[0]["n"]
         c = graph._frage("MATCH (c:Chunk) WHERE c.embedding IS NOT NULL "
                          "RETURN count(c) AS n")[0]["n"]
-        return {"ok": True, "knoten": r, "chunks_mit_embedding": c}
+        from befund.konfig import cfg
+        agent = bool((cfg().get("OPENAI_API_KEY") or "").strip())
+        return {"ok": True, "knoten": r, "chunks_mit_embedding": c,
+                "agent_ready": agent}
     except Exception as e:
         return JSONResponse({"ok": False, "fehler": f"{type(e).__name__}: {e}"},
                             status_code=503)
@@ -161,9 +163,24 @@ class Frage(BaseModel):
 
 @app.post("/api/ask")
 def ask(f: Frage) -> dict:
-    """Free-form question, answered by the agent over the graph tools."""
+    """Free-form question, answered by the agent over the graph tools.
+
+    Needs a language model. Without OPENAI_API_KEY this used to raise deep
+    inside the OpenAI client and reach the browser as a bare "Internal Server
+    Error" -- the page could not say what was actually wrong. Now the missing
+    key is reported as such, and PO item lookups keep working without it.
+    """
+    from befund.konfig import cfg
+    if not (cfg().get("OPENAI_API_KEY") or "").strip():
+        raise HTTPException(503, "Free-text search needs a language model. "
+                                 "Set OPENAI_API_KEY in .env and restart. "
+                                 "Searching by PO item or order number works "
+                                 "without it.")
     from befund.agent import frage
-    a = frage(f.text)
+    try:
+        a = frage(f.text)
+    except Exception as e:
+        raise HTTPException(502, f"The agent failed: {type(e).__name__}: {e}") from e
     return {"antwort": a.antwort, "poitem": a.poitem,
             "belege": a.belege, "unsicher": a.unsicher}
 

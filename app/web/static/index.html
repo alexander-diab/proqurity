@@ -4,183 +4,657 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Befund — Purchase-to-Pay Audit</title>
+<script>
+  /* Applied before first paint so the page never flashes the wrong theme. */
+  try {
+    const t = localStorage.getItem("befund-theme");
+    if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+  } catch {}
+</script>
 <style>
+  /* ---------------------------------------------------------- tokens
+     Light is the base. Dark is redefined twice: once for the system
+     preference (unless the user forced light) and once for an explicit
+     choice, so the toggle wins in both directions. */
   :root{
-    --bg:#0e1116; --panel:#161b22; --panel2:#1c2230; --line:#2a3140;
-    --fg:#e6edf3; --muted:#8b949e; --accent:#4c8dff;
-    --red:#f85149; --amber:#d29922; --green:#3fb950; --grey:#6e7681;
+    --bg:#f5f7fa; --panel:#ffffff; --panel2:#eef1f6; --panel3:#e3e8f0;
+    --line:#dde3ec; --line2:#c4cdd9;
+    --fg:#161b24; --muted:#5a6473; --dim:#7d8798;
+    --accent:#2563eb; --accent-fg:#ffffff; --accent-soft:#dbe6ff;
+    --red:#c62f24; --amber:#96650b; --green:#0a7a45; --grey:#6b7480;
+    --hi:rgba(198,47,36,.07);
+    --pill-red-bg:#fde7e4; --pill-red-fg:#a3251c;
+    --pill-amber-bg:#fbeecd; --pill-amber-fg:#7a5209;
+    --pill-green-bg:#d8f3e5; --pill-green-fg:#076036;
+    --pill-grey-bg:#e6e9ee; --pill-grey-fg:#59616d;
+    --doc-bg:#f8fafc;
+    --shadow:0 1px 2px rgba(17,24,39,.06),0 8px 24px -14px rgba(17,24,39,.22);
+    --head-bg:rgba(245,247,250,.85);
     --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --r:12px;
+    color-scheme: light;
   }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0d1017; --panel:#151a23; --panel2:#1b2230; --panel3:#212a3a;
+      --line:#262e3d; --line2:#3a4557;
+      --fg:#e8eef6; --muted:#8d97a8; --dim:#6b7686;
+      --accent:#5b9bff; --accent-fg:#08111f; --accent-soft:#22375c;
+      --red:#ff6b60; --amber:#e8b339; --green:#4ad07f; --grey:#7b8494;
+      --hi:rgba(255,107,96,.08);
+      --pill-red-bg:#401614; --pill-red-fg:#ff8a80;
+      --pill-amber-bg:#3b2d0b; --pill-amber-fg:#f0c040;
+      --pill-green-bg:#103524; --pill-green-fg:#68d391;
+      --pill-grey-bg:#242b36; --pill-grey-fg:#9aa4b2;
+      --doc-bg:#090c12;
+      --shadow:0 1px 3px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.6);
+      --head-bg:rgba(13,16,23,.86);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0d1017; --panel:#151a23; --panel2:#1b2230; --panel3:#212a3a;
+    --line:#262e3d; --line2:#3a4557;
+    --fg:#e8eef6; --muted:#8d97a8; --dim:#6b7686;
+    --accent:#5b9bff; --accent-fg:#08111f; --accent-soft:#22375c;
+    --red:#ff6b60; --amber:#e8b339; --green:#4ad07f; --grey:#7b8494;
+    --hi:rgba(255,107,96,.08);
+    --pill-red-bg:#401614; --pill-red-fg:#ff8a80;
+    --pill-amber-bg:#3b2d0b; --pill-amber-fg:#f0c040;
+    --pill-green-bg:#103524; --pill-green-fg:#68d391;
+    --pill-grey-bg:#242b36; --pill-grey-fg:#9aa4b2;
+    --doc-bg:#090c12;
+    --shadow:0 1px 3px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.6);
+    --head-bg:rgba(13,16,23,.86);
+    color-scheme: dark;
+  }
+
   *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
   body{margin:0;background:var(--bg);color:var(--fg);
-    font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-  header{border-bottom:1px solid var(--line);padding:18px 28px;display:flex;
-    align-items:baseline;gap:14px;flex-wrap:wrap}
-  header h1{margin:0;font-size:18px;letter-spacing:.3px}
-  header .sub{color:var(--muted);font-size:13px}
-  #health{margin-left:auto;font-size:12px;color:var(--muted);font-family:var(--mono)}
-  main{max-width:1080px;margin:0 auto;padding:26px 28px 80px}
-  .searchbar{display:flex;gap:10px;margin-bottom:8px}
-  input[type=text]{flex:1;background:var(--panel);border:1px solid var(--line);
-    color:var(--fg);border-radius:8px;padding:13px 15px;font-size:15px;outline:none}
-  input[type=text]:focus{border-color:var(--accent)}
-  button{background:var(--accent);color:#fff;border:0;border-radius:8px;
-    padding:13px 20px;font-size:14px;font-weight:600;cursor:pointer}
-  button:disabled{opacity:.5;cursor:default}
-  button.ghost{background:transparent;border:1px solid var(--line);color:var(--fg)}
-  .hint{color:var(--muted);font-size:12.5px;margin-bottom:22px}
-  .hint code{font-family:var(--mono);background:var(--panel2);padding:1px 6px;
-    border-radius:4px;cursor:pointer;color:var(--fg)}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;
-    padding:0;margin-bottom:18px;overflow:hidden}
-  .verdict{padding:12px 18px;font-weight:700;letter-spacing:.6px;font-size:13px;color:#fff}
-  .v-suspected_violation{background:#8b2020}.v-unexplained{background:#7a5a12}
-  .v-documented{background:#1a6b40}.v-not_assessable{background:#3a4150}
-  .body{padding:18px}
-  .grid{display:grid;grid-template-columns:150px 1fr;gap:7px 16px;font-size:14px}
+    font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  ::selection{background:var(--accent-soft)}
+
+  header{position:sticky;top:0;z-index:20;background:var(--head-bg);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
+    padding:14px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .brand{display:flex;align-items:baseline;gap:11px;cursor:pointer}
+  .brand h1{margin:0;font-size:17px;letter-spacing:-.2px;font-weight:700}
+  .brand .sub{color:var(--muted);font-size:12.5px}
+  .tools{margin-left:auto;display:flex;align-items:center;gap:12px}
+  .status{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--dim);flex:none}
+  .dot.on{background:var(--green)}
+  .dot.off{background:var(--red)}
+  .icon{background:var(--panel);border:1px solid var(--line);color:var(--fg);
+    border-radius:9px;width:34px;height:34px;display:grid;place-items:center;
+    cursor:pointer;padding:0;font-size:15px;line-height:1;transition:background .15s}
+  .icon:hover{background:var(--panel2);filter:none}
+
+  main{max-width:1120px;margin:0 auto;padding:24px 24px 96px}
+
+  .search{display:flex;gap:10px;margin-bottom:10px}
+  .search .field{flex:1;position:relative}
+  .search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);
+    width:16px;height:16px;stroke:var(--dim);fill:none;stroke-width:2;pointer-events:none}
+  input[type=text],input[type=number]{width:100%;background:var(--panel);
+    border:1px solid var(--line);color:var(--fg);border-radius:10px;
+    padding:14px 44px 14px 40px;font-size:15px;outline:none;font-family:inherit;
+    transition:border-color .15s,box-shadow .15s}
+  input::placeholder{color:var(--dim)}
+  input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+  .kbd{position:absolute;right:12px;top:50%;transform:translateY(-50%);
+    font:11px var(--mono);color:var(--dim);border:1px solid var(--line2);
+    border-radius:5px;padding:2px 6px;pointer-events:none}
+  input:focus ~ .kbd{opacity:0}
+  button{background:var(--accent);color:var(--accent-fg);border:0;border-radius:10px;
+    padding:14px 22px;font-size:14px;font-weight:650;cursor:pointer;font-family:inherit;
+    transition:filter .15s,transform .05s}
+  button:hover{filter:brightness(1.08)}
+  button:active{transform:translateY(1px)}
+  button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  button.ghost{background:transparent;border:1px solid var(--line2);color:var(--fg);
+    padding:9px 15px;font-size:13px;font-weight:550}
+  button.ghost:hover{background:var(--panel2);filter:none}
+  .hint{color:var(--muted);font-size:12.5px;margin-bottom:26px;
+    display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+  .chip{font-family:var(--mono);background:var(--panel2);border:1px solid var(--line);
+    padding:3px 9px;border-radius:6px;cursor:pointer;color:var(--fg);font-size:12px;
+    transition:background .15s,border-color .15s}
+  .chip:hover{background:var(--panel3);border-color:var(--line2)}
+  .chip.text{font-family:inherit}
+
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));
+    gap:12px;margin-bottom:14px}
+  .tile{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+    padding:15px 17px;transition:border-color .15s,transform .1s;box-shadow:var(--shadow)}
+  .tile.click{cursor:pointer}
+  .tile.click:hover{border-color:var(--accent);transform:translateY(-1px)}
+  .tile .k{font-size:11px;letter-spacing:.7px;color:var(--muted);font-weight:650;
+    text-transform:uppercase;display:flex;align-items:center;gap:6px}
+  .tile .v{font-size:25px;font-weight:700;margin-top:7px;letter-spacing:-.5px;
+    font-variant-numeric:tabular-nums}
+  .tile .n{font-size:12px;color:var(--dim);margin-top:3px}
+  .tile.t-suspected_violation .v{color:var(--red)}
+  .tile.t-unexplained .v{color:var(--amber)}
+  .tile.t-documented .v{color:var(--green)}
+  .tile.t-not_assessable .v{color:var(--grey)}
+  .swatch{width:8px;height:8px;border-radius:2px;flex:none}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+    margin-bottom:18px;overflow:hidden;box-shadow:var(--shadow)}
+  .verdict{padding:13px 20px;font-weight:700;letter-spacing:.5px;font-size:13px;
+    color:#fff;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .verdict .id{margin-left:auto;font-family:var(--mono);font-weight:500;
+    font-size:12.5px;opacity:.9}
+  .verdict .pill{background:rgba(0,0,0,.26);color:#fff}
+  .v-suspected_violation{background:linear-gradient(90deg,#a32a25,#7d1f1b)}
+  .v-unexplained{background:linear-gradient(90deg,#8a6412,#684c0e)}
+  .v-documented{background:linear-gradient(90deg,#1a7a49,#125538)}
+  .v-not_assessable{background:linear-gradient(90deg,#525c6c,#3b434f)}
+  .body{padding:20px}
+  .sect{font-size:11px;letter-spacing:1.2px;color:var(--muted);font-weight:700;
+    margin:24px 0 12px;padding-bottom:7px;border-bottom:1px solid var(--line);
+    display:flex;align-items:center;gap:8px;text-transform:uppercase}
+  .sect:first-child{margin-top:0}
+  .sect .c{margin-left:auto;font-weight:500;letter-spacing:0;color:var(--dim);
+    text-transform:none;font-size:11.5px}
+  .grid{display:grid;grid-template-columns:158px 1fr;gap:9px 18px;font-size:14px;margin:0}
   .grid dt{color:var(--muted)}
   .grid dd{margin:0}
-  .sect{font-size:11px;letter-spacing:1.1px;color:var(--muted);font-weight:700;
-    margin:20px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
-  .sect:first-child{margin-top:0}
-  ul.reasons{margin:0;padding-left:18px}
-  ul.reasons li{margin-bottom:5px}
-  table{width:100%;border-collapse:collapse;font-size:13px}
-  th{text-align:left;color:var(--muted);font-weight:600;padding:7px 8px;
-    border-bottom:1px solid var(--line);font-size:11.5px;letter-spacing:.5px}
-  td{padding:7px 8px;border-bottom:1px solid #21262d}
-  tr.click{cursor:pointer}
+  ul.reasons{margin:14px 0 0;padding-left:19px}
+  ul.reasons li{margin-bottom:6px}
+
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table{width:100%;border-collapse:collapse;font-size:13px;min-width:520px}
+  th{text-align:left;color:var(--muted);font-weight:650;padding:9px 10px;
+    border-bottom:1px solid var(--line);font-size:11px;letter-spacing:.6px;
+    text-transform:uppercase;white-space:nowrap;background:var(--panel)}
+  th.sortable{cursor:pointer;user-select:none}
+  th.sortable:hover{color:var(--fg)}
+  th .arrow{opacity:.4;margin-left:4px;font-size:9px}
+  th[aria-sort] .arrow{opacity:1;color:var(--accent)}
+  td{padding:9px 10px;border-bottom:1px solid var(--line)}
+  tbody tr:last-child td{border-bottom:0}
+  tr.click{cursor:pointer;transition:background .1s}
   tr.click:hover td{background:var(--panel2)}
+  tr.hi td{background:var(--hi)}
   .mono{font-family:var(--mono);font-size:12.5px}
-  .num{text-align:right;font-family:var(--mono)}
-  .pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;
-    font-weight:700;letter-spacing:.4px}
-  .p-suspected_violation{background:#3d1414;color:#ff8a80}
-  .p-unexplained{background:#3a2c0a;color:#f0c040}
-  .p-documented{background:#0f3323;color:#68d391}
-  .p-not_assessable{background:#252b36;color:#9aa4b2}
-  .warn{color:var(--red);font-weight:600}
-  .ok{color:var(--grey)}
+  .num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .pill{display:inline-block;padding:2.5px 9px;border-radius:20px;font-size:10.5px;
+    font-weight:700;letter-spacing:.4px;white-space:nowrap;text-transform:uppercase}
+  .p-suspected_violation{background:var(--pill-red-bg);color:var(--pill-red-fg)}
+  .p-unexplained{background:var(--pill-amber-bg);color:var(--pill-amber-fg)}
+  .p-documented{background:var(--pill-green-bg);color:var(--pill-green-fg)}
+  .p-not_assessable{background:var(--pill-grey-bg);color:var(--pill-grey-fg)}
+  .warn{color:var(--red);font-weight:650}
+  .ok{color:var(--green)}
+
+  .listbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+  .listbar .mini{position:relative;flex:1;min-width:180px}
+  .listbar input[type=text]{padding:9px 12px;font-size:13px;border-radius:9px}
+  .listbar .num-in{width:74px}
+  .listbar input[type=number]{padding:9px 10px;font-size:13px;border-radius:9px;
+    text-align:center}
+  .listbar label{font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:7px}
+
   .answer{background:var(--panel2);border-left:3px solid var(--accent);
-    padding:14px 16px;border-radius:0 8px 8px 0;margin-bottom:12px}
-  .docs a{color:var(--accent);text-decoration:none;font-family:var(--mono);
-    font-size:12.5px;margin-right:14px;cursor:pointer}
-  .docs a:hover{text-decoration:underline}
-  pre.doc{background:#0b0f14;border:1px solid var(--line);border-radius:8px;
-    padding:14px;overflow-x:auto;white-space:pre-wrap;font-size:12.5px;
-    max-height:340px;overflow-y:auto;color:#c9d1d9}
-  .foot{color:var(--muted);font-size:11.5px;margin-top:14px;line-height:1.5}
-  .spinner{display:inline-block;width:13px;height:13px;border:2px solid var(--line);
+    padding:15px 17px;border-radius:0 10px 10px 0;margin-bottom:14px}
+  .docs{display:flex;gap:9px;flex-wrap:wrap}
+  .doclink{color:var(--accent);font-family:var(--mono);font-size:12.5px;
+    cursor:pointer;background:var(--panel2);border:1px solid var(--line);
+    border-radius:7px;padding:5px 11px;transition:background .15s,border-color .15s}
+  .doclink:hover{background:var(--panel3)}
+  .doclink[aria-expanded=true]{border-color:var(--accent);background:var(--panel3)}
+  pre.doc{background:var(--doc-bg);border:1px solid var(--line);border-radius:10px;
+    padding:16px;overflow:auto;white-space:pre-wrap;font-size:12.5px;
+    max-height:360px;color:var(--fg);margin:12px 0 0;line-height:1.6}
+  .foot{color:var(--dim);font-size:11.5px;margin-top:18px;line-height:1.6;
+    padding-top:14px;border-top:1px solid var(--line)}
+  .actions{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}
+
+  .spinner{display:inline-block;width:14px;height:14px;border:2px solid var(--line2);
     border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;
-    vertical-align:-2px;margin-right:7px}
+    vertical-align:-2px;margin-right:9px;flex:none}
   @keyframes spin{to{transform:rotate(360deg)}}
-  .err{background:#3d1414;border:1px solid #8b2020;color:#ff8a80;
-    padding:12px 15px;border-radius:8px;margin-bottom:16px;font-size:14px}
+  .skel{background:linear-gradient(90deg,var(--panel2) 25%,var(--panel3) 50%,var(--panel2) 75%);
+    background-size:200% 100%;animation:sh 1.3s infinite;border-radius:6px;height:13px}
+  @keyframes sh{to{background-position:-200% 0}}
+  .bar{height:6px;border-radius:4px;background:var(--panel3);overflow:hidden;
+    display:flex;margin-bottom:14px}
+  .bar span{height:100%}
+
+  .msg{border-radius:var(--r);padding:14px 17px;margin-bottom:18px;font-size:14px;
+    display:flex;gap:11px;align-items:flex-start;line-height:1.55}
+  .msg .ic{font-size:15px;line-height:1.4;flex:none}
+  .err{background:var(--pill-red-bg);border:1px solid var(--red);color:var(--pill-red-fg)}
+  .note{background:var(--panel2);border:1px solid var(--line);color:var(--muted)}
+  .msg b{color:var(--fg);font-weight:650}
+  .msg code{font-family:var(--mono);font-size:12.5px;background:var(--panel3);
+    padding:1px 5px;border-radius:4px}
+
+  .crumb{display:flex;align-items:center;gap:9px;margin-bottom:16px;font-size:13px;
+    color:var(--muted);flex-wrap:wrap}
+  .crumb button{background:none;border:0;color:var(--accent);cursor:pointer;
+    font-size:13px;padding:0;font-weight:550}
+  .crumb button:hover{text-decoration:underline;filter:none}
+
+  .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(80px);
+    background:var(--panel);border:1px solid var(--line2);color:var(--fg);
+    padding:11px 18px;border-radius:10px;box-shadow:var(--shadow);font-size:13.5px;
+    opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:50}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  @media (max-width:640px){
+    header{padding:12px 16px}
+    main{padding:18px 16px 72px}
+    .grid{grid-template-columns:1fr;gap:3px 0}
+    .grid dt{margin-top:9px;font-size:12px}
+    .verdict .id{margin-left:0;width:100%}
+    .search{flex-direction:column}
+    .tile .v{font-size:22px}
+    .brand .sub{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+    html{scroll-behavior:auto}
+  }
+  @media print{
+    header,.search,.hint,.listbar,.actions,.toast{display:none!important}
+    .card{break-inside:avoid;box-shadow:none}
+  }
 </style>
 </head>
 <body>
 <header>
-  <h1>Befund</h1>
-  <span class="sub">Purchase-to-Pay audit · Vandenberg Coatings SE</span>
-  <span id="health">checking…</span>
+  <div class="brand" id="home" role="button" tabindex="0" title="Back to overview">
+    <h1>Befund</h1>
+    <span class="sub">Purchase-to-Pay audit · Vandenberg Coatings SE</span>
+  </div>
+  <div class="tools">
+    <span class="status"><span class="dot" id="dot"></span><span id="health">connecting…</span></span>
+    <button class="icon" id="theme" title="Theme" aria-label="Switch theme">◐</button>
+  </div>
 </header>
 
 <main>
-  <div class="searchbar">
-    <input type="text" id="q" autofocus
-           placeholder="Purchase order number, or a question in plain English…">
+  <div class="search">
+    <div class="field">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input type="text" id="q" autofocus autocomplete="off" spellcheck="false"
+             aria-label="Search by PO item, order number, or a question"
+             placeholder="PO item, order number, or a question in plain English…">
+      <span class="kbd">↵</span>
+    </div>
     <button id="go">Search</button>
   </div>
   <div class="hint">
-    Try
-    <code data-q="4508048711">4508048711</code>
-    <code data-q="4507004821_00020">4507004821_00020</code>
-    <code data-q="4507003040">4507003040</code>
-    <code data-q="Who changed the price on 4508048711 and were they within their approval limit?">a question</code>
-    · or <code data-q="__list">list all candidates</code>
+    <span>Try</span>
+    <span class="chip" data-q="4508048711_00010">4508048711_00010</span>
+    <span class="chip" data-q="4508048711">4508048711</span>
+    <span class="chip text" id="askChip"
+          data-q="Who changed the price on 4508048711 and were they within their approval limit?">a question</span>
+    <span class="chip text" data-q="__list">all candidates</span>
+    <span id="recent"></span>
   </div>
 
-  <div id="out"></div>
+  <div id="out" aria-live="polite"></div>
 </main>
+<div class="toast" id="toast"></div>
 
 <script>
 const $ = s => document.querySelector(s);
 const out = $("#out");
 const eur = n => n == null ? "—" : "EUR " + n.toLocaleString("en-US",{maximumFractionDigits:0});
-const esc = s => String(s ?? "").replace(/[&<>"]/g, c =>
-  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const num = n => n == null ? "—" : n.toLocaleString("en-US",{maximumFractionDigits:0});
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
+  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+const LABEL = {suspected_violation:"suspected violation", unexplained:"unexplained",
+               documented:"documented", not_assessable:"not assessable"};
+const ORDER = ["suspected_violation","unexplained","documented","not_assessable"];
+const SWATCH = {suspected_violation:"var(--red)", unexplained:"var(--amber)",
+                documented:"var(--green)", not_assessable:"var(--grey)"};
+
+let AGENT_READY = null;   // filled by /api/health
+let LAST = null;          // last candidate payload, for sorting and export
+let SORT = {key:"value_eur", dir:-1};
+let FILTER = "";
+let THRESHOLD = 7;
+
+/* localStorage is a convenience, never a requirement: private windows and
+   blocked site data make every access throw. */
+const store = {
+  get(k, d){ try { return localStorage.getItem(k) ?? d; } catch { return d; } },
+  set(k, v){ try { localStorage.setItem(k, v); } catch {} },
+};
 
 async function api(path, opts) {
   const r = await fetch(path, opts);
-  if (!r.ok) throw new Error((await r.json().catch(()=>({detail:r.statusText}))).detail || r.statusText);
+  if (!r.ok) {
+    const d = await r.json().catch(() => null);
+    throw new Error((d && d.detail) || `${r.status} ${r.statusText}`);
+  }
   return r.json();
 }
 
-(async () => {
+function toast(msg){
+  const t = $("#toast"); t.textContent = msg; t.classList.add("show");
+  clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove("show"), 2200);
+}
+
+/* --------------------------------------------------------------- theme */
+function effectiveTheme(){
+  const set = document.documentElement.dataset.theme;
+  if (set) return set;
+  return matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+function applyTheme(t){
+  if (t === "system") { delete document.documentElement.dataset.theme; }
+  else { document.documentElement.dataset.theme = t; }
+  store.set("befund-theme", t);
+  const eff = effectiveTheme();
+  $("#theme").textContent = t === "system" ? "◐" : (eff === "dark" ? "☾" : "☀");
+  $("#theme").title = `Theme: ${t} — click for ${
+    t === "system" ? "light" : t === "light" ? "dark" : "system"}`;
+}
+$("#theme").onclick = () => {
+  const cur = store.get("befund-theme","system");
+  applyTheme(cur === "system" ? "light" : cur === "light" ? "dark" : "system");
+};
+applyTheme(store.get("befund-theme","system"));
+
+/* ------------------------------------------------------------- states */
+function busy(msg){
+  out.innerHTML = `<div class="card"><div class="body">
+    <div style="display:flex;align-items:center"><span class="spinner"></span>${esc(msg)}</div>
+    <div style="margin-top:16px;display:grid;gap:9px">
+      <div class="skel" style="width:62%"></div><div class="skel" style="width:88%"></div>
+      <div class="skel" style="width:45%"></div></div></div></div>`;
+}
+function fail(msg){
+  out.innerHTML = `<div class="msg err"><span class="ic">✕</span><div>${esc(msg)}</div></div>`;
+  loadOverview(true);
+}
+
+/* -------------------------------------------------------- recent list */
+function pushRecent(id){
+  let r = (store.get("befund-recent","") || "").split(",").filter(Boolean);
+  r = [id, ...r.filter(x => x !== id)].slice(0, 6);
+  store.set("befund-recent", r.join(","));
+  renderRecent();
+}
+function renderRecent(){
+  const r = (store.get("befund-recent","") || "").split(",").filter(Boolean);
+  $("#recent").innerHTML = r.length
+    ? `<span style="margin:0 7px 0 4px;color:var(--dim)">· recent</span>` +
+      r.map(x => `<span class="chip" data-q="${esc(x)}" style="margin-right:7px">${esc(x)}</span>`).join("")
+    : "";
+  $("#recent").querySelectorAll(".chip").forEach(c => c.onclick = () => go(c.dataset.q));
+}
+
+/* ------------------------------------------------------------ health */
+const HEALTH = (async () => {
   try {
     const h = await api("/api/health");
+    AGENT_READY = h.agent_ready !== false;
+    $("#dot").className = "dot " + (h.ok ? "on" : "off");
     $("#health").textContent = h.ok
-      ? `graph ok · ${h.knoten.toLocaleString()} nodes · ${h.chunks_mit_embedding} embedded`
+      ? `${num(h.knoten)} nodes · ${num(h.chunks_mit_embedding)} embedded`
       : "graph unreachable";
-  } catch { $("#health").textContent = "graph unreachable"; }
+    if (!AGENT_READY) {
+      $("#askChip").title = "Needs OPENAI_API_KEY in .env";
+      $("#askChip").style.opacity = ".55";
+    }
+  } catch {
+    $("#dot").className = "dot off";
+    $("#health").textContent = "graph unreachable";
+  }
 })();
 
-function busy(msg){ out.innerHTML = `<div class="card"><div class="body">
-  <span class="spinner"></span>${esc(msg)}</div></div>`; }
-function fail(msg){ out.innerHTML = `<div class="err">${esc(msg)}</div>`; }
+/* ---------------------------------------------------------- overview */
+async function loadOverview(append) {
+  const host = document.createElement("div");
+  host.innerHTML = `
+    <div class="tiles">
+      <div class="tile"><div class="k">Candidates</div><div class="v" id="t-count">—</div>
+        <div class="n" id="t-sum">step 1 · price change &gt; ${THRESHOLD} days</div></div>
+      ${ORDER.map(s => `<div class="tile t-${s}" id="tile-${s}">
+        <div class="k"><span class="swatch" style="background:${SWATCH[s]}"></span>${esc(LABEL[s])}</div>
+        <div class="v">—</div><div class="n">assessing…</div></div>`).join("")}
+    </div>
+    <div id="listHost"></div>`;
+  if (append) out.appendChild(host); else { out.innerHTML = ""; out.appendChild(host); }
 
+  try {
+    const d = await api(`/api/candidates?limit=250&threshold=${THRESHOLD}`);
+    LAST = d;
+    host.querySelector("#t-count").textContent = num(d.gesamt);
+    host.querySelector("#t-sum").textContent = `${eur(d.summe_eur)} affected`;
+    renderList(host.querySelector("#listHost"));
+  } catch (e) {
+    host.querySelector("#listHost").innerHTML =
+      `<div class="msg err"><span class="ic">✕</span><div>${esc(e.message)}</div></div>`;
+    return;
+  }
+
+  // The distribution assesses 40 items (~2.5 s) -- fill in when it arrives.
+  try {
+    const s = await api(`/api/summary?limit=40&threshold=${THRESHOLD}`);
+    const total = ORDER.reduce((a,k) => a + (s.verteilung?.[k] ?? 0), 0) || 1;
+    ORDER.forEach(k => {
+      const t = host.querySelector("#tile-" + k);
+      if (!t) return;
+      const n = s.verteilung?.[k] ?? 0;
+      t.querySelector(".v").textContent = n;
+      t.querySelector(".n").textContent = `of ${s.geprueft} assessed`
+        + (k === "suspected_violation" && s.beyond_authority ? ` · ${s.beyond_authority} over limit` : "");
+      if (n > 0) {
+        t.classList.add("click");
+        t.setAttribute("role","button"); t.setAttribute("tabindex","0");
+        t.onclick = () => filterTo(k);
+        t.onkeydown = e => { if (e.key==="Enter"||e.key===" ") { e.preventDefault(); filterTo(k); } };
+      }
+    });
+    const bar = document.createElement("div");
+    bar.className = "bar";
+    bar.title = ORDER.map(k => `${LABEL[k]}: ${s.verteilung?.[k] ?? 0}`).join(" · ");
+    bar.innerHTML = ORDER.map(k =>
+      `<span style="width:${((s.verteilung?.[k] ?? 0)/total*100).toFixed(1)}%;background:${SWATCH[k]}"></span>`).join("");
+    host.querySelector(".tiles").after(bar);
+  } catch {
+    ORDER.forEach(k => {
+      const t = host.querySelector("#tile-" + k);
+      if (t) t.querySelector(".n").textContent = "unavailable";
+    });
+  }
+}
+
+function visibleRows(){
+  if (!LAST) return [];
+  const f = FILTER.toLowerCase();
+  let rows = LAST.items.filter(c => !f ||
+    [c.po_item, c.vendor, c.category].some(v => String(v ?? "").toLowerCase().includes(f)));
+  const k = SORT.key;
+  return rows.slice().sort((a,b) => {
+    const x = a[k], y = b[k];
+    if (x == null) return 1;
+    if (y == null) return -1;
+    return (typeof x === "number" ? x - y : String(x).localeCompare(String(y))) * SORT.dir;
+  });
+}
+
+const COLS = [
+  {k:"po_item",      t:"PO item",   cls:"mono"},
+  {k:"vendor",       t:"Supplier",  cls:""},
+  {k:"value_eur",    t:"Value EUR", cls:"num"},
+  {k:"ordered_at",   t:"Ordered",   cls:"mono"},
+  {k:"first_change", t:"Changed",   cls:"mono"},
+  {k:"gap_days",     t:"Gap",       cls:"num"},
+];
+
+function renderList(host) {
+  const rows = visibleRows();
+  host.innerHTML = `<div class="card"><div class="body">
+    <div class="sect">Step 1 · price change more than ${LAST.threshold} days after order
+      <span class="c">${num(LAST.gesamt)} items · ${eur(LAST.summe_eur)}</span></div>
+    <div class="listbar">
+      <div class="mini"><input type="text" id="flt" placeholder="Filter by item, supplier or material group…"
+        value="${esc(FILTER)}" style="padding-left:12px"></div>
+      <label>Threshold
+        <input type="number" id="thr" class="num-in" min="0" max="365" value="${THRESHOLD}"> days</label>
+      <button class="ghost" id="csv">Export CSV</button>
+    </div>
+    <div class="scroll"><table>
+      <thead><tr>${COLS.map(c => `<th class="sortable ${c.cls==="num"?"num":""}"
+        data-sort="${c.k}" ${SORT.key===c.k?`aria-sort="${SORT.dir===1?"ascending":"descending"}"`:""}
+        >${c.t}<span class="arrow">${SORT.key===c.k?(SORT.dir===1?"▲":"▼"):"▽"}</span></th>`).join("")}</tr></thead>
+      <tbody>${rows.length ? rows.map(c => `<tr class="click" data-go="${esc(c.po_item)}"
+          tabindex="0" role="button" aria-label="Open ${esc(c.po_item)}">
+        <td class="mono">${esc(c.po_item)}</td>
+        <td>${esc(c.vendor || "—")}</td>
+        <td class="num">${num(c.value_eur)}</td>
+        <td class="mono">${esc(c.ordered_at || "—")}</td>
+        <td class="mono">${esc(c.first_change || "—")}</td>
+        <td class="num">${c.gap_days}d</td></tr>`).join("")
+      : `<tr><td colspan="6" style="color:var(--muted);padding:22px 10px">Nothing matches that filter.</td></tr>`}</tbody>
+    </table></div>
+    <div class="foot">Showing ${rows.length} of ${LAST.items.length} loaded
+      (${num(LAST.gesamt)} total). Click a row for the full assessment —
+      contract, clause, evidence and approval authority.</div>
+  </div></div>`;
+
+  host.querySelectorAll("[data-go]").forEach(tr => {
+    tr.onclick = () => go(tr.dataset.go);
+    tr.onkeydown = e => { if (e.key==="Enter"||e.key===" ") { e.preventDefault(); go(tr.dataset.go); } };
+  });
+  host.querySelectorAll("[data-sort]").forEach(th => th.onclick = () => {
+    const k = th.dataset.sort;
+    SORT = {key:k, dir: SORT.key === k ? -SORT.dir : (typeof (LAST.items[0]||{})[k] === "number" ? -1 : 1)};
+    renderList(host);
+  });
+  const flt = host.querySelector("#flt");
+  flt.oninput = () => {
+    FILTER = flt.value; renderList(host);
+    const f = host.querySelector("#flt");
+    f.focus(); f.setSelectionRange(f.value.length, f.value.length);
+  };
+  host.querySelector("#thr").onchange = e => {
+    THRESHOLD = Math.max(0, Math.min(365, parseInt(e.target.value, 10) || 0));
+    store.set("befund-threshold", String(THRESHOLD));
+    loadOverview(false);
+  };
+  host.querySelector("#csv").onclick = () => exportCsv(rows);
+}
+
+/** Auditors live in spreadsheets -- hand them the current view as a file. */
+function exportCsv(rows){
+  const head = ["po_item","po","vendor","category","value_eur","ordered_at",
+                "first_change","gap_days","change_count"];
+  const cell = v => {
+    const s = String(v ?? "");
+    return /[",\n]/.test(s) ? '"' + s.replace(/"/g,'""') + '"' : s;
+  };
+  const csv = [head.join(","), ...rows.map(r => head.map(h => cell(r[h])).join(","))].join("\r\n");
+  const url = URL.createObjectURL(new Blob([csv], {type:"text/csv;charset=utf-8"}));
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `befund_candidates_${THRESHOLD}d_${new Date().toISOString().slice(0,10)}.csv`;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  toast(`${rows.length} rows exported`);
+}
+
+/** Assess the highest-value candidates and show only one verdict class. */
+async function filterTo(status) {
+  if (!LAST) return;
+  const ids = LAST.items.slice(0, 40).map(c => c.po_item);
+  busy(`collecting ${LABEL[status]} items…`);
+  const cards = [];
+  for (const id of ids) {
+    try { const d = await api("/api/item/" + encodeURIComponent(id));
+          if (d.status === status) cards.push(d); } catch { /* skip */ }
+  }
+  out.innerHTML = crumb(`${LABEL[status]} · ${cards.length} of the top ${ids.length}`)
+    + (cards.length ? cards.map(itemCard).join("")
+       : `<div class="msg note"><span class="ic">○</span><div>No item among the highest-value candidates carries this verdict.</div></div>`);
+  wire();
+}
+
+function crumb(where){
+  return `<div class="crumb"><button data-home>← Overview</button>
+    <span>/</span><span>${esc(where)}</span></div>`;
+}
+
+/* -------------------------------------------------------------- card */
 function itemCard(d) {
   const rule = d.contract
-    ? `${esc(d.contract)} ${esc(d.clause||"")} · ${d.notice_required_days} days' notice · tolerance ${d.tolerance_percent}%`
-    : "no framework contract covers this supplier for this material group";
+    ? `${esc(d.contract)} ${esc(d.clause || "")} · ${d.notice_required_days} days' notice · tolerance ${d.tolerance_percent}%`
+    : `<span style="color:var(--muted)">No framework contract covers this supplier for this material group.</span>`;
   const notice = d.notice_given_days == null ? "—"
-    : `${d.notice_given_days} days given, ${d.notice_required_days} required`;
+    : `<b>${d.notice_given_days} days</b> given, ${d.notice_required_days} required
+       ${d.notice_given_days < d.notice_required_days
+         ? '<span class="warn">— short by ' + (d.notice_required_days - d.notice_given_days) + ' days</span>'
+         : '<span class="ok">— sufficient</span>'}`;
   const auth = d.actor
     ? `${esc(d.actor)}, ${esc(d.actor_role)} · limit ${eur(d.actor_limit_eur)}` +
-      (d.beyond_authority ? ` <span class="warn">— exceeded by ${eur(d.value_eur - d.actor_limit_eur)}</span>`
-                          : ` <span class="ok">— within limit</span>`)
+      (d.beyond_authority
+        ? ` <span class="warn">— exceeded by ${eur(d.value_eur - d.actor_limit_eur)}</span>`
+        : ` <span class="ok">— within limit</span>`)
     : "—";
 
   return `<div class="card">
-    <div class="verdict v-${d.status}">${esc(d.label.toUpperCase())} · ${esc(d.po_item)}</div>
+    <div class="verdict v-${esc(d.status)}">
+      <span class="pill">${esc(d.label)}</span>
+      <span class="id">${esc(d.po_item)}</span></div>
     <div class="body">
-      <div class="sect">THE ITEM</div>
+      <div class="sect">The item</div>
       <dl class="grid">
-        <dt>Supplier</dt><dd>${esc(d.vendor||"—")} <span class="mono">(${esc(d.vendor_id||"")})</span>, ${esc(d.vendor_ort||"")}</dd>
-        <dt>Material group</dt><dd>${esc(d.category||"—")}${d.spend_area?" · "+esc(d.spend_area):""}</dd>
+        <dt>Supplier</dt><dd>${esc(d.vendor || "—")}
+          <span class="mono" style="color:var(--dim)">${esc(d.vendor_id || "")}</span>
+          ${d.vendor_ort ? "· " + esc(d.vendor_ort) : ""}</dd>
+        <dt>Material group</dt><dd>${esc(d.category || "—")}${d.spend_area ? " · " + esc(d.spend_area) : ""}</dd>
         <dt>Value</dt><dd><b>${eur(d.value_eur)}</b></dd>
-        <dt>Ordered</dt><dd>${esc(d.ordered_at||"—")} · ${esc(d.process_variant||"—")}</dd>
+        <dt>Ordered</dt><dd>${esc(d.ordered_at || "—")} · ${esc(d.process_variant || "—")}</dd>
       </dl>
 
-      <div class="sect">THE RULE</div>
+      <div class="sect">The rule</div>
       <dl class="grid"><dt>Contract</dt><dd>${rule}</dd></dl>
 
-      <div class="sect">THE FINDING</div>
+      <div class="sect">The finding</div>
       <dl class="grid">
-        <dt>Announced</dt><dd>${esc(d.announced_on||"—")}${d.effective_from?" · effective "+esc(d.effective_from):""}</dd>
-        <dt>Notice</dt><dd><b>${notice}</b></dd>
-        <dt>Increase</dt><dd>${d.increase_percent!=null?"<b>"+d.increase_percent.toFixed(1)+" %</b>":"—"}</dd>
+        <dt>Announced</dt><dd>${esc(d.announced_on || "—")}${d.effective_from ? " · effective " + esc(d.effective_from) : ""}</dd>
+        <dt>Notice</dt><dd>${notice}</dd>
+        <dt>Increase</dt><dd>${d.increase_percent != null ? "<b>" + d.increase_percent.toFixed(1) + " %</b>" : "—"}</dd>
         <dt>Executed by</dt><dd>${auth}</dd>
       </dl>
-      ${d.reasons?.length?`<ul class="reasons" style="margin-top:12px">${
-        d.reasons.map(r=>`<li>${esc(r)}</li>`).join("")}</ul>`:""}
+      ${d.reasons?.length ? `<ul class="reasons">${d.reasons.map(r => `<li>${esc(r)}</li>`).join("")}</ul>` : ""}
 
-      <div class="sect">TIMELINE</div>
-      <table><thead><tr><th>When</th><th>Activity</th><th>Who</th><th>Role</th><th class="num">Limit</th></tr></thead>
-      <tbody>${d.events.map(e=>`<tr${e.activity==="Change Price"?' style="background:#241a1a"':""}>
-        <td class="mono">${esc(e.at.slice(0,10))}</td><td>${esc(e.activity)}</td>
-        <td>${esc(e.who||"—")}</td><td>${esc(e.role||"—")}</td>
-        <td class="num">${e.limit_eur!=null?e.limit_eur.toLocaleString("en-US"):"—"}</td></tr>`).join("")}</tbody></table>
+      <div class="sect">Timeline<span class="c">${d.events.length} events</span></div>
+      <div class="scroll"><table>
+        <thead><tr><th>When</th><th>Activity</th><th>Who</th><th>Role</th>
+          <th class="num">Limit EUR</th></tr></thead>
+        <tbody>${d.events.map(e => `<tr${e.activity === "Change Price" ? ' class="hi"' : ""}>
+          <td class="mono">${esc((e.at || "").slice(0, 10))}</td>
+          <td>${esc(e.activity)}</td><td class="mono">${esc(e.who || "—")}</td>
+          <td>${esc(e.role || "—")}</td>
+          <td class="num">${num(e.limit_eur)}</td></tr>`).join("")}</tbody>
+      </table></div>
 
-      <div class="sect">EVIDENCE</div>
+      <div class="sect">Evidence<span class="c">${d.documents.length} document${d.documents.length === 1 ? "" : "s"}</span></div>
       <div class="docs">${d.documents.length
-        ? d.documents.map(x=>`<a onclick="showDoc('${esc(x.id)}')">${esc(x.id)}</a>`).join("")
+        ? d.documents.map(x => `<span class="doclink" role="button" tabindex="0"
+            aria-expanded="false" data-doc="${esc(x.id)}"
+            data-host="doc-${esc(d.po_item)}">${esc(x.id)}</span>`).join("")
         : '<span style="color:var(--muted)">No supporting documents on file.</span>'}</div>
       <div id="doc-${esc(d.po_item)}"></div>
 
-      <div style="margin-top:18px">
-        <button class="ghost" onclick="window.open('/api/item/${esc(d.po_item)}/pdf','_blank')">
-          Download one-page PDF</button>
+      <div class="actions">
+        <button class="ghost" data-pdf="${esc(d.po_item)}">Download one-page PDF</button>
+        <button class="ghost" data-link="${esc(d.po_item)}">Copy link</button>
+        <button class="ghost" data-print>Print</button>
+        <button class="ghost" data-home>← Back to overview</button>
       </div>
       <div class="foot">Generated from a synthetic document corpus. Price-tolerance and
         approval-authority tests are not validated against ground truth in this dataset.
@@ -188,76 +662,119 @@ function itemCard(d) {
     </div></div>`;
 }
 
-async function showDoc(id) {
-  const box = document.querySelector('[id^="doc-"]');
-  box.innerHTML = `<div style="margin-top:12px"><span class="spinner"></span>loading ${esc(id)}…</div>`;
+/* Documents render into their own card's box -- not into the first one on the page. */
+async function showDoc(el) {
+  const box = document.getElementById(el.dataset.host);
+  if (!box) return;
+  const open = el.getAttribute("aria-expanded") === "true";
+  el.parentElement.querySelectorAll("[data-doc]").forEach(x => x.setAttribute("aria-expanded", "false"));
+  if (open) { box.innerHTML = ""; return; }
+  el.setAttribute("aria-expanded", "true");
+  box.innerHTML = `<div style="margin-top:12px;display:flex;align-items:center">
+    <span class="spinner"></span>loading ${esc(el.dataset.doc)}…</div>`;
   try {
-    const d = await api("/api/document/" + encodeURIComponent(id));
+    const d = await api("/api/document/" + encodeURIComponent(el.dataset.doc));
     box.innerHTML = `<pre class="doc">${esc(d.text)}</pre>`;
-  } catch (e) { box.innerHTML = `<div class="err">${esc(e.message)}</div>`; }
+  } catch (e) {
+    box.innerHTML = `<div class="msg err" style="margin-top:12px"><span class="ic">✕</span><div>${esc(e.message)}</div></div>`;
+  }
 }
 
-async function showList() {
-  busy("running step 1 — candidate selection…");
-  try {
-    const d = await api("/api/candidates?limit=60");
-    out.innerHTML = `<div class="card"><div class="body">
-      <div class="sect">STEP 1 · PRICE CHANGE MORE THAN ${d.threshold} DAYS AFTER ORDER</div>
-      <p style="margin:0 0 14px;color:var(--muted);font-size:13.5px">
-        ${d.gesamt} purchase order items · ${eur(d.summe_eur)} affected
-        · showing the ${d.items.length} highest by value</p>
-      <table><thead><tr><th>PO item</th><th>Supplier</th><th class="num">Value</th>
-        <th>Ordered</th><th>Changed</th><th class="num">Gap</th></tr></thead><tbody>
-      ${d.items.map(c=>`<tr class="click" onclick="go('${c.po_item}')">
-        <td class="mono">${esc(c.po_item)}</td><td class="mono">${esc(c.vendor||"—")}</td>
-        <td class="num">${c.value_eur!=null?c.value_eur.toLocaleString("en-US",{maximumFractionDigits:0}):"—"}</td>
-        <td class="mono">${esc(c.ordered_at||"—")}</td><td class="mono">${esc(c.first_change||"—")}</td>
-        <td class="num">${c.gap_days}d</td></tr>`).join("")}
-      </tbody></table></div></div>`;
-  } catch (e) { fail(e.message); }
+function wire() {
+  out.querySelectorAll("[data-doc]").forEach(el => {
+    el.onclick = () => showDoc(el);
+    el.onkeydown = e => { if (e.key==="Enter"||e.key===" ") { e.preventDefault(); showDoc(el); } };
+  });
+  out.querySelectorAll("[data-pdf]").forEach(b =>
+    b.onclick = () => window.open("/api/item/" + encodeURIComponent(b.dataset.pdf) + "/pdf", "_blank"));
+  out.querySelectorAll("[data-link]").forEach(b => b.onclick = async () => {
+    const url = location.origin + location.pathname + "#" + encodeURIComponent(b.dataset.link);
+    try { await navigator.clipboard.writeText(url); toast("Link copied"); }
+    catch { toast(url); }
+  });
+  out.querySelectorAll("[data-print]").forEach(b => b.onclick = () => window.print());
+  out.querySelectorAll("[data-home]").forEach(b => b.onclick = home);
 }
 
+/* ------------------------------------------------------------ search */
 async function go(text) {
   const q = (text ?? $("#q").value).trim();
   if (!q) return;
-  if (q === "__list") return showList();
+  if (q === "__list") { home(); return; }
   $("#q").value = q;
+  const h = "#" + encodeURIComponent(q);
+  if (location.hash !== h) history.pushState(null, "", h);
 
-  // A bare number (with optional _position) is an item or order lookup.
   if (/^\d{6,}(_\d+)?$/.test(q)) {
     busy(`assessing ${q} — contract, clause, evidence, authority…`);
     try {
-      const d = q.includes("_") ? {items:[await api("/api/item/"+q)]}
-                                : await api("/api/po/"+q);
-      out.innerHTML = d.items.map(itemCard).join("");
+      const d = q.includes("_") ? {items: [await api("/api/item/" + encodeURIComponent(q))]}
+                                : await api("/api/po/" + encodeURIComponent(q));
+      out.innerHTML = crumb(q) + d.items.map(itemCard).join("");
+      wire(); pushRecent(q);
     } catch (e) { fail(e.message); }
+    return;
+  }
+
+  await HEALTH;
+  if (AGENT_READY === false) {
+    out.innerHTML = `<div class="msg note"><span class="ic">○</span><div>
+      <b>Free-text search needs a language model.</b> Set <code>OPENAI_API_KEY</code>
+      in <code>.env</code> and restart the server. Searching by PO item
+      (<code>4508048711_00010</code>) or order number (<code>4508048711</code>)
+      works without it.</div></div>`;
+    loadOverview(true);
     return;
   }
 
   busy("the agent is querying the graph…");
   try {
-    const a = await api("/api/ask", {method:"POST",
-      headers:{"Content-Type":"application/json"}, body: JSON.stringify({text:q})});
-    let html = `<div class="card"><div class="body">
-      <div class="sect">ANSWER</div>
+    const a = await api("/api/ask", {method: "POST",
+      headers: {"Content-Type": "application/json"}, body: JSON.stringify({text: q})});
+    out.innerHTML = crumb("question") + `<div class="card"><div class="body">
+      <div class="sect">Answer</div>
       <div class="answer">${esc(a.antwort)}</div>
-      ${a.belege?.length?`<div class="docs">${a.belege.map(x=>
-        `<a onclick="showDoc('${esc(x)}')">${esc(x)}</a>`).join("")}</div>`:""}
+      ${a.belege?.length ? `<div class="docs">${a.belege.map(x =>
+        `<span class="doclink" role="button" tabindex="0" aria-expanded="false"
+          data-doc="${esc(x)}" data-host="doc-agent">${esc(x)}</span>`).join("")}</div>` : ""}
       <div id="doc-agent"></div>
-      ${a.unsicher?'<div class="foot warn">The graph did not contain everything needed.</div>':""}
+      ${a.unsicher ? `<div class="foot">The graph did not contain everything needed for a confident answer.</div>` : ""}
       </div></div>`;
-    out.innerHTML = html;
-    if (a.poitem) {
-      const d = await api("/api/item/" + a.poitem);
-      out.innerHTML += itemCard(d);
-    }
+    if (a.poitem) out.innerHTML += itemCard(await api("/api/item/" + encodeURIComponent(a.poitem)));
+    wire();
   } catch (e) { fail(e.message); }
 }
 
+function home() {
+  $("#q").value = "";
+  if (location.hash) history.pushState(null, "", location.pathname);
+  window.scrollTo({top: 0});
+  loadOverview(false);
+}
+
+/* -------------------------------------------------------------- boot */
 $("#go").onclick = () => go();
 $("#q").addEventListener("keydown", e => { if (e.key === "Enter") go(); });
-document.querySelectorAll(".hint code").forEach(c =>
-  c.onclick = () => go(c.dataset.q));
+$("#home").onclick = home;
+$("#home").onkeydown = e => { if (e.key==="Enter"||e.key===" ") { e.preventDefault(); home(); } };
+document.querySelectorAll(".hint > .chip").forEach(c => c.onclick = () => go(c.dataset.q));
+document.addEventListener("keydown", e => {
+  if (e.key === "/" && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)) {
+    e.preventDefault(); $("#q").focus();
+  }
+  if (e.key === "Escape" && document.activeElement === $("#q")) $("#q").blur();
+});
+
+/** The URL carries the current view, so links are shareable and the browser's
+    back button works. Empty hash means the overview. */
+function fromHash(){
+  const q = decodeURIComponent(location.hash.replace(/^#/, "")).trim();
+  if (q) { $("#q").value = q; go(q); } else { $("#q").value = ""; loadOverview(false); }
+}
+window.addEventListener("popstate", fromHash);
+THRESHOLD = parseInt(store.get("befund-threshold","7"), 10) || 7;
+renderRecent();
+fromHash();
 </script>
 </body>
 </html>

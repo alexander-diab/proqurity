@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 """Abnahmetest der Werkzeugschicht. Prueft den Demofall UND den Leerfall."""
-import sys
 
-from dotenv import dotenv_values
+from befund.konfig import cfg as _cfg
 from openai import OpenAI
 
 from befund import graph
 
-cfg = dotenv_values(".env.local")
+cfg = _cfg()
 oa = OpenAI(api_key=cfg["OPENAI_API_KEY"].strip())
 EMB = (cfg.get("EMBED_MODEL") or "text-embedding-3-small").strip()
 

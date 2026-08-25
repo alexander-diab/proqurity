@@ -15,7 +15,7 @@ Agreement with the reference answers in build/korpus/master/findings.json: 319/3
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import date, datetime
+from datetime import date
 from typing import Any, Iterable, Optional
 
 from befund import analyse, graph

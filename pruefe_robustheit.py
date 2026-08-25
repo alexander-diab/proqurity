@@ -10,7 +10,7 @@ import random
 import tempfile
 import traceback
 
-from befund import analyse, bericht, graph
+from befund import bericht, graph
 
 random.seed(7)
 
