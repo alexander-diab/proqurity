@@ -12,13 +12,13 @@ import os
 import sys
 from typing import Optional
 
-from dotenv import dotenv_values
 from pydantic import BaseModel, Field
 from pydantic_ai import Agent
 
+from . import konfig
 from . import analyse, graph
 
-_cfg = {**dotenv_values(".env.local"), **os.environ}
+_cfg = konfig.cfg()
 os.environ.setdefault("OPENAI_API_KEY", _cfg.get("OPENAI_API_KEY", "").strip())
 _MODELL = (_cfg.get("BEFUND_MODELL") or "openai:gpt-4o").strip()
 

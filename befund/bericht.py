@@ -6,17 +6,15 @@ Erlaeuterung -- sie erklaert, sie rechnet nicht, und sie steht darunter.
 """
 from __future__ import annotations
 
-import os
-from datetime import datetime
 from typing import Optional
 
-from dotenv import dotenv_values
 from fpdf import FPDF
 
-from .modelle import Bericht, POItemKontext
+from .modelle import Bericht
+from . import konfig
 from . import analyse, graph
 
-_cfg = {**dotenv_values(".env.local"), **os.environ}
+_cfg = konfig.cfg()
 
 TITEL = {"documented": "DOCUMENTED", "unexplained": "UNEXPLAINED",
          "suspected_violation": "SUSPECTED VIOLATION",
@@ -44,9 +42,17 @@ Rules you must follow:
 
 
 def erlaeuterung(b: Bericht) -> str:
-    """Laesst das Modell die Bewertung in Prosa fassen -- ohne neue Zahlen."""
+    """Laesst das Modell die Bewertung in Prosa fassen -- ohne neue Zahlen.
+
+    Ohne OPENAI_API_KEY bleibt die Prosa leer. Der Bericht traegt seine Aussage
+    in den Fakten und im Befund; die Erlaeuterung ist die Zugabe. Ein fehlender
+    Schluessel darf den PDF-Abruf nicht mit einem 500er beenden.
+    """
+    schluessel = (_cfg.get("OPENAI_API_KEY") or "").strip()
+    if not schluessel:
+        return ""
     from openai import OpenAI
-    oa = OpenAI(api_key=_cfg["OPENAI_API_KEY"].strip())
+    oa = OpenAI(api_key=schluessel)
     k, f, bf = b.kontext, b.fakten, b.befund
     fakten = [
         f"Purchase order item: {k.poitem}",

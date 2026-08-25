@@ -7,12 +7,11 @@ der Graph grenzt den Suchraum ein, der Vektor sucht darin.
 
     python embed_korpus.py
 """
-import os, sys
-from dotenv import dotenv_values
+from befund.konfig import cfg as _cfg
 from neo4j import GraphDatabase
 from openai import OpenAI
 
-cfg = {**dotenv_values(".env.local"), **os.environ}
+cfg = _cfg()
 MODELL = (cfg.get("EMBED_MODEL") or "text-embedding-3-small").strip()
 DIM = 1536
 drv = GraphDatabase.driver(cfg["NEO4J_URI"].strip(),
